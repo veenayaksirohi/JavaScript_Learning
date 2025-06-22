@@ -1,0 +1,3 @@
+Create a Notes File: You then instructed me to create a markdown file named javascript_notes.md to help with your JavaScript learning.
+Generate Notes from Code: Next, you asked me to populate the notes file with content based on all the .js files in your workspace (0_hello.js and 1_variable.js).
+Reorder Notes: Finally, you instructed me to arrange the sections within javascript_notes.md to match the sequential order of your JavaScript files.
