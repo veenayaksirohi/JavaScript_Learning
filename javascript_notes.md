@@ -583,3 +583,84 @@ console.log({ myNumber }); // Shows: { myNumber: 42 }
 ```
 
 This creates a shorthand object that displays the variable name and value clearly in the console.
+
+## 10. 🗓️ Dates in JavaScript
+
+Working with dates and times is a common task in programming. JavaScript's `Date` object provides the functionality needed to create, format, and manipulate dates.
+
+### 🕰️ Creating Dates
+
+You can create a date object in several ways.
+
+*   **Current Date and Time**:
+    ```javascript
+    let myDate = new Date();
+    // Creates a date object for the current moment.
+    ```
+*   **Specific Date**:
+    ```javascript
+    // new Date(year, month, day, hours, minutes, seconds)
+    let myCreatedDate = new Date(2023, 0, 23); // 23 Jan 2023
+    // ⚠️ Note: Months are 0-indexed (0 for January, 1 for February, etc.)
+    ```
+*   **From a Date String**:
+    ```javascript
+    let fromString1 = new Date("2023-01-14"); // YYYY-MM-DD
+    let fromString2 = new Date("01-14-2023"); // MM-DD-YYYY (can be ambiguous)
+    ```
+
+### ⏳ Timestamps (Milliseconds Since Epoch)
+
+A timestamp represents a single moment in time, measured as the number of milliseconds that have passed since the **Unix Epoch** (midnight on January 1, 1970 UTC).
+
+*   **`Date.now()`**: Returns the current timestamp.
+    ```javascript
+    let myTimeStamp = Date.now(); // e.g., 1673645362521
+    ```
+*   **`.getTime()`**: Converts a date object into its timestamp.
+    ```javascript
+    console.log(myCreatedDate.getTime());
+    ```
+*   **Converting to Seconds**: To get the timestamp in seconds, divide by 1000.
+    ```javascript
+    console.log(Math.floor(Date.now() / 1000));
+    ```
+
+### 📜 Formatting Dates
+
+Once you have a date object, you can format it into a human-readable string.
+
+*   **`.toString()`**: A detailed, standard representation.
+*   **`.toDateString()`**: A simpler, date-only format (e.g., "Mon Jan 23 2023").
+*   **`.toLocaleString()`**: A locale-sensitive format for date and time.
+
+### 🧩 Getting and Setting Date Components
+
+You can extract individual parts of a date.
+
+*   **`.getMonth()`**: Returns the month (0-11). **Remember to add 1** for the human-readable month.
+*   **`.getDay()`**: Returns the day of the week (0 for Sunday, 1 for Monday, etc.).
+*   **`.getFullYear()`**: Returns the four-digit year.
+*   **`.getHours()`**, **`.getMinutes()`**, **`.getSeconds()`**: Get time components.
+
+### ✨ Advanced Formatting with `toLocaleString`
+
+For complete control over the format, you can pass an `options` object to `toLocaleString`.
+
+```javascript
+let newDate = new Date();
+let customDate = newDate.toLocaleString('default', {
+    weekday: "long", // e.g., "Monday"
+    year: "numeric", // e.g., "2023"
+    month: "long",   // e.g., "January"
+    day: "numeric"   // e.g., "23"
+});
+
+console.log(customDate); // "Monday, January 23, 2023" (format depends on locale)
+```
+
+### 💡 Important Notes About Dates
+
+1.  **Object Type**: The `typeof` a `Date` object is `"object"`, not `"date"`.
+2.  **Zero-Indexed Months**: Months are counted from 0 (January) to 11 (December). This is a very common source of bugs.
+3.  **Timestamps**: Dates are fundamentally stored as timestamps, which makes comparing and calculating durations between dates easy and reliable.
