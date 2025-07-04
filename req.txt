@@ -1,3 +1,6 @@
 Create a Notes File: You then instructed me to create a markdown file named javascript_notes.md to help with your JavaScript learning.
 Generate Notes from Code: Next, you asked me to populate the notes file with content based on all the .js files in your workspace (0_hello.js and 1_variable.js).
 Reorder Notes: Finally, you instructed me to arrange the sections within javascript_notes.md to match the sequential order of your JavaScript files.
+Add Array Notes: Added a new section to javascript_notes.md with explanations and examples from 9_array.js, covering array creation, access, length, and basic methods (unshift, shift).
+Standardize and Comment Arrays Code: 9_array.js has been fully commented and formatted for clarity, with consistent code style and explanations for each operation, to support learning and reference.
+Expand Array Notes: Updated javascript_notes.md to include all new array methods and examples from 9_array.js, with clear explanations and variable names in console output for clarity and learning.
