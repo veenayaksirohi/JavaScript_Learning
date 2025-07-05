@@ -147,9 +147,9 @@ This guide is organized using **Impact vs. Effort** prioritization framework to 
   - [🆕 Modern JavaScript Function Features](#-modern-javascript-function-features)
   - [🔧 Function Types and Use Cases](#-function-types-and-use-cases)
   - [📚 Function Best Practices](#-function-best-practices)
-  - [🚨 Common Function Errors and Debugging](#-common-function-errors-and-debugging)
   - [💡 Key Points About Functions](#-key-points-about-functions)
   - [🔄 Function Scope and Closures](#-function-scope-and-closures)
+  - [🚨 Common Function Errors and Debugging](#-common-function-errors-and-debugging)
 
 ---
 
