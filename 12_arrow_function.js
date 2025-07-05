@@ -30,13 +30,6 @@ user.welcome()
 console.log('Global scope - this:', this)
 
 /**
- * Note: The value of 'this' in global scope differs between environments:
- * - In Node.js: 'this' refers to an empty object {} or module.exports
- * - In Browser: 'this' refers to the window object
- * - In strict mode: 'this' is undefined in global scope
- */
-
-/**
  * Regular function demonstrating 'this' in global scope
  * Shows how 'this' behaves in a regular function context
  */
@@ -49,7 +42,6 @@ demonstrateThisInFunction()
 /**
  * Regular function with local variable demonstrating 'this' behavior
  * Shows that 'this' does not refer to local variables in the function
- * @param {string} name - Local variable name
  */
 function demonstrateThisWithLocalVariable () {
   const name = 'veenayak'
@@ -61,7 +53,6 @@ demonstrateThisWithLocalVariable()
 /**
  * Arrow function with local variable demonstrating 'this' behavior
  * Shows that arrow functions inherit 'this' from their enclosing scope
- * @param {string} name - Local variable name
  */
 const demonstrateThisInArrowFunction = () => {
   const name = 'veenayak'
@@ -69,3 +60,25 @@ const demonstrateThisInArrowFunction = () => {
 }
 
 demonstrateThisInArrowFunction()
+
+/**
+ * Adds two numbers using arrow function syntax
+ * @param {number} num1 - First number
+ * @param {number} num2 - Second number
+ * @returns {number} Sum of num1 and num2
+ */
+const add2 = (num1, num2) => {
+  return num1 + num2
+}
+
+console.log('add2(1, 2):', add2(1, 2))
+
+/**
+ * Adds two numbers using concise arrow function syntax (implicit return)
+ * @param {number} num1 - First number
+ * @param {number} num2 - Second number
+ * @returns {number} Sum of num1 and num2
+ */
+const add3 = (num1, num2) => (num1 + num2)
+
+console.log('add3(1, 2):', add3(1, 2))
