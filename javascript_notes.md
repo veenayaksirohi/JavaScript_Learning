@@ -164,8 +164,11 @@ This guide is organized using **Impact vs. Effort** prioritization framework to 
   - [🔑 The 'this' Keyword](#-the-this-keyword)
   - [🏗️ Arrow Function Syntax](#️-arrow-function-syntax)
   - [🔄 Arrow Functions vs Regular Functions](#-arrow-functions-vs-regular-functions)
+  - [🎯 Detailed Differences Between Arrow and Regular Functions](#-detailed-differences-between-arrow-and-regular-functions)
   - [🎯 When to Use Arrow Functions](#-when-to-use-arrow-functions)
   - [🔧 Arrow Function Best Practices](#-arrow-function-best-practices)
+  - [🔍 'this' Keyword Demonstrations](#-this-keyword-demonstrations)
+  - [🌐 Environment Differences: console.log(this) in Code Editor vs Browser](#-environment-differences-consolelogthis-in-code-editor-vs-browser)
   - [🚨 Common Arrow Function Errors and Debugging](#-common-arrow-function-errors-and-debugging)
   - [💡 Key Points About Arrow Functions](#-key-points-about-arrow-functions)
 
@@ -2428,8 +2431,172 @@ console.log('greetArrow result:', greetArrow('Bob')) // "Hello, Bob!"
 | **`arguments` Object** | ✅ Available | ❌ Not available |
 | **Constructor** | ✅ Can be used as constructors | ❌ Cannot be used as constructors |
 | **Method Shorthand** | `methodName() {}` | `methodName: () => {}` |
+| **Implicit Return** | ❌ Requires explicit return | ✅ Single expression auto-returns |
+| **Class Methods** | ✅ Traditional method syntax | ✅ Arrow function fields |
 
-**'this' Binding Comparison:**
+### 🎯 **Detailed Differences Between Arrow and Regular Functions**
+
+Based on [Dmitri Pavlutin's comprehensive guide](https://dmitripavlutin.com/differences-between-arrow-and-regular-functions/) and [DEV Community insights](https://dev.to/hriztam/arrow-functions-vs-normal-functions-in-javascript-2l70), here are the 5 main differences:
+
+#### 1. **`this` Value (Execution Context)**
+
+**Regular Functions - Dynamic Context:**
+```javascript
+// Simple invocation
+function regularFunction() {
+  console.log('regularFunction - this:', this)
+}
+regularFunction() // global object (window) or undefined (strict mode)
+
+// Method invocation
+const obj = {
+  method() {
+    console.log('obj.method - this:', this)
+  }
+}
+obj.method() // obj
+
+// Constructor invocation
+function Car(color) {
+  this.color = color
+}
+const redCar = new Car('red') // this = new instance
+```
+
+**Arrow Functions - Lexical Context:**
+```javascript
+// Arrow function inherits 'this' from outer scope
+const obj = {
+  method() {
+    console.log('obj.method - this:', this) // obj
+    
+    const arrowCallback = () => {
+      console.log('arrowCallback - this:', this) // obj (inherited)
+    }
+    
+    arrowCallback()
+  }
+}
+obj.method()
+```
+
+#### 2. **Constructors**
+
+**Regular Functions - Can be Constructors:**
+```javascript
+function Car(color) {
+  this.color = color
+}
+
+const redCar = new Car('red')
+console.log('redCar instanceof Car:', redCar instanceof Car) // true
+```
+
+**Arrow Functions - Cannot be Constructors:**
+```javascript
+const Car = (color) => {
+  this.color = color
+}
+
+// ❌ Error: Cannot use arrow function as constructor
+// const redCar = new Car('red') // TypeError: Car is not a constructor
+```
+
+#### 3. **`arguments` Object**
+
+**Regular Functions - Has `arguments` Object:**
+```javascript
+function regularFunction() {
+  console.log('regularFunction - arguments:', arguments)
+}
+
+regularFunction('a', 'b', 'c')
+// Output: { 0: 'a', 1: 'b', 2: 'c', length: 3 }
+```
+
+**Arrow Functions - No `arguments` Object:**
+```javascript
+const arrowFunction = () => {
+  console.log('arrowFunction - arguments:', arguments) // ReferenceError
+}
+
+// ✅ Use rest parameters instead
+const arrowFunctionWithRest = (...args) => {
+  console.log('arrowFunctionWithRest - args:', args)
+}
+
+arrowFunctionWithRest('a', 'b', 'c')
+// Output: ['a', 'b', 'c']
+```
+
+#### 4. **Implicit Return**
+
+**Regular Functions - Explicit Return Required:**
+```javascript
+function add(a, b) {
+  return a + b // explicit return required
+}
+
+function emptyFunction() {
+  42 // no return statement
+}
+console.log('emptyFunction result:', emptyFunction()) // undefined
+```
+
+**Arrow Functions - Implicit Return for Single Expressions:**
+```javascript
+const add = (a, b) => a + b // implicit return
+
+const increment = num => num + 1 // implicit return
+
+// Multi-line arrow function needs explicit return
+const multiply = (a, b) => {
+  const result = a * b
+  return result // explicit return needed for multiple statements
+}
+```
+
+#### 5. **Methods in Classes**
+
+**Regular Functions - Traditional Methods:**
+```javascript
+class Hero {
+  constructor(heroName) {
+    this.heroName = heroName
+  }
+  
+  logName() {
+    console.log('Hero name:', this.heroName)
+  }
+}
+
+const batman = new Hero('Batman')
+batman.logName() // "Hero name: Batman"
+
+// ❌ Problem: Loses context when used as callback
+setTimeout(batman.logName, 1000) // logs "undefined"
+```
+
+**Arrow Functions - Class Fields (Lexical Binding):**
+```javascript
+class Hero {
+  constructor(heroName) {
+    this.heroName = heroName
+  }
+  
+  logName = () => {
+    console.log('Hero name:', this.heroName)
+  }
+}
+
+const batman = new Hero('Batman')
+batman.logName() // "Hero name: Batman"
+
+// ✅ Solution: Arrow function preserves context
+setTimeout(batman.logName, 1000) // logs "Hero name: Batman"
+```
+
+### 🔍 **'this' Binding Comparison:**
 ```javascript
 const person = {
   name: 'John',
@@ -2458,6 +2625,31 @@ const person = {
 person.greetRegular()
 person.greetArrow()
 ```
+
+### 📊 **When to Use Each Type**
+
+**✅ Use Regular Functions When:**
+- Creating constructors (classes)
+- Defining object methods that need dynamic `this`
+- Need access to `arguments` object
+- Want function hoisting
+- Working with event handlers that need `this` to refer to the element
+
+**✅ Use Arrow Functions When:**
+- Creating short, single-expression functions
+- Working with callbacks that need to preserve `this` context
+- Using array methods (map, filter, reduce)
+- Creating class methods that will be used as callbacks
+- Want implicit return for simple expressions
+
+### 💡 **Best Practices Summary**
+
+1. **Use arrow functions for callbacks** - they preserve `this` context
+2. **Use regular functions for constructors** - arrow functions can't be constructors
+3. **Use arrow functions for class methods** when they'll be passed as callbacks
+4. **Use regular functions for object methods** when you need dynamic `this`
+5. **Use rest parameters** instead of `arguments` object in arrow functions
+6. **Consider implicit return** for simple arrow function expressions
 
 ### 🎯 When to Use Arrow Functions
 
@@ -2559,6 +2751,158 @@ const greet = (name = 'Guest') => `Hello, ${name}!`
 const sum = (...numbers) => numbers.reduce((total, num) => total + num, 0)
 ```
 
+### 🔍 'this' Keyword Demonstrations
+
+**'this' in Regular Functions vs Arrow Functions:**
+```javascript
+/**
+ * Regular function demonstrating 'this' in global scope
+ * Shows how 'this' behaves in a regular function context
+ */
+function demonstrateThisInFunction () {
+  console.log('demonstrateThisInFunction - this:', this)
+}
+
+/**
+ * Regular function with local variable demonstrating 'this' behavior
+ * Shows that 'this' does not refer to local variables in the function
+ */
+function demonstrateThisWithLocalVariable () {
+  const name = 'veenayak'
+  console.log('demonstrateThisWithLocalVariable - this.name:', this.name)
+}
+
+/**
+ * Arrow function with local variable demonstrating 'this' behavior
+ * Shows that arrow functions inherit 'this' from their enclosing scope
+ */
+const demonstrateThisInArrowFunction = () => {
+  const name = 'veenayak'
+  console.log('demonstrateThisInArrowFunction - this.name:', this.name)
+}
+```
+
+**Key Differences in 'this' Behavior:**
+
+| Function Type | 'this' Value | Description |
+|---------------|--------------|-------------|
+| **Regular Function (Global)** | `global` (Node.js) or `window` (Browser) | Refers to the global object |
+| **Regular Function (Method)** | Object that contains the method | Refers to the calling object |
+| **Arrow Function** | Inherits from enclosing scope | Lexical binding, no own 'this' |
+| **Arrow Function (Global)** | Same as enclosing scope | Usually global object or undefined |
+
+**Understanding 'this' Context:**
+```javascript
+// Global scope 'this' demonstration
+console.log('Global scope - this:', this)
+// Node.js: {} (empty object) or module.exports
+// Browser: window object
+// Strict mode: undefined
+
+// Regular function 'this'
+function regularFunction() {
+  console.log('regularFunction - this:', this)
+}
+regularFunction() // global object (Node.js) or window (Browser)
+
+// Arrow function 'this'
+const arrowFunction = () => {
+  console.log('arrowFunction - this:', this)
+}
+arrowFunction() // Same as global scope 'this'
+```
+
+### 🌐 **Environment Differences: console.log(this) in Code Editor vs Browser**
+
+**Node.js Environment (Code Editor):**
+```javascript
+// In Node.js modules (most code editors)
+console.log('Node.js global this:', this)
+// Output: {} (empty object) or module.exports
+
+// In Node.js REPL (interactive mode)
+console.log('Node.js REPL this:', this)
+// Output: global object (similar to window in browser)
+
+// Regular function in Node.js
+function nodeFunction() {
+  console.log('Node.js function this:', this)
+}
+nodeFunction()
+// Output: global object (in non-strict mode) or undefined (in strict mode)
+```
+
+**Browser Environment:**
+```javascript
+// In browser global scope
+console.log('Browser global this:', this)
+// Output: window object
+
+// Regular function in browser
+function browserFunction() {
+  console.log('Browser function this:', this)
+}
+browserFunction()
+// Output: window object (in non-strict mode) or undefined (in strict mode)
+```
+
+**Comparison Table:**
+
+| Environment | Global `console.log(this)` | Function `console.log(this)` | Arrow Function `console.log(this)` |
+|-------------|---------------------------|------------------------------|-----------------------------------|
+| **Node.js Module** | `{}` (empty object) | `global` object | `{}` (inherits from module scope) |
+| **Node.js REPL** | `global` object | `global` object | `global` object |
+| **Browser** | `window` object | `window` object | `window` object |
+| **Strict Mode** | `undefined` | `undefined` | `undefined` |
+
+**Practical Examples:**
+
+**Node.js Module Context:**
+```javascript
+// file: example.js
+console.log('Module this:', this) // {}
+
+function moduleFunction() {
+  console.log('Module function this:', this) // global object
+}
+
+const moduleArrow = () => {
+  console.log('Module arrow this:', this) // {}
+}
+
+moduleFunction()
+moduleArrow()
+```
+
+**Browser Context:**
+```javascript
+// In browser console or script tag
+console.log('Browser this:', this) // window
+
+function browserFunction() {
+  console.log('Browser function this:', this) // window
+}
+
+const browserArrow = () => {
+  console.log('Browser arrow this:', this) // window
+}
+
+browserFunction()
+browserArrow()
+```
+
+**Why These Differences Matter:**
+- **Node.js modules** have their own scope, so `this` refers to `module.exports`
+- **Browser global scope** has `window` as the global object
+- **Arrow functions** inherit `this` from their enclosing scope
+- **Strict mode** changes `this` behavior in functions to `undefined` instead of global object
+
+**Debugging Tips:**
+- Always check your execution environment when debugging `this`
+- Use `console.log(this)` to understand the current context
+- Remember that arrow functions don't create their own `this` context
+- Consider using `'use strict'` for more predictable `this` behavior
+
 ### 🚨 Common Arrow Function Errors and Debugging
 
 **'this' Context Issues:**
@@ -2599,11 +2943,28 @@ const add = (a, b) => a + b
 console.log('result:', add(1, 2)) // 3
 ```
 
+**Local Variable vs 'this' Confusion:**
+```javascript
+// ❌ Common mistake: Expecting 'this' to refer to local variables
+function demonstrateThisWithLocalVariable () {
+  const name = 'veenayak'
+  console.log('this.name:', this.name) // undefined (not 'veenayak')
+}
+
+// ✅ Correct: Use local variable directly
+function demonstrateThisWithLocalVariable () {
+  const name = 'veenayak'
+  console.log('name:', name) // "veenayak"
+}
+```
+
 **Debugging Tips:**
 - Use `console.log(this)` to check the value of `this` in different contexts
 - Remember that arrow functions inherit `this` from their enclosing scope
 - Use regular functions for object methods that need `this`
 - Consider the execution environment (Node.js vs Browser) when debugging global `this`
+- Local variables are not accessible via `this` - use them directly
+- Always include variable names in console output for clear debugging
 
 ### 💡 Key Points About Arrow Functions
 
@@ -2615,5 +2976,7 @@ console.log('result:', add(1, 2)) // 3
 6. **Use arrow functions for short, single-expression functions** - they're more concise
 7. **Use regular functions for object methods** - they provide proper `this` binding
 8. **Consider the execution environment** - `this` behaves differently in Node.js vs Browser
+9. **Local variables are not accessible via `this`** - use them directly in the function
+10. **Arrow functions inherit `this` from their enclosing scope** - they don't create their own `this` context
 
 Arrow functions are a powerful addition to JavaScript that provide concise syntax and better handling of the `this` keyword in many contexts. Understanding when and how to use them is essential for modern JavaScript development.

@@ -36,22 +36,36 @@ console.log('Global scope - this:', this)
  * - In strict mode: 'this' is undefined in global scope
  */
 
-function chai(){
-    console.log(this)
+/**
+ * Regular function demonstrating 'this' in global scope
+ * Shows how 'this' behaves in a regular function context
+ */
+function demonstrateThisInFunction () {
+  console.log('demonstrateThisInFunction - this:', this)
 }
 
-chai()
+demonstrateThisInFunction()
 
-function abc(){
-    let name="veenayak"
-    console.log(this.name)
+/**
+ * Regular function with local variable demonstrating 'this' behavior
+ * Shows that 'this' does not refer to local variables in the function
+ * @param {string} name - Local variable name
+ */
+function demonstrateThisWithLocalVariable () {
+  const name = 'veenayak'
+  console.log('demonstrateThisWithLocalVariable - this.name:', this.name)
 }
 
-abc()
+demonstrateThisWithLocalVariable()
 
-const chaii =() =>{
-    let name="veenayak"
-    console.log(this.name)
+/**
+ * Arrow function with local variable demonstrating 'this' behavior
+ * Shows that arrow functions inherit 'this' from their enclosing scope
+ * @param {string} name - Local variable name
+ */
+const demonstrateThisInArrowFunction = () => {
+  const name = 'veenayak'
+  console.log('demonstrateThisInArrowFunction - this.name:', this.name)
 }
 
-chaii()
+demonstrateThisInArrowFunction()
