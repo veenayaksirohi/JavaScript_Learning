@@ -1,157 +1,145 @@
-<div align="center">
-
 # 📚 JavaScript Learning Notes
 
-*Your comprehensive guide to JavaScript fundamentals*
+Welcome to your JavaScript learning journey! This file will contain notes to help you understand the basics of JavaScript.
 
-</div>
+## 🎯 **Learning Priority Guide**
 
----
+This guide is organized using **Impact vs. Effort** prioritization framework to maximize your learning efficiency:
 
-<div align="center">
+### 🚀 **CORE FUNDAMENTALS** (Learn First - High Impact, Low Effort)
+- **Variables, Data Types, Console Output**: Foundation for everything else
+- **Type Conversion & Operations**: Critical for preventing bugs
+- **Comparisons**: Essential for logic and decision-making
+
+### 🔄 **TYPE HANDLING & OPERATIONS** (Learn Second - High Impact, Medium Effort)
+- **Type Coercion**: Understanding JavaScript's automatic conversions
+- **Operations**: Mathematical and string operations
+- **Comparison Logic**: Loose vs. strict equality
+
+### 📝 **STRING & NUMBER MANIPULATION** (Learn Third - Medium-High Impact, Low Effort)
+- **String Methods**: Daily usage in web development
+- **Math Operations**: Common in calculations and algorithms
+- **Template Literals**: Modern string interpolation
+
+### 📅 **DATE HANDLING** (Learn Fourth - Medium Impact, Low Effort)
+- **Date Objects**: Common in applications and APIs
+- **Timestamps**: Essential for data processing
+
+### 🗂️ **DATA STRUCTURES** (Learn Fifth - High Impact, High Effort)
+- **Arrays**: Most important data structure
+- **Objects**: Foundation of JavaScript programming
+- **Object Destructuring**: Modern ES6 feature for clean code
+
+**💡 Learning Strategy**: Start with Core Fundamentals, then progress through each section sequentially. Each section builds upon the previous ones, creating a solid foundation for advanced JavaScript concepts.
 
 ## 📋 Table of Contents
 
-*Navigate through all JavaScript concepts with ease*
+### 🎯 **CORE FUNDAMENTALS** (High Priority - Essential for Every Developer)
+- [1. 👋 "Hello, World!" in JavaScript](#1--hello-world-in-javascript)
+- [2. 🗃️ Variables in JavaScript](#2--variables-in-javascript)
+  - [🔒 `const`](#-const)
+  - [🔄 `let`](#-let)
+  - [🏷️ `var`](#️-var)
+  - [🔍 Key Difference: `let` vs `var` (Scope)](#-key-difference-let-vs-var-scope)
+  - [❓ Undefined Variables](#-undefined-variables)
+- [3. 🖨️ Printing to the Console](#3--printing-to-the-console)
+  - [📝 `console.log()`](#-consolelog)
+  - [📊 `console.table()`](#-consoletable)
+  - [🌐 Environment-Specific Functions](#-environment-specific-functions)
+- [4. 🔢 JavaScript Data Types](#4--javascript-data-types)
+  - [🔧 "use strict"](#-use-strict)
+  - [🧩 Primitive Data Types](#-primitive-data-types)
+  - [🗂️ Non-Primitive Data Type](#️-non-primitive-data-type)
+  - [🏷️ The `typeof` Operator](#️-the-typeof-operator)
 
-</div>
+### 🔄 **TYPE HANDLING & OPERATIONS** (High Priority - Critical for Bug Prevention)
+- [5. 🔄 Type Conversion and Coercion](#5--type-conversion-and-coercion)
+  - [🔢 Explicit Conversion to Number](#-explicit-conversion-to-number)
+  - [📊 Conversion to Number Summary](#-conversion-to-number-summary)
+- [6. ➕ Operations in JavaScript](#6--operations-in-javascript)
+  - [🔢 Arithmetic Operators](#-arithmetic-operators)
+  - [🔗 String Concatenation](#-string-concatenation)
+  - [🔄 Automatic Type Coercion with `+`](#-automatic-type-coercion-with-)
+- [7. ⚖️ Comparison in JavaScript](#7--comparison-in-javascript)
+  - [🔍 Loose Equality (`==`) vs. Strict Equality (`===`)](#-loose-equality--vs-strict-equality-)
+  - [🤔 The Curious Case of `null`](#-the-curious-case-of-null)
+  - [❓ Comparisons with `undefined`](#-comparisons-with-undefined)
 
-| **Priority** | **Topic** | **Subtopics** | **Learning Stage** |
-|-------------|-----------|---------------|-------------------|
-| **🔥 Critical** | [🗃️ Variables in JavaScript](#2--variables-in-javascript) | `const`, `let`, `var`, scope differences | Foundation |
-| **🔥 Critical** | [🔢 JavaScript Data Types](#4--javascript-data-types) | Primitive types, `typeof` operator, "use strict" | Foundation |
-| **🔥 Critical** | [🖨️ Printing to the Console](#3--printing-to-the-console) | `console.log()`, `console.table()`, debugging | Foundation |
-| **⚡ Essential** | [➕ Operations in JavaScript](#6--operations-in-javascript) | Arithmetic operators, string concatenation, type coercion | Core Skills |
-| **⚡ Essential** | [⚖️ Comparison in JavaScript](#7--comparison-in-javascript) | `==` vs `===`, `null` behavior, `undefined` comparisons | Core Skills |
-| **⚡ Essential** | [🔄 Type Conversion and Coercion](#5--type-conversion-and-coercion) | Explicit conversion, type coercion, `NaN` handling | Core Skills |
-| **📚 Important** | [📝 Strings and Template Literals](#8--strings-and-template-literals) | Template literals, string methods, constructors | Data Structures |
-| **📚 Important** | [📚 Arrays in JavaScript](#11--arrays-in-javascript) | Array methods, manipulation, spread operator | Data Structures |
-| **📚 Important** | [🔢 Numbers and Math in JavaScript](#9--numbers-and-math-in-javascript) | Number methods, Math object, random generation | Data Structures |
-| **🎯 Advanced** | [🗃️ Objects in JavaScript](#12--objects-in-javascript) | Object creation, properties, methods, destructuring | Advanced Concepts |
-| **🎯 Advanced** | [🗓️ Dates in JavaScript](#10--dates-in-javascript) | Date creation, timestamps, formatting, components | Advanced Concepts |
-| **🚀 Getting Started** | [👋 "Hello, World!" in JavaScript](#1--hello-world-in-javascript) | Basic JavaScript setup | First Steps |
+### 📝 **STRING & NUMBER MANIPULATION** (Medium-High Priority - Daily Usage)
+- [8. 📝 Strings and Template Literals](#8--strings-and-template-literals)
+  - [🔤 Template Literals (String Interpolation)](#-template-literals-string-interpolation)
+  - [🔍 String Access by Index](#-string-access-by-index)
+  - [🏗️ String Constructors](#️-string-constructors)
+  - [🛠️ Common String Methods and Properties](#️-common-string-methods-and-properties)
+  - [💡 Important Notes About Strings](#-important-notes-about-strings)
+- [9. 🔢 Numbers and Math in JavaScript](#9--numbers-and-math-in-javascript)
+  - [🏗️ Number Constructors and Methods](#️-number-constructors-and-methods)
+  - [🧮 Math Object Methods](#-math-object-methods)
+  - [🎲 Random Number Generation](#-random-number-generation)
+  - [💡 Important Notes About Numbers](#-important-notes-about-numbers)
+  - [🐛 Debugging Tip: Object Notation](#-debugging-tip-object-notation)
 
----
+### 📅 **DATE HANDLING** (Medium Priority - Common in Applications)
+- [10. 🗓️ Dates in JavaScript](#10--dates-in-javascript)
+  - [🕰️ Creating Dates](#️-creating-dates)
+  - [⏳ Timestamps (Milliseconds Since Epoch)](#-timestamps-milliseconds-since-epoch)
+  - [📜 Formatting Dates](#-formatting-dates)
+  - [🧩 Getting and Setting Date Components](#-getting-and-setting-date-components)
+  - [✨ Advanced Formatting with `toLocaleString`](#-advanced-formatting-with-tolocalestring)
+  - [💡 Important Notes About Dates](#-important-notes-about-dates)
 
-### 📖 **Priority-Based Learning Path**
-
-<div align="left">
-
-**🔥 Critical Foundation (Start Here):**
-- [Variables](#2--variables-in-javascript) • [Data Types](#4--javascript-data-types) • [Console Output](#3--printing-to-the-console)
-
-**⚡ Essential Core Skills:**
-- [Operations](#6--operations-in-javascript) • [Comparisons](#7--comparison-in-javascript) • [Type Conversion](#5--type-conversion-and-coercion)
-
-**📚 Important Data Structures:**
-- [Strings](#8--strings-and-template-literals) • [Arrays](#11--arrays-in-javascript) • [Numbers](#9--numbers-and-math-in-javascript)
-
-**🎯 Advanced Concepts:**
-- [Objects](#12--objects-in-javascript) • [Object Destructuring](#-object-destructuring-es6) • [Dates](#10--dates-in-javascript)
-
-**🚀 First Steps:**
-- [Hello World](#1--hello-world-in-javascript) - *Begin your journey here*
-
-</div>
-
-<div align="center">
-
-**💡 Learning Strategy:** Follow the priority order above for optimal learning progression. Each level builds upon the previous one.
-
-</div>
-
----
-
-### 🗺️ **Learning Roadmap by Priority**
-
-<div align="center">
-
-*Based on stack ranking principles - no two concepts are equally important*
-
-</div>
-
-<div align="left">
-
-#### **Phase 1: 🔥 Critical Foundation (Week 1)**
-**Why these first?** These are the building blocks of JavaScript. Without understanding variables, data types, and debugging, you can't progress effectively.
-
-1. **Variables** - Learn `const`, `let`, `var` and scope differences
-2. **Data Types** - Understand primitives, `typeof`, and "use strict"
-3. **Console Output** - Master debugging with `console.log()` and `console.table()`
-
-#### **Phase 2: ⚡ Essential Core Skills (Week 2)**
-**Why these next?** These are the fundamental operations you'll use in every JavaScript program.
-
-1. **Operations** - Arithmetic, string concatenation, type coercion
-2. **Comparisons** - `==` vs `===`, handling `null` and `undefined`
-3. **Type Conversion** - Explicit conversion and `NaN` handling
-
-#### **Phase 3: 📚 Important Data Structures (Week 3)**
-**Why these third?** These are the most commonly used data structures in JavaScript.
-
-1. **Strings** - Template literals, methods, and manipulation
-2. **Arrays** - Methods, manipulation, and the spread operator
-3. **Numbers** - Math object, formatting, and random generation
-
-#### **Phase 4: 🎯 Advanced Concepts (Week 4+)**
-**Why these last?** These build upon all previous concepts and are used in complex applications.
-
-1. **Objects** - Creation, properties, methods, and destructuring
-2. **Dates** - Creation, formatting, and timestamp manipulation
-
-</div>
-
-<div align="center">
-
-**🎯 Remember:** This prioritization follows the principle that "if everything is important, nothing is important." Each concept has a specific place in your learning journey.
-
-</div>
+### 🗂️ **DATA STRUCTURES** (High Priority - Foundation for Complex Applications)
+- [11. 📚 Arrays in JavaScript](#11--arrays-in-javascript)
+  - [🏗️ Creating Arrays](#️-creating-arrays)
+  - [🔢 Accessing Elements](#-accessing-elements)
+  - [📏 Array Length](#-array-length)
+  - [➕ Adding and Removing Elements](#-adding-and-removing-elements)
+  - [🔍 Checking for Elements and Indexes](#-checking-for-elements-and-indexes)
+  - [🔗 Joining Array Elements](#-joining-array-elements)
+  - [🖨️ Printing Arrays with Labels](#️-printing-arrays-with-labels)
+  - [✂️ Slicing and Splicing Arrays](#️-slicing-and-splicing-arrays)
+  - [🔄 Combining and Mutating Arrays](#-combining-and-mutating-arrays)
+  - [🆕 Merging Arrays with the Spread Operator](#-merging-arrays-with-the-spread-operator)
+  - [🧩 Advanced Array Methods](#-advanced-array-methods)
+  - [📝 Clean Console Output](#-clean-console-output)
+  - [💡 Notes](#-notes)
+- [12. 🗃️ Objects in JavaScript](#12--objects-in-javascript)
+  - [🏗️ Creating Objects](#️-creating-objects)
+  - [🔑 Accessing Object Properties](#-accessing-object-properties)
+  - [🆕 Symbols in Objects](#-symbols-in-objects)
+  - [🔄 Object Reassignment](#-object-reassignment)
+  - [🔍 Checking Data Types](#-checking-data-types)
+  - [🔍 Object Property Enumeration](#-object-property-enumeration)
+  - [💡 Best Practices](#-best-practices)
+  - [🔒 Object Immutability](#-object-immutability)
+  - [🔧 Functions as Object Properties](#-functions-as-object-properties)
+  - [🔑 The 'this' Keyword in Methods](#-the-this-keyword-in-methods)
+  - [💡 Key Points](#-key-points)
+  - [🏗️ Nested Objects](#️-nested-objects)
+  - [🔄 Object Reassignment with Quoted Properties](#-object-reassignment-with-quoted-properties)
+  - [🔗 Object Concatenation Methods](#-object-concatenation-methods)
+  - [📚 Arrays of Objects](#-arrays-of-objects)
+  - [🛠️ Object Utility Methods](#️-object-utility-methods)
+  - [🚨 Common Errors and Debugging](#-common-errors-and-debugging)
+  - [🔗 Object Destructuring (ES6)](#-object-destructuring-es6)
 
 ---
 
-<div align="center">
+## 🚀 **CORE FUNDAMENTALS**
 
-## 1. 👋 "Hello, World!" in JavaScript
-
-*Your first step into the JavaScript universe*
-
-</div>
-
-<div align="center">
+### 1. 👋 "Hello, World!" in JavaScript
 
 The most basic program you can write in many languages is one that prints "Hello, World!". In JavaScript, you can do this with `console.log()`.
 
-</div>
-
-<div align="center">
-
 **Example from `0_hello.js`:**
-
 ```javascript
 console.log("hello")
 ```
-
 ✨ *This is a great way to make sure your environment is set up correctly.*
-
-</div>
-
----
-
-<div align="center">
 
 ## 2. 🗃️ Variables in JavaScript
 
-*Understanding data storage and scope in JavaScript*
-
-</div>
-
-<div align="center">
-
 In JavaScript, we use variables to store data. There are three keywords to declare variables: `var`, `let`, and `const`.
-
-</div>
-
-<div align="left">
 
 ### 🔒 `const`
 - Declares a block-scoped variable.
@@ -187,10 +175,6 @@ var accountPassword = "password123";
 accountPassword = "newPassword"; // This is valid
 ```
 
-</div>
-
-<div align="left">
-
 ### 🔍 Key Difference: `let` vs `var` (Scope)
 
 The most important difference between `let` and `var` is that `var` variables are scoped to the function they are declared in, while `let` variables are scoped to the *block* they are declared in. A block is any code surrounded by curly braces `{}`, like in an `if` statement or a `for` loop.
@@ -218,12 +202,7 @@ function run() {
   console.log(y); // 10
 }
 ```
-
-<div align="center">
-
 ✨ *Because of this behavior, using `let` often leads to more predictable and less error-prone code.*
-
-</div>
 
 ### ❓ Undefined Variables
 When you declare a variable using `let` or `var` without assigning a value to it, JavaScript automatically gives it the value `undefined`.
@@ -234,25 +213,9 @@ let accountState; // Declared but not initialized
 console.log(accountState); // This will output: undefined
 ```
 
-</div>
-
----
-
-<div align="center">
-
 ## 3. 🖨️ Printing to the Console
 
-*Debugging and output methods in JavaScript*
-
-</div>
-
-<div align="center">
-
 To see the output of your code and debug, you can print values to the console.
-
-</div>
-
-<div align="left">
 
 ### 📝 `console.log()`
 - Outputs a message to the web console.
@@ -277,43 +240,18 @@ console.table([user1, user2]);
 
 ### 🌐 Environment-Specific Functions (like `alert()`)
 
-</div>
-
-<div align="center">
-
 ⚠️ *Some functions are only available in specific JavaScript environments (like the browser or Node.js).*
-
-</div>
-
-<div align="left">
 
 A common example is `alert()`. This function displays a pop-up dialog in the browser. However, it does not exist in the Node.js environment. If you try to use `alert()` in a Node.js file, you will get a `ReferenceError`. For displaying information in Node.js, it's best to use `console.log()`.
 
-</div>
-
 ---
-
-<div align="center">
-
 *Happy Coding! 🎉*
 
-</div>
+## 🔄 **TYPE HANDLING & OPERATIONS**
 
----
-
-<div align="center">
-
-## 4. 🔢 JavaScript Data Types
-
-*Understanding the building blocks of JavaScript data*
-
-</div>
-
-<div align="center">
+### 4. 🔢 JavaScript Data Types
 
 In programming, data types are an important concept. To be able to operate on variables, it is important to know something about the type. JavaScript has a set of primitive data types and a non-primitive data type (Object).
-
-</div>
 
 ### 🔧 "use strict"
 The `"use strict";` directive enables "strict mode". It helps you write cleaner code, by catching common coding bloopers and throwing errors.
@@ -511,21 +449,11 @@ The way `null` is handled in comparisons is inconsistent and a common source of 
     console.log(undefined == 0); // false
     ```
 
----
+## 📝 **STRING & NUMBER MANIPULATION**
 
-<div align="center">
-
-## 8. 📝 Strings and Template Literals
-
-*Working with text data in JavaScript*
-
-</div>
-
-<div align="center">
+### 8. 📝 Strings and Template Literals
 
 Strings are one of the most commonly used data types in JavaScript. Modern JavaScript provides powerful ways to work with strings, including template literals.
-
-</div>
 
 ### 🔤 Template Literals (String Interpolation)
 
@@ -673,21 +601,9 @@ Because strings (even primitive ones) behave like objects in JavaScript, they ha
 3. **🔧 Use primitive strings** (`String()` or quotes) rather than String objects (`new String()`)
 4. **🔒 Strings are immutable** - you cannot change individual characters, but you can create new strings
 
----
-
-<div align="center">
-
-## 9. 🔢 Numbers and Math in JavaScript
-
-*Mathematical operations and number manipulation*
-
-</div>
-
-<div align="center">
+### 9. 🔢 Numbers and Math in JavaScript
 
 JavaScript provides powerful number manipulation capabilities through both Number methods and the Math object. Understanding these is crucial for mathematical operations and data formatting.
-
-</div>
 
 ### 🏗️ Number Constructors and Methods
 
@@ -797,21 +713,11 @@ console.log({ myNumber }); // Shows: { myNumber: 42 }
 
 This creates a shorthand object that displays the variable name and value clearly in the console.
 
----
+## 📅 **DATE HANDLING**
 
-<div align="center">
-
-## 10. 🗓️ Dates in JavaScript
-
-*Working with dates and timestamps in JavaScript*
-
-</div>
-
-<div align="center">
+### 10. 🗓️ Dates in JavaScript
 
 Working with dates and times is a common task in programming. JavaScript's `Date` object provides the functionality needed to create, format, and manipulate dates.
-
-</div>
 
 ### 🕰️ Creating Dates
 
@@ -890,21 +796,11 @@ console.log(customDate); // "Monday, January 23, 2023" (format depends on locale
 2.  **Zero-Indexed Months**: Months are counted from 0 (January) to 11 (December). This is a very common source of bugs.
 3.  **Timestamps**: Dates are fundamentally stored as timestamps, which makes comparing and calculating durations between dates easy and reliable.
 
----
+## 🗂️ **DATA STRUCTURES**
 
-<div align="center">
-
-## 11. 📚 Arrays in JavaScript
-
-*Working with collections of data in JavaScript*
-
-</div>
-
-<div align="center">
+### 11. 📚 Arrays in JavaScript
 
 Arrays are used to store multiple values in a single variable. They are one of the most commonly used data structures in JavaScript.
-
-</div>
 
 **Example from `9_array.js`:**
 ```javascript
@@ -1050,21 +946,9 @@ arr.shift();
 - You can use `console.log()` to print arrays or their elements.
 - Arrays are mutable, meaning you can change their contents after creation.
 
----
-
-<div align="center">
-
-## 12. 🗃️ Objects in JavaScript
-
-*Working with key-value pairs and object-oriented programming*
-
-</div>
-
-<div align="center">
+### 12. 🗃️ Objects in JavaScript
 
 Objects are collections of key-value pairs and are one of the most important data structures in JavaScript. They allow you to group related data and functionality together.
-
-</div>
 
 **Example from `10_objects.js`:**
 ```javascript
