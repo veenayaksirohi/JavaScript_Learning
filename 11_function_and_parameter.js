@@ -122,19 +122,29 @@ function handleobject (user) {
 const userInfo = handleobject(user)
 console.log('handleobject result:', userInfo)
 
-
-//var c = 300
+/**
+ * Demonstration of variable scope with let and const
+ * Shows block scope behavior and variable shadowing
+ */
+// Global variable declaration
 let a = 300
+
+// Block scope demonstration
 if (true) {
-    let a = 10
-    const b = 20
-    console.log("INNER: ", a);
-    
+  // Block-scoped variable (shadows the global 'a')
+  let a = 10
+  // Block-scoped constant
+  const b = 20
+  console.log('INNER block scope - a:', a)
+  console.log('INNER block scope - b:', b)
 }
 
+// Access global variable (not affected by block scope)
+console.log('OUTER global scope - a:', a)
 
+// This will cause a ReferenceError because 'b' is block-scoped
+// console.log('OUTER global scope - b:', b) // ReferenceError: b is not defined
 
-console.log(a);
-console.log(b);
-console.log(c);
+// This will cause a ReferenceError because 'c' was never declared
+// console.log('OUTER global scope - c:', c) // ReferenceError: c is not defined
 

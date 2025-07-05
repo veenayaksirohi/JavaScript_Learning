@@ -150,6 +150,7 @@ This guide is organized using **Impact vs. Effort** prioritization framework to 
   - [💡 Key Points About Functions](#-key-points-about-functions)
   - [🔄 Function Scope and Closures](#-function-scope-and-closures)
   - [🚨 Common Function Errors and Debugging](#-common-function-errors-and-debugging)
+  - [🔍 Variable Scope Demonstration](#-variable-scope-demonstration)
 
 ---
 
@@ -2070,5 +2071,47 @@ try {
 - Validate object properties before accessing them
 - Always include return statements when functions should return values
 - Use JSDoc comments to document expected parameter types
+
+### 🔍 Variable Scope Demonstration
+
+**Block Scope with let and const:**
+```javascript
+/**
+ * Demonstration of variable scope with let and const
+ * Shows block scope behavior and variable shadowing
+ */
+// Global variable declaration
+let a = 300
+
+// Block scope demonstration
+if (true) {
+  // Block-scoped variable (shadows the global 'a')
+  let a = 10
+  // Block-scoped constant
+  const b = 20
+  console.log('INNER block scope - a:', a) // 10
+  console.log('INNER block scope - b:', b) // 20
+}
+
+// Access global variable (not affected by block scope)
+console.log('OUTER global scope - a:', a) // 300
+
+// This will cause a ReferenceError because 'b' is block-scoped
+// console.log('OUTER global scope - b:', b) // ReferenceError: b is not defined
+```
+
+**Key Points About Variable Scope:**
+- **Block Scope**: Variables declared with `let` and `const` are block-scoped
+- **Variable Shadowing**: Inner scope variables can shadow outer scope variables
+- **Temporal Dead Zone**: Variables are not accessible before declaration
+- **Global vs Local**: Global variables remain unaffected by block scope
+- **Reference Errors**: Accessing block-scoped variables outside their scope causes errors
+
+**Scope Best Practices:**
+- Use `let` and `const` instead of `var` for better scope control
+- Keep variable declarations close to their usage
+- Avoid variable shadowing when possible for clarity
+- Use descriptive variable names to avoid conflicts
+- Understand the difference between function scope and block scope
 
 Functions are essential building blocks in JavaScript that help create modular, reusable, and maintainable code. Understanding how to properly declare, call, and work with functions is crucial for becoming proficient in JavaScript programming.
