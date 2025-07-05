@@ -1,34 +1,85 @@
-"use strict"
+// ========================================
+// JavaScript Data Types - Understanding Type System
+// ========================================
 
-// The 'alert' function is part of the browser's environment and is not available in Node.js.
-// Running this file with Node.js will cause a ReferenceError.
-// alert(3+3)
+/**
+ * Strict Mode Declaration
+ * Enables strict mode for better error catching and performance
+ */
+"use strict";
 
-console.log(3+3)
+/**
+ * Environment-Specific Functions
+ * Demonstrates functions that are only available in specific environments
+ */
 
-let name ="veenayak" // String: A sequence of characters.
-let age=22 // Number: An integer or floating-point number.
-let isLogged = false // Boolean: Represents a logical entity and can have two values: true or false.
-let state=null // Null: Represents the intentional absence of any object value. It is a primitive value.
+// The alert function is only available in browser environments
+// Running this in Node.js would cause a ReferenceError
+// alert(3 + 3);
+
+// Basic arithmetic operation
+console.log('3 + 3:', 3 + 3);
+
+/**
+ * Primitive Data Types
+ * Demonstrates the fundamental data types in JavaScript
+ */
+
+// String: A sequence of characters
+let name = "veenayak";
+
+// Number: An integer or floating-point number
+let age = 22;
+
+// Boolean: Represents a logical entity (true or false)
+let isLogged = false;
+
+// Null: Represents the intentional absence of any object value
+let state = null;
+
+// Undefined: A variable declared but not assigned a value
 let city;
 
-// JavaScript has several primitive data types:
-// Number: For all numeric values (integer and floating-point).
-// BigInt: For integers of arbitrary precision.
-// String: For textual data.
-// Boolean: true or false.
-// null: A special value meaning "no value".
-// undefined: A value automatically assigned to variables that have just been declared.
-// Symbol: A unique and immutable primitive value and may be used as the key of an Object property.
+/**
+ * Data Type Overview
+ * JavaScript has several primitive data types:
+ * - Number: For all numeric values (integer and floating-point)
+ * - BigInt: For integers of arbitrary precision
+ * - String: For textual data
+ * - Boolean: true or false
+ * - null: A special value meaning "no value"
+ * - undefined: Automatically assigned to declared but uninitialized variables
+ * - Symbol: A unique and immutable primitive value
+ */
 
+/**
+ * Non-Primitive Data Type
+ * Object: A collection of key-value pairs
+ */
 
-// Object is a non-primitive data type, which is a collection of key-value pairs.
+/**
+ * Type Checking with typeof Operator
+ * Demonstrates how to check data types of variables
+ */
 
-// The 'typeof' operator returns a string indicating the type of the unevaluated operand.
-console.log(typeof age) // This will output "number".
-console.log(typeof null); // Interesting quirk: this will output "object".
-console.log(typeof undefined); // This will output "undefined".
+// Check type of number
+console.log('typeof age:', typeof age);
 
-// Let's check the 'city' variable you added:
-console.log("city",city);          // This will output "undefined" because the variable was declared but not assigned a value.
-console.log(typeof city);   // The type of an undefined value is also "undefined".
+// Interesting quirk: typeof null returns "object"
+console.log('typeof null:', typeof null);
+
+// Check type of undefined
+console.log('typeof undefined:', typeof undefined);
+
+// Check type of declared but unassigned variable
+console.log('city value:', city);
+console.log('typeof city:', typeof city);
+
+/**
+ * Key Points:
+ * - Use typeof to check data types
+ * - null is a special case that returns "object"
+ * - Undefined variables have type "undefined"
+ * - Always declare variables before using them
+ * - Include variable names in console output for clarity
+ */

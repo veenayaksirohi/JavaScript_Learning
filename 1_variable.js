@@ -1,23 +1,63 @@
-const accountID=1234
-// 'let' is block-scoped. It's the modern way to declare variables that might be reassigned.
-let accountEmail="veena@gmail.com"
-let accountstate
-// 'var' is function-scoped. It's the older way to declare variables. 
-// It's generally recommended to use 'let' or 'const' instead.
-var accountPassword="8879-9"
-accountCity="hapur"
+// ========================================
+// JavaScript Variables - Declaration and Usage
+// ========================================
 
-// We cannot change the value of a const variable. The line below would cause a TypeError.
-// accountID =567
-console.log(accountID)
+/**
+ * Variable Declaration and Assignment
+ * Demonstrates different ways to declare and assign variables in JavaScript
+ */
 
-accountEmail="hfkfds@ngghh"
-console.log(accountEmail)
+// Declare constant variable (cannot be reassigned)
+const accountId = 1234;
 
-accountPassword = 77890
-console.log(accountPassword)
+// Declare block-scoped variable (can be reassigned)
+let accountEmail = "veena@gmail.com";
 
-accountCity="ha"
-console.log(accountCity)
+// Declare variable without initial value (will be undefined)
+let accountState;
 
-console.table([accountID,accountEmail,accountPassword,accountPassword,accountCity,accountstate])
+// Declare function-scoped variable (older syntax, not recommended)
+var accountPassword = "8879-9";
+
+// Implicit global variable declaration (not recommended)
+accountCity = "hapur";
+
+/**
+ * Variable Reassignment Examples
+ * Demonstrates how different variable types handle reassignment
+ */
+
+// Cannot reassign const variables (would cause TypeError)
+// accountId = 567; // This line is commented out to prevent error
+
+// Reassign let variable
+accountEmail = "hfkfds@ngghh";
+
+// Reassign var variable
+accountPassword = 77890;
+
+// Reassign implicit global variable
+accountCity = "ha";
+
+/**
+ * Console Output with Variable Names
+ * Demonstrates clean console output for debugging
+ */
+
+console.log('accountId:', accountId);
+console.log('accountEmail:', accountEmail);
+console.log('accountPassword:', accountPassword);
+console.log('accountCity:', accountCity);
+console.log('accountState:', accountState);
+
+// Display all variables in a table format for comparison
+console.table([accountId, accountEmail, accountPassword, accountPassword, accountCity, accountState]);
+
+/**
+ * Key Points:
+ * - Use const for values that won't change
+ * - Use let for variables that will be reassigned
+ * - Avoid var due to function-scoping issues
+ * - Always declare variables before using them
+ * - Include variable names in console output for clarity
+ */

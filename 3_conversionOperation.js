@@ -1,53 +1,110 @@
-let score="33"
+// ========================================
+// JavaScript Type Conversion - Understanding Coercion
+// ========================================
 
-// The typeof operator shows that the initial type is a string.
-console.log(typeof(score)) // "string"
+/**
+ * String to Number Conversion
+ * Demonstrates explicit type conversion using Number() constructor
+ */
 
-// The Number() constructor converts the string "33" into the number 33.
-console.log(typeof(Number(score))) // "number"
+// Initial string value
+let score = "33";
 
-// Now, let's see what happens with a string that isn't a clean number.
-score="33q"
+// Check initial type
+console.log('typeof score (initial):', typeof score);
 
-console.log(typeof(score)) // "string"
+// Convert string to number
+console.log('typeof Number(score):', typeof Number(score));
 
-// When JavaScript tries to convert "33q" to a number, it can't, so it returns NaN (Not a Number).
-// An important quirk to remember is that the typeof NaN is actually "number".
-console.log(Number(score),typeof(Number(score))) // Outputs: NaN 'number'
+/**
+ * Invalid String to Number Conversion
+ * Demonstrates what happens when conversion fails
+ */
 
-// When null is converted to a number, it becomes 0.
-score=null
+// String with non-numeric characters
+score = "33q";
 
-console.log(typeof(score)) // "object" (this is a famous JavaScript quirk)
+// Check type before conversion
+console.log('typeof score (with letters):', typeof score);
 
-console.log(Number(score),typeof(Number(score))) // Outputs: 0 'number'
+// Conversion results in NaN (Not a Number)
+console.log('Number(score):', Number(score));
+console.log('typeof Number(score):', typeof Number(score));
 
-// I've fixed a typo here: 'undifined' is now 'undefined'.
-// When undefined is converted to a number, it becomes NaN.
-score=undefined
+/**
+ * Null to Number Conversion
+ * Demonstrates null conversion behavior
+ */
 
-console.log(typeof(score)) // "undefined"
+// Set score to null
+score = null;
 
-console.log(Number(score),typeof(Number(score))) // Outputs: NaN 'number'
+// Check type of null
+console.log('typeof score (null):', typeof score);
 
-// Let's also consider booleans. When converting a boolean to a number, true becomes 1 and false becomes 0.
-let isLoggedIn = true
-console.log(Number(isLoggedIn), typeof(Number(isLoggedIn))) // Outputs: 1 'number'
+// Convert null to number (becomes 0)
+console.log('Number(score):', Number(score));
+console.log('typeof Number(score):', typeof Number(score));
 
-// Now, let's try converting a purely alphabetical string.
-score="veenayak"
+/**
+ * Undefined to Number Conversion
+ * Demonstrates undefined conversion behavior
+ */
 
-console.log(typeof(score))
+// Set score to undefined
+score = undefined;
 
-// Since "veenayak" cannot be parsed as a number, the conversion results in NaN.
-console.log(Number(score),typeof(Number(score)))
+// Check type of undefined
+console.log('typeof score (undefined):', typeof score);
 
-// --- Conversion Notes ---
-// When converting to a Number:
-// "33"      => 33
-// "33abc"   => NaN (Not a Number)
-// ""        => 0
-// true      => 1
-// false     => 0
-// null      => 0
-// undefined => NaN
+// Convert undefined to number (becomes NaN)
+console.log('Number(score):', Number(score));
+console.log('typeof Number(score):', typeof Number(score));
+
+/**
+ * Boolean to Number Conversion
+ * Demonstrates boolean conversion behavior
+ */
+
+// Boolean value
+let isLoggedIn = true;
+
+// Convert boolean to number
+console.log('Number(isLoggedIn):', Number(isLoggedIn));
+console.log('typeof Number(isLoggedIn):', typeof Number(isLoggedIn));
+
+/**
+ * Pure String to Number Conversion
+ * Demonstrates conversion of non-numeric strings
+ */
+
+// Pure alphabetical string
+score = "veenayak";
+
+// Check type
+console.log('typeof score (alphabetical):', typeof score);
+
+// Convert to number (results in NaN)
+console.log('Number(score):', Number(score));
+console.log('typeof Number(score):', typeof Number(score));
+
+/**
+ * Type Conversion Summary
+ * When converting to Number:
+ * - "33"      => 33
+ * - "33abc"   => NaN (Not a Number)
+ * - ""        => 0
+ * - true      => 1
+ * - false     => 0
+ * - null      => 0
+ * - undefined => NaN
+ */
+
+/**
+ * Key Points:
+ * - Number() constructor performs explicit type conversion
+ * - Invalid conversions result in NaN
+ * - typeof NaN returns "number" (JavaScript quirk)
+ * - null converts to 0, undefined converts to NaN
+ * - Include variable names in console output for clarity
+ */

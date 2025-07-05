@@ -1,63 +1,111 @@
-// Number Methods and Math Object Examples
+// ========================================
+// JavaScript Numbers and Math - Methods and Operations
+// ========================================
 
-// Creating a primitive number
-const score = 400
-console.log("score (primitive):", score);
+/**
+ * Number Creation and Types
+ * Demonstrates different ways to create numbers
+ */
 
-// Creating a Number object (not recommended for simple numbers)
-const balance = new Number(100)
-console.log("balance (Number object):", balance);
+// Create primitive number (recommended)
+const score = 400;
+console.log('score (primitive):', score);
 
-// .toString() method: Converts number to string, then .length gets the string length
-console.log("balance.toString().length:", balance.toString().length);
+// Create Number object (not recommended for simple numbers)
+const balance = new Number(100);
+console.log('balance (Number object):', balance);
 
-// .toFixed(digits) method: Formats a number using fixed-point notation with specified decimal places
-console.log("balance.toFixed(1):", balance.toFixed(1));
+/**
+ * Number Methods
+ * Demonstrates built-in number methods
+ */
 
-const otherNumber = 123.8966
+// Convert to string and get length
+console.log('balance.toString().length:', balance.toString().length);
 
-// .toPrecision(precision) method: Formats a number to a specified precision (total digits)
-console.log("otherNumber.toPrecision(4):", otherNumber.toPrecision(4));
+// Format with fixed decimal places
+console.log('balance.toFixed(1):', balance.toFixed(1));
 
-const hundreds = 1000000
+// Number for precision formatting
+const otherNumber = 123.8966;
 
-// .toLocaleString(locale) method: Formats a number according to locale-specific conventions
-console.log("hundreds.toLocaleString('en-IN'):", hundreds.toLocaleString('en-IN'));
+// Format to specified precision (total digits)
+console.log('otherNumber.toPrecision(4):', otherNumber.toPrecision(4));
 
-// +++++++++++++ Maths Object +++++++++++++++++++++++++++++
+// Large number for locale formatting
+const hundreds = 1000000;
 
-// Math object: Contains properties and methods for mathematical constants and functions
-console.log("Math object:", Math);
+// Format according to locale-specific conventions
+console.log('hundreds.toLocaleString("en-IN"):', hundreds.toLocaleString('en-IN'));
 
-// Math.abs(x): Returns the absolute value of a number
-console.log("Math.abs(-4):", Math.abs(-4));
+/**
+ * Math Object
+ * Demonstrates mathematical constants and functions
+ */
 
-// Math.round(x): Rounds a number to the nearest integer
-console.log("Math.round(4.6):", Math.round(4.6));
+// Math object contains properties and methods
+console.log('Math object:', Math);
 
-// Math.ceil(x): Rounds a number up to the nearest integer
-console.log("Math.ceil(4.2):", Math.ceil(4.2));
+/**
+ * Math Methods - Basic Operations
+ * Demonstrates fundamental mathematical functions
+ */
 
-// Math.floor(x): Rounds a number down to the nearest integer
-console.log("Math.floor(4.9):", Math.floor(4.9));
+// Get absolute value
+console.log('Math.abs(-4):', Math.abs(-4));
 
-// Math.min(...values): Returns the smallest of zero or more numbers
-console.log("Math.min(4, 3, 6, 8):", Math.min(4, 3, 6, 8));
+// Round to nearest integer
+console.log('Math.round(4.6):', Math.round(4.6));
 
-// Math.max(...values): Returns the largest of zero or more numbers
-console.log("Math.max(4, 3, 6, 8):", Math.max(4, 3, 6, 8));
+// Round up to nearest integer
+console.log('Math.ceil(4.2):', Math.ceil(4.2));
 
-// Math.random(): Returns a random number between 0 (inclusive) and 1 (exclusive)
-console.log("Math.random():", Math.random());
+// Round down to nearest integer
+console.log('Math.floor(4.9):', Math.floor(4.9));
 
-// Generating random number between 1 and 10 (inclusive)
-console.log("(Math.random()*10) + 1:", (Math.random()*10) + 1);
+/**
+ * Math Methods - Min/Max Operations
+ * Demonstrates finding minimum and maximum values
+ */
 
-// Using Math.floor to get integer between 1 and 10
-console.log("Math.floor(Math.random()*10) + 1:", Math.floor(Math.random()*10) + 1);
+// Find smallest number
+console.log('Math.min(4, 3, 6, 8):', Math.min(4, 3, 6, 8));
 
-// Generating random number between min and max (inclusive)
-const min = 10
-const max = 20
+// Find largest number
+console.log('Math.max(4, 3, 6, 8):', Math.max(4, 3, 6, 8));
 
-console.log("Random between 10-20:", Math.floor(Math.random() * (max - min + 1)) + min)
+/**
+ * Random Number Generation
+ * Demonstrates generating random numbers
+ */
+
+// Generate random number between 0 and 1
+console.log('Math.random():', Math.random());
+
+// Generate random number between 1 and 10 (inclusive)
+console.log('(Math.random() * 10) + 1:', (Math.random() * 10) + 1);
+
+// Generate integer between 1 and 10
+console.log('Math.floor(Math.random() * 10) + 1:', Math.floor(Math.random() * 10) + 1);
+
+/**
+ * Random Number in Range
+ * Demonstrates generating random numbers in specific ranges
+ */
+
+// Define range
+const min = 10;
+const max = 20;
+
+// Generate random number between min and max (inclusive)
+console.log('Random between 10-20:', Math.floor(Math.random() * (max - min + 1)) + min);
+
+/**
+ * Key Points:
+ * - Use primitive numbers for simple calculations
+ * - Number objects are rarely needed
+ * - Math methods are static (call directly on Math object)
+ * - Random numbers are pseudo-random, not cryptographically secure
+ * - Include variable names in console output for clarity
+ * - Be aware of floating-point precision issues
+ */

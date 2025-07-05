@@ -1,83 +1,168 @@
-let name="veenayak"
+// ========================================
+// JavaScript Strings - Methods and Properties
+// ========================================
 
-let repoCount=50
+/**
+ * Template Literals
+ * Demonstrates modern string interpolation using backticks
+ */
 
-console.log(`hello my name is ${name} and my repo count is ${repoCount}`)
-console.log(`Backticks`)
+let name = "veenayak";
+let repoCount = 50;
 
-console.log("name[0]:", name[0])
+// Template literal with variable interpolation
+console.log('Template literal:', `hello my name is ${name} and my repo count is ${repoCount}`);
+console.log('Backticks example:', `Backticks`);
+
+/**
+ * String Access by Index
+ * Demonstrates accessing individual characters in strings
+ */
+
+// Access first character (zero-indexed)
+console.log('name[0]:', name[0]);
+
+/**
+ * String Constructors
+ * Demonstrates different ways to create strings
+ */
 
 // String() constructor - creates a primitive string value
-let userName=String("Veenayak")
+let userName = String("Veenayak");
 
-// new String() constructor - creates a String object (not recommended for primitive strings)
-let userGame= new String("Veenayak")
+// new String() constructor - creates a String object (not recommended)
+let userGame = new String("Veenayak");
 
-// console.table shows the difference: userName is a string primitive, userGame is a String object
-console.table([name,userName,userGame])
+// Compare different string types
+console.table([name, userName, userGame]);
 
-// Accessing the String object's prototype to see available methods and properties.
-console.log("userGame.__proto__:", userGame.__proto__)
+// Access String object prototype
+console.log('userGame.__proto__:', userGame.__proto__);
 
-// .length property: Returns the number of characters in the string.
-console.log("userGame.length:", userGame.length)
-// .toUpperCase() method: Returns a new string with all characters converted to uppercase.
-console.log("userGame.toUpperCase():", userGame.toUpperCase())
-// .charAt(index) method: Returns the character at the specified index.
-console.log("userGame.charAt(2):", userGame.charAt(2))
-// .indexOf('substring') method: Returns the index of the first occurrence of the specified substring.
-console.log("userGame.indexOf('e'):", userGame.indexOf('e'))
+/**
+ * String Properties
+ * Demonstrates built-in string properties
+ */
 
-// .substring(start, end) method: Extracts characters from index 'start' up to (but not including) index 'end'.
-// It does not accept negative indices.
-const neu =userGame.substring(0,4)
-console.log("neu (substring 0,4):", neu)
+// Length property
+console.log('userGame.length:', userGame.length);
 
-// .slice(start, end) method: Similar to substring, but it CAN accept negative indices.
-// A negative index counts from the end of the string.
-const news=userGame.slice(-6,4)
-console.log("news (slice -6,4):", news)
+/**
+ * String Methods - Case Conversion
+ * Demonstrates methods for changing string case
+ */
 
-// This is not the correct syntax for getting a substring.
-// The comma operator here causes `[2,4]` to evaluate to just `4`.
-// So, this line is equivalent to `userGame[4]`, which returns only the character at that index.
-const newss=userGame[2,4]
-console.log("newss (incorrect syntax):", newss)
+// Convert to uppercase
+console.log('userGame.toUpperCase():', userGame.toUpperCase());
 
-// .trim() method: Removes whitespace from both ends of a string (beginning and end)
-// This is useful for cleaning up user input or data that may have extra spaces
-const nam="       veenayak        "
-console.log("nam (with spaces):", nam) // Shows the string with leading and trailing spaces
-console.log("nam.trim():", nam.trim()) // Shows the string with spaces removed from both ends
+// Convert to lowercase
+console.log('userGame.toLowerCase():', userGame.toLowerCase());
 
-// .replace(searchValue, replaceValue) method: Replaces the first occurrence of a specified value with another value
-// This is commonly used for URL encoding/decoding, text formatting, and data cleaning
-const url="http://veenayak%20sirohi"
-console.log("url.replace('%20','-'):", url.replace('%20','-')) // Replaces '%20' (URL encoded space) with a hyphen '-'
+/**
+ * String Methods - Character Access
+ * Demonstrates methods for accessing characters
+ */
 
-// .includes(searchString) method: Returns true if a string contains a specified substring, false otherwise
-// This is useful for checking if certain text exists within a larger string
-console.log("url.includes('sirohi'):", url.includes("sirohi")) // Returns true because "sirohi" is found in the URL
-console.log("url.includes('hi'):", url.includes("hi")) // Returns true because "hi" is found within "sirohi"
+// Get character at specific index
+console.log('userGame.charAt(2):', userGame.charAt(2));
 
-// Additional String Methods Examples
+/**
+ * String Methods - Search and Index
+ * Demonstrates methods for finding characters and substrings
+ */
 
-// .toLowerCase() method: Returns a new string with all characters converted to lowercase
-console.log("userGame.toLowerCase():", userGame.toLowerCase()) // "veenayak"
+// Find index of first occurrence
+console.log('userGame.indexOf("e"):', userGame.indexOf('e'));
 
-// .startsWith(searchString) method: Returns true if a string begins with a specified string
-console.log("userGame.startsWith('Vee'):", userGame.startsWith("Vee")) // true
-console.log("userGame.startsWith('vee'):", userGame.startsWith("vee")) // false (case sensitive)
+/**
+ * String Methods - Substring Extraction
+ * Demonstrates methods for extracting parts of strings
+ */
 
-// .endsWith(searchString) method: Returns true if a string ends with a specified string
-console.log("userGame.endsWith('yak'):", userGame.endsWith("yak")) // true
-console.log("userGame.endsWith('Yak'):", userGame.endsWith("Yak")) // false (case sensitive)
+// Extract substring (does not accept negative indices)
+const neu = userGame.substring(0, 4);
+console.log('neu (substring 0,4):', neu);
 
-// .split(separator) method: Splits a string into an array of substrings based on a separator
-const fullName = "Veenayak Sirohi"
-console.log("fullName.split(' '):", fullName.split(" ")) // ["Veenayak", "Sirohi"] - splits on space
-console.log("fullName.split(''):", fullName.split("")) // ["V", "e", "e", "n", "a", "y", "a", "k", " ", "S", "i", "r", "o", "h", "i"] - splits into individual characters
+// Extract using slice (accepts negative indices)
+const news = userGame.slice(-6, 4);
+console.log('news (slice -6,4):', news);
 
-// .repeat(count) method: Returns a new string with the original string repeated a specified number of times
-console.log("'Ha'.repeat(3):", "Ha".repeat(3)) // "HaHaHa"
+// Incorrect syntax demonstration
+const newss = userGame[2, 4];
+console.log('newss (incorrect syntax):', newss);
+
+/**
+ * String Methods - Whitespace and Cleaning
+ * Demonstrates methods for cleaning strings
+ */
+
+// String with extra whitespace
+const nam = "       veenayak        ";
+console.log('nam (with spaces):', nam);
+
+// Remove whitespace from both ends
+console.log('nam.trim():', nam.trim());
+
+/**
+ * String Methods - Replacement
+ * Demonstrates methods for replacing content
+ */
+
+// URL with encoded space
+const url = "http://veenayak%20sirohi";
+
+// Replace encoded space with hyphen
+console.log('url.replace("%20","-"):', url.replace('%20', '-'));
+
+/**
+ * String Methods - Search and Check
+ * Demonstrates methods for checking string content
+ */
+
+// Check if string contains substring
+console.log('url.includes("sirohi"):', url.includes("sirohi"));
+console.log('url.includes("hi"):', url.includes("hi"));
+
+/**
+ * String Methods - Prefix and Suffix
+ * Demonstrates methods for checking string boundaries
+ */
+
+// Check if string starts with specific text
+console.log('userGame.startsWith("Vee"):', userGame.startsWith("Vee"));
+console.log('userGame.startsWith("vee"):', userGame.startsWith("vee"));
+
+// Check if string ends with specific text
+console.log('userGame.endsWith("yak"):', userGame.endsWith("yak"));
+console.log('userGame.endsWith("Yak"):', userGame.endsWith("Yak"));
+
+/**
+ * String Methods - Splitting and Joining
+ * Demonstrates methods for breaking strings into arrays
+ */
+
+// Split string by space
+const fullName = "Veenayak Sirohi";
+console.log('fullName.split(" "):', fullName.split(" "));
+
+// Split string into individual characters
+console.log('fullName.split(""):', fullName.split(""));
+
+/**
+ * String Methods - Repetition
+ * Demonstrates methods for repeating strings
+ */
+
+// Repeat string multiple times
+console.log('"Ha".repeat(3):', "Ha".repeat(3));
+
+/**
+ * Key Points:
+ * - Use template literals for string interpolation
+ * - String() creates primitives, new String() creates objects
+ * - Strings are zero-indexed
+ * - Most string methods return new strings (immutable)
+ * - Include variable names in console output for clarity
+ * - Be careful with string method syntax differences
+ */
 

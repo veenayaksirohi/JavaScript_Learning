@@ -2,6 +2,88 @@
 
 Welcome to your JavaScript learning journey! This file will contain notes to help you understand the basics of JavaScript.
 
+## 📋 Table of Contents
+
+- [1. 👋 "Hello, World!" in JavaScript](#1--hello-world-in-javascript)
+- [2. 🗃️ Variables in JavaScript](#2--variables-in-javascript)
+  - [🔒 `const`](#-const)
+  - [🔄 `let`](#-let)
+  - [🏷️ `var`](#️-var)
+  - [🔍 Key Difference: `let` vs `var` (Scope)](#-key-difference-let-vs-var-scope)
+  - [❓ Undefined Variables](#-undefined-variables)
+- [3. 🖨️ Printing to the Console](#3--printing-to-the-console)
+  - [📝 `console.log()`](#-consolelog)
+  - [📊 `console.table()`](#-consoletable)
+  - [🌐 Environment-Specific Functions](#-environment-specific-functions)
+- [4. 🔢 JavaScript Data Types](#4--javascript-data-types)
+  - [🔧 "use strict"](#-use-strict)
+  - [🧩 Primitive Data Types](#-primitive-data-types)
+  - [🗂️ Non-Primitive Data Type](#️-non-primitive-data-type)
+  - [🏷️ The `typeof` Operator](#️-the-typeof-operator)
+- [5. 🔄 Type Conversion and Coercion](#5--type-conversion-and-coercion)
+  - [🔢 Explicit Conversion to Number](#-explicit-conversion-to-number)
+  - [📊 Conversion to Number Summary](#-conversion-to-number-summary)
+- [6. ➕ Operations in JavaScript](#6--operations-in-javascript)
+  - [🔢 Arithmetic Operators](#-arithmetic-operators)
+  - [🔗 String Concatenation](#-string-concatenation)
+  - [🔄 Automatic Type Coercion with `+`](#-automatic-type-coercion-with-)
+- [7. ⚖️ Comparison in JavaScript](#7--comparison-in-javascript)
+  - [🔍 Loose Equality (`==`) vs. Strict Equality (`===`)](#-loose-equality--vs-strict-equality-)
+  - [🤔 The Curious Case of `null`](#-the-curious-case-of-null)
+  - [❓ Comparisons with `undefined`](#-comparisons-with-undefined)
+- [8. 📝 Strings and Template Literals](#8--strings-and-template-literals)
+  - [🔤 Template Literals (String Interpolation)](#-template-literals-string-interpolation)
+  - [🔍 String Access by Index](#-string-access-by-index)
+  - [🏗️ String Constructors](#️-string-constructors)
+  - [🛠️ Common String Methods and Properties](#️-common-string-methods-and-properties)
+  - [💡 Important Notes About Strings](#-important-notes-about-strings)
+- [9. 🔢 Numbers and Math in JavaScript](#9--numbers-and-math-in-javascript)
+  - [🏗️ Number Constructors and Methods](#️-number-constructors-and-methods)
+  - [🧮 Math Object Methods](#-math-object-methods)
+  - [🎲 Random Number Generation](#-random-number-generation)
+  - [💡 Important Notes About Numbers](#-important-notes-about-numbers)
+  - [🐛 Debugging Tip: Object Notation](#-debugging-tip-object-notation)
+- [10. 🗓️ Dates in JavaScript](#10--dates-in-javascript)
+  - [🕰️ Creating Dates](#️-creating-dates)
+  - [⏳ Timestamps (Milliseconds Since Epoch)](#-timestamps-milliseconds-since-epoch)
+  - [📜 Formatting Dates](#-formatting-dates)
+  - [🧩 Getting and Setting Date Components](#-getting-and-setting-date-components)
+  - [✨ Advanced Formatting with `toLocaleString`](#-advanced-formatting-with-tolocalestring)
+  - [💡 Important Notes About Dates](#-important-notes-about-dates)
+- [11. 📚 Arrays in JavaScript](#11--arrays-in-javascript)
+  - [🏗️ Creating Arrays](#️-creating-arrays)
+  - [🔢 Accessing Elements](#-accessing-elements)
+  - [📏 Array Length](#-array-length)
+  - [➕ Adding and Removing Elements](#-adding-and-removing-elements)
+  - [🔍 Checking for Elements and Indexes](#-checking-for-elements-and-indexes)
+  - [🔗 Joining Array Elements](#-joining-array-elements)
+  - [🖨️ Printing Arrays with Labels](#️-printing-arrays-with-labels)
+  - [✂️ Slicing and Splicing Arrays](#️-slicing-and-splicing-arrays)
+  - [🔄 Combining and Mutating Arrays](#-combining-and-mutating-arrays)
+  - [🆕 Merging Arrays with the Spread Operator](#-merging-arrays-with-the-spread-operator)
+  - [🧩 Advanced Array Methods](#-advanced-array-methods)
+  - [📝 Clean Console Output](#-clean-console-output)
+  - [💡 Notes](#-notes)
+- [12. 🗃️ Objects in JavaScript](#12--objects-in-javascript)
+  - [🏗️ Creating Objects](#️-creating-objects)
+  - [🔑 Accessing Object Properties](#-accessing-object-properties)
+  - [🆕 Symbols in Objects](#-symbols-in-objects)
+  - [🔄 Object Reassignment](#-object-reassignment)
+  - [🔍 Checking Data Types](#-checking-data-types)
+  - [🔍 Object Property Enumeration](#-object-property-enumeration)
+  - [💡 Best Practices](#-best-practices)
+  - [🔒 Object Immutability](#-object-immutability)
+  - [🔧 Functions as Object Properties](#-functions-as-object-properties)
+  - [🔑 The 'this' Keyword in Methods](#-the-this-keyword-in-methods)
+  - [💡 Key Points](#-key-points)
+  - [🏗️ Nested Objects](#️-nested-objects)
+  - [🔗 Object Concatenation Methods](#-object-concatenation-methods)
+  - [📚 Arrays of Objects](#-arrays-of-objects)
+  - [🛠️ Object Utility Methods](#️-object-utility-methods)
+  - [🚨 Common Errors and Debugging](#-common-errors-and-debugging)
+
+---
+
 ## 1. 👋 "Hello, World!" in JavaScript
 
 The most basic program you can write in many languages is one that prints "Hello, World!". In JavaScript, you can do this with `console.log()`.
@@ -813,4 +895,264 @@ arr.shift();
 - You can use `console.log()` to print arrays or their elements.
 - Arrays are mutable, meaning you can change their contents after creation.
 
----
+## 12. 🗃️ Objects in JavaScript
+
+Objects are collections of key-value pairs and are one of the most important data structures in JavaScript. They allow you to group related data and functionality together.
+
+**Example from `10_objects.js`:**
+```javascript
+// Object literal syntax (most common way to create objects)
+const obj = {
+    name: "veenayak",
+    age: 22,
+    location: "hapur",
+    email: "veena@edv.com",
+};
+
+// Access object properties using dot notation
+console.log('obj.name:', obj.name); // veenayak
+
+// Access object properties using bracket notation
+console.log('obj["name"]:', obj["name"]); // veenayak
+```
+
+### 🏗️ Creating Objects
+- **Object Literal Syntax**: The most common and straightforward way to create objects using curly braces `{}`.
+- **Object.create()**: Creates a new object with a specified prototype (used for singleton patterns).
+- Objects can contain properties of any data type: strings, numbers, booleans, arrays, functions, or other objects.
+
+### 🔑 Accessing Object Properties
+- **Dot Notation**: Use a dot followed by the property name (e.g., `obj.name`).
+- **Bracket Notation**: Use square brackets with the property name as a string (e.g., `obj["name"]`).
+- Bracket notation is useful when property names are dynamic or contain special characters.
+
+### 🆕 Symbols in Objects
+- **Symbols**: Unique identifiers that can be used as object property keys to avoid naming conflicts.
+- **Creating Symbols**: Use `Symbol("description")` to create a unique symbol.
+- **Symbol Properties**: Must be accessed using bracket notation, not dot notation.
+    ```javascript
+    const sum = Symbol("key1");
+    obj = {
+        name: "veenayak",
+        [sum]: "mykey1", // Use bracket notation for Symbol properties
+        age: 22,
+        location: "hapur",
+        email: "veena@edv.com",
+    };
+    console.log('obj[sum]:', obj[sum]); // mykey1
+    ```
+
+### 🔄 Object Reassignment
+- Objects can be reassigned to variables declared with `let` or `var`.
+- When reassigning, the entire object is replaced, not just individual properties.
+- Always use bracket notation to access Symbol properties.
+
+### 🔍 Checking Data Types
+- Use the `typeof` operator to check the data type of object property values.
+- This is useful for debugging and understanding what type of data is stored in object properties.
+    ```javascript
+    console.log('typeof(obj[sum]):', typeof(obj[sum])); // string
+    ```
+
+### 🔍 Object Property Enumeration
+- **Object.keys()**: Returns an array of a given object's own enumerable property names.
+    ```javascript
+    console.log('Object.keys(obj):', Object.keys(obj)); // ['name', 'age', 'location', 'email']
+    ```
+- **Object.getOwnPropertySymbols()**: Returns an array of all symbol properties found directly upon a given object.
+    ```javascript
+    console.log('Object.getOwnPropertySymbols(obj):', Object.getOwnPropertySymbols(obj)); // [Symbol(key1)]
+    ```
+- **Symbol Properties**: Symbol properties are not enumerable and won't appear in `Object.keys()` or `for...in` loops, making them useful for private-like properties.
+
+### 💡 Best Practices
+- Use object literal syntax `{}` instead of `new Object()` for better performance and readability [[dev.to/codecraftjs/javascript-objects-best-practices-gjo](https://dev.to/codecraftjs/javascript-objects-best-practices-gjo)].
+- Use computed property names `[key]: value` for dynamic property names and Symbol properties.
+- Always use bracket notation `obj[symbol]` to access Symbol properties.
+- Group shorthand properties at the beginning of object declarations for better readability.
+
+### 🔒 Object Immutability
+- **Object.freeze()**: Makes an object immutable by preventing property additions, deletions, and modifications.
+    ```javascript
+    // Add properties BEFORE freezing
+    obj.greeting = gretting;
+    obj["age"] = 25;
+    Object.freeze(obj);
+    obj["age"] = 24; // This will be ignored in non-strict mode
+    console.log('obj after freeze attempt:', obj); // age remains 25
+    ```
+- **Behavior**: In non-strict mode, attempts to modify frozen objects are silently ignored. In strict mode, they throw errors.
+- **Use Cases**: Useful for creating constant objects, preventing accidental modifications, and ensuring data integrity.
+- **Permanence**: Once an object is frozen, it cannot be unfrozen. `Object.unfreeze()` does not exist in JavaScript.
+- **Important**: All properties and methods must be added to the object before calling `Object.freeze()`.
+
+### 🔧 Functions as Object Properties
+- Objects can contain functions as properties, making them methods of the object.
+    ```javascript
+    const gretting = function() {
+        console.log('hello');
+    };
+    obj.greeting = gretting; // Add before freezing
+    obj.greeting(); // Output: hello
+    ```
+- **Method Definition**: Functions stored as object properties are called methods.
+- **Access**: Methods can be called using dot notation or bracket notation.
+- **Frozen Objects**: Methods can be called on frozen objects if they were added before freezing, but new properties cannot be added after freezing.
+
+### 🔑 The 'this' Keyword in Methods
+- The `this` keyword refers to the object that contains the method, allowing access to other object properties.
+    ```javascript
+    obj.gretting = function() {
+        console.log(`hello, ${this.name}`); // Access object property using 'this'
+    };
+    obj.gretting(); // Output: hello, veenayak
+    ```
+- **Template Literals**: Use `${}` syntax (not `$()`) to embed expressions in template literals.
+- **Context**: `this` provides a way to reference the current object from within a method.
+- **Use Cases**: Essential for creating methods that need to access or modify object properties.
+
+### 💡 Key Points
+- Object properties are unordered (except for integer keys).
+- Property names are strings (though quotes are optional for valid identifiers).
+- Objects are mutable by default - you can add, modify, or delete properties after creation.
+- Objects are reference types - when you assign an object to a variable, you're creating a reference to the same object.
+- Use `Object.freeze()` to create immutable objects when you need to prevent modifications.
+- The `this` keyword is crucial for object-oriented programming in JavaScript.
+
+### 🏗️ Nested Objects
+- Objects can contain other objects as properties, creating nested structures.
+- Access nested properties using dot notation or bracket notation.
+    ```javascript
+    let reguser = {
+        email: 'veen@ff.vom',
+        fullname: {
+            userFullname: {
+                firstname: 'veenayak',
+                lastname: 'sirohi'
+            }
+        }
+    };
+    
+    // Access using dot notation
+    console.log('reguser.fullname.userFullname.firstname:', reguser.fullname.userFullname.firstname);
+    
+    // Access using bracket notation
+    console.log('reguser nested bracket access:', reguser['fullname']['userFullname']['firstname']);
+    ```
+
+### 🔗 Object Concatenation Methods
+- **Object.assign()**: Merges multiple objects into a target object.
+    ```javascript
+    const obj1 = { 1: 'a', 2: 'b', 3: 'c' };
+    const obj2 = { 4: 'a', 5: 'b', 6: 'c' };
+    const obj3 = Object.assign({}, obj1, obj2);
+    console.log('obj3 (using Object.assign):', obj3);
+    ```
+- **Spread Operator (...)**: Modern ES6 way to merge objects.
+    ```javascript
+    const obj4 = { ...obj1, ...obj2 };
+    console.log('obj4 (using spread operator):', obj4);
+    ```
+- **Adding Properties**: Both methods can include additional properties during concatenation.
+    ```javascript
+    const obj5 = Object.assign({}, obj1, obj2, { 7: 'd', 8: 'e' });
+    const obj6 = { ...obj1, ...obj2, 7: 'd', 8: 'e' };
+    ```
+
+### 📚 Arrays of Objects
+- Arrays can contain objects as elements, creating collections of related data.
+- Access object properties within array elements using index notation.
+    ```javascript
+    const users = [
+        {
+            id: 1,
+            email: 'h@gmail.com'
+        },
+        {
+            id: 2,
+            email: 'h@gmail.com'
+        },
+        {
+            id: 3,
+            email: 'h@gmail.com'
+        }
+    ];
+    
+    // Access object properties within array elements
+    console.log('users[1].email:', users[1].email); // h@gmail.com
+    ```
+
+### 🛠️ Object Utility Methods
+JavaScript provides several built-in methods for working with object properties:
+
+- **Object.keys(obj)**: Returns an array of a given object's own enumerable property names.
+    ```javascript
+    console.log('Object.keys(tinder):', Object.keys(tinder)); // ['id', 'name', 'isLoggedIn']
+    ```
+
+- **Object.values(obj)**: Returns an array of a given object's own enumerable property values.
+    ```javascript
+    console.log('Object.values(tinder):', Object.values(tinder)); // [1, 'sam', false]
+    ```
+
+- **Object.entries(obj)**: Returns an array of a given object's own enumerable [key, value] pairs.
+    ```javascript
+    console.log('Object.entries(tinder):', Object.entries(tinder)); // [['id', 1], ['name', 'sam'], ['isLoggedIn', false]]
+    ```
+
+- **obj.hasOwnProperty(prop)**: Returns a boolean indicating whether the object has the specified property as its own property.
+    ```javascript
+    console.log('tinder.hasOwnProperty("name"):', tinder.hasOwnProperty('name')); // true
+    console.log('tinder.hasOwnProperty("age"):', tinder.hasOwnProperty('age')); // false
+    ```
+
+**Use Cases:**
+- `Object.keys()`: Iterating over object properties, checking property existence
+- `Object.values()`: Working with object values without needing keys
+- `Object.entries()`: Converting objects to arrays for array methods, creating key-value pairs
+- `hasOwnProperty()`: Checking if an object has a specific property before accessing it
+
+### 🚨 Common Errors and Debugging
+
+#### TypeError: "x" is not a function
+This error occurs when you try to call a value that is not a function. Common causes include:
+
+1. **Typo in Method Name**: Ensure the method name is spelled correctly.
+   ```javascript
+   // ❌ Error: Typo in method name
+   obj.gretting(); // TypeError: obj.gretting is not a function
+   
+   // ✅ Correct: Proper method name
+   obj.greeting(); // Works correctly
+   ```
+
+2. **Adding Methods After Freezing**: You cannot add new properties to a frozen object.
+   ```javascript
+   // ❌ Error: Adding method after freezing
+   Object.freeze(obj);
+   obj.newMethod = function() { console.log('hello'); }; // Won't work
+   
+   // ✅ Correct: Add methods before freezing
+   obj.newMethod = function() { console.log('hello'); };
+   Object.freeze(obj);
+   obj.newMethod(); // Works correctly
+   ```
+
+3. **Property Not Defined**: Ensure the property exists before calling it as a function.
+   ```javascript
+   // ❌ Error: Property doesn't exist
+   const obj = {};
+   obj.method(); // TypeError: obj.method is not a function
+   
+   // ✅ Correct: Define the method first
+   const obj = {
+       method: function() { console.log('hello'); }
+   };
+   obj.method(); // Works correctly
+   ```
+
+**Debugging Tips:**
+- Always check for typos in method names
+- Use `console.log(typeof obj.method)` to verify if a property is a function
+- Add all properties and methods before calling `Object.freeze()`
+- Use proper naming conventions to avoid confusion

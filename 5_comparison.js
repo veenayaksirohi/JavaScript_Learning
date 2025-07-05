@@ -1,25 +1,63 @@
-// --- Comparisons with null ---
-// The reason is that an equality check == and comparisons > < >= <= work differently.
-// Comparisons convert null to a number, treating it as 0.
-// That's why (3) null >= 0 is true and (1) null > 0 is false.
+// ========================================
+// JavaScript Comparisons - Equality and Relational Operators
+// ========================================
 
-console.log("null > 0:", null > 0);       // false (0 > 0)
-console.log("null == 0:", null == 0);      // false (special case for equality)
-console.log("null >= 0:", null >= 0);     // true (0 >= 0)
+/**
+ * Comparisons with null
+ * Demonstrates how null behaves in different comparison contexts
+ */
 
-// --- Comparisons with undefined ---
-// undefined will always give false in comparisons because when converted to a number it becomes NaN.
-console.log("undefined > 0:", undefined > 0);  // false
-console.log("undefined == 0:", undefined == 0); // false
-console.log("undefined >= 0:", undefined >= 0);// false
+// Relational operators convert null to 0 for comparison
+console.log('null > 0:', null > 0);
 
+// Equality check (==) has special behavior with null
+console.log('null == 0:', null == 0);
 
-// --- Strict vs. Loose Equality ---
+// Relational operators convert null to 0 for comparison
+console.log('null >= 0:', null >= 0);
 
-// `==` (Loose Equality): Converts the operands to the same type before making the comparison.
-// Here, the string '2' is converted to the number 2, so it returns true.
+/**
+ * Comparisons with undefined
+ * Demonstrates how undefined behaves in comparisons
+ */
+
+// Undefined converts to NaN in comparisons, always returns false
+console.log('undefined > 0:', undefined > 0);
+console.log('undefined == 0:', undefined == 0);
+console.log('undefined >= 0:', undefined >= 0);
+
+/**
+ * Strict vs Loose Equality
+ * Demonstrates the difference between == and === operators
+ */
+
+// Loose equality (==): Converts operands to same type before comparison
 console.log("'2' == 2:", '2' == 2);
 
-// `===` (Strict Equality): Checks for both value and type equality without any type conversion.
-// Since '2' is a string and 2 is a number, their types are different, so it returns false.
+// Strict equality (===): Checks both value and type without conversion
 console.log("'2' === 2:", '2' === 2);
+
+/**
+ * Comparison Behavior Summary
+ * 
+ * null comparisons:
+ * - null > 0: false (0 > 0)
+ * - null == 0: false (special case)
+ * - null >= 0: true (0 >= 0)
+ * 
+ * undefined comparisons:
+ * - All comparisons return false (converts to NaN)
+ * 
+ * Equality operators:
+ * - == (loose): Performs type coercion
+ * - === (strict): No type coercion
+ */
+
+/**
+ * Key Points:
+ * - Use === for equality comparisons (recommended)
+ * - null converts to 0 in relational comparisons
+ * - undefined converts to NaN in all comparisons
+ * - Include variable names in console output for clarity
+ * - Be aware of type coercion in loose equality
+ */
