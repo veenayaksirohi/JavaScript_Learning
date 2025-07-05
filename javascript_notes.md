@@ -77,10 +77,12 @@ Welcome to your JavaScript learning journey! This file will contain notes to hel
   - [🔑 The 'this' Keyword in Methods](#-the-this-keyword-in-methods)
   - [💡 Key Points](#-key-points)
   - [🏗️ Nested Objects](#️-nested-objects)
+  - [🔄 Object Reassignment with Quoted Properties](#-object-reassignment-with-quoted-properties)
   - [🔗 Object Concatenation Methods](#-object-concatenation-methods)
   - [📚 Arrays of Objects](#-arrays-of-objects)
   - [🛠️ Object Utility Methods](#️-object-utility-methods)
   - [🚨 Common Errors and Debugging](#-common-errors-and-debugging)
+  - [🔗 Object Destructuring (ES6)](#-object-destructuring-es6)
 
 ---
 
@@ -918,8 +920,24 @@ console.log('obj["name"]:', obj["name"]); // veenayak
 
 ### 🏗️ Creating Objects
 - **Object Literal Syntax**: The most common and straightforward way to create objects using curly braces `{}`.
+- **Object Constructor**: Using `new Object()` (less common, not recommended for simple objects).
 - **Object.create()**: Creates a new object with a specified prototype (used for singleton patterns).
 - Objects can contain properties of any data type: strings, numbers, booleans, arrays, functions, or other objects.
+
+**Example from `10_objects.js`:**
+```javascript
+// Object literal syntax (recommended approach)
+let obj = {
+    name: 'veenayak',
+    age: 22,
+    location: 'hapur',
+    email: 'veena@edv.com'
+};
+
+// Object constructor (less common, not recommended)
+let tinder = new Object();
+tinder = {}; // Reassigning to object literal syntax
+```
 
 ### 🔑 Accessing Object Properties
 - **Dot Notation**: Use a dot followed by the property name (e.g., `obj.name`).
@@ -974,42 +992,53 @@ console.log('obj["name"]:', obj["name"]); // veenayak
 ### 🔒 Object Immutability
 - **Object.freeze()**: Makes an object immutable by preventing property additions, deletions, and modifications.
     ```javascript
-    // Add properties BEFORE freezing
-    obj.greeting = gretting;
-    obj["age"] = 25;
+    // Modify object property before freezing
+    obj['age'] = 25;
+    console.log('obj after age modification:', obj);
+    
+    // Freeze object to make it immutable
     Object.freeze(obj);
-    obj["age"] = 24; // This will be ignored in non-strict mode
+    
+    // Attempt to modify property after freezing (will be ignored in non-strict mode)
+    obj['age'] = 24;
     console.log('obj after freeze attempt:', obj); // age remains 25
     ```
 - **Behavior**: In non-strict mode, attempts to modify frozen objects are silently ignored. In strict mode, they throw errors.
 - **Use Cases**: Useful for creating constant objects, preventing accidental modifications, and ensuring data integrity.
 - **Permanence**: Once an object is frozen, it cannot be unfrozen. `Object.unfreeze()` does not exist in JavaScript.
 - **Important**: All properties and methods must be added to the object before calling `Object.freeze()`.
+- **Best Practice**: Always add all properties and methods before freezing to ensure they work properly.
 
 ### 🔧 Functions as Object Properties
 - Objects can contain functions as properties, making them methods of the object.
     ```javascript
-    const gretting = function() {
+    // Create function expression for greeting
+    const greeting = function() {
         console.log('hello');
     };
-    obj.greeting = gretting; // Add before freezing
+    
+    // Add function as property to object BEFORE freezing
+    obj.greeting = greeting;
     obj.greeting(); // Output: hello
     ```
 - **Method Definition**: Functions stored as object properties are called methods.
 - **Access**: Methods can be called using dot notation or bracket notation.
 - **Frozen Objects**: Methods can be called on frozen objects if they were added before freezing, but new properties cannot be added after freezing.
+- **Important**: Always add methods before calling `Object.freeze()` to ensure they work properly.
 
 ### 🔑 The 'this' Keyword in Methods
 - The `this` keyword refers to the object that contains the method, allowing access to other object properties.
     ```javascript
-    obj.gretting = function() {
-        console.log(`hello, ${this.name}`); // Access object property using 'this'
+    // Add method that uses 'this' to access object properties (BEFORE freezing)
+    obj.greetingWithName = function() {
+        console.log(`hello, ${this.name}`); // Use template literal with ${} syntax
     };
-    obj.gretting(); // Output: hello, veenayak
+    obj.greetingWithName(); // Output: hello, veenayak
     ```
 - **Template Literals**: Use `${}` syntax (not `$()`) to embed expressions in template literals.
 - **Context**: `this` provides a way to reference the current object from within a method.
 - **Use Cases**: Essential for creating methods that need to access or modify object properties.
+- **Best Practice**: Always add methods that use `this` before freezing the object.
 
 ### 💡 Key Points
 - Object properties are unordered (except for integer keys).
@@ -1039,6 +1068,28 @@ console.log('obj["name"]:', obj["name"]); // veenayak
     // Access using bracket notation
     console.log('reguser nested bracket access:', reguser['fullname']['userFullname']['firstname']);
     ```
+
+### 🔄 Object Reassignment with Quoted Properties
+- Objects can be reassigned with quoted property names, which are valid but not required for valid identifiers.
+- Both quoted and unquoted property names work the same way.
+    ```javascript
+    // Object reassignment with quoted properties
+    reguser = {
+        email: 'veen@ff.vom',
+        'fullname': {
+            'userFullname': {
+                'firstname': 'veenayak',
+                'lastname': 'sirohi'
+            }
+        }
+    };
+    
+    // Accessing nested object properties after reassignment
+    console.log('reguser after reassignment:', reguser);
+    console.log('reguser.fullname.userFullname.firstname (dot notation):', reguser.fullname.userFullname['firstname']);
+    console.log('reguser nested bracket access:', reguser['fullname']['userFullname']['firstname']);
+    ```
+- **Key Point**: Quoted property names are valid but not required for valid identifiers. Use them when property names contain special characters or spaces.
 
 ### 🔗 Object Concatenation Methods
 - **Object.assign()**: Merges multiple objects into a target object.
@@ -1156,3 +1207,309 @@ This error occurs when you try to call a value that is not a function. Common ca
 - Use `console.log(typeof obj.method)` to verify if a property is a function
 - Add all properties and methods before calling `Object.freeze()`
 - Use proper naming conventions to avoid confusion
+
+### 🔗 Object Destructuring (ES6)
+
+Object destructuring is a powerful ES6 feature that allows you to extract properties from objects and assign them to variables in a clean, readable way. It's based on the concept of using patterns to extract parts of data, similar to how object literals let us create multiple properties at once.
+
+#### Basic Object Destructuring
+Extract properties with the same name as the variable:
+```javascript
+const course = {
+    coursename: "js in hindi",
+    price: "999",
+    courseInstructor: "hitesh"
+};
+
+// Basic destructuring - extract property with same name
+let {courseInstructor} = course;
+console.log('courseInstructor (destructured):', courseInstructor); // "hitesh"
+
+// Extract multiple properties at once
+let {coursename, price} = course;
+console.log('coursename:', coursename); // "js in hindi"
+console.log('price:', price);           // "999"
+```
+
+#### Destructuring with Property Renaming
+Extract properties and assign them to variables with different names:
+```javascript
+// Object destructuring with property renaming
+let {courseInstructor: instructor} = course;
+console.log('instructor (renamed from courseInstructor):', instructor); // "hitesh"
+
+// Multiple properties with renaming
+let {coursename: title, courseInstructor: teacher} = course;
+console.log('title:', title);   // "js in hindi"
+console.log('teacher:', teacher); // "hitesh"
+```
+
+#### Advanced Destructuring Features
+
+**Default Values:**
+```javascript
+const user = { name: "John" };
+let { name, age = 25, email = "default@example.com" } = user;
+console.log('name:', name);   // "John"
+console.log('age:', age);     // 25 (default value)
+console.log('email:', email); // "default@example.com" (default value)
+
+// Default values with renaming
+let { name: userName, role = "user" } = user;
+console.log('userName:', userName); // "John"
+console.log('role:', role);         // "user" (default value)
+```
+
+**Nested Destructuring:**
+```javascript
+const person = {
+    name: "Alice",
+    address: {
+        city: "New York",
+        country: "USA",
+        zip: "10001"
+    },
+    preferences: {
+        theme: "dark",
+        language: "en"
+    }
+};
+
+// Basic nested destructuring
+let { name, address: { city, country } } = person;
+console.log('name:', name);     // "Alice"
+console.log('city:', city);     // "New York"
+console.log('country:', country); // "USA"
+
+// Nested destructuring with renaming
+let { 
+    name: personName, 
+    address: { city: personCity, zip: postalCode },
+    preferences: { theme: colorTheme }
+} = person;
+console.log('personName:', personName);     // "Alice"
+console.log('personCity:', personCity);     // "New York"
+console.log('postalCode:', postalCode);     // "10001"
+console.log('colorTheme:', colorTheme);     // "dark"
+```
+
+**Rest Properties:**
+```javascript
+const obj = { a: 1, b: 2, c: 3, d: 4, e: 5 };
+let { a, b, ...remaining } = obj;
+console.log('a:', a);           // 1
+console.log('b:', b);           // 2
+console.log('remaining:', remaining); // { c: 3, d: 4, e: 5 }
+
+// Rest with renaming
+let { a: first, b: second, ...others } = obj;
+console.log('first:', first);   // 1
+console.log('second:', second); // 2
+console.log('others:', others); // { c: 3, d: 4, e: 5 }
+```
+
+#### Destructuring in Different Contexts
+
+**Variable Declarations:**
+```javascript
+// let declaration
+let { x, y } = { x: 1, y: 2 };
+
+// const declaration
+const { name, age } = { name: "Bob", age: 30 };
+
+// var declaration
+var { status, code } = { status: "success", code: 200 };
+```
+
+**Assignments:**
+```javascript
+let person = {};
+({ name: person.name, age: person.age } = { name: "Charlie", age: 25 });
+console.log('person:', person); // { name: "Charlie", age: 25 }
+```
+
+**Function Parameters:**
+```javascript
+function processUser({ name, email, age = 18, role = "user" }) {
+    console.log(`Processing ${name} (${email}), age: ${age}, role: ${role}`);
+}
+
+processUser({ name: "Alice", email: "alice@example.com" });
+// Output: Processing Alice (alice@example.com), age: 18, role: user
+
+processUser({ name: "Bob", email: "bob@example.com", age: 25, role: "admin" });
+// Output: Processing Bob (bob@example.com), age: 25, role: admin
+```
+
+#### Error Handling and Edge Cases
+
+**Handling Missing Properties:**
+```javascript
+const user = { name: "John" };
+
+// Missing properties become undefined
+let { name, age, email } = user;
+console.log('name:', name);   // "John"
+console.log('age:', age);     // undefined
+console.log('email:', email); // undefined
+
+// Using default values for missing properties
+let { name: userName, age: userAge = 25, email: userEmail = "default@example.com" } = user;
+console.log('userName:', userName);     // "John"
+console.log('userAge:', userAge);       // 25 (default)
+console.log('userEmail:', userEmail);   // "default@example.com" (default)
+```
+
+**Destructuring null/undefined:**
+```javascript
+// ❌ Error: Cannot destructure 'null' or 'undefined'
+// let { prop } = null;        // TypeError
+// let { prop } = undefined;   // TypeError
+
+// ✅ Safe destructuring with default values
+let { prop = "default" } = null || {};
+console.log('prop:', prop); // "default"
+
+// ✅ Using try-catch for error handling
+try {
+    let { prop } = null;
+} catch (error) {
+    console.log('Error caught:', error.message); // "Cannot destructure 'null' as it is null."
+}
+```
+
+#### Advanced Patterns
+
+**Selective Property Extraction:**
+```javascript
+const largeObject = {
+    id: 1,
+    name: "Product",
+    price: 99.99,
+    category: "Electronics",
+    description: "A great product",
+    tags: ["new", "featured"],
+    metadata: { created: "2024-01-01", updated: "2024-01-15" }
+};
+
+// Extract only the properties you need
+let { name, price, category } = largeObject;
+console.log('name:', name);     // "Product"
+console.log('price:', price);   // 99.99
+console.log('category:', category); // "Electronics"
+```
+
+**Destructuring with Computed Properties:**
+```javascript
+const prop = "name";
+const obj = { name: "Alice", age: 30 };
+
+// ❌ This doesn't work as expected
+// let { [prop] } = obj; // Syntax error
+
+// ✅ Use bracket notation after destructuring
+let { name } = obj;
+console.log('name:', name); // "Alice"
+
+// ✅ Or use a different approach
+let extracted = obj[prop];
+console.log('extracted:', extracted); // "Alice"
+```
+
+#### Benefits of Object Destructuring
+- **Cleaner Code**: More readable than multiple property assignments
+- **Shorter Syntax**: Reduces boilerplate code
+- **Default Values**: Provides fallback values for missing properties
+- **Function Parameters**: Useful for functions that accept object parameters
+- **API Responses**: Perfect for extracting data from API responses
+- **Selective Extraction**: Extract only the properties you need
+- **Error Prevention**: Safer than manual property access
+
+#### Common Use Cases
+
+**Function Parameters with Defaults:**
+```javascript
+function createUser({ 
+    name, 
+    email, 
+    age = 18, 
+    role = "user", 
+    preferences = {} 
+} = {}) {
+    return {
+        name,
+        email,
+        age,
+        role,
+        preferences,
+        createdAt: new Date()
+    };
+}
+
+const user1 = createUser({ name: "Alice", email: "alice@example.com" });
+const user2 = createUser({ name: "Bob", email: "bob@example.com", age: 25, role: "admin" });
+```
+
+**API Response Handling:**
+```javascript
+const apiResponse = {
+    status: "success",
+    data: { 
+        id: 1, 
+        name: "John",
+        profile: {
+            avatar: "avatar.jpg",
+            bio: "Software developer"
+        }
+    },
+    message: "User found",
+    timestamp: "2024-01-15T10:30:00Z"
+};
+
+let { 
+    status, 
+    data: { 
+        id, 
+        name, 
+        profile: { avatar, bio } 
+    }, 
+    message, 
+    timestamp 
+} = apiResponse;
+
+console.log('status:', status);     // "success"
+console.log('id:', id);             // 1
+console.log('name:', name);         // "John"
+console.log('avatar:', avatar);     // "avatar.jpg"
+console.log('bio:', bio);           // "Software developer"
+console.log('message:', message);   // "User found"
+console.log('timestamp:', timestamp); // "2024-01-15T10:30:00Z"
+```
+
+**Promise.all() with Destructuring:**
+```javascript
+const urls = [
+    'https://api.example.com/users/1',
+    'https://api.example.com/users/2',
+    'https://api.example.com/users/3'
+];
+
+Promise.all(urls.map(url => fetch(url).then(res => res.json())))
+    .then(([user1, user2, user3]) => {
+        console.log('user1:', user1);
+        console.log('user2:', user2);
+        console.log('user3:', user3);
+    });
+```
+
+#### Best Practices
+- **Use destructuring for cleaner, more readable code**
+- **Provide default values for optional properties**
+- **Use meaningful variable names when renaming properties**
+- **Combine with rest properties for flexible property extraction**
+- **Consider nested destructuring for complex object structures**
+- **Handle null/undefined values safely**
+- **Extract only the properties you need**
+- **Use destructuring in function parameters for better API design**
+- **Combine with default parameters for robust function signatures**

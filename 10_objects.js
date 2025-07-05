@@ -252,3 +252,34 @@ console.log('tinder.hasOwnProperty("name"):', tinder.hasOwnProperty('name'));
  * - hasOwnProperty() checks if an object has a specific property
  */
 
+/**
+ * Object Destructuring
+ * Demonstrates ES6 object destructuring syntax for extracting object properties
+ */
+
+// Create course object for destructuring examples
+const course = {
+    coursename: "js in hindi",
+    price: "999",
+    courseInstructor: "hitesh"
+};
+
+// Access object property using bracket notation
+console.log('course["courseInstructor"]:', course["courseInstructor"]);
+
+// Basic object destructuring - extract property with same name
+let {courseInstructor} = course;
+console.log('courseInstructor (destructured):', courseInstructor);
+
+// Object destructuring with property renaming - extract property with different variable name
+let {courseInstructor: instructor} = course;
+console.log('instructor (renamed from courseInstructor):', instructor);
+
+/**
+ * Object Destructuring Examples Summary:
+ * - Basic destructuring: let {propertyName} = object
+ * - Renamed destructuring: let {propertyName: newVariableName} = object
+ * - Destructuring extracts properties and assigns them to variables
+ * - Useful for clean, readable code when working with object properties
+ * - Can be combined with default values and nested destructuring
+ */
