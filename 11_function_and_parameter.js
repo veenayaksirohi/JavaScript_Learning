@@ -148,3 +148,81 @@ console.log('OUTER global scope - a:', a)
 // This will cause a ReferenceError because 'c' was never declared
 // console.log('OUTER global scope - c:', c) // ReferenceError: c is not defined
 
+/**
+ * Demonstration of nested functions and closure scope
+ * Shows how inner functions can access variables from outer function scope
+ */
+function one () {
+  const username = 'hitesh'
+
+  /**
+   * Inner function that demonstrates closure behavior
+   * Can access variables from the outer function scope
+   */
+  function two () {
+    const website = 'youtube'
+    console.log('Inner function - username from outer scope:', username)
+    console.log('Inner function - website from inner scope:', website)
+  }
+
+  // This would cause a ReferenceError - website is not accessible here
+  // console.log('Outer function - website:', website) // ReferenceError: website is not defined
+
+  // Call the inner function
+  two()
+}
+
+// Call the outer function to demonstrate nested function behavior
+one()
+
+/**
+ * Demonstration of nested block scope with if statements
+ * Shows how variables are scoped within conditional blocks
+ */
+if (true) {
+  const username = 'hitesh'
+  if (username === 'hitesh') {
+    const website = ' youtube'
+    console.log('Nested if block - username + website:', username + website)
+  }
+
+  // This would cause a ReferenceError - website is not accessible here
+  // console.log('Outer if block - website:', website) // ReferenceError: website is not defined
+}
+
+// This would cause a ReferenceError - username is not accessible here
+// console.log('Global scope - username:', username) // ReferenceError: username is not defined
+
+/**
+ * Demonstration of function hoisting behavior
+ * Shows the difference between function declarations and function expressions
+ */
+
+// Function declaration - can be called before declaration (hoisted)
+console.log('Function declaration result:', addone(5))
+
+/**
+ * Function declaration - hoisted to the top of the scope
+ * @param {number} num - Number to increment
+ * @returns {number} The number plus 1
+ */
+function addone (num) {
+  return num + 1
+}
+
+// Function expression - cannot be called before declaration (not hoisted)
+// This will cause a ReferenceError because addTwo is not hoisted
+// addTwo(5) // ReferenceError: Cannot access 'addTwo' before initialization
+
+/**
+ * Function expression - not hoisted, must be declared before use
+ * @param {number} num - Number to add 2 to
+ * @returns {number} The number plus 2
+ */
+const addTwo = function (num) {
+  return num + 2
+}
+
+// Now we can call the function expression
+const addTwoResult = addTwo(5)
+console.log('Function expression result:', addTwoResult)

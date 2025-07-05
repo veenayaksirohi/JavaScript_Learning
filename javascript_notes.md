@@ -151,6 +151,8 @@ This guide is organized using **Impact vs. Effort** prioritization framework to 
   - [🔄 Function Scope and Closures](#-function-scope-and-closures)
   - [🚨 Common Function Errors and Debugging](#-common-function-errors-and-debugging)
   - [🔍 Variable Scope Demonstration](#-variable-scope-demonstration)
+  - [🔗 Nested Functions and Closures](#-nested-functions-and-closures)
+  - [📈 Function Hoisting](#-function-hoisting)
 
 ---
 
@@ -2113,5 +2115,115 @@ console.log('OUTER global scope - a:', a) // 300
 - Avoid variable shadowing when possible for clarity
 - Use descriptive variable names to avoid conflicts
 - Understand the difference between function scope and block scope
+
+### 🔗 Nested Functions and Closures
+
+**Nested Function Scope:**
+```javascript
+/**
+ * Demonstration of nested functions and closure scope
+ * Shows how inner functions can access variables from outer function scope
+ */
+function one () {
+  const username = 'hitesh'
+
+  /**
+   * Inner function that demonstrates closure behavior
+   * Can access variables from the outer function scope
+   */
+  function two () {
+    const website = 'youtube'
+    console.log('Inner function - username from outer scope:', username) // "hitesh"
+    console.log('Inner function - website from inner scope:', website) // "youtube"
+  }
+
+  // This would cause a ReferenceError - website is not accessible here
+  // console.log('Outer function - website:', website) // ReferenceError: website is not defined
+
+  // Call the inner function
+  two()
+}
+
+// Call the outer function to demonstrate nested function behavior
+one()
+```
+
+**Nested Block Scope:**
+```javascript
+/**
+ * Demonstration of nested block scope with if statements
+ * Shows how variables are scoped within conditional blocks
+ */
+if (true) {
+  const username = 'hitesh'
+  if (username === 'hitesh') {
+    const website = ' youtube'
+    console.log('Nested if block - username + website:', username + website) // "hitesh youtube"
+  }
+
+  // This would cause a ReferenceError - website is not accessible here
+  // console.log('Outer if block - website:', website) // ReferenceError: website is not defined
+}
+
+// This would cause a ReferenceError - username is not accessible here
+// console.log('Global scope - username:', username) // ReferenceError: username is not defined
+```
+
+**Key Points About Nested Functions:**
+- **Closure Behavior**: Inner functions can access variables from outer function scope
+- **Lexical Scoping**: Variables are resolved based on where they are defined, not where they are called
+- **Scope Chain**: JavaScript creates a chain of scopes to resolve variable names
+- **Memory Management**: Closures can keep variables in memory longer than expected
+
+### 📈 Function Hoisting
+
+**Function Declaration vs Function Expression:**
+```javascript
+/**
+ * Demonstration of function hoisting behavior
+ * Shows the difference between function declarations and function expressions
+ */
+
+// Function declaration - can be called before declaration (hoisted)
+console.log('Function declaration result:', addone(5)) // 6
+
+/**
+ * Function declaration - hoisted to the top of the scope
+ * @param {number} num - Number to increment
+ * @returns {number} The number plus 1
+ */
+function addone (num) {
+  return num + 1
+}
+
+// Function expression - cannot be called before declaration (not hoisted)
+// This will cause a ReferenceError because addTwo is not hoisted
+// addTwo(5) // ReferenceError: Cannot access 'addTwo' before initialization
+
+/**
+ * Function expression - not hoisted, must be declared before use
+ * @param {number} num - Number to add 2 to
+ * @returns {number} The number plus 2
+ */
+const addTwo = function (num) {
+  return num + 2
+}
+
+// Now we can call the function expression
+const addTwoResult = addTwo(5)
+console.log('Function expression result:', addTwoResult) // 7
+```
+
+**Hoisting Behavior:**
+- **Function Declarations**: Are hoisted to the top of their scope and can be called before declaration
+- **Function Expressions**: Are not hoisted and must be declared before use
+- **Variable Declarations**: Are hoisted but not initialized (temporal dead zone)
+- **Best Practice**: Always declare functions before using them for clarity
+
+**Hoisting Best Practices:**
+- Use function declarations for utility functions that might be called anywhere in the scope
+- Use function expressions when you need more control over when the function is available
+- Avoid relying on hoisting for better code readability
+- Consider using arrow functions for simple expressions
 
 Functions are essential building blocks in JavaScript that help create modular, reusable, and maintainable code. Understanding how to properly declare, call, and work with functions is crucial for becoming proficient in JavaScript programming.
