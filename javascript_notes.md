@@ -120,8 +120,17 @@ This guide is organized using **Impact vs. Effort** prioritization framework to 
   - [🔗 Object Concatenation Methods](#-object-concatenation-methods)
   - [📚 Arrays of Objects](#-arrays-of-objects)
   - [🛠️ Object Utility Methods](#️-object-utility-methods)
-  - [🚨 Common Errors and Debugging](#-common-errors-and-debugging)
   - [🔗 Object Destructuring (ES6)](#-object-destructuring-es6)
+    - [Basic Object Destructuring](#basic-object-destructuring)
+    - [Destructuring with Property Renaming](#destructuring-with-property-renaming)
+    - [Advanced Destructuring Features](#advanced-destructuring-features)
+    - [Destructuring in Different Contexts](#destructuring-in-different-contexts)
+    - [Error Handling and Edge Cases](#error-handling-and-edge-cases)
+    - [Advanced Patterns](#advanced-patterns)
+    - [Benefits of Object Destructuring](#benefits-of-object-destructuring)
+    - [Common Use Cases](#common-use-cases)
+    - [Best Practices](#best-practices)
+  - [🚨 Common Errors and Debugging](#-common-errors-and-debugging)
 
 ---
 
