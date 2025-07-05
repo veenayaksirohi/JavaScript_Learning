@@ -1941,6 +1941,46 @@ try {
 }
 ```
 
+### 💡 Key Points About Functions
+
+1. **Functions are first-class citizens** in JavaScript - they can be assigned to variables, passed as parameters, and returned from other functions
+2. **Function hoisting** allows you to call functions before they're declared (with function declarations, not expressions)
+3. **Parameters are passed by value** for primitives and by reference for objects
+4. **Functions create their own scope** - variables declared inside are not accessible outside
+5. **The `return` statement is optional** - functions without it return `undefined`
+6. **Functions can be nested** - you can define functions inside other functions
+7. **Use descriptive names** and JSDoc comments for better code documentation
+8. **Consider function purity** - pure functions are easier to test and debug
+
+### 🔄 Function Scope and Closures
+
+**Function Scope:**
+```javascript
+function demonstrateScope () {
+  let localVariable = 'I am local'
+  console.log('Inside function:', localVariable)
+}
+
+demonstrateScope() // "Inside function: I am local"
+// console.log(localVariable) // ReferenceError: localVariable is not defined
+```
+
+**Closures:**
+```javascript
+function createCounter () {
+  let count = 0
+  return function () {
+    count++
+    return count
+  }
+}
+
+const counter = createCounter()
+console.log('counter():', counter()) // 1
+console.log('counter():', counter()) // 2
+console.log('counter():', counter()) // 3
+```
+
 ### 🚨 Common Function Errors and Debugging
 
 **Undefined Function Error:**
@@ -1989,44 +2029,46 @@ console.log('getFullName result:', getFullName('John', 'Doe')) // undefined
 console.log('getFullNameCorrect result:', getFullNameCorrect('John', 'Doe')) // "John Doe"
 ```
 
-### 💡 Key Points About Functions
-
-1. **Functions are first-class citizens** in JavaScript - they can be assigned to variables, passed as parameters, and returned from other functions
-2. **Function hoisting** allows you to call functions before they're declared (with function declarations, not expressions)
-3. **Parameters are passed by value** for primitives and by reference for objects
-4. **Functions create their own scope** - variables declared inside are not accessible outside
-5. **The `return` statement is optional** - functions without it return `undefined`
-6. **Functions can be nested** - you can define functions inside other functions
-7. **Use descriptive names** and JSDoc comments for better code documentation
-8. **Consider function purity** - pure functions are easier to test and debug
-
-### 🔄 Function Scope and Closures
-
-**Function Scope:**
+**Rest Parameter Errors:**
 ```javascript
-function demonstrateScope () {
-  let localVariable = 'I am local'
-  console.log('Inside function:', localVariable)
+// ❌ Error: Rest parameter must be last
+// function invalidRest(a, ...b, c) { } // SyntaxError: Rest parameter must be last formal parameter
+
+// ✅ Correct: Rest parameter at the end
+function validRest(a, c, ...b) {
+  return { a, c, b }
 }
 
-demonstrateScope() // "Inside function: I am local"
-// console.log(localVariable) // ReferenceError: localVariable is not defined
+console.log('validRest(1, 2, 3, 4):', validRest(1, 2, 3, 4)) // { a: 1, c: 2, b: [3, 4] }
 ```
 
-**Closures:**
+**Object Parameter Validation Errors:**
 ```javascript
-function createCounter () {
-  let count = 0
-  return function () {
-    count++
-    return count
+function processUser(user) {
+  // ❌ Error: Accessing undefined properties
+  // return user.name.toUpperCase() // TypeError if user.name is undefined
+  
+  // ✅ Correct: Validate before accessing
+  if (!user || typeof user.name !== 'string') {
+    throw new Error('User object must have a valid name property')
   }
+  return user.name.toUpperCase()
 }
 
-const counter = createCounter()
-console.log('counter():', counter()) // 1
-console.log('counter():', counter()) // 2
-console.log('counter():', counter()) // 3
+try {
+  console.log('processUser({name: "john"}):', processUser({name: "john"})) // "JOHN"
+  console.log('processUser({}):', processUser({})) // Error
+} catch (error) {
+  console.log('Error caught:', error.message)
+}
 ```
+
+**Debugging Tips:**
+- Use `console.log()` with variable names for clear debugging output
+- Check function parameters with `typeof` before using them
+- Use try-catch blocks to handle potential errors gracefully
+- Validate object properties before accessing them
+- Always include return statements when functions should return values
+- Use JSDoc comments to document expected parameter types
 
 Functions are essential building blocks in JavaScript that help create modular, reusable, and maintainable code. Understanding how to properly declare, call, and work with functions is crucial for becoming proficient in JavaScript programming.
