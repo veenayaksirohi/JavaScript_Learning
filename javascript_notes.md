@@ -1212,51 +1212,6 @@ JavaScript provides several built-in methods for working with object properties:
 - `Object.entries()`: Converting objects to arrays for array methods, creating key-value pairs
 - `hasOwnProperty()`: Checking if an object has a specific property before accessing it
 
-### 🚨 Common Errors and Debugging
-
-#### TypeError: "x" is not a function
-This error occurs when you try to call a value that is not a function. Common causes include:
-
-1. **Typo in Method Name**: Ensure the method name is spelled correctly.
-   ```javascript
-   // ❌ Error: Typo in method name
-   obj.gretting(); // TypeError: obj.gretting is not a function
-   
-   // ✅ Correct: Proper method name
-   obj.greeting(); // Works correctly
-   ```
-
-2. **Adding Methods After Freezing**: You cannot add new properties to a frozen object.
-   ```javascript
-   // ❌ Error: Adding method after freezing
-   Object.freeze(obj);
-   obj.newMethod = function() { console.log('hello'); }; // Won't work
-   
-   // ✅ Correct: Add methods before freezing
-   obj.newMethod = function() { console.log('hello'); };
-   Object.freeze(obj);
-   obj.newMethod(); // Works correctly
-   ```
-
-3. **Property Not Defined**: Ensure the property exists before calling it as a function.
-   ```javascript
-   // ❌ Error: Property doesn't exist
-   const obj = {};
-   obj.method(); // TypeError: obj.method is not a function
-   
-   // ✅ Correct: Define the method first
-   const obj = {
-       method: function() { console.log('hello'); }
-   };
-   obj.method(); // Works correctly
-   ```
-
-**Debugging Tips:**
-- Always check for typos in method names
-- Use `console.log(typeof obj.method)` to verify if a property is a function
-- Add all properties and methods before calling `Object.freeze()`
-- Use proper naming conventions to avoid confusion
-
 ### 🔗 Object Destructuring (ES6)
 
 Object destructuring is a powerful ES6 feature that allows you to extract properties from objects and assign them to variables in a clean, readable way. It's based on the concept of using patterns to extract parts of data, similar to how object literals let us create multiple properties at once.
@@ -1562,3 +1517,48 @@ Promise.all(urls.map(url => fetch(url).then(res => res.json())))
 - **Extract only the properties you need**
 - **Use destructuring in function parameters for better API design**
 - **Combine with default parameters for robust function signatures**
+
+### 🚨 Common Errors and Debugging
+
+#### TypeError: "x" is not a function
+This error occurs when you try to call a value that is not a function. Common causes include:
+
+1. **Typo in Method Name**: Ensure the method name is spelled correctly.
+   ```javascript
+   // ❌ Error: Typo in method name
+   obj.gretting(); // TypeError: obj.gretting is not a function
+   
+   // ✅ Correct: Proper method name
+   obj.greeting(); // Works correctly
+   ```
+
+2. **Adding Methods After Freezing**: You cannot add new properties to a frozen object.
+   ```javascript
+   // ❌ Error: Adding method after freezing
+   Object.freeze(obj);
+   obj.newMethod = function() { console.log('hello'); }; // Won't work
+   
+   // ✅ Correct: Add methods before freezing
+   obj.newMethod = function() { console.log('hello'); };
+   Object.freeze(obj);
+   obj.newMethod(); // Works correctly
+   ```
+
+3. **Property Not Defined**: Ensure the property exists before calling it as a function.
+   ```javascript
+   // ❌ Error: Property doesn't exist
+   const obj = {};
+   obj.method(); // TypeError: obj.method is not a function
+   
+   // ✅ Correct: Define the method first
+   const obj = {
+       method: function() { console.log('hello'); }
+   };
+   obj.method(); // Works correctly
+   ```
+
+**Debugging Tips:**
+- Always check for typos in method names
+- Use `console.log(typeof obj.method)` to verify if a property is a function
+- Add all properties and methods before calling `Object.freeze()`
+- Use proper naming conventions to avoid confusion
