@@ -1758,6 +1758,49 @@ console.log('sum(1, 2, 3):', sum(1, 2, 3)) // 6
 console.log('sum(1, 2, 3, 4, 5):', sum(1, 2, 3, 4, 5)) // 15
 ```
 
+**Rest Parameters with Array Iteration:**
+```javascript
+/**
+ * Function to calculate total cart price using rest parameters
+ * @param {...number} num - Variable number of price values
+ * @returns {number} Total sum of all prices
+ */
+function calculateCartPrice (...num) {
+  let sum = 0
+  for (let i = 0; i < num.length; i++) {
+    sum = sum + num[i]
+  }
+  return sum
+}
+
+const cartTotal = calculateCartPrice(1, 2, 3, 4)
+console.log('calculateCartPrice result:', cartTotal) // 10
+```
+
+**Rest Parameters Behavior:**
+```javascript
+/**
+ * Function to demonstrate rest parameters behavior
+ * @param {number} num1 - First parameter
+ * @param {number} num2 - Second parameter
+ * @param {...number} num - Rest of the parameters (collected as array)
+ * @returns {Array} Array containing the rest parameters
+ */
+function Price (num1, num2, ...num) {
+  return num
+}
+
+const restParams = Price(1, 2, 3, 4)
+console.log('Price function rest parameters:', restParams) // [3, 4]
+```
+
+**Key Points About Rest Parameters:**
+- Rest parameters must be the last parameter in the function signature
+- They collect all remaining arguments into an array
+- Useful for functions that accept a variable number of arguments
+- Can be combined with regular parameters
+- The rest parameter is always an array, even if no arguments are passed
+
 **Arrow Functions (ES6):**
 ```javascript
 // Traditional function
@@ -1814,6 +1857,42 @@ const numbers = [1, 2, 3, 4, 5]
 const doubled = processArray(numbers, (num) => num * 2)
 console.log('doubled:', doubled) // [2, 4, 6, 8, 10]
 ```
+
+**Object Parameters:**
+```javascript
+/**
+ * User object with username and price properties
+ * Demonstrates object structure for function parameters
+ */
+const user = {
+  username: 'veenayak',
+  Price: 200
+}
+
+/**
+ * Function to handle object parameters with validation
+ * @param {Object} user - User object containing username and Price properties
+ * @param {string} user.username - The username
+ * @param {number} user.Price - The price value
+ * @returns {string} Formatted string with user information or error message
+ */
+function handleobject (user) {
+  if (!user.username || !user.Price) {
+    return 'not available'
+  }
+  return `username is ${user.username} and price is ${user.Price}`
+}
+
+const userInfo = handleobject(user)
+console.log('handleobject result:', userInfo) // "username is veenayak and price is 200"
+```
+
+**Object Parameter Best Practices:**
+- Use object destructuring for cleaner parameter handling
+- Validate object properties before using them
+- Provide meaningful error messages for missing properties
+- Use JSDoc to document object parameter structure
+- Consider using default values for optional object properties
 
 ### 📚 Function Best Practices
 

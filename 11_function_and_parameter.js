@@ -62,3 +62,62 @@ console.log('userLogin with username:', userLogin('veenayak'))
 
 // Test function without username (undefined parameter)
 console.log('userLogin without username:', userLogin())
+
+/**
+ * Function to calculate total cart price using rest parameters
+ * @param {...number} num - Variable number of price values
+ * @returns {number} Total sum of all prices
+ * Demonstrates rest parameters and array iteration
+ */
+function calculateCartPrice (...num) {
+  let sum = 0
+  for (let i = 0; i < num.length; i++) {
+    sum = sum + num[i]
+  }
+  return sum
+}
+
+const cartTotal = calculateCartPrice(1, 2, 3, 4)
+console.log('calculateCartPrice result:', cartTotal)
+
+/**
+ * Function to demonstrate rest parameters behavior
+ * @param {number} num1 - First parameter
+ * @param {number} num2 - Second parameter
+ * @param {...number} num - Rest of the parameters (collected as array)
+ * @returns {Array} Array containing the rest parameters
+ * Demonstrates how rest parameters collect remaining arguments
+ */
+function Price (num1, num2, ...num) {
+  return num
+}
+
+const restParams = Price(1, 2, 3, 4)
+console.log('Price function rest parameters:', restParams)
+
+/**
+ * User object with username and price properties
+ * Demonstrates object structure for function parameters
+ */
+const user = {
+  username: 'veenayak',
+  Price: 200
+}
+
+/**
+ * Function to handle object parameters with validation
+ * @param {Object} user - User object containing username and Price properties
+ * @param {string} user.username - The username
+ * @param {number} user.Price - The price value
+ * @returns {string} Formatted string with user information or error message
+ * Demonstrates object destructuring and parameter validation
+ */
+function handleobject (user) {
+  if (!user.username || !user.Price) {
+    return 'not available'
+  }
+  return `username is ${user.username} and price is ${user.Price}`
+}
+
+const userInfo = handleobject(user)
+console.log('handleobject result:', userInfo)
