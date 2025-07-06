@@ -3056,79 +3056,7 @@ This error occurs when you try to call a value that is not a function. Common ca
 
 ---
 
-### ⚡ **IMMEDIATELY INVOKED FUNCTION EXPRESSIONS (IIFE)** (Modern JavaScript Pattern)
-- [15. ⚡ Immediately Invoked Function Expressions (IIFE)](#15--immediately-invoked-function-expressions-iife)
 
----
-
-## ⚡ **IMMEDIATELY INVOKED FUNCTION EXPRESSIONS (IIFE)**
-
-### 15. ⚡ Immediately Invoked Function Expressions (IIFE)
-
-Immediately Invoked Function Expressions (IIFE) are functions that are executed right after they are defined. They are commonly used to create a new scope and avoid polluting the global namespace, especially in older JavaScript before the introduction of modules and block scope.
-
-**Key Features:**
-- IIFE are wrapped in parentheses to make them expressions, not declarations.
-- They execute immediately after creation.
-- Useful for isolating variables and logic.
-- Can be named or anonymous, and can accept parameters.
-
-**Syntax:**
-```javascript
-(function () {
-  // code here
-})()
-```
-
-**Named IIFE Example:**
-```javascript
-/**
- * Named IIFE example
- * Logs a message to indicate database connection
- */
-(function chai () {
-  console.log('chai IIFE - DB CONNECTED')
-})()
-```
-*Output:*
-```
-chai IIFE - DB CONNECTED
-```
-
-**Parameterized IIFE with Arrow Function:**
-```javascript
-/**
- * Parameterized IIFE using arrow function
- * @param {string} name - Name to include in the output
- * Logs a message with the provided name
- */
-((name) => {
-  console.log('arrow IIFE - DB CONNECTED TWO name:', name)
-})('hitesh')
-```
-*Output:*
-```
-arrow IIFE - DB CONNECTED TWO name: hitesh
-```
-
-**Why Use IIFE?**
-- To create a private scope for variables (before ES6 block scope)
-- To avoid polluting the global namespace
-- To execute setup code immediately
-
-**Best Practices:**
-- Always include variable names in console output for clarity
-- Use JSDoc comments to document IIFE purpose and parameters
-- Prefer arrow function IIFE for concise syntax when no `this` binding is needed
-
-**Common Pitfalls:**
-- Forgetting the parentheses will result in a function declaration, not an expression
-- Avoid using IIFE for code that should be reusable elsewhere
-
-**References:**
-- [MDN: IIFE](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)
-
----
 
 ### 🏹 **ARROW FUNCTIONS & THIS KEYWORD** (High Priority - Modern JavaScript)
 - [14. 🏹 Arrow Functions in JavaScript](#14--arrow-functions-in-javascript)
@@ -7235,7 +7163,7 @@ tinder = {}; // Reassigning to object literal syntax
     ```javascript
     const obj5 = Object.assign({}, obj1, obj2, { 7: 'd', 8: 'e' });
     const obj6 = { ...obj1, ...obj2, 7: 'd', 8: 'e' };
-    ```
+```
 
 ### 📚 Arrays of Objects
 - Arrays can contain objects as elements, creating collections of related data.
