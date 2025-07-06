@@ -189,6 +189,628 @@ console.log("hello")
 ## 2. 🗃️ Variables in JavaScript
 
 
+<<<<<<< Updated upstream
+=======
+In JavaScript, we use variables to store data. There are three keywords to declare variables: `var`, `let`, and `const`.
+
+**Example from `1_variable.js`:**
+```javascript
+// Declare constant variable (cannot be reassigned)
+const accountId = 1234;
+
+// Declare block-scoped variable (can be reassigned)
+let accountEmail = "veena@gmail.com";
+
+// Declare variable without initial value (will be undefined)
+let accountState;
+
+// Declare function-scoped variable (older syntax, not recommended)
+var accountPassword = "8879-9";
+
+// Implicit global variable declaration (not recommended)
+accountCity = "hapur";
+
+// Reassign let variable
+accountEmail = "hfkfds@ngghh";
+
+// Reassign var variable
+accountPassword = 77890;
+
+// Reassign implicit global variable
+accountCity = "ha";
+
+console.log('accountId:', accountId);
+console.log('accountEmail:', accountEmail);
+console.log('accountPassword:', accountPassword);
+console.log('accountCity:', accountCity);
+console.log('accountState:', accountState);
+
+// Display all variables in a table format for comparison
+console.table([accountId, accountEmail, accountPassword, accountPassword, accountCity, accountState]);
+```
+
+**Key Points:**
+- Use `const` for values that won't change
+- Use `let` for variables that will be reassigned
+- Avoid `var` due to function-scoping issues
+- Always declare variables before using them
+- Include variable names in console output for clarity
+
+## 3. 🖨️ Printing to the Console
+
+To see the output of your code and debug, you can print values to the console.
+
+### 📝 `console.log()`
+- Outputs a message to the web console.
+- You can pass one or more objects to it.
+
+**Example:**
+```javascript
+console.log("Hello, World!");
+console.log(accountEmail);
+```
+
+### 📊 `console.table()`
+- Displays tabular data as a table.
+- This is very useful for displaying arrays or objects.
+
+**Example:**
+```javascript
+const user1 = { name: "Alice", email: "alice@example.com" };
+const user2 = { name: "Bob", email: "bob@example.com" };
+console.table([user1, user2]);
+```
+
+### 🌐 Environment-Specific Functions (like `alert()`)
+
+⚠️ *Some functions are only available in specific JavaScript environments (like the browser or Node.js).*
+
+A common example is `alert()`. This function displays a pop-up dialog in the browser. However, it does not exist in the Node.js environment. If you try to use `alert()` in a Node.js file, you will get a `ReferenceError`. For displaying information in Node.js, it's best to use `console.log()`.
+
+---
+*Happy Coding! 🎉*
+
+## 🔄 **TYPE HANDLING & OPERATIONS**
+
+### 4. 🔢 JavaScript Data Types
+
+In programming, data types are an important concept. To be able to operate on variables, it is important to know something about the type. JavaScript has a set of primitive data types and a non-primitive data type (Object).
+
+### 🔧 "use strict"
+The `"use strict";` directive enables "strict mode". It helps you write cleaner code, by catching common coding bloopers and throwing errors.
+
+### 🧩 Primitive Data Types
+These are the fundamental data types. They are immutable, meaning their values cannot be changed.
+
+*   **📝 String**: Represents textual data.
+    ```javascript
+    let name = "veenayak";
+    ```
+*   **🔢 Number**: Represents numeric values, including integers and floating-point numbers.
+    ```javascript
+    let age = 22;
+    ```
+*   **✅ Boolean**: Represents a logical value of `true` or `false`.
+    ```javascript
+    let isLogged = false;
+    ```
+*   **🚫 Null**: Represents the intentional absence of any object value. It's a special value that means "no value".
+    ```javascript
+    let state = null;
+    ```
+*   **❓ Undefined**: A variable that has been declared but not assigned a value has the value `undefined`.
+    ```javascript
+    let city; // city is undefined
+    ```
+*   **🔢 BigInt**: Used for integers of arbitrary precision, which cannot be represented by the `Number` type.
+*   **🔑 Symbol**: A unique and immutable value that can be used as a key for an object property.
+
+### 🗂️ Non-Primitive Data Type
+
+*   **🗃️ Object**: A collection of key-value pairs. Arrays, Functions, and more are all types of objects in JavaScript.
+
+### 🏷️ The `typeof` Operator
+You can use the `typeof` operator to find the data type of a JavaScript variable.
+
+```javascript
+console.log(typeof "veenayak"); // "string"
+console.log(typeof 22);        // "number"
+console.log(typeof false);     // "boolean"
+```
+
+💡 *Important Quirk:*
+A well-known quirk in JavaScript is that the `typeof` a `null` value is `object`.
+```javascript
+console.log(typeof null); // "object"
+```
+
+## 5. 🔄 Type Conversion and Coercion
+
+In JavaScript, it's common to convert values from one type to another. This can be done explicitly (type conversion) or implicitly (type coercion).
+
+### 🔢 Explicit Conversion to Number
+You can explicitly convert a value to a number using the `Number()` constructor. The results can sometimes be surprising.
+
+*   A string containing a number is converted as you would expect.
+    ```javascript
+    let score = "33";
+    let valueInNumber = Number(score); // 33
+    ```
+*   A string with non-numeric characters (that isn't just a number) becomes `NaN`.
+    ```javascript
+    let score = "33q";
+    let valueInNumber = Number(score); // NaN (Not a Number)
+    ```
+*   `null` is converted to `0`.
+    ```javascript
+    let score = null;
+    let valueInNumber = Number(score); // 0
+    ```
+*   `undefined` is converted to `NaN`.
+    ```javascript
+    let score = undefined;
+    let valueInNumber = Number(score); // NaN
+    ```
+*   `boolean` values are converted to `1` for `true` and `0` for `false`.
+    ```javascript
+    let isLoggedIn = true;
+    let valueInNumber = Number(isLoggedIn); // 1
+    ```
+
+💡 **Key Quirk about `NaN`:**
+Even though `NaN` stands for "Not a Number", its type is `'number'`.
+```javascript
+console.log(typeof NaN); // "number"
+```
+
+### 📊 Conversion to Number Summary
+
+| Original Value | Converted Value | Notes                  |
+|----------------|-----------------|------------------------|
+| `"33"`         | `33`            |                        |
+| `"33abc"`      | `NaN`           |                        |
+| `""`           | `0`             | An empty string is 0.  |
+| `true`         | `1`             |                        |
+| `false`        | `0`             |                        |
+| `null`         | `0`             |                        |
+| `undefined`    | `NaN`           |                        |
+
+## 6. ➕ Operations in JavaScript
+
+JavaScript has a variety of operators to perform actions on values.
+
+### 🔢 Arithmetic Operators
+Basic arithmetic is straightforward. An interesting one is the unary negation operator.
+
+```javascript
+let value = 3;
+let negValue = -value; // negValue is -3
+```
+
+### 🔗 String Concatenation
+The `+` operator is used to concatenate (join) strings.
+
+```javascript
+let str1 = "hello";
+let str2 = " veenayak";
+let greeting = str1 + str2; // "hello veenayak"
+```
+
+### 🔄 Automatic Type Coercion with `+`
+This is where things can get tricky. The `+` operator's behavior depends on the types of the operands. If either operand is a string, JavaScript will convert the other operand to a string and concatenate them. The expression is evaluated from left to right.
+
+**Examples from `4_operation.js`:**
+
+*   `'1' + 2`
+    *   `'1'` is a string, so `2` is converted to `'2'`.
+    *   Result: `'1' + '2' = "12"`.
+
+*   `1 + '2'`
+    *   `'2'` is a string, so `1` is converted to `'1'`.
+    *   Result: `'1' + '2' = "12"`.
+
+*   `'1' + 2 + 2`
+    *   Evaluation is left to right: `('1' + 2) + 2`.
+    *   `'1' + 2` results in `"12"`.
+    *   `"12" + 2` results in `"122"`.
+
+*   `1 + 2 + '2'`
+    *   Evaluation is left to right: `(1 + 2) + '2'`.
+    *   `1 + 2` results in `3` (since both are numbers).
+    *   `3 + '2'` results in `"32"`.
+
+⚠️ *This behavior is a key reason to be mindful of data types when performing operations in JavaScript.*
+
+## 7. ⚖️ Comparison in JavaScript
+
+Comparing values in JavaScript can lead to some non-intuitive results due to type coercion.
+
+### 🔍 Loose Equality (`==`) vs. Strict Equality (`===`)
+
+This is one of the most important concepts in JavaScript comparisons.
+
+*   **🔒 Strict Equality (`===`)**: This operator checks if two values are equal *without* performing any type conversion. If the types are different, it immediately returns `false`. It is the recommended operator for equality checks.
+    ```javascript
+    console.log('2' === 2); // false (string vs. number)
+    ```
+
+*   **🔄 Loose Equality (`==`)**: This operator will try to convert the operands to a common type before making the comparison. This can lead to unexpected results.
+    ```javascript
+    console.log('2' == 2); // true (string '2' is converted to number 2)
+    ```
+
+💡 **Rule of thumb: Always prefer `===` over `==` to prevent bugs from unexpected type coercion.**
+
+### 🤔 The Curious Case of `null`
+
+The way `null` is handled in comparisons is inconsistent and a common source of bugs.
+
+*   When using **relational operators** (`>`, `<`, `>=`, `<=`), `null` is converted to the number `0`.
+    ```javascript
+    console.log(null > 0);  // false (because 0 > 0 is false)
+    console.log(null >= 0); // true (because 0 >= 0 is true)
+    ```
+
+*   When using the **loose equality operator** (`==`), `null` is *not* converted to `0`. `null` is only loosely equal to `undefined`.
+    ```javascript
+    console.log(null == 0);         // false
+    console.log(null == undefined); // true
+    ```
+
+### ❓ Comparisons with `undefined`
+
+`undefined` is more predictable than `null`.
+
+*   When compared with relational operators, it converts to `NaN` (Not a Number), and any comparison involving `NaN` returns `false`.
+    ```javascript
+    console.log(undefined > 0);  // false
+    console.log(undefined < 0);  // false
+    console.log(undefined >= 0); // false
+    ```
+*   When using loose equality, `undefined` is only equal to `null`.
+    ```javascript
+    console.log(undefined == 0); // false
+    ```
+
+## 📝 **STRING & NUMBER MANIPULATION**
+
+### 8. 📝 Strings and Template Literals
+
+Strings are one of the most commonly used data types in JavaScript. Modern JavaScript provides powerful ways to work with strings, including template literals.
+
+### 🔤 Template Literals (String Interpolation)
+
+Template literals are a modern way to create strings that can contain embedded expressions. They use backticks (`) instead of single or double quotes.
+
+**Example from `6_strings.js`:**
+```javascript
+let name = "veenayak";
+let repoCount = 50;
+
+console.log(`hello my name is ${name} and my repo count is ${repoCount}`);
+```
+
+**Key Features:**
+- Use backticks (`) to define template literals
+- Use `${expression}` to embed expressions
+- Can span multiple lines without concatenation
+- More readable than traditional string concatenation
+
+### 🔍 String Access by Index
+
+You can access individual characters in a string using bracket notation with an index (starting from 0).
+
+```javascript
+let name = "veenayak";
+console.log(name[0]); // "v" (first character)
+```
+
+### 🏗️ String Constructors
+
+JavaScript provides different ways to create strings, each with different characteristics.
+
+**String() Constructor (Recommended):**
+```javascript
+let userName = String("Veenayak");
+// Creates a primitive string value
+```
+
+**new String() Constructor (Not Recommended):**
+```javascript
+let userGame = new String("Veenayak");
+// Creates a String object (not a primitive)
+```
+
+**Key Differences:**
+- `String()` creates a primitive string value (recommended for most use cases)
+- `new String()` creates a String object with additional properties and methods
+- Primitive strings are more efficient and behave like regular strings
+- String objects are rarely needed and can cause confusion
+
+**Using console.table() to Compare:**
+```javascript
+console.table([userName, userGame]);
+// Shows the difference: userName is a string primitive, userGame is a String object
+```
+
+### 🛠️ Common String Methods and Properties
+
+Because strings (even primitive ones) behave like objects in JavaScript, they have many built-in methods and properties to help you manipulate them.
+
+**Examples from `6_strings.js`:**
+
+*   **📏 `.length`**: A property that returns the number of characters in the string.
+    ```javascript
+    let userGame = new String("Veenayak");
+    console.log(userGame.length); // 8
+    ```
+*   **🔤 `.toUpperCase()`**: A method that returns a new string with all characters converted to uppercase.
+    ```javascript
+    console.log(userGame.toUpperCase()); // "VEENAYAK"
+    ```
+*   **🔍 `.charAt(index)`**: A method that returns the character at the specified index.
+    ```javascript
+    console.log(userGame.charAt(2)); // "e"
+    ```
+*   **🔎 `.indexOf(substring)`**: A method that returns the index of the first occurrence of the specified substring. If the substring is not found, it returns -1.
+    ```javascript
+    console.log(userGame.indexOf('e')); // 1
+    ```
+*   **✂️ `.substring(startIndex, endIndex)`**: Extracts a part of the string from `startIndex` up to (but not including) `endIndex`. It does not accept negative indices.
+    ```javascript
+    let userGame = new String("Veenayak");
+    const neu = userGame.substring(0, 4);
+    console.log(neu); // "Veen"
+    ```
+*   **🔪 `.slice(startIndex, endIndex)`**: A more versatile method that extracts a section of a string. The main difference from `substring` is that it can accept negative indices, which count from the end of the string.
+    ```javascript
+    let userGame = new String("Veenayak");
+    const news = userGame.slice(-6, 4);
+    console.log(news); // "en" 
+    // This starts at the 6th character from the end ('e', which is at index 2) and ends at index 4.
+    ```
+*   **🧹 `.trim()`**: Removes whitespace from both ends of a string (beginning and end). This is particularly useful for cleaning up user input or data that may have extra spaces.
+    ```javascript
+    const nam = "       veenayak        ";
+    console.log(nam); // "       veenayak        "
+    console.log(nam.trim()); // "veenayak"
+    ```
+*   **🔄 `.replace(searchValue, replaceValue)`**: Replaces the first occurrence of a specified value with another value. This is commonly used for URL encoding/decoding, text formatting, and data cleaning.
+    ```javascript
+    const url = "http://veenayak%20sirohi";
+    console.log(url.replace('%20', '-')); // "http://veenayak-sirohi"
+    // Replaces '%20' (URL encoded space) with a hyphen '-'
+    ```
+*   **🔍 `.includes(searchString)`**: Returns `true` if a string contains a specified substring, `false` otherwise. This is useful for checking if certain text exists within a larger string.
+    ```javascript
+    const url = "http://veenayak%20sirohi";
+    console.log(url.includes("sirohi")); // true
+    console.log(url.includes("hi")); // true (found within "sirohi")
+    console.log(url.includes("javascript")); // false
+    ```
+*   **🔤 `.toLowerCase()`**: Returns a new string with all characters converted to lowercase.
+    ```javascript
+    let userGame = new String("Veenayak");
+    console.log(userGame.toLowerCase()); // "veenayak"
+    ```
+*   **🔍 `.startsWith(searchString)`**: Returns `true` if a string begins with a specified string. This method is case sensitive.
+    ```javascript
+    let userGame = new String("Veenayak");
+    console.log(userGame.startsWith("Vee")); // true
+    console.log(userGame.startsWith("vee")); // false (case sensitive)
+    ```
+*   **🔍 `.endsWith(searchString)`**: Returns `true` if a string ends with a specified string. This method is case sensitive.
+    ```javascript
+    let userGame = new String("Veenayak");
+    console.log(userGame.endsWith("yak")); // true
+    console.log(userGame.endsWith("Yak")); // false (case sensitive)
+    ```
+*   **✂️ `.split(separator)`**: Splits a string into an array of substrings based on a separator. This is very useful for parsing strings.
+    ```javascript
+    const fullName = "Veenayak Sirohi";
+    console.log(fullName.split(" ")); // ["Veenayak", "Sirohi"] - splits on space
+    console.log(fullName.split("")); // ["V", "e", "e", "n", "a", "y", "a", "k", " ", "S", "i", "r", "o", "h", "i"] - splits into individual characters
+    ```
+*   **🔄 `.repeat(count)`**: Returns a new string with the original string repeated a specified number of times.
+    ```javascript
+    console.log("Ha".repeat(3)); // "HaHaHa"
+    ```
+*   **🔧 `__proto__`**: This property allows you to see the object's prototype, which contains all the available string methods. It's useful for inspection but not typically used in day-to-day coding.
+
+### 💡 Important Notes About Strings
+
+1. **⚠️ Avoid using `name` as a variable name** - it conflicts with the deprecated global `window.name` property in browsers
+# 📚 JavaScript Learning Notes
+
+Welcome to your JavaScript learning journey! This file will contain notes to help you understand the basics of JavaScript.
+
+## 🎯 **Learning Priority Guide**
+
+This guide is organized using **Impact vs. Effort** prioritization framework to maximize your learning efficiency:
+
+### 🚀 **CORE FUNDAMENTALS** (Learn First - High Impact, Low Effort)
+- **Variables, Data Types, Console Output**: Foundation for everything else
+- **Type Conversion & Operations**: Critical for preventing bugs
+- **Comparisons**: Essential for logic and decision-making
+
+### 🔄 **TYPE HANDLING & OPERATIONS** (Learn Second - High Impact, Medium Effort)
+- **Type Coercion**: Understanding JavaScript's automatic conversions
+- **Operations**: Mathematical and string operations
+- **Comparison Logic**: Loose vs. strict equality
+
+### 📝 **STRING & NUMBER MANIPULATION** (Learn Third - Medium-High Impact, Low Effort)
+- **String Methods**: Daily usage in web development
+- **Math Operations**: Common in calculations and algorithms
+- **Template Literals**: Modern string interpolation
+
+### 📅 **DATE HANDLING** (Learn Fourth - Medium Impact, Low Effort)
+- **Date Objects**: Common in applications and APIs
+- **Timestamps**: Essential for data processing
+
+### 🗂️ **DATA STRUCTURES** (Learn Fifth - High Impact, High Effort)
+- **Arrays**: Most important data structure
+- **Objects**: Foundation of JavaScript programming
+- **Object Destructuring**: Modern ES6 feature for clean code
+
+### 🔧 **FUNCTIONS & PARAMETERS** (Learn Sixth - High Impact, Medium Effort)
+- **Function Declaration**: Core programming concept
+- **Parameters & Return Values**: Essential for reusable code
+- **Function Scope**: Understanding variable accessibility
+
+**💡 Learning Strategy**: Start with Core Fundamentals, then progress through each section sequentially. Each section builds upon the previous ones, creating a solid foundation for advanced JavaScript concepts.
+
+## 📋 Table of Contents
+
+### 🎯 **CORE FUNDAMENTALS** (High Priority - Essential for Every Developer)
+- [1. 👋 "Hello, World!" in JavaScript](#1--hello-world-in-javascript)
+- [2. 🗃️ Variables in JavaScript](#2--variables-in-javascript)
+  - [🔒 `const`](#-const)
+  - [🔄 `let`](#-let)
+  - [🏷️ `var`](#️-var)
+  - [🔍 Key Difference: `let` vs `var` (Scope)](#-key-difference-let-vs-var-scope)
+  - [❓ Undefined Variables](#-undefined-variables)
+- [3. 🖨️ Printing to the Console](#3--printing-to-the-console)
+  - [📝 `console.log()`](#-consolelog)
+  - [📊 `console.table()`](#-consoletable)
+  - [🌐 Environment-Specific Functions](#-environment-specific-functions)
+- [4. 🔢 JavaScript Data Types](#4--javascript-data-types)
+  - [🔧 "use strict"](#-use-strict)
+  - [🧩 Primitive Data Types](#-primitive-data-types)
+  - [🗂️ Non-Primitive Data Type](#️-non-primitive-data-type)
+  - [🏷️ The `typeof` Operator](#️-the-typeof-operator)
+
+### 🔄 **TYPE HANDLING & OPERATIONS** (High Priority - Critical for Bug Prevention)
+- [5. 🔄 Type Conversion and Coercion](#5--type-conversion-and-coercion)
+  - [🔢 Explicit Conversion to Number](#-explicit-conversion-to-number)
+  - [📊 Conversion to Number Summary](#-conversion-to-number-summary)
+- [6. ➕ Operations in JavaScript](#6--operations-in-javascript)
+  - [🔢 Arithmetic Operators](#-arithmetic-operators)
+  - [🔗 String Concatenation](#-string-concatenation)
+  - [🔄 Automatic Type Coercion with `+`](#-automatic-type-coercion-with-)
+- [7. ⚖️ Comparison in JavaScript](#7--comparison-in-javascript)
+  - [🔍 Loose Equality (`==`) vs. Strict Equality (`===`)](#-loose-equality--vs-strict-equality-)
+  - [🤔 The Curious Case of `null`](#-the-curious-case-of-null)
+  - [❓ Comparisons with `undefined`](#-comparisons-with-undefined)
+
+### 📝 **STRING & NUMBER MANIPULATION** (Medium-High Priority - Daily Usage)
+- [8. 📝 Strings and Template Literals](#8--strings-and-template-literals)
+  - [🔤 Template Literals (String Interpolation)](#-template-literals-string-interpolation)
+  - [🔍 String Access by Index](#-string-access-by-index)
+  - [🏗️ String Constructors](#️-string-constructors)
+  - [🛠️ Common String Methods and Properties](#️-common-string-methods-and-properties)
+  - [💡 Important Notes About Strings](#-important-notes-about-strings)
+- [9. 🔢 Numbers and Math in JavaScript](#9--numbers-and-math-in-javascript)
+  - [🏗️ Number Constructors and Methods](#️-number-constructors-and-methods)
+  - [🧮 Math Object Methods](#-math-object-methods)
+  - [🎲 Random Number Generation](#-random-number-generation)
+  - [💡 Important Notes About Numbers](#-important-notes-about-numbers)
+  - [🐛 Debugging Tip: Object Notation](#-debugging-tip-object-notation)
+
+### 📅 **DATE HANDLING** (Medium Priority - Common in Applications)
+- [10. 🗓️ Dates in JavaScript](#10--dates-in-javascript)
+  - [🕰️ Creating Dates](#️-creating-dates)
+  - [⏳ Timestamps (Milliseconds Since Epoch)](#-timestamps-milliseconds-since-epoch)
+  - [📜 Formatting Dates](#-formatting-dates)
+  - [🧩 Getting and Setting Date Components](#-getting-and-setting-date-components)
+  - [✨ Advanced Formatting with `toLocaleString`](#-advanced-formatting-with-tolocalestring)
+  - [💡 Important Notes About Dates](#-important-notes-about-dates)
+
+### 🗂️ **DATA STRUCTURES** (High Priority - Foundation for Complex Applications)
+- [11. 📚 Arrays in JavaScript](#11--arrays-in-javascript)
+  - [🏗️ Creating Arrays](#️-creating-arrays)
+  - [🔢 Accessing Elements](#-accessing-elements)
+  - [📏 Array Length](#-array-length)
+  - [➕ Adding and Removing Elements](#-adding-and-removing-elements)
+  - [🔍 Checking for Elements and Indexes](#-checking-for-elements-and-indexes)
+  - [🔗 Joining Array Elements](#-joining-array-elements)
+  - [🖨️ Printing Arrays with Labels](#️-printing-arrays-with-labels)
+  - [✂️ Slicing and Splicing Arrays](#️-slicing-and-splicing-arrays)
+  - [🔄 Combining and Mutating Arrays](#-combining-and-mutating-arrays)
+  - [🆕 Merging Arrays with the Spread Operator](#-merging-arrays-with-the-spread-operator)
+  - [🧩 Advanced Array Methods](#-advanced-array-methods)
+  - [📝 Clean Console Output](#-clean-console-output)
+  - [💡 Notes](#-notes)
+- [12. 🗃️ Objects in JavaScript](#12--objects-in-javascript)
+  - [🏗️ Creating Objects](#️-creating-objects)
+  - [🔑 Accessing Object Properties](#-accessing-object-properties)
+  - [🆕 Symbols in Objects](#-symbols-in-objects)
+  - [🔄 Object Reassignment](#-object-reassignment)
+  - [🔍 Checking Data Types](#-checking-data-types)
+  - [🔍 Object Property Enumeration](#-object-property-enumeration)
+  - [💡 Best Practices](#-best-practices)
+  - [🔒 Object Immutability](#-object-immutability)
+  - [🔧 Functions as Object Properties](#-functions-as-object-properties)
+  - [🔑 The 'this' Keyword in Methods](#-the-this-keyword-in-methods)
+  - [💡 Key Points](#-key-points)
+  - [🏗️ Nested Objects](#️-nested-objects)
+  - [🔄 Object Reassignment with Quoted Properties](#-object-reassignment-with-quoted-properties)
+  - [🔗 Object Concatenation Methods](#-object-concatenation-methods)
+  - [📚 Arrays of Objects](#-arrays-of-objects)
+  - [🛠️ Object Utility Methods](#️-object-utility-methods)
+  - [🔗 Object Destructuring (ES6)](#-object-destructuring-es6)
+    - [Basic Object Destructuring](#basic-object-destructuring)
+    - [Destructuring with Property Renaming](#destructuring-with-property-renaming)
+    - [Advanced Destructuring Features](#advanced-destructuring-features)
+    - [Destructuring in Different Contexts](#destructuring-in-different-contexts)
+    - [Error Handling and Edge Cases](#error-handling-and-edge-cases)
+    - [Advanced Patterns](#advanced-patterns)
+    - [Benefits of Object Destructuring](#benefits-of-object-destructuring)
+    - [Common Use Cases](#common-use-cases)
+    - [Best Practices](#best-practices)
+  - [🚨 Common Errors and Debugging](#-common-errors-and-debugging)
+
+### 🔧 **FUNCTIONS & PARAMETERS** (High Priority - Foundation for Programming)
+- [13. 🔧 Functions in JavaScript](#13--functions-in-javascript)
+  - [🏗️ Function Declaration and Calling](#️-function-declaration-and-calling)
+  - [📝 Functions with Parameters](#-functions-with-parameters)
+  - [🔄 Functions with Return Values](#-functions-with-return-values)
+  - [🔍 Understanding Function Return Values](#-understanding-function-return-values)
+  - [🛡️ Parameter Validation and Default Values](#️-parameter-validation-and-default-values)
+  - [🆕 Modern JavaScript Function Features](#-modern-javascript-function-features)
+  - [🔧 Function Types and Use Cases](#-function-types-and-use-cases)
+  - [📚 Function Best Practices](#-function-best-practices)
+  - [💡 Key Points About Functions](#-key-points-about-functions)
+  - [🔄 Function Scope and Closures](#-function-scope-and-closures)
+  - [🚨 Common Function Errors and Debugging](#-common-function-errors-and-debugging)
+  - [🔍 Variable Scope Demonstration](#-variable-scope-demonstration)
+  - [🔗 Nested Functions and Closures](#-nested-functions-and-closures)
+  - [📈 Function Hoisting](#-function-hoisting)
+  - [🔄 Function Return Values and Undefined](#-function-return-values-and-undefined)
+  - [🛡️ Parameter Validation and Error Handling](#️-parameter-validation-and-error-handling)
+  - [📊 Console Output Best Practices](#-console-output-best-practices)
+
+---
+
+### 🏹 **ARROW FUNCTIONS & THIS KEYWORD** (High Priority - Modern JavaScript)
+- [14. 🏹 Arrow Functions in JavaScript](#14--arrow-functions-in-javascript)
+  - [🔑 The 'this' Keyword](#-the-this-keyword)
+  - [🏗️ Arrow Function Syntax](#️-arrow-function-syntax)
+  - [🔄 Arrow Functions vs Regular Functions](#-arrow-functions-vs-regular-functions)
+  - [🎯 Detailed Differences Between Arrow and Regular Functions](#-detailed-differences-between-arrow-and-regular-functions)
+  - [🎯 When to Use Arrow Functions](#-when-to-use-arrow-functions)
+  - [🔧 Arrow Function Best Practices](#-arrow-function-best-practices)
+  - [🔍 'this' Keyword Demonstrations](#-this-keyword-demonstrations)
+  - [🌐 Environment Differences: console.log(this) in Code Editor vs Browser](#-environment-differences-consolelogthis-in-code-editor-vs-browser)
+  - [🚨 Common Arrow Function Errors and Debugging](#-common-arrow-function-errors-and-debugging)
+  - [💡 Key Points About Arrow Functions](#-key-points-about-arrow-functions)
+
+---
+
+## 🚀 **CORE FUNDAMENTALS**
+
+### 1. 👋 "Hello, World!" in JavaScript
+
+The most basic program you can write in many languages is one that prints "Hello, World!". In JavaScript, you can do this with `console.log()`.
+
+**Example from `0_hello.js`:**
+```javascript
+console.log("hello")
+```
+✨ *This is a great way to make sure your environment is set up correctly.*
+
+## 2. 🗃️ Variables in JavaScript
+
+>>>>>>> Stashed changes
 In JavaScript, we use variables to store data. There are three keywords to declare variables: `var`, `let`, and `const`.
 
 **Example from `1_variable.js`:**
