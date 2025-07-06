@@ -46,11 +46,11 @@ This guide is organized using **Impact vs. Effort** prioritization framework to 
 
 - [1. hello world in javascript](#1-hello-world-in-javascript)
 - [2. variables in javascript](#2-variables-in-javascript)
-  - [const](#const)
-  - [let](#let)
-  - [var](#var)
-  - [key-difference-let-vs-var-scope](#key-difference-let-vs-var-scope)
-  - [undefined-variables](#undefined-variables)
+  - [2.1 const](#21-const)
+  - [2.2 let](#22-let)
+  - [2.3 var](#23-var)
+  - [2.4 key difference let vs var scope](#24-key-difference-let-vs-var-scope)
+  - [2.5 undefined variables](#25-undefined-variables)
 - [3. printing to the console](#3-printing-to-the-console)
   - [consolelog](#consolelog)
   - [consoletable](#consoletable)
@@ -176,7 +176,23 @@ console.log("hello")
 
 
 
+
 ## 2. variables in javascript
+
+### 2.1 const
+// ...explanation and code for const...
+
+### 2.2 let
+// ...explanation and code for let...
+
+### 2.3 var
+// ...explanation and code for var...
+
+### 2.4 key difference let vs var scope
+// ...explanation and code for key difference let vs var scope...
+
+### 2.5 undefined variables
+// ...explanation and code for undefined variables...
 
 
 In JavaScript, we use variables to store data. There are three keywords to declare variables: `var`, `let`, and `const`.
@@ -230,7 +246,7 @@ console.table([accountId, accountEmail, accountPassword, accountPassword, accoun
 
 To see the output of your code and debug, you can print values to the console.
 
-### consolelog
+### 3.1 consolelog
 - Outputs a message to the web console.
 - You can pass one or more objects to it.
 
@@ -240,7 +256,7 @@ console.log("Hello, World!");
 console.log(accountEmail);
 ```
 
-### consoletable
+### 3.2 consoletable
 - Displays tabular data as a table.
 - This is very useful for displaying arrays or objects.
 
@@ -251,7 +267,7 @@ const user2 = { name: "Bob", email: "bob@example.com" };
 console.table([user1, user2]);
 ```
 
-### environment specific functions
+### 3.3 environment specific functions
 
 ⚠️ *Some functions are only available in specific JavaScript environments (like the browser or Node.js).*
 
@@ -266,10 +282,10 @@ A common example is `alert()`. This function displays a pop-up dialog in the bro
 
 In programming, data types are an important concept. To be able to operate on variables, it is important to know something about the type. JavaScript has a set of primitive data types and a non-primitive data type (Object).
 
-### use strict
+### 4.1 use strict
 The `"use strict";` directive enables "strict mode". It helps you write cleaner code, by catching common coding bloopers and throwing errors.
 
-### primitive data types
+### 4.2 primitive data types
 These are the fundamental data types. They are immutable, meaning their values cannot be changed.
 
 *   **📝 String**: Represents textual data.
@@ -295,11 +311,11 @@ These are the fundamental data types. They are immutable, meaning their values c
 *   **🔢 BigInt**: Used for integers of arbitrary precision, which cannot be represented by the `Number` type.
 *   **🔑 Symbol**: A unique and immutable value that can be used as a key for an object property.
 
-### non primitive data type
+### 4.3 non primitive data type
 
 *   **🗃️ Object**: A collection of key-value pairs. Arrays, Functions, and more are all types of objects in JavaScript.
 
-### the typeof operator
+### 4.4 the typeof operator
 You can use the `typeof` operator to find the data type of a JavaScript variable.
 
 ```javascript
