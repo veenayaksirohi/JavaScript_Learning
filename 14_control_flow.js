@@ -1,6 +1,9 @@
 /**
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
  * Demonstrates control flow concepts in JavaScript:
  * - if/else statements
@@ -16,6 +19,9 @@
 
 /**
  * Example: Basic if/else statement
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
  * Demonstrates control flow statements in JavaScript
@@ -61,6 +67,10 @@ console.log('Score variable:', score)
  * If-else statement with temperature comparison
  * Demonstrates conditional logic with variables
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> a64fc69ff1fad2ef051b460431d0bc7f45a1fca5
+>>>>>>> Stashed changes
 =======
 >>>>>>> a64fc69ff1fad2ef051b460431d0bc7f45a1fca5
 >>>>>>> Stashed changes
@@ -69,7 +79,10 @@ const isUserLoggedIn = true
 const temperature = 41
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
 // if (temperature === 40) {
 //   console.log('temperature:', 'less than 50')
@@ -102,6 +115,9 @@ const temperature = 41
 
 /**
  * Example: Logical operators (&&, ||)
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 if (temperature === 40) {
@@ -140,6 +156,10 @@ if (balance < 500) {
  * Logical operators demonstration
  * AND (&&) and OR (||) operators for complex conditions
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> a64fc69ff1fad2ef051b460431d0bc7f45a1fca5
+>>>>>>> Stashed changes
 =======
 >>>>>>> a64fc69ff1fad2ef051b460431d0bc7f45a1fca5
 >>>>>>> Stashed changes
@@ -150,7 +170,10 @@ const loggedInFromGoogle = false
 const loggedInFromEmail = true
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
 if (userLoggedIn && debitCard && 2 === 3) {
   console.log('purchasePermission:', 'Allow to buy course')
@@ -190,6 +213,9 @@ if (userEmail) {
   console.log('userEmail:', 'Got user email (truthy)')
 } else {
   console.log('userEmail:', 'Don\'t have user email (falsy)')
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 /**
@@ -245,6 +271,10 @@ if (userEmail) {
 } else {
   console.log('userEmail (array) is falsy:', userEmail, 'output:', "Don't have user email")
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> a64fc69ff1fad2ef051b460431d0bc7f45a1fca5
+>>>>>>> Stashed changes
 =======
 >>>>>>> a64fc69ff1fad2ef051b460431d0bc7f45a1fca5
 >>>>>>> Stashed changes
@@ -254,7 +284,10 @@ if (userEmail) {
 // Truthy values: '0', 'false', ' ', [], {}, function(){}
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 <<<<<<< HEAD
 if (userEmail.length === 0) {
   console.log('userEmail:', 'Array is empty')
@@ -283,6 +316,9 @@ console.log('val1:', val1)
 const iceTeaPrice = 100
 const priceMessage = iceTeaPrice <= 80 ? 'less than or equal to 80' : 'more than 80'
 console.log('iceTeaPrice:', priceMessage)
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 /**
@@ -319,7 +355,12 @@ const iceTeaPrice = 100
 iceTeaPrice <= 80
   ? console.log('iceTeaPrice <= 80:', true, 'output:', 'less than 80')
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   : console.log('iceTeaPrice <= 80:', false, 'output:', 'more than 80')
+=======
+  : console.log('iceTeaPrice <= 80:', false, 'output:', 'more than 80')
+>>>>>>> a64fc69ff1fad2ef051b460431d0bc7f45a1fca5
+>>>>>>> Stashed changes
 =======
   : console.log('iceTeaPrice <= 80:', false, 'output:', 'more than 80')
 >>>>>>> a64fc69ff1fad2ef051b460431d0bc7f45a1fca5
