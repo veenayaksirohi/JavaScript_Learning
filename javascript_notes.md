@@ -1,36 +1,36 @@
-# 📚 JavaScript Learning Notes
+# JavaScript Learning Notes
 
 Welcome to your JavaScript learning journey! This file will contain notes to help you understand the basics of JavaScript.
 
-## 🎯 **Learning Priority Guide**
+## Learning Priority Guide
 
 This guide is organized using **Impact vs. Effort** prioritization framework to maximize your learning efficiency:
 
-### 🚀 **CORE FUNDAMENTALS** (Learn First - High Impact, Low Effort)
+### core fundamentals (learn first - high impact, low effort)
 - **Variables, Data Types, Console Output**: Foundation for everything else
 - **Type Conversion & Operations**: Critical for preventing bugs
 - **Comparisons**: Essential for logic and decision-making
 
-### 🔄 **TYPE HANDLING & OPERATIONS** (Learn Second - High Impact, Medium Effort)
+### type handling & operations (learn second - high impact, medium effort)
 - **Type Coercion**: Understanding JavaScript's automatic conversions
 - **Operations**: Mathematical and string operations
 - **Comparison Logic**: Loose vs. strict equality
 
-### 📝 **STRING & NUMBER MANIPULATION** (Learn Third - Medium-High Impact, Low Effort)
+### string & number manipulation (learn third - medium-high impact, low effort)
 - **String Methods**: Daily usage in web development
 - **Math Operations**: Common in calculations and algorithms
 - **Template Literals**: Modern string interpolation
 
-### 📅 **DATE HANDLING** (Learn Fourth - Medium Impact, Low Effort)
+### date handling (learn fourth - medium impact, low effort)
 - **Date Objects**: Common in applications and APIs
 - **Timestamps**: Essential for data processing
 
-### 🗂️ **DATA STRUCTURES** (Learn Fifth - High Impact, High Effort)
+### data structures (learn fifth - high impact, high effort)
 - **Arrays**: Most important data structure
 - **Objects**: Foundation of JavaScript programming
 - **Object Destructuring**: Modern ES6 feature for clean code
 
-### 🔧 **FUNCTIONS & PARAMETERS** (Learn Sixth - High Impact, Medium Effort)
+### functions & parameters (learn sixth - high impact, medium effort)
 - **Function Declaration**: Core programming concept
 - **Parameters & Return Values**: Essential for reusable code
 - **Function Scope**: Understanding variable accessibility
@@ -40,143 +40,131 @@ This guide is organized using **Impact vs. Effort** prioritization framework to 
 
 
 
-## Table of Contents
 
-- [1. Hello World in JavaScript](#1-hello-world-in-javascript)
 
-- [2. Variables in JavaScript](#2-variables-in-javascript)
+## table of contents
+
+- [1. hello world in javascript](#1-hello-world-in-javascript)
+- [2. variables in javascript](#2-variables-in-javascript)
   - [const](#const)
   - [let](#let)
   - [var](#var)
-  - [Key Difference let vs var Scope](#key-difference-let-vs-var-scope)
-  - [Undefined Variables](#undefined-variables)
-
-- [3. Printing to the Console](#3-printing-to-the-console)
+  - [key-difference-let-vs-var-scope](#key-difference-let-vs-var-scope)
+  - [undefined-variables](#undefined-variables)
+- [3. printing to the console](#3-printing-to-the-console)
   - [consolelog](#consolelog)
   - [consoletable](#consoletable)
-  - [Environment Specific Functions](#environment-specific-functions)
-
-- [4. JavaScript Data Types](#4-javascript-data-types)
-  - [use strict](#use-strict)
-  - [Primitive Data Types](#primitive-data-types)
-  - [Non Primitive Data Type](#non-primitive-data-type)
-  - [The typeof Operator](#the-typeof-operator)
-
-- [5. Type Conversion and Coercion](#5-type-conversion-and-coercion)
-  - [Explicit Conversion to Number](#explicit-conversion-to-number)
-  - [Conversion to Number Summary](#conversion-to-number-summary)
-
-- [6. Operations in JavaScript](#6-operations-in-javascript)
-  - [Arithmetic Operators](#arithmetic-operators)
-  - [String Concatenation](#string-concatenation)
-  - [Automatic Type Coercion with plus](#automatic-type-coercion-with-plus)
-
-- [7. Comparison in JavaScript](#7-comparison-in-javascript)
-  - [Loose Equality vs Strict Equality](#loose-equality-vs-strict-equality)
-  - [The Curious Case of null](#the-curious-case-of-null)
-  - [Comparisons with undefined](#comparisons-with-undefined)
-
-- [8. Strings and Template Literals](#8-strings-and-template-literals)
-  - [Template Literals String Interpolation](#template-literals-string-interpolation)
-  - [String Access by Index](#string-access-by-index)
-  - [String Constructors](#string-constructors)
-  - [Common String Methods and Properties](#common-string-methods-and-properties)
-  - [Important Notes About Strings](#important-notes-about-strings)
-
-- [9. Numbers and Math in JavaScript](#9-numbers-and-math-in-javascript)
-  - [Number Constructors and Methods](#number-constructors-and-methods)
-  - [Math Object Methods](#math-object-methods)
-  - [Random Number Generation](#random-number-generation)
-  - [Important Notes About Numbers](#important-notes-about-numbers)
-  - [Debugging Tip Object Notation](#debugging-tip-object-notation)
-
-- [10. Dates in JavaScript](#10-dates-in-javascript)
-  - [Creating Dates](#creating-dates)
-  - [Timestamps Milliseconds Since Epoch](#timestamps-milliseconds-since-epoch)
-  - [Formatting Dates](#formatting-dates)
-  - [Getting and Setting Date Components](#getting-and-setting-date-components)
-  - [Advanced Formatting with toLocaleString](#advanced-formatting-with-tolocalestring)
-  - [Important Notes About Dates](#important-notes-about-dates)
-
-- [11. Arrays in JavaScript](#11-arrays-in-javascript)
-  - [Creating Arrays](#creating-arrays)
-  - [Accessing Elements](#accessing-elements)
-  - [Array Length](#array-length)
-  - [Adding and Removing Elements](#adding-and-removing-elements)
-  - [Checking for Elements and Indexes](#checking-for-elements-and-indexes)
-  - [Joining Array Elements](#joining-array-elements)
-  - [Printing Arrays with Labels](#printing-arrays-with-labels)
-  - [Slicing and Splicing Arrays](#slicing-and-splicing-arrays)
-  - [Combining and Mutating Arrays](#combining-and-mutating-arrays)
-  - [Merging Arrays with the Spread Operator](#merging-arrays-with-the-spread-operator)
-  - [Advanced Array Methods](#advanced-array-methods)
-  - [Clean Console Output](#clean-console-output)
-  - [Notes](#notes)
-
-- [12. Objects in JavaScript](#12-objects-in-javascript)
-  - [Creating Objects](#creating-objects)
-  - [Accessing Object Properties](#accessing-object-properties)
-  - [Symbols in Objects](#symbols-in-objects)
-  - [Object Reassignment](#object-reassignment)
-  - [Checking Data Types](#checking-data-types)
-  - [Object Property Enumeration](#object-property-enumeration)
-  - [Best Practices](#best-practices)
-  - [Object Immutability](#object-immutability)
-  - [Functions as Object Properties](#functions-as-object-properties)
-  - [The this Keyword in Methods](#the-this-keyword-in-methods)
-  - [Key Points](#key-points)
-  - [Nested Objects](#nested-objects)
-  - [Object Reassignment with Quoted Properties](#object-reassignment-with-quoted-properties)
-  - [Object Concatenation Methods](#object-concatenation-methods)
-  - [Arrays of Objects](#arrays-of-objects)
-  - [Object Utility Methods](#object-utility-methods)
-  - [Object Destructuring ES6](#object-destructuring-es6)
-    - [Basic Object Destructuring](#basic-object-destructuring)
-    - [Destructuring with Property Renaming](#destructuring-with-property-renaming)
-    - [Advanced Destructuring Features](#advanced-destructuring-features)
-    - [Destructuring in Different Contexts](#destructuring-in-different-contexts)
-    - [Error Handling and Edge Cases](#error-handling-and-edge-cases)
-    - [Advanced Patterns](#advanced-patterns)
-    - [Benefits of Object Destructuring](#benefits-of-object-destructuring)
-    - [Common Use Cases](#common-use-cases)
-    - [Best Practices](#best-practices)
-  - [Common Errors and Debugging](#common-errors-and-debugging)
-
-- [13. Functions in JavaScript](#13-functions-in-javascript)
-  - [Function Declaration and Calling](#function-declaration-and-calling)
-  - [Functions with Parameters](#functions-with-parameters)
-  - [Functions with Return Values](#functions-with-return-values)
-  - [Understanding Function Return Values](#understanding-function-return-values)
-  - [Parameter Validation and Default Values](#parameter-validation-and-default-values)
-  - [Modern JavaScript Function Features](#modern-javascript-function-features)
-  - [Function Types and Use Cases](#function-types-and-use-cases)
-  - [Function Best Practices](#function-best-practices)
-  - [Key Points About Functions](#key-points-about-functions)
-  - [Function Scope and Closures](#function-scope-and-closures)
-  - [Common Function Errors and Debugging](#common-function-errors-and-debugging)
-  - [Variable Scope Demonstration](#variable-scope-demonstration)
-  - [Nested Functions and Closures](#nested-functions-and-closures)
-  - [Function Hoisting](#function-hoisting)
-  - [Function Return Values and Undefined](#function-return-values-and-undefined)
-  - [Parameter Validation and Error Handling](#parameter-validation-and-error-handling)
-  - [Console Output Best Practices](#console-output-best-practices)
-
-- [14. Arrow Functions in JavaScript](#14-arrow-functions-in-javascript)
-  - [The this Keyword](#the-this-keyword)
-  - [Arrow Function Syntax](#arrow-function-syntax)
-  - [Arrow Functions vs Regular Functions](#arrow-functions-vs-regular-functions)
-  - [Detailed Differences Between Arrow and Regular Functions](#detailed-differences-between-arrow-and-regular-functions)
-  - [When to Use Arrow Functions](#when-to-use-arrow-functions)
-  - [Arrow Function Best Practices](#arrow-function-best-practices)
-  - [this Keyword Demonstrations](#this-keyword-demonstrations)
-  - [Environment Differences consolelogthis in Code Editor vs Browser](#environment-differences-consolelogthis-in-code-editor-vs-browser)
-  - [Common Arrow Function Errors and Debugging](#common-arrow-function-errors-and-debugging)
-  - [Key Points About Arrow Functions](#key-points-about-arrow-functions)
+  - [environment-specific-functions](#environment-specific-functions)
+- [4. javascript data types](#4-javascript-data-types)
+  - [use-strict](#use-strict)
+  - [primitive-data-types](#primitive-data-types)
+  - [non-primitive-data-type](#non-primitive-data-type)
+  - [the-typeof-operator](#the-typeof-operator)
+- [5. type conversion and coercion](#5-type-conversion-and-coercion)
+  - [explicit-conversion-to-number](#explicit-conversion-to-number)
+  - [conversion-to-number-summary](#conversion-to-number-summary)
+- [6. operations in javascript](#6-operations-in-javascript)
+  - [arithmetic-operators](#arithmetic-operators)
+  - [string-concatenation](#string-concatenation)
+  - [automatic-type-coercion-with-plus](#automatic-type-coercion-with-plus)
+- [7. comparison in javascript](#7-comparison-in-javascript)
+  - [loose-equality-vs-strict-equality](#loose-equality-vs-strict-equality)
+  - [the-curious-case-of-null](#the-curious-case-of-null)
+  - [comparisons-with-undefined](#comparisons-with-undefined)
+- [8. strings and template literals](#8-strings-and-template-literals)
+  - [template-literals-string-interpolation](#template-literals-string-interpolation)
+  - [string-access-by-index](#string-access-by-index)
+  - [string-constructors](#string-constructors)
+  - [common-string-methods-and-properties](#common-string-methods-and-properties)
+  - [important-notes-about-strings](#important-notes-about-strings)
+- [9. numbers and math in javascript](#9-numbers-and-math-in-javascript)
+  - [number-constructors-and-methods](#number-constructors-and-methods)
+  - [math-object-methods](#math-object-methods)
+  - [random-number-generation](#random-number-generation)
+  - [important-notes-about-numbers](#important-notes-about-numbers)
+  - [debugging-tip-object-notation](#debugging-tip-object-notation)
+- [10. dates in javascript](#10-dates-in-javascript)
+  - [creating-dates](#creating-dates)
+  - [timestamps-milliseconds-since-epoch](#timestamps-milliseconds-since-epoch)
+  - [formatting-dates](#formatting-dates)
+  - [getting-and-setting-date-components](#getting-and-setting-date-components)
+  - [advanced-formatting-with-tolocalestring](#advanced-formatting-with-tolocalestring)
+  - [important-notes-about-dates](#important-notes-about-dates)
+- [11. arrays in javascript](#11-arrays-in-javascript)
+  - [creating-arrays](#creating-arrays)
+  - [accessing-elements](#accessing-elements)
+  - [array-length](#array-length)
+  - [adding-and-removing-elements](#adding-and-removing-elements)
+  - [checking-for-elements-and-indexes](#checking-for-elements-and-indexes)
+  - [joining-array-elements](#joining-array-elements)
+  - [printing-arrays-with-labels](#printing-arrays-with-labels)
+  - [slicing-and-splicing-arrays](#slicing-and-splicing-arrays)
+  - [combining-and-mutating-arrays](#combining-and-mutating-arrays)
+  - [merging-arrays-with-the-spread-operator](#merging-arrays-with-the-spread-operator)
+  - [advanced-array-methods](#advanced-array-methods)
+  - [clean-console-output](#clean-console-output)
+  - [notes](#notes)
+- [12. objects in javascript](#12-objects-in-javascript)
+  - [creating-objects](#creating-objects)
+  - [accessing-object-properties](#accessing-object-properties)
+  - [symbols-in-objects](#symbols-in-objects)
+  - [object-reassignment](#object-reassignment)
+  - [checking-data-types](#checking-data-types)
+  - [object-property-enumeration](#object-property-enumeration)
+  - [best-practices](#best-practices)
+  - [object-immutability](#object-immutability)
+  - [functions-as-object-properties](#functions-as-object-properties)
+  - [the-this-keyword-in-methods](#the-this-keyword-in-methods)
+  - [key-points](#key-points)
+  - [nested-objects](#nested-objects)
+  - [object-reassignment-with-quoted-properties](#object-reassignment-with-quoted-properties)
+  - [object-concatenation-methods](#object-concatenation-methods)
+  - [arrays-of-objects](#arrays-of-objects)
+  - [object-utility-methods](#object-utility-methods)
+  - [object-destructuring-es6](#object-destructuring-es6)
+    - [basic-object-destructuring](#basic-object-destructuring)
+    - [destructuring-with-property-renaming](#destructuring-with-property-renaming)
+    - [advanced-destructuring-features](#advanced-destructuring-features)
+    - [destructuring-in-different-contexts](#destructuring-in-different-contexts)
+    - [error-handling-and-edge-cases](#error-handling-and-edge-cases)
+    - [advanced-patterns](#advanced-patterns)
+    - [benefits-of-object-destructuring](#benefits-of-object-destructuring)
+    - [common-use-cases](#common-use-cases)
+    - [best-practices](#best-practices)
+  - [common-errors-and-debugging](#common-errors-and-debugging)
+- [13. functions in javascript](#13-functions-in-javascript)
+  - [function-declaration-and-calling](#function-declaration-and-calling)
+  - [functions-with-parameters](#functions-with-parameters)
+  - [functions-with-return-values](#functions-with-return-values)
+  - [understanding-function-return-values](#understanding-function-return-values)
+  - [parameter-validation-and-default-values](#parameter-validation-and-default-values)
+  - [modern-javascript-function-features](#modern-javascript-function-features)
+  - [function-types-and-use-cases](#function-types-and-use-cases)
+  - [function-best-practices](#function-best-practices)
+  - [key-points-about-functions](#key-points-about-functions)
+  - [function-scope-and-closures](#function-scope-and-closures)
+  - [common-function-errors-and-debugging](#common-function-errors-and-debugging)
+  - [variable-scope-demonstration](#variable-scope-demonstration)
+  - [nested-functions-and-closures](#nested-functions-and-closures)
+  - [function-hoisting](#function-hoisting)
+  - [function-return-values-and-undefined](#function-return-values-and-undefined)
+  - [parameter-validation-and-error-handling](#parameter-validation-and-error-handling)
+  - [console-output-best-practices](#console-output-best-practices)
+- [14. arrow functions in javascript](#14-arrow-functions-in-javascript)
+  - [the-this-keyword](#the-this-keyword)
+  - [arrow-function-syntax](#arrow-function-syntax)
+  - [arrow-functions-vs-regular-functions](#arrow-functions-vs-regular-functions)
+  - [detailed-differences-between-arrow-and-regular-functions](#detailed-differences-between-arrow-and-regular-functions)
+  - [when-to-use-arrow-functions](#when-to-use-arrow-functions)
+  - [arrow-function-best-practices](#arrow-function-best-practices)
+  - [this-keyword-demonstrations](#this-keyword-demonstrations)
+  - [environment-differences-consolelogthis-in-code-editor-vs-browser](#environment-differences-consolelogthis-in-code-editor-vs-browser)
+  - [common-arrow-function-errors-and-debugging](#common-arrow-function-errors-and-debugging)
+  - [key-points-about-arrow-functions](#key-points-about-arrow-functions)
 
 
-## Core Fundamentals
 
-### 1. Hello World in JavaScript
+## 1. hello world in javascript
 
 The most basic program you can write in many languages is one that prints "Hello, World!". In JavaScript, you can do this with `console.log()`.
 
@@ -187,7 +175,8 @@ console.log("hello")
 ✨ *This is a great way to make sure your environment is set up correctly.*
 
 
-## 2. Variables in JavaScript
+
+## 2. variables in javascript
 
 
 In JavaScript, we use variables to store data. There are three keywords to declare variables: `var`, `let`, and `const`.
@@ -228,7 +217,7 @@ console.log('accountState:', accountState);
 console.table([accountId, accountEmail, accountPassword, accountPassword, accountCity, accountState]);
 ```
 
-**Key Points:**
+**key points:**
 - Use `const` for values that won't change
 - Use `let` for variables that will be reassigned
 - Avoid `var` due to function-scoping issues
@@ -236,7 +225,8 @@ console.table([accountId, accountEmail, accountPassword, accountPassword, accoun
 - Include variable names in console output for clarity
 
 
-## 3. Printing to the Console
+
+## 3. printing to the console
 
 To see the output of your code and debug, you can print values to the console.
 
@@ -261,7 +251,7 @@ const user2 = { name: "Bob", email: "bob@example.com" };
 console.table([user1, user2]);
 ```
 
-### Environment Specific Functions
+### environment specific functions
 
 ⚠️ *Some functions are only available in specific JavaScript environments (like the browser or Node.js).*
 
@@ -271,16 +261,15 @@ A common example is `alert()`. This function displays a pop-up dialog in the bro
 *Happy Coding! 🎉*
 
 
-## Type Handling and Operations
 
-### 4. JavaScript Data Types
+## 4. javascript data types
 
 In programming, data types are an important concept. To be able to operate on variables, it is important to know something about the type. JavaScript has a set of primitive data types and a non-primitive data type (Object).
 
 ### use strict
 The `"use strict";` directive enables "strict mode". It helps you write cleaner code, by catching common coding bloopers and throwing errors.
 
-### Primitive Data Types
+### primitive data types
 These are the fundamental data types. They are immutable, meaning their values cannot be changed.
 
 *   **📝 String**: Represents textual data.
@@ -306,11 +295,11 @@ These are the fundamental data types. They are immutable, meaning their values c
 *   **🔢 BigInt**: Used for integers of arbitrary precision, which cannot be represented by the `Number` type.
 *   **🔑 Symbol**: A unique and immutable value that can be used as a key for an object property.
 
-### Non Primitive Data Type
+### non primitive data type
 
 *   **🗃️ Object**: A collection of key-value pairs. Arrays, Functions, and more are all types of objects in JavaScript.
 
-### The typeof Operator
+### the typeof operator
 You can use the `typeof` operator to find the data type of a JavaScript variable.
 
 ```javascript
@@ -325,11 +314,12 @@ A well-known quirk in JavaScript is that the `typeof` a `null` value is `object`
 console.log(typeof null); // "object"
 ```
 
-## 5. Type Conversion and Coercion
+
+## 5. type conversion and coercion
 
 In JavaScript, it's common to convert values from one type to another. This can be done explicitly (type conversion) or implicitly (type coercion).
 
-### Explicit Conversion to Number
+### explicit conversion to number
 You can explicitly convert a value to a number using the `Number()` constructor. The results can sometimes be surprising.
 
 *   A string containing a number is converted as you would expect.
@@ -364,7 +354,7 @@ Even though `NaN` stands for "Not a Number", its type is `'number'`.
 console.log(typeof NaN); // "number"
 ```
 
-### Conversion to Number Summary
+### conversion to number summary
 
 | Original Value | Converted Value | Notes                  |
 |----------------|-----------------|------------------------|
@@ -376,11 +366,12 @@ console.log(typeof NaN); // "number"
 | `null`         | `0`             |                        |
 | `undefined`    | `NaN`           |                        |
 
-## 6. Operations in JavaScript
+
+## 6. operations in javascript
 
 JavaScript has a variety of operators to perform actions on values.
 
-### Arithmetic Operators
+### arithmetic operators
 Basic arithmetic is straightforward. An interesting one is the unary negation operator.
 
 ```javascript
@@ -388,7 +379,7 @@ let value = 3;
 let negValue = -value; // negValue is -3
 ```
 
-### String Concatenation
+### string concatenation
 The `+` operator is used to concatenate (join) strings.
 
 ```javascript
@@ -397,7 +388,7 @@ let str2 = " veenayak";
 let greeting = str1 + str2; // "hello veenayak"
 ```
 
-### Automatic Type Coercion with plus
+### automatic type coercion with plus
 This is where things can get tricky. The `+` operator's behavior depends on the types of the operands. If either operand is a string, JavaScript will convert the other operand to a string and concatenate them. The expression is evaluated from left to right.
 
 **Examples from `4_operation.js`:**
@@ -422,11 +413,12 @@ This is where things can get tricky. The `+` operator's behavior depends on the 
 
 ⚠️ *This behavior is a key reason to be mindful of data types when performing operations in JavaScript.*
 
-## 7. Comparison in JavaScript
+
+## 7. comparison in javascript
 
 Comparing values in JavaScript can lead to some non-intuitive results due to type coercion.
 
-### Loose Equality vs Strict Equality
+### loose equality vs strict equality
 
 This is one of the most important concepts in JavaScript comparisons.
 
@@ -442,7 +434,7 @@ This is one of the most important concepts in JavaScript comparisons.
 
 💡 **Rule of thumb: Always prefer `===` over `==` to prevent bugs from unexpected type coercion.**
 
-### The Curious Case of null
+### the curious case of null
 
 The way `null` is handled in comparisons is inconsistent and a common source of bugs.
 
@@ -458,7 +450,7 @@ The way `null` is handled in comparisons is inconsistent and a common source of 
     console.log(null == undefined); // true
     ```
 
-### Comparisons with undefined
+### comparisons with undefined
 
 `undefined` is more predictable than `null`.
 
@@ -473,13 +465,12 @@ The way `null` is handled in comparisons is inconsistent and a common source of 
     console.log(undefined == 0); // false
     ```
 
-## String and Number Manipulation
 
-### 8. Strings and Template Literals
+## 8. strings and template literals
 
 Strings are one of the most commonly used data types in JavaScript. Modern JavaScript provides powerful ways to work with strings, including template literals.
 
-### Template Literals String Interpolation
+### template literals string interpolation
 
 Template literals are a modern way to create strings that can contain embedded expressions. They use backticks (`) instead of single or double quotes.
 
@@ -497,7 +488,7 @@ console.log(`hello my name is ${name} and my repo count is ${repoCount}`);
 - Can span multiple lines without concatenation
 - More readable than traditional string concatenation
 
-### String Access by Index
+### string access by index
 
 You can access individual characters in a string using bracket notation with an index (starting from 0).
 
@@ -506,7 +497,7 @@ let name = "veenayak";
 console.log(name[0]); // "v" (first character)
 ```
 
-### String Constructors
+### string constructors
 
 JavaScript provides different ways to create strings, each with different characteristics.
 
@@ -534,7 +525,7 @@ console.table([userName, userGame]);
 // Shows the difference: userName is a string primitive, userGame is a String object
 ```
 
-### Common String Methods and Properties
+### common string methods and properties
 
 Because strings (even primitive ones) behave like objects in JavaScript, they have many built-in methods and properties to help you manipulate them.
 
@@ -618,18 +609,19 @@ Because strings (even primitive ones) behave like objects in JavaScript, they ha
     ```
 *   **🔧 `__proto__`**: This property allows you to see the object's prototype, which contains all the available string methods. It's useful for inspection but not typically used in day-to-day coding.
 
-### Important Notes About Strings
+### important notes about strings
 
 1. **⚠️ Avoid using `name` as a variable name** - it conflicts with the deprecated global `window.name` property in browsers
 2. **✨ Template literals are preferred** over string concatenation for readability
 3. **🔧 Use primitive strings** (`String()` or quotes) rather than String objects (`new String()`)
 4. **🔒 Strings are immutable** - you cannot change individual characters, but you can create new strings
 
-### 9. Numbers and Math in JavaScript
+
+## 9. numbers and math in javascript
 
 JavaScript provides powerful number manipulation capabilities through both Number methods and the Math object. Understanding these is crucial for mathematical operations and data formatting.
 
-### Number Constructors and Methods
+### number constructors and methods
 
 **Examples from `7_numberMath.js`:**
 
@@ -663,7 +655,7 @@ JavaScript provides powerful number manipulation capabilities through both Numbe
     console.log(hundreds.toLocaleString('en-IN')); // "10,00,000" (Indian format)
     ```
 
-### Math Object Methods
+### math object methods
 
 The Math object provides mathematical constants and functions for advanced calculations.
 
@@ -700,7 +692,7 @@ The Math object provides mathematical constants and functions for advanced calcu
     console.log(Math.max(4, 3, 6, 8)); // 8
     ```
 
-### Random Number Generation
+### random number generation
 
 *   **🎯 `Math.random()`**: Returns a random number between 0 (inclusive) and 1 (exclusive).
     ```javascript
@@ -718,7 +710,7 @@ The Math object provides mathematical constants and functions for advanced calcu
     console.log(Math.floor(Math.random() * (max - min + 1)) + min);
     ```
 
-### Important Notes About Numbers
+### important notes about numbers
 
 1. **🔧 Use primitive numbers** for simple calculations - they're more efficient than Number objects
 2. **⚠️ Number objects** are rarely needed and can cause confusion
@@ -726,7 +718,7 @@ The Math object provides mathematical constants and functions for advanced calcu
 4. **🎲 Random numbers** are pseudo-random and not cryptographically secure
 5. **🔢 Floating-point precision** can cause unexpected results in calculations (use `.toFixed()` for display)
 
-### Debugging Tip Object Notation
+### debugging tip object notation
 
 As mentioned in [CSS-Tricks](https://css-tricks.com/console-log-myvariable/), you can use object notation for cleaner debugging:
 
@@ -737,13 +729,12 @@ console.log({ myNumber }); // Shows: { myNumber: 42 }
 
 This creates a shorthand object that displays the variable name and value clearly in the console.
 
-## Date Handling
 
-### 10. Dates in JavaScript
+## 10. dates in javascript
 
 Working with dates and times is a common task in programming. JavaScript's `Date` object provides the functionality needed to create, format, and manipulate dates.
 
-### Creating Dates
+### creating dates
 
 You can create a date object in several ways.
 
@@ -764,7 +755,7 @@ You can create a date object in several ways.
     let fromString2 = new Date("01-14-2023"); // MM-DD-YYYY (can be ambiguous)
     ```
 
-### Timestamps Milliseconds Since Epoch
+### timestamps milliseconds since epoch
 
 A timestamp represents a single moment in time, measured as the number of milliseconds that have passed since the **Unix Epoch** (midnight on January 1, 1970 UTC).
 
@@ -781,7 +772,7 @@ A timestamp represents a single moment in time, measured as the number of millis
     console.log(Math.floor(Date.now() / 1000));
     ```
 
-### Formatting Dates
+### formatting dates
 
 Once you have a date object, you can format it into a human-readable string.
 
@@ -789,7 +780,7 @@ Once you have a date object, you can format it into a human-readable string.
 *   **`.toDateString()`**: A simpler, date-only format (e.g., "Mon Jan 23 2023").
 *   **`.toLocaleString()`**: A locale-sensitive format for date and time.
 
-### Getting and Setting Date Components
+### getting and setting date components
 
 You can extract individual parts of a date.
 
@@ -798,7 +789,7 @@ You can extract individual parts of a date.
 *   **`.getFullYear()`**: Returns the four-digit year.
 *   **`.getHours()`**, **`.getMinutes()`**, **`.getSeconds()`**: Get time components.
 
-### Advanced Formatting with toLocaleString
+### advanced formatting with tolocalestring
 
 For complete control over the format, you can pass an `options` object to `toLocaleString`.
 
@@ -814,15 +805,14 @@ let customDate = newDate.toLocaleString('default', {
 console.log(customDate); // "Monday, January 23, 2023" (format depends on locale)
 ```
 
-### Important Notes About Dates
+### important notes about dates
 
 1.  **Object Type**: The `typeof` a `Date` object is `"object"`, not `"date"`.
 2.  **Zero-Indexed Months**: Months are counted from 0 (January) to 11 (December). This is a very common source of bugs.
 3.  **Timestamps**: Dates are fundamentally stored as timestamps, which makes comparing and calculating durations between dates easy and reliable.
 
-## Data Structures
 
-### 11. Arrays in JavaScript
+## 11. arrays in javascript
 
 Arrays are used to store multiple values in a single variable. They are one of the most commonly used data structures in JavaScript.
 
@@ -842,19 +832,19 @@ arr.unshift(9);
 arr.shift();
 ```
 
-### Creating Arrays
+### creating arrays
 - Arrays can be created using square brackets `[]`.
 - They can store elements of any type (numbers, strings, objects, etc.).
 
-### Accessing Elements
+### accessing elements
 - Use bracket notation with an index (starting from 0) to access elements.
 - Example: `heors[0]` returns the first element.
 
-### Array Length
+### array length
 - The `.length` property returns the number of elements in the array.
 - Example: `heors.length` returns `3` for the above array.
 
-### Adding and Removing Elements
+### adding and removing elements
 - `unshift(value)`: Adds an element to the **beginning** of the array.
 - `shift()`: Removes the **first** element from the array.
 - Example:
@@ -863,7 +853,7 @@ arr.shift();
     arr.shift();    // arr becomes [1, 2, 3, 4, 5]
     ```
 
-### Checking for Elements and Indexes
+### checking for elements and indexes
 - `includes(value)`: Checks if the array contains a specific value. Returns `true` or `false`.
     ```javascript
     console.log('arr.includes(9):', arr.includes(9)); // false
@@ -873,20 +863,20 @@ arr.shift();
     console.log('arr.indexOf(3):', arr.indexOf(3)); // 2
     ```
 
-### Joining Array Elements
+### joining array elements
 - `join()`: Joins all elements of an array into a string, separated by commas (or another separator if specified).
     ```javascript
     const narr = arr.join();
     console.log('narr:', narr); // '1,2,3,4,5'
     ```
 
-### Printing Arrays with Labels
+### printing arrays with labels
 - It's a good practice to include the variable name in your console output for clarity, especially when debugging or learning.
     ```javascript
     console.log('arr:', arr); // [1, 2, 3, 4, 5]
     ```
 
-### Slicing and Splicing Arrays
+### slicing and splicing arrays
 - `slice(start, end)`: Returns a shallow copy of a portion of an array into a new array object. The original array is not modified.
     ```javascript
     const sli = arr.slice(1, 3);
@@ -900,7 +890,7 @@ arr.shift();
     console.log('arr after splice:', arr); // [1, 5]
     ```
 
-### Combining and Mutating Arrays
+### combining and mutating arrays
 - `push(value)`: Adds an element (or array) to the end of the array. If you push an array, it becomes a nested array.
     ```javascript
     marvel_heors.push(dc_heros);
@@ -924,7 +914,7 @@ arr.shift();
     console.log('marvel_heors after pop and concat:', marvel_heors);
     ```
 
-### Merging Arrays with the Spread Operator
+### merging arrays with the spread operator
 - The ES6 spread operator (`...`) is a modern and preferred way to merge arrays. It creates a new array by spreading the elements of existing arrays.
     ```javascript
     const all_new_heros = [...marvel_heors, ...dc_heros];
@@ -932,7 +922,7 @@ arr.shift();
     ```
 - This method is concise, readable, and does not mutate the original arrays.
 
-### Advanced Array Methods
+### advanced array methods
 - `flat(depth)`: Flattens nested arrays into a single array. Use `Infinity` to flatten all levels.
     ```javascript
     const andther_arr = [1, 2, 3, [4, 5, [6, 7, [8, 9]]]];
@@ -956,7 +946,7 @@ arr.shift();
     console.log('Array.of(score1, score2, score3):', Array.of(score1, score2, score3)); // [100, 200, 300]
     ```
 
-### Clean Console Output
+### clean console output
 - Always include the variable name or context in your `console.log` statements for clean and understandable output. This is especially helpful when working with multiple variables or arrays at once.
     ```javascript
     console.log('arr:', arr);
@@ -965,12 +955,13 @@ arr.shift();
     console.log('spi:', spi);
     ```
 
-### Notes
+### notes
 - Arrays are zero-indexed: the first element is at index 0.
 - You can use `console.log()` to print arrays or their elements.
 - Arrays are mutable, meaning you can change their contents after creation.
 
-### 12. Objects in JavaScript
+
+## 12. objects in javascript
 
 Objects are collections of key-value pairs and are one of the most important data structures in JavaScript. They allow you to group related data and functionality together.
 
@@ -991,7 +982,7 @@ console.log('obj.name:', obj.name); // veenayak
 console.log('obj["name"]:', obj["name"]); // veenayak
 ```
 
-### Creating Objects
+### creating objects
 - **Object Literal Syntax**: The most common and straightforward way to create objects using curly braces `{}`.
 - **Object Constructor**: Using `new Object()` (less common, not recommended for simple objects).
 - **Object.create()**: Creates a new object with a specified prototype (used for singleton patterns).
@@ -1012,12 +1003,12 @@ let tinder = new Object();
 tinder = {}; // Reassigning to object literal syntax
 ```
 
-### Accessing Object Properties
+### accessing object properties
 - **Dot Notation**: Use a dot followed by the property name (e.g., `obj.name`).
 - **Bracket Notation**: Use square brackets with the property name as a string (e.g., `obj["name"]`).
 - Bracket notation is useful when property names are dynamic or contain special characters.
 
-### Symbols in Objects
+### symbols in objects
 - **Symbols**: Unique identifiers that can be used as object property keys to avoid naming conflicts.
 - **Creating Symbols**: Use `Symbol("description")` to create a unique symbol.
 - **Symbol Properties**: Must be accessed using bracket notation, not dot notation.
@@ -1033,19 +1024,19 @@ tinder = {}; // Reassigning to object literal syntax
     console.log('obj[sum]:', obj[sum]); // mykey1
     ```
 
-### Object Reassignment
+### object reassignment
 - Objects can be reassigned to variables declared with `let` or `var`.
 - When reassigning, the entire object is replaced, not just individual properties.
 - Always use bracket notation to access Symbol properties.
 
-### Checking Data Types
+### checking data types
 - Use the `typeof` operator to check the data type of object property values.
 - This is useful for debugging and understanding what type of data is stored in object properties.
     ```javascript
     console.log('typeof(obj[sum]):', typeof(obj[sum])); // string
     ```
 
-### Object Property Enumeration
+### object property enumeration
 - **Object.keys()**: Returns an array of a given object's own enumerable property names.
     ```javascript
     console.log('Object.keys(obj):', Object.keys(obj)); // ['name', 'age', 'location', 'email']
@@ -1056,13 +1047,13 @@ tinder = {}; // Reassigning to object literal syntax
     ```
 - **Symbol Properties**: Symbol properties are not enumerable and won't appear in `Object.keys()` or `for...in` loops, making them useful for private-like properties.
 
-### Best Practices
+### best practices
 - Use object literal syntax `{}` instead of `new Object()` for better performance and readability [[dev.to/codecraftjs/javascript-objects-best-practices-gjo](https://dev.to/codecraftjs/javascript-objects-best-practices-gjo)].
 - Use computed property names `[key]: value` for dynamic property names and Symbol properties.
 - Always use bracket notation `obj[symbol]` to access Symbol properties.
 - Group shorthand properties at the beginning of object declarations for better readability.
 
-### Object Immutability
+### object immutability
 - **Object.freeze()**: Makes an object immutable by preventing property additions, deletions, and modifications.
     ```javascript
     // Modify object property before freezing
@@ -1082,7 +1073,7 @@ tinder = {}; // Reassigning to object literal syntax
 - **Important**: All properties and methods must be added to the object before calling `Object.freeze()`.
 - **Best Practice**: Always add all properties and methods before freezing to ensure they work properly.
 
-### Functions as Object Properties
+### functions as object properties
 - Objects can contain functions as properties, making them methods of the object.
     ```javascript
     // Create function expression for greeting
@@ -1099,7 +1090,7 @@ tinder = {}; // Reassigning to object literal syntax
 - **Frozen Objects**: Methods can be called on frozen objects if they were added before freezing, but new properties cannot be added after freezing.
 - **Important**: Always add methods before calling `Object.freeze()` to ensure they work properly.
 
-### The this Keyword in Methods
+### the this keyword in methods
 - The `this` keyword refers to the object that contains the method, allowing access to other object properties.
     ```javascript
     // Add method that uses 'this' to access object properties (BEFORE freezing)
@@ -1113,7 +1104,7 @@ tinder = {}; // Reassigning to object literal syntax
 - **Use Cases**: Essential for creating methods that need to access or modify object properties.
 - **Best Practice**: Always add methods that use `this` before freezing the object.
 
-### Key Points
+### key points
 - Object properties are unordered (except for integer keys).
 - Property names are strings (though quotes are optional for valid identifiers).
 - Objects are mutable by default - you can add, modify, or delete properties after creation.
@@ -1121,7 +1112,7 @@ tinder = {}; // Reassigning to object literal syntax
 - Use `Object.freeze()` to create immutable objects when you need to prevent modifications.
 - The `this` keyword is crucial for object-oriented programming in JavaScript.
 
-### Nested Objects
+### nested objects
 - Objects can contain other objects as properties, creating nested structures.
 - Access nested properties using dot notation or bracket notation.
     ```javascript
@@ -1142,7 +1133,7 @@ tinder = {}; // Reassigning to object literal syntax
     console.log('reguser nested bracket access:', reguser['fullname']['userFullname']['firstname']);
     ```
 
-### Object Reassignment with Quoted Properties
+### object reassignment with quoted properties
 - Objects can be reassigned with quoted property names, which are valid but not required for valid identifiers.
 - Both quoted and unquoted property names work the same way.
     ```javascript
@@ -1164,7 +1155,7 @@ tinder = {}; // Reassigning to object literal syntax
     ```
 - **Key Point**: Quoted property names are valid but not required for valid identifiers. Use them when property names contain special characters or spaces.
 
-### Object Concatenation Methods
+### object concatenation methods
 - **Object.assign()**: Merges multiple objects into a target object.
     ```javascript
     const obj1 = { 1: 'a', 2: 'b', 3: 'c' };
@@ -1183,7 +1174,7 @@ tinder = {}; // Reassigning to object literal syntax
     const obj6 = { ...obj1, ...obj2, 7: 'd', 8: 'e' };
     ```
 
-### Arrays of Objects
+### arrays of objects
 - Arrays can contain objects as elements, creating collections of related data.
 - Access object properties within array elements using index notation.
     ```javascript
@@ -1206,7 +1197,7 @@ tinder = {}; // Reassigning to object literal syntax
     console.log('users[1].email:', users[1].email); // h@gmail.com
     ```
 
-### 🛠️ Object Utility Methods
+### object utility methods
 JavaScript provides several built-in methods for working with object properties:
 
 - **Object.keys(obj)**: Returns an array of a given object's own enumerable property names.
@@ -1236,11 +1227,11 @@ JavaScript provides several built-in methods for working with object properties:
 - `Object.entries()`: Converting objects to arrays for array methods, creating key-value pairs
 - `hasOwnProperty()`: Checking if an object has a specific property before accessing it
 
-### 🔗 Object Destructuring (ES6)
+### object destructuring es6
 
 Object destructuring is a powerful ES6 feature that allows you to extract properties from objects and assign them to variables in a clean, readable way. It's based on the concept of using patterns to extract parts of data, similar to how object literals let us create multiple properties at once.
 
-#### Basic Object Destructuring
+#### basic object destructuring
 Extract properties with the same name as the variable:
 ```javascript
 const course = {
@@ -1259,7 +1250,7 @@ console.log('coursename:', coursename); // "js in hindi"
 console.log('price:', price);           // "999"
 ```
 
-#### Destructuring with Property Renaming
+#### destructuring with property renaming
 Extract properties and assign them to variables with different names:
 ```javascript
 // Object destructuring with property renaming
@@ -1272,7 +1263,7 @@ console.log('title:', title);   // "js in hindi"
 console.log('teacher:', teacher); // "hitesh"
 ```
 
-#### Advanced Destructuring Features
+#### advanced destructuring features
 
 **Default Values:**
 ```javascript
@@ -1336,7 +1327,7 @@ console.log('second:', second); // 2
 console.log('others:', others); // { c: 3, d: 4, e: 5 }
 ```
 
-#### Destructuring in Different Contexts
+#### destructuring in different contexts
 
 **Variable Declarations:**
 ```javascript
@@ -1370,7 +1361,7 @@ processUser({ name: "Bob", email: "bob@example.com", age: 25, role: "admin" });
 // Output: Processing Bob (bob@example.com), age: 25, role: admin
 ```
 
-#### Error Handling and Edge Cases
+#### error handling and edge cases
 
 **Handling Missing Properties:**
 ```javascript
@@ -1407,7 +1398,7 @@ try {
 }
 ```
 
-#### Advanced Patterns
+#### advanced patterns
 
 **Selective Property Extraction:**
 ```javascript
@@ -1445,7 +1436,7 @@ let extracted = obj[prop];
 console.log('extracted:', extracted); // "Alice"
 ```
 
-#### Benefits of Object Destructuring
+#### benefits of object destructuring
 - **Cleaner Code**: More readable than multiple property assignments
 - **Shorter Syntax**: Reduces boilerplate code
 - **Default Values**: Provides fallback values for missing properties
@@ -1454,7 +1445,7 @@ console.log('extracted:', extracted); // "Alice"
 - **Selective Extraction**: Extract only the properties you need
 - **Error Prevention**: Safer than manual property access
 
-#### Common Use Cases
+#### common use cases
 
 **Function Parameters with Defaults:**
 ```javascript
@@ -1531,7 +1522,7 @@ Promise.all(urls.map(url => fetch(url).then(res => res.json())))
     });
 ```
 
-#### Best Practices
+#### best practices
 - **Use destructuring for cleaner, more readable code**
 - **Provide default values for optional properties**
 - **Use meaningful variable names when renaming properties**
@@ -1542,9 +1533,9 @@ Promise.all(urls.map(url => fetch(url).then(res => res.json())))
 - **Use destructuring in function parameters for better API design**
 - **Combine with default parameters for robust function signatures**
 
-### Common Errors and Debugging
+### common errors and debugging
 
-#### TypeError: "x" is not a function
+#### typeerror x is not a function
 This error occurs when you try to call a value that is not a function. Common causes include:
 
 1. **Typo in Method Name**: Ensure the method name is spelled correctly.
