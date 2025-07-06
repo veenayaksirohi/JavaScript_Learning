@@ -162,6 +162,8 @@ This guide is organized using **Impact vs. Effort** prioritization framework to 
   - [common-arrow-function-errors-and-debugging](#common-arrow-function-errors-and-debugging)
   - [key-points-about-arrow-functions](#key-points-about-arrow-functions)
 
+- [15. immediately invoked function expressions (iife)](#15-immediately-invoked-function-expressions-iife)
+
 
 
 ## 1. hello world in javascript
@@ -1596,10 +1598,6 @@ This error occurs when you try to call a value that is not a function. Common ca
 
 ---
 
-### ⚡ **IMMEDIATELY INVOKED FUNCTION EXPRESSIONS (IIFE)** (Modern JavaScript Pattern)
-- [15. ⚡ Immediately Invoked Function Expressions (IIFE)](#15--immediately-invoked-function-expressions-iife)
-
----
 
 ## Immediately Invoked Function Expressions IIFE
 
