@@ -1724,150 +1724,221 @@ An Immediately Invoked Function Expression (IIFE) is a function that runs as soo
 - Understand the use of if/else, switch, and ternary operators.
 - Learn about comparison, logical, and nullish coalescing operators.
 - Recognize truthy/falsy values and how to check for empty arrays/objects.
+- Choose the right control flow construct for clarity and maintainability.
 
 ---
 
 ## Overview
 
-Control flow statements determine the order in which code executes. JavaScript provides if/else, switch, and ternary operators for branching, as well as logical and comparison operators for complex conditions.
+Control flow statements determine the order in which code executes. JavaScript provides if/else, switch, and ternary operators for branching, as well as logical and comparison operators for complex conditions. Mastering these constructs is essential for writing clear, bug-free code.
 
 ---
 
 ## Syntax & Examples
 
+### 1. if/else Statement
+**When to use:**
+- To execute code conditionally based on a boolean expression.
+
+**Syntax:**
 ```js
-// Simple if statement
-if (true) {
-  console.log('Simple if statement - condition:', true, 'output:', 'hi')
-  console.log('%c==================================================================', 'color: green; font-weight: bold;')
-}
-
-// Loose equality (==) and strict equality (===)
-if (2 == '2') {
-  console.log('Loose equality check - 2 == "2":', true, 'output:', 'executed')
-  console.log('%c==================================================================', 'color: green; font-weight: bold;')
-}
-if (2 === '2') {
-  console.log('Strict equality check - 2 === "2":', true, 'output:', 'executed')
+if (condition) {
+  // code block if true
+} else if (otherCondition) {
+  // code block if otherCondition is true
 } else {
-  console.log('Strict equality check - 2 === "2":', false, 'output:', 'not executed')
+  // code block if none are true
 }
-
-// Comparison operators
-const score = 200
-console.log('Score variable:', score)
-
-// If-else with temperature
-const isUserLoggedIn = true
-const temperature = 41
-if (temperature === 40) {
-  console.log('Temperature check - temperature === 40:', true, 'output:', 'less than 50')
-} else {
-  console.log('Temperature check - temperature === 40:', false, 'output:', 'temperature is greater than 50')
-}
-
-// Block scope
-if (score > 100) {
-  let power = 'fly'
-  console.log('Block scope - score > 100:', true, 'power variable:', power)
-}
-// console.log('User power:', power) // ReferenceError
-
-// If-else if-else chain
-const balance = 1000
-if (balance < 500) {
-  console.log('Balance check - balance < 500:', true, 'output:', 'less than 500')
-} else if (balance < 750) {
-  console.log('Balance check - balance < 750:', true, 'output:', 'less than 750')
-} else if (balance < 900) {
-  console.log('Balance check - balance < 900:', true, 'output:', 'less than 900')
-} else {
-  console.log('Balance check - balance >= 900:', true, 'output:', 'less than 1200')
-}
-
-// Logical operators
-const userLoggedIn = true
-const debitCard = true
-const loggedInFromGoogle = false
-const loggedInFromEmail = true
-if (userLoggedIn && debitCard && 2 === 3) {
-  console.log('purchasePermission:', 'Allow to buy course')
-} else {
-  console.log('purchasePermission:', 'Conditions not met')
-}
-if (loggedInFromGoogle || loggedInFromEmail) {
-  console.log('loginStatus:', 'User logged in')
-}
-
-// Switch statement
-const month = 'march'
-switch (month) {
-  case 'jan':
-    console.log('month:', 'January')
-    break
-  case 'feb':
-    console.log('month:', 'February')
-    break
-  case 'march':
-    console.log('month:', 'March')
-    break
-  case 'april':
-    console.log('month:', 'April')
-    break
-  default:
-    console.log('month:', 'Default case match')
-    break
-}
-
-// Falsy and truthy values
-const userEmail = []
-if (userEmail) {
-  console.log('userEmail (array) is truthy:', userEmail, 'output:', 'Got user email')
-} else {
-  console.log('userEmail (array) is falsy:', userEmail, 'output:', "Don't have user email")
-}
-// Falsy: false, 0, -0, 0n, '', null, undefined, NaN
-// Truthy: '0', 'false', ' ', [], {}, function(){}
-
-// Check for empty array
-if (userEmail.length === 0) {
-  console.log('userEmail.length === 0:', true, 'output:', 'Array is empty')
-}
-
-// Check for empty object
-const emptyObj = {}
-if (Object.keys(emptyObj).length === 0) {
-  console.log('Object.keys(emptyObj).length === 0:', true, 'output:', 'Object is empty')
-}
-
-// Nullish Coalescing Operator (??)
-let val1 = null ?? 10 ?? 20
-console.log('val1 (null ?? 10 ?? 20):', val1)
-
-// Ternary Operator
-const iceTeaPrice = 100
-iceTeaPrice <= 80
-  ? console.log('iceTeaPrice <= 80:', true, 'output:', 'less than 80')
-  : console.log('iceTeaPrice <= 80:', false, 'output:', 'more than 80')
 ```
+**Example:**
+```js
+const age = 18;
+if (age >= 18) {
+  console.log('You are an adult.');
+} else {
+  console.log('You are a minor.');
+}
+```
+**Best Practices:**
+- Use braces `{}` even for single-line blocks for clarity.
+- Keep conditions simple and readable.
+
+---
+
+### 2. switch Statement
+**When to use:**
+- To select one of many code blocks to execute based on the value of a variable.
+- Useful for handling multiple discrete values.
+
+**Syntax:**
+```js
+switch (expression) {
+  case value1:
+    // code block
+    break;
+  case value2:
+    // code block
+    break;
+  default:
+    // code block
+}
+```
+**Example:**
+```js
+const fruit = 'apple';
+switch (fruit) {
+  case 'apple':
+    console.log('It is an apple.');
+    break;
+  case 'banana':
+    console.log('It is a banana.');
+    break;
+  default:
+    console.log('Unknown fruit.');
+}
+```
+**Best Practices:**
+- Always include a `default` case.
+- Use `break` to prevent fall-through unless intentional.
+
+---
+
+### 3. Ternary Operator
+**When to use:**
+- For concise conditional assignments or expressions.
+- When you need a value based on a condition.
+
+**Syntax:**
+```js
+condition ? exprIfTrue : exprIfFalse;
+```
+**Example:**
+```js
+const age = 20;
+const status = age >= 18 ? 'adult' : 'minor';
+console.log(status); // 'adult'
+```
+**Best Practices:**
+- Use for simple conditions; avoid nesting ternaries for readability.
+
+---
+
+### 4. Logical Operators (&&, ||, !)
+**When to use:**
+- To combine multiple conditions or provide default values.
+
+**Syntax:**
+```js
+if (a && b) { /* both must be true */ }
+if (a || b) { /* either can be true */ }
+if (!a) { /* a is false */ }
+```
+**Example:**
+```js
+const isLoggedIn = true;
+const hasPermission = false;
+if (isLoggedIn && hasPermission) {
+  console.log('Access granted.');
+} else {
+  console.log('Access denied.');
+}
+```
+**Best Practices:**
+- Use parentheses to clarify complex logic.
+- Short-circuiting can be used for default values: `const name = input || 'Guest';`
+
+---
+
+### 5. Nullish Coalescing Operator (??)
+**When to use:**
+- To provide a default value only when the left-hand side is `null` or `undefined` (not for other falsy values).
+
+**Syntax:**
+```js
+const value = possiblyNull ?? defaultValue;
+```
+**Example:**
+```js
+let username = null;
+let displayName = username ?? 'Anonymous';
+console.log(displayName); // 'Anonymous'
+```
+**Best Practices:**
+- Prefer `??` over `||` when you want to treat only `null`/`undefined` as missing.
+
+---
+
+### 6. Truthy and Falsy Values
+**When to use:**
+- To check if a value is considered true or false in a boolean context.
+
+**Falsy values:** `false`, `0`, `-0`, `0n`, `''`, `null`, `undefined`, `NaN`
+**Truthy values:** All other values (e.g., `'0'`, `[]`, `{}`, `'false'`)
+
+**Example:**
+```js
+if ('') {
+  console.log('This will not run.');
+}
+if ('hello') {
+  console.log('This will run.');
+}
+```
+**Best Practices:**
+- Be explicit when checking for empty arrays/objects: `arr.length === 0`, `Object.keys(obj).length === 0`
+
+---
+
+### 7. Checking for Empty Arrays and Objects
+**When to use:**
+- To determine if a collection has any elements or properties.
+
+**Example:**
+```js
+const arr = [];
+if (arr.length === 0) {
+  console.log('Array is empty');
+}
+const obj = {};
+if (Object.keys(obj).length === 0) {
+  console.log('Object is empty');
+}
+```
+**Best Practices:**
+- Use `Array.isArray()` to check if a variable is an array.
+- For objects, use `Object.keys(obj).length` for emptiness.
+
+---
+
+## Comparison Table: JavaScript Control Flow Constructs
+
+| Construct         | Use Case                        | Syntax Example                | Readability | Best For                |
+|-------------------|---------------------------------|-------------------------------|-------------|------------------------|
+| if/else           | General branching               | `if (a) {...} else {...}`     | High        | Most conditions         |
+| switch            | Multiple discrete values        | `switch (x) {...}`            | Medium      | Many cases, enums      |
+| ternary           | Inline conditional value        | `a ? b : c`                   | High        | Assignments, JSX       |
+| logical operators | Combine/short-circuit logic     | `a && b`, `a || b`            | High        | Compound conditions     |
+| nullish coalescing| Default for null/undefined      | `a ?? b`                      | High        | Optional/default values |
 
 ---
 
 ## Key Takeaways
-> - Use strict equality (===) for type-safe comparisons.
-> - Block scope with let/const prevents variable leakage.
-> - Logical operators (&&, ||) combine conditions; nullish coalescing (??) handles null/undefined.
-> - Falsy values: false, 0, -0, 0n, '', null, undefined, NaN. Truthy: '0', 'false', ' ', [], {}, function(){}.
-> - Use Object.keys(obj).length to check for empty objects.
-> - Ternary operator is a concise alternative to if/else.
+> - Use if/else for most conditional logic.
+> - Use switch for multiple discrete values.
+> - Use ternary for concise value selection, not complex logic.
+> - Use logical operators for combining conditions and defaulting.
+> - Use nullish coalescing for defaulting only on null/undefined.
+> - Always check for empty arrays/objects explicitly.
 
 ---
 
 ## Common Pitfalls & Warnings
 > ⚠️ **Warning:**
-> Using == can lead to unexpected type coercion. Always use === unless you have a specific reason.
-> Block-scoped variables are not accessible outside their block.
-> Be careful with truthy/falsy checks on arrays and objects.
+> - Using `==` can lead to unexpected type coercion. Always use `===` unless you have a specific reason.
+> - Forgetting `break` in switch cases causes fall-through.
+> - Ternary operators can reduce readability if overused or nested.
+> - `||` treats all falsy values as missing; use `??` for null/undefined only.
+> - Arrays and objects are always truthy, even if empty.
 
 ---
 
@@ -1875,7 +1946,9 @@ iceTeaPrice <= 80
 **Try it yourself:**
 - Write an if/else that checks if a number is positive, negative, or zero.
 - Use a switch statement to print the name of a month given its number.
-- Check if an object is empty.
+- Use a ternary operator to assign a status based on age.
+- Use `??` to provide a default username.
+- Check if an array or object is empty before processing.
 
 **Quiz:**
 ```js
@@ -1896,6 +1969,7 @@ if (x) {
 - [MDN: switch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
 - [MDN: Logical operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators)
 - [MDN: Ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator)
+- [MDN: Nullish coalescing operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator)
 
 ---
 
