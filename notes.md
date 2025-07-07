@@ -4,128 +4,151 @@
 
 ## Table of Contents
 
-- [0_hello.js — Basic Console Output](#0_hellojs--basic-console-output)
+- [JavaScript Topics and Subtopics](#javascript-topics-and-subtopics)
+  - [Table of Contents](#table-of-contents)
+- [0\_hello.js — Basic Console Output](#0_hellojs--basic-console-output)
   - [Overview](#overview)
-  - [Syntax & Examples](#syntax--examples)
+  - [Syntax \& Examples](#syntax--examples)
   - [Key Takeaways](#key-takeaways)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings)
   - [Practice](#practice)
   - [Further Reading](#further-reading)
-- [1_variable.js — JavaScript Variables](#1_variablejs--javascript-variables)
+- [1\_variable.js — JavaScript Variables](#1_variablejs--javascript-variables)
   - [Overview](#overview-1)
-  - [Syntax & Examples](#syntax--examples-1)
+  - [Syntax \& Examples](#syntax--examples-1)
   - [Key Takeaways](#key-takeaways-1)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-1)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-1)
   - [Practice](#practice-1)
   - [Further Reading](#further-reading-1)
   - [Difference Between var, let, and const](#difference-between-var-let-and-const)
     - [Overview](#overview-2)
-    - [Syntax & Examples](#syntax--examples-2)
+    - [Syntax \& Examples](#syntax--examples-2)
     - [Key Takeaways](#key-takeaways-2)
-    - [Common Pitfalls & Warnings](#common-pitfalls--warnings-2)
+    - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-2)
     - [Practice](#practice-2)
     - [Further Reading](#further-reading-2)
-- [2_dataType.js — JavaScript Data Types](#2_datatypejs--javascript-data-types)
+- [2\_dataType.js — JavaScript Data Types](#2_datatypejs--javascript-data-types)
   - [Overview](#overview-3)
-  - [Syntax & Examples](#syntax--examples-3)
+  - [Syntax \& Examples](#syntax--examples-3)
   - [Key Takeaways](#key-takeaways-3)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-3)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-3)
   - [Practice](#practice-3)
   - [Further Reading](#further-reading-3)
-- [3_conversionOperation.js — JavaScript Type Conversion](#3_conversionoperationjs--javascript-type-conversion)
+- [3\_conversionOperation.js — JavaScript Type Conversion](#3_conversionoperationjs--javascript-type-conversion)
   - [Overview](#overview-4)
-  - [Syntax & Examples](#syntax--examples-4)
+  - [Syntax \& Examples](#syntax--examples-4)
   - [Key Takeaways](#key-takeaways-4)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-4)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-4)
   - [Practice](#practice-4)
   - [Further Reading](#further-reading-4)
-- [4_operation.js — JavaScript Operations](#4_operationjs--javascript-operations)
+- [4\_operation.js — JavaScript Operations](#4_operationjs--javascript-operations)
   - [Overview](#overview-5)
-  - [Syntax & Examples](#syntax--examples-5)
+  - [Syntax \& Examples](#syntax--examples-5)
   - [Key Takeaways](#key-takeaways-5)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-5)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-5)
   - [Practice](#practice-5)
   - [Further Reading](#further-reading-5)
-- [5_comparison.js — JavaScript Comparisons](#5_comparisonjs--javascript-comparisons)
+- [5\_comparison.js — JavaScript Comparisons](#5_comparisonjs--javascript-comparisons)
   - [Overview](#overview-6)
-  - [Syntax & Examples](#syntax--examples-6)
+  - [Syntax \& Examples](#syntax--examples-6)
   - [Key Takeaways](#key-takeaways-6)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-6)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-6)
   - [Practice](#practice-6)
   - [Further Reading](#further-reading-6)
-- [6_strings.js — JavaScript Strings](#6_stringsjs--javascript-strings)
+- [6\_strings.js — JavaScript Strings](#6_stringsjs--javascript-strings)
   - [Overview](#overview-7)
-  - [Syntax & Examples](#syntax--examples-7)
+  - [Syntax \& Examples](#syntax--examples-7)
   - [Key Takeaways](#key-takeaways-7)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-7)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-7)
   - [Practice](#practice-7)
   - [Further Reading](#further-reading-7)
-- [7_numberMath.js — JavaScript Numbers and Math](#7_numbermathjs--javascript-numbers-and-math)
+- [7\_numberMath.js — JavaScript Numbers and Math](#7_numbermathjs--javascript-numbers-and-math)
   - [Overview](#overview-8)
-  - [Syntax & Examples](#syntax--examples-8)
+  - [Syntax \& Examples](#syntax--examples-8)
   - [Key Takeaways](#key-takeaways-8)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-8)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-8)
   - [Practice](#practice-8)
   - [Further Reading](#further-reading-8)
-- [8_dates.js — JavaScript Dates](#8_datesjs--javascript-dates)
+- [8\_dates.js — JavaScript Dates](#8_datesjs--javascript-dates)
   - [Overview](#overview-9)
-  - [Syntax & Examples](#syntax--examples-9)
+  - [Syntax \& Examples](#syntax--examples-9)
   - [Key Takeaways](#key-takeaways-9)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-9)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-9)
   - [Practice](#practice-9)
   - [Further Reading](#further-reading-9)
-- [9_array.js — JavaScript Arrays](#9_arrayjs--javascript-arrays)
+- [9\_array.js — JavaScript Arrays](#9_arrayjs--javascript-arrays)
   - [Overview](#overview-10)
-  - [Syntax & Examples](#syntax--examples-10)
+  - [Syntax \& Examples](#syntax--examples-10)
   - [Key Takeaways](#key-takeaways-10)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-10)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-10)
   - [Practice](#practice-10)
   - [Further Reading](#further-reading-10)
-- [10_objects.js — JavaScript Objects](#10objectsjs--javascript-objects)
+- [10\_objects.js — JavaScript Objects](#10_objectsjs--javascript-objects)
   - [Overview](#overview-11)
-  - [Syntax & Examples](#syntax--examples-11)
+  - [Syntax \& Examples](#syntax--examples-11)
   - [Key Takeaways](#key-takeaways-11)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-11)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-11)
   - [Practice](#practice-11)
   - [Further Reading](#further-reading-11)
-- [11_function_and_parameter.js — JavaScript Functions and Parameters](#11function_and_parameterjs--javascript-functions-and-parameters)
+- [11\_function\_and\_parameter.js — JavaScript Functions and Parameters](#11_function_and_parameterjs--javascript-functions-and-parameters)
   - [Overview](#overview-12)
-  - [Syntax & Examples](#syntax--examples-12)
+  - [Syntax \& Examples](#syntax--examples-12)
   - [Key Takeaways](#key-takeaways-12)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-12)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-12)
   - [Practice](#practice-12)
   - [Further Reading](#further-reading-12)
-- [12_arrow_function.js — JavaScript Arrow Functions](#12_arrow_functionjs--javascript-arrow-functions)
+- [12\_arrow\_function.js — JavaScript Arrow Functions](#12_arrow_functionjs--javascript-arrow-functions)
   - [Overview](#overview-13)
-  - [Syntax & Examples](#syntax--examples-13)
+  - [Syntax \& Examples](#syntax--examples-13)
   - [About this and this in Node vs Browser](#about-this-and-this-in-node-vs-browser)
+    - [Global Scope](#global-scope)
+    - [Regular Functions](#regular-functions)
+    - [Arrow Functions](#arrow-functions)
+    - [In Event Handlers (Browser Only)](#in-event-handlers-browser-only)
+    - [Summary Table](#summary-table)
+    - [Key Takeaways](#key-takeaways-13)
   - [About Arrow Functions vs Regular Functions](#about-arrow-functions-vs-regular-functions)
-  - [Key Takeaways](#key-takeaways-13)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-13)
-  - [Practice](#practice-13)
-  - [Further Reading](#further-reading-13)
-- [13_Immediately_Invoked_Function_Expressions_(IIFE).js — Immediately Invoked Function Expressions (IIFE)](#13_immediately_invoked_function_expressions_iifejs--immediately-invoked-function-expressions-iife)
-  - [Learning Goals](#learning-goals)
+    - [Syntax Comparison](#syntax-comparison)
+    - [Key Differences](#key-differences)
+    - [`this` Binding Example](#this-binding-example)
+    - [`arguments` Object Example](#arguments-object-example)
+    - [Constructor Example](#constructor-example)
+    - [Generator Example](#generator-example)
+    - [Typical Use Cases](#typical-use-cases)
+    - [Key Takeaways](#key-takeaways-14)
+    - [Key Takeaways](#key-takeaways-15)
+    - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-13)
+    - [Practice](#practice-13)
+    - [Further Reading](#further-reading-13)
+- [13\_Immediately\_Invoked\_Function\_Expressions\_(IIFE).js — Immediately Invoked Function Expressions (IIFE)](#13_immediately_invoked_function_expressions_iifejs--immediately-invoked-function-expressions-iife)
   - [Overview](#overview-14)
-  - [Syntax & Examples](#syntax--examples-14)
-  - [Key Takeaways](#key-takeaways-14)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-14)
+  - [Syntax \& Examples](#syntax--examples-14)
+  - [Key Takeaways](#key-takeaways-16)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-14)
   - [Practice](#practice-14)
   - [Further Reading](#further-reading-14)
-- [14_control_flow.js — JavaScript Control Flow](#14_control_flowjs--javascript-control-flow)
-  - [Learning Goals](#learning-goals-1)
+- [14\_control\_flow.js — JavaScript Control Flow](#14_control_flowjs--javascript-control-flow)
   - [Overview](#overview-15)
-  - [Syntax & Examples](#syntax--examples-15)
-  - [Key Takeaways](#key-takeaways-15)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-15)
+  - [Syntax \& Examples](#syntax--examples-15)
+  - [Key Takeaways](#key-takeaways-17)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-15)
   - [Practice](#practice-15)
   - [Further Reading](#further-reading-15)
-- [15_loops.js — JavaScript Loops](#15_loopsjs--javascript-loops)
-  - [Learning Goals](#learning-goals-2)
+- [15\_loops.js — JavaScript Loops](#15_loopsjs--javascript-loops)
   - [Overview](#overview-16)
-  - [Syntax & Examples](#syntax--examples-16)
-  - [Key Takeaways](#key-takeaways-16)
-  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-16)
+  - [Syntax \& Examples](#syntax--examples-16)
+    - [1. For Loop](#1-for-loop)
+    - [2. While Loop](#2-while-loop)
+    - [3. Do-While Loop](#3-do-while-loop)
+    - [4. For...of Loop](#4-forof-loop)
+    - [5. For...in Loop](#5-forin-loop)
+    - [6. forEach Method](#6-foreach-method)
+    - [7. map Method](#7-map-method)
+    - [8. filter Method](#8-filter-method)
+    - [9. reduce Method](#9-reduce-method)
+  - [Comparison Table: JavaScript Loop Types](#comparison-table-javascript-loop-types)
+  - [Key Takeaways](#key-takeaways-18)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-16)
   - [Practice](#practice-16)
   - [Further Reading](#further-reading-16)
 
@@ -1882,209 +1905,237 @@ if (x) {
 - Use different types of loops: for, while, do-while, for...of, for...in, forEach, map, filter, reduce.
 - Understand loop control with break and continue.
 - Iterate over arrays, objects, maps, and strings.
+- Choose the right loop for the right scenario.
 
 ---
 
 ## Overview
 
-Loops allow you to execute a block of code multiple times. JavaScript provides several loop constructs for different use cases, including iterating over arrays, objects, and more advanced data structures.
+Loops allow you to execute a block of code multiple times. JavaScript provides several loop constructs for different use cases, including iterating over arrays, objects, and more advanced data structures. Choosing the right loop improves code clarity, performance, and maintainability.
 
 ---
 
 ## Syntax & Examples
 
+### 1. For Loop
+**When to use:**
+- When you know the number of iterations in advance (e.g., iterating over array indices).
+
+**Syntax:**
 ```js
-// Basic for loop
-const array = [1, 2, 3, 4, 5, 6, 7, 8]
 for (let i = 0; i < array.length; i++) {
-  const element = array[i]
-  console.log('array element:', element)
+  // code block
 }
-console.log('%c==================================================================', 'color: green; font-weight: bold;');
-
-// For loop with continue
-for (let i = 0; i <= 10; i++) {
-  const element = i
-  if (element === 5) {
-    continue
-  }
-  console.log('for loop element:', element)
-}
-console.log('%c==================================================================', 'color: green; font-weight: bold;');
-
-// Nested for loops (multiplication table)
-for (let i = 1; i <= 10; i++) {
-  for (let j = 1; j <= 10; j++) {
-    console.log('Multiplication:', i + ' * ' + j + ' =', i * j)
-  }
-}
-console.log('%c==================================================================', 'color: green; font-weight: bold;');
-
-// Iterating over an array of strings
-const myArray = ['flash', 'batman', 'superman']
-for (let index = 0; index < myArray.length; index++) {
-  const element = myArray[index]
-  console.log('myArray element:', element)
-}
-console.log('%c==================================================================', 'color: green; font-weight: bold;');
-
-// Break and continue
-for (let index = 1; index <= 20; index++) {
-  if (index === 5) {
-    console.log('Detected 5 (continue):', index)
-    continue
-  }
-  console.log('Value of index:', index)
-}
-console.log('%c==================================================================', 'color: green; font-weight: bold;');
-
-// While loop
-let whileIndex = 0
-while (whileIndex <= 10) {
-  console.log('whileIndex value:', whileIndex)
-  whileIndex = whileIndex + 2
-}
-console.log('%c==================================================================', 'color: green; font-weight: bold;');
-
-// While loop with array
-const heroesArray = ['flash', 'batman', 'superman']
-let arrIndex = 0
-while (arrIndex < heroesArray.length) {
-  console.log('heroesArray element:', heroesArray[arrIndex])
-  arrIndex = arrIndex + 1
-}
-console.log('%c==================================================================', 'color: green; font-weight: bold;');
-
-// Do-while loop
-let score = 11
-do {
-  console.log('Score is:', score)
-  score++
-} while (score <= 10)
-console.log('%c==================================================================', 'color: green; font-weight: bold;');
-
-// for...of with arrays
-const arr = [1, 2, 3, 4, 5]
-for (const num of arr) {
-  console.log('for...of array num:', num)
-}
-console.log('%c==================================================================', 'color: green; font-weight: bold;');
-
-// for...of with strings
-const greetings = 'Hello world!'
-for (const greet of greetings) {
-  console.log('for...of string char:', greet)
-}
-console.log('%c==================================================================', 'color: green; font-weight: bold;');
-
-// for...of with Map
-const map = new Map()
-map.set('IN', 'India')
-map.set('USA', 'United States of America')
-map.set('Fr', 'France')
-map.set('IN', 'India')
-console.log('map:', map)
-for (const [key, value] of map) {
-  console.log('map key:', key, 'map value:', value)
-}
-console.log('%c==================================================================', 'color: green; font-weight: bold;');
-
-// for...in with objects
-const myObject2 = {
-  js: 'javascript',
-  cpp: 'C++',
-  rb: 'ruby',
-  swift: 'swift by apple'
-}
-for (const key in myObject2) {
-  console.log('for...in object:', key, 'shortcut is for', myObject2[key])
-}
-console.log('%c==================================================================', 'color: green; font-weight: bold;');
-
-// for...in with arrays
-const programming = ['js', 'rb', 'py', 'java', 'cpp']
-for (const key in programming) {
-  console.log('for...in array:', programming[key])
-}
-console.log('%c==================================================================', 'color: green; font-weight: bold;');
-
-// forEach with arrays
-const coding = ["js", "ruby", "java", "python", "cpp"]
-coding.forEach(function (val) {
-  console.log('forEach value:', val)
-})
-coding.forEach((item) => {
-  console.log('forEach item:', item)
-})
-function printMe(item) {
-  console.log('printMe item:', item)
-}
-coding.forEach(printMe)
-coding.forEach((item, index, arr) => {
-  console.log('forEach item:', item, 'index:', index, 'array:', arr)
-})
-
-// forEach with array of objects
-const myCoding = [
-  {
-    languageName: "javascript",
-    languageFileName: "js"
-  },
-  {
-    languageName: "java",
-    languageFileName: "java"
-  },
-  {
-    languageName: "python",
-    languageFileName: "py"
-  }
-]
-myCoding.forEach((item) => {
-  console.log('myCoding languageName:', item.languageName)
-})
-
-// filter vs forEach
-const myNums2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-const filteredNums = myNums2.filter((num) => num > 4)
-console.log('filteredNums (filter > 4):', filteredNums)
-const filteredNumsForEach = []
-myNums2.forEach((num) => {
-  if (num > 4) {
-    filteredNumsForEach.push(num)
-  }
-})
-console.log('filteredNumsForEach (forEach > 4):', filteredNumsForEach)
-
-// map and chaining
-const myNumbers3 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-const mappedNums = myNumbers3.map((num) => num + 10)
-console.log('mappedNums (num + 10):', mappedNums)
-const chainedNums = myNumbers3
-  .map((num) => num * 10)
-  .map((num) => num + 1)
-  .filter((num) => num >= 40)
-console.log('chainedNums (map * 10, +1, filter >= 40):', chainedNums)
-
-// reduce
-const myNumsReduce = [1, 2, 3]
-const myTotalReduce = myNumsReduce.reduce(function (acc, currval) {
-  console.log('reduce acc:', acc, 'currval:', currval)
-  return acc + currval
-}, 0)
-console.log('myTotalReduce (function):', myTotalReduce)
-const myTotalReduceArrow = myNumsReduce.reduce((acc, curr) => acc + curr, 0)
-console.log('myTotalReduceArrow (arrow):', myTotalReduceArrow)
-
-// reduce with array of objects (shopping cart)
-const shoppingCart = [
-  { itemName: 'js course', price: 2999 },
-  { itemName: 'py course', price: 999 },
-  { itemName: 'mobile dev course', price: 5999 },
-  { itemName: 'data science course', price: 12999 },
-]
-const priceToPay = shoppingCart.reduce((acc, item) => acc + item.price, 0)
-console.log('priceToPay:', priceToPay)
 ```
+**Example:**
+```js
+const array = [1, 2, 3, 4, 5];
+for (let i = 0; i < array.length; i++) {
+  console.log('array element:', array[i]);
+}
+```
+**Best Practices:**
+- Use `let` for the loop variable to ensure block scope.
+- Avoid off-by-one errors (check your start/end conditions).
+
+---
+
+### 2. While Loop
+**When to use:**
+- When the number of iterations is not known in advance; loop continues as long as the condition is true.
+
+**Syntax:**
+```js
+while (condition) {
+  // code block
+}
+```
+**Example:**
+```js
+let count = 0;
+while (count < 5) {
+  console.log('count:', count);
+  count++;
+}
+```
+**Best Practices:**
+- Ensure the loop condition will eventually become false to avoid infinite loops.
+
+---
+
+### 3. Do-While Loop
+**When to use:**
+- When you want the loop body to execute at least once, regardless of the condition.
+
+**Syntax:**
+```js
+do {
+  // code block
+} while (condition);
+```
+**Example:**
+```js
+let num = 10;
+do {
+  console.log('num:', num);
+  num++;
+} while (num < 10);
+// Output: num: 10 (runs once even though condition is false after first iteration)
+```
+
+---
+
+### 4. For...of Loop
+**When to use:**
+- To iterate over iterable objects (arrays, strings, maps, sets).
+- When you want the value directly, not the index/key.
+
+**Syntax:**
+```js
+for (const value of iterable) {
+  // code block
+}
+```
+**Example:**
+```js
+const arr = ['a', 'b', 'c'];
+for (const val of arr) {
+  console.log('for...of value:', val);
+}
+```
+**Best Practices:**
+- Use for arrays, strings, maps, sets.
+- Not suitable for plain objects (use for...in or Object.entries()).
+
+---
+
+### 5. For...in Loop
+**When to use:**
+- To iterate over the enumerable property keys of an object.
+- Can be used with arrays, but not recommended (iterates over indices as strings).
+
+**Syntax:**
+```js
+for (const key in object) {
+  // code block
+}
+```
+**Example:**
+```js
+const obj = {a: 1, b: 2};
+for (const key in obj) {
+  console.log('for...in key:', key, 'value:', obj[key]);
+}
+```
+**Best Practices:**
+- Use for objects, not arrays.
+- Use `hasOwnProperty` check if you want to skip inherited properties.
+
+---
+
+### 6. forEach Method
+**When to use:**
+- To execute a function for each element in an array.
+- When you don't need to break/continue or return a new array.
+
+**Syntax:**
+```js
+array.forEach((element, index, array) => {
+  // code block
+});
+```
+**Example:**
+```js
+const arr = [1, 2, 3];
+arr.forEach((item, idx) => {
+  console.log('forEach item:', item, 'index:', idx);
+});
+```
+**Best Practices:**
+- Use for side effects (logging, updating external state).
+- Does not support break/continue or return a value.
+
+---
+
+### 7. map Method
+**When to use:**
+- To create a new array by transforming each element of an array.
+
+**Syntax:**
+```js
+const newArray = array.map((element, index, array) => {
+  // return new value
+});
+```
+**Example:**
+```js
+const nums = [1, 2, 3];
+const squares = nums.map(n => n * n);
+console.log('squares:', squares); // [1, 4, 9]
+```
+**Best Practices:**
+- Always return a value from the callback.
+- Does not mutate the original array.
+
+---
+
+### 8. filter Method
+**When to use:**
+- To create a new array with elements that pass a test.
+
+**Syntax:**
+```js
+const filtered = array.filter((element, index, array) => {
+  // return true to keep element
+});
+```
+**Example:**
+```js
+const nums = [1, 2, 3, 4];
+const even = nums.filter(n => n % 2 === 0);
+console.log('even:', even); // [2, 4]
+```
+**Best Practices:**
+- Return a boolean from the callback.
+- Does not mutate the original array.
+
+---
+
+### 9. reduce Method
+**When to use:**
+- To reduce an array to a single value (sum, product, object, etc.).
+
+**Syntax:**
+```js
+const result = array.reduce((accumulator, currentValue, index, array) => {
+  // return new accumulator
+}, initialValue);
+```
+**Example:**
+```js
+const nums = [1, 2, 3, 4];
+const sum = nums.reduce((acc, n) => acc + n, 0);
+console.log('sum:', sum); // 10
+```
+**Best Practices:**
+- Always provide an initial value for the accumulator.
+- Use for aggregating or transforming data.
+
+---
+
+## Comparison Table: JavaScript Loop Types
+
+| Loop Type   | Use Case                        | Break/Continue | Returns New Array | Iterates Over      | Suitable For         |
+|-------------|---------------------------------|:--------------:|:-----------------:|--------------------|---------------------|
+| for         | Known # of iterations           |      Yes       |        No         | Indices            | Arrays, custom logic |
+| while       | Unknown # of iterations         |      Yes       |        No         | Condition          | General             |
+| do-while    | At least one execution needed   |      Yes       |        No         | Condition          | General             |
+| for...of    | Iterable values                 |      Yes       |        No         | Values             | Arrays, strings, Map |
+| for...in    | Object keys (enumerable)        |      Yes       |        No         | Keys               | Objects             |
+| forEach     | Array elements (side effects)   |      No        |        No         | Values             | Arrays              |
+| map         | Transform array                 |      No        |       Yes         | Values             | Arrays              |
+| filter      | Filter array                    |      No        |       Yes         | Values             | Arrays              |
+| reduce      | Aggregate array                 |      No        |   Single value    | Values             | Arrays              |
 
 ---
 
@@ -2092,16 +2143,19 @@ console.log('priceToPay:', priceToPay)
 > - Use for, while, and do-while for general looping needs.
 > - Use for...of for arrays, strings, and maps; for...in for objects and arrays (indices).
 > - Use forEach, map, filter, and reduce for array processing.
-> - Use break and continue to control loop execution.
+> - Use break and continue to control loop execution (not available in forEach/map/filter/reduce).
 > - Prefer forEach/map/filter/reduce for functional-style array operations.
+> - Choose the loop that best matches your data and intent for clarity and maintainability.
 
 ---
 
 ## Common Pitfalls & Warnings
 > ⚠️ **Warning:**
-> Using for...in on arrays iterates over indices, not values. for...of is preferred for arrays.
-> forEach does not return a new array or allow break/continue.
-> Be careful with infinite loops and off-by-one errors.
+> - Using for...in on arrays iterates over indices, not values. for...of is preferred for arrays.
+> - forEach does not return a new array or allow break/continue.
+> - map/filter/reduce do not mutate the original array, but forEach can cause side effects.
+> - Be careful with infinite loops and off-by-one errors.
+> - Always provide an initial value to reduce to avoid bugs.
 
 ---
 
@@ -2110,6 +2164,8 @@ console.log('priceToPay:', priceToPay)
 - Write a for loop that prints numbers 1 to 10, skipping 5.
 - Use for...of to print each character in a string.
 - Use reduce to sum an array of numbers.
+- Use map to double each value in an array.
+- Use filter to select only odd numbers from an array.
 
 **Quiz:**
 ```js
