@@ -16,69 +16,147 @@
 - [1\_variable.js — JavaScript Variables](#1_variablejs--javascript-variables)
   - [Overview](#overview-1)
   - [Syntax \& Examples](#syntax--examples-1)
+    - [Declaration and Initialization](#declaration-and-initialization)
+    - [Reassignment](#reassignment)
+    - [Scope](#scope)
+    - [Hoisting](#hoisting)
+    - [Re-declaration](#re-declaration)
+  - [Comparison Table: var vs let vs const](#comparison-table-var-vs-let-vs-const)
+  - [Real-World Use Cases](#real-world-use-cases)
   - [Key Takeaways](#key-takeaways-1)
   - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-1)
   - [Practice](#practice-1)
   - [Further Reading](#further-reading-1)
-  - [Difference Between var, let, and const](#difference-between-var-let-and-const)
-    - [Overview](#overview-2)
-    - [Syntax \& Examples](#syntax--examples-2)
-    - [Key Takeaways](#key-takeaways-2)
-    - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-2)
-    - [Practice](#practice-2)
-    - [Further Reading](#further-reading-2)
 - [2\_dataType.js — JavaScript Data Types](#2_datatypejs--javascript-data-types)
+  - [Overview](#overview-2)
+  - [Syntax \& Examples](#syntax--examples-2)
+    - [Primitive Types](#primitive-types)
+    - [Non-Primitive Types](#non-primitive-types)
+    - [Type Checking](#type-checking)
+    - [Special Cases](#special-cases)
+    - [Mutability](#mutability)
+  - [Comparison Table: Data Types](#comparison-table-data-types)
+  - [Real-World Use Cases](#real-world-use-cases-1)
+  - [Key Takeaways](#key-takeaways-2)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-2)
+  - [Practice](#practice-2)
+  - [Further Reading](#further-reading-2)
+- [3\_conversionOperation.js — JavaScript Type Conversion](#3_conversionoperationjs--javascript-type-conversion)
   - [Overview](#overview-3)
   - [Syntax \& Examples](#syntax--examples-3)
+    - [Implicit (Type Coercion) vs Explicit Conversion](#implicit-type-coercion-vs-explicit-conversion)
+      - [Implicit Conversion (Coercion)](#implicit-conversion-coercion)
+      - [Explicit Conversion](#explicit-conversion)
+    - [String Conversion](#string-conversion)
+    - [Number Conversion](#number-conversion)
+    - [Boolean Conversion (Truthy/Falsy)](#boolean-conversion-truthyfalsy)
+    - [Special Cases](#special-cases-1)
+    - [Conversion Functions and Methods](#conversion-functions-and-methods)
+  - [Comparison Table: Conversion Results](#comparison-table-conversion-results)
+  - [Real-World Use Cases](#real-world-use-cases-2)
   - [Key Takeaways](#key-takeaways-3)
   - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-3)
   - [Practice](#practice-3)
   - [Further Reading](#further-reading-3)
-- [3\_conversionOperation.js — JavaScript Type Conversion](#3_conversionoperationjs--javascript-type-conversion)
+- [4\_operation.js — JavaScript Operations](#4_operationjs--javascript-operations)
   - [Overview](#overview-4)
   - [Syntax \& Examples](#syntax--examples-4)
+    - [Arithmetic Operators](#arithmetic-operators)
+    - [Assignment Operators](#assignment-operators)
+    - [Comparison Operators](#comparison-operators)
+    - [Logical Operators](#logical-operators)
+    - [Bitwise Operators](#bitwise-operators)
+    - [Unary Operators](#unary-operators)
+    - [Ternary Operator](#ternary-operator)
+    - [String Operators](#string-operators)
+    - [Spread and Rest Operators](#spread-and-rest-operators)
+    - [Destructuring Assignment](#destructuring-assignment)
+    - [typeof, delete, in, instanceof](#typeof-delete-in-instanceof)
+    - [Operator Precedence and Associativity](#operator-precedence-and-associativity)
+  - [Comparison Table: Operator Types and Use Cases](#comparison-table-operator-types-and-use-cases)
+  - [Real-World Use Cases](#real-world-use-cases-3)
   - [Key Takeaways](#key-takeaways-4)
   - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-4)
   - [Practice](#practice-4)
   - [Further Reading](#further-reading-4)
-- [4\_operation.js — JavaScript Operations](#4_operationjs--javascript-operations)
+- [5\_comparison.js — JavaScript Comparisons](#5_comparisonjs--javascript-comparisons)
   - [Overview](#overview-5)
   - [Syntax \& Examples](#syntax--examples-5)
+    - [Equality Operators](#equality-operators)
+      - [Loose Equality (==)](#loose-equality-)
+      - [Strict Equality (===)](#strict-equality-)
+    - [Inequality Operators](#inequality-operators)
+    - [Relational Operators](#relational-operators)
+    - [Object.is](#objectis)
+    - [Comparing Different Types](#comparing-different-types)
+    - [Special Cases](#special-cases-2)
+      - [NaN](#nan)
+      - [+0 vs -0](#0-vs--0)
+      - [Object Reference Equality](#object-reference-equality)
+  - [Comparison Table: Operators and Their Behavior](#comparison-table-operators-and-their-behavior)
+  - [Real-World Use Cases](#real-world-use-cases-4)
   - [Key Takeaways](#key-takeaways-5)
   - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-5)
   - [Practice](#practice-5)
   - [Further Reading](#further-reading-5)
-- [5\_comparison.js — JavaScript Comparisons](#5_comparisonjs--javascript-comparisons)
+- [6\_strings.js — JavaScript Strings](#6_stringsjs--javascript-strings)
   - [Overview](#overview-6)
   - [Syntax \& Examples](#syntax--examples-6)
+    - [String Creation](#string-creation)
+      - [1. String Literal](#1-string-literal)
+      - [2. String Constructor](#2-string-constructor)
+      - [3. Template Literals](#3-template-literals)
+    - [Accessing and Modifying Strings](#accessing-and-modifying-strings)
+    - [String Interpolation and Concatenation](#string-interpolation-and-concatenation)
+    - [String Methods](#string-methods)
+      - [Length](#length)
+      - [charAt, charCodeAt, at](#charat-charcodeat-at)
+      - [indexOf, lastIndexOf, includes](#indexof-lastindexof-includes)
+      - [startsWith, endsWith](#startswith-endswith)
+      - [slice, substring, substr](#slice-substring-substr)
+      - [replace, replaceAll](#replace-replaceall)
+      - [split, join](#split-join)
+      - [trim, trimStart, trimEnd](#trim-trimstart-trimend)
+      - [padStart, padEnd](#padstart-padend)
+      - [repeat](#repeat)
+      - [toUpperCase, toLowerCase](#touppercase-tolowercase)
+      - [match, search, regular expressions](#match-search-regular-expressions)
+    - [Conversion between Strings and Other Types](#conversion-between-strings-and-other-types)
+    - [Unicode and Escape Sequences](#unicode-and-escape-sequences)
+  - [Comparison Table: String Methods](#comparison-table-string-methods)
+  - [Real-World Use Cases](#real-world-use-cases-5)
   - [Key Takeaways](#key-takeaways-6)
   - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-6)
   - [Practice](#practice-6)
   - [Further Reading](#further-reading-6)
-- [6\_strings.js — JavaScript Strings](#6_stringsjs--javascript-strings)
+- [7\_numberMath.js — JavaScript Numbers and Math](#7_numbermathjs--javascript-numbers-and-math)
   - [Overview](#overview-7)
   - [Syntax \& Examples](#syntax--examples-7)
+    - [Number Creation and Types](#number-creation-and-types)
+    - [Special Values](#special-values)
+    - [Number Methods](#number-methods)
+    - [Parsing and Conversion](#parsing-and-conversion)
+    - [Checking Numbers](#checking-numbers)
+    - [Math Object: Constants](#math-object-constants)
+    - [Math Object: Methods](#math-object-methods)
+    - [Random Number Generation](#random-number-generation)
+    - [Dealing with Floating-Point Precision](#dealing-with-floating-point-precision)
+  - [Comparison Table: Number \& Math Methods](#comparison-table-number--math-methods)
+  - [Real-World Use Cases](#real-world-use-cases-6)
   - [Key Takeaways](#key-takeaways-7)
   - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-7)
   - [Practice](#practice-7)
   - [Further Reading](#further-reading-7)
-- [7\_numberMath.js — JavaScript Numbers and Math](#7_numbermathjs--javascript-numbers-and-math)
+- [8\_dates.js — JavaScript Dates](#8_datesjs--javascript-dates)
   - [Overview](#overview-8)
   - [Syntax \& Examples](#syntax--examples-8)
   - [Key Takeaways](#key-takeaways-8)
   - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-8)
   - [Practice](#practice-8)
   - [Further Reading](#further-reading-8)
-- [8\_dates.js — JavaScript Dates](#8_datesjs--javascript-dates)
+- [9\_array.js — JavaScript Arrays](#9_arrayjs--javascript-arrays)
   - [Overview](#overview-9)
   - [Syntax \& Examples](#syntax--examples-9)
-  - [Key Takeaways](#key-takeaways-9)
-  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-9)
-  - [Practice](#practice-9)
-  - [Further Reading](#further-reading-9)
-- [9\_array.js — JavaScript Arrays](#9_arrayjs--javascript-arrays)
-  - [Overview](#overview-10)
-  - [Syntax \& Examples](#syntax--examples-10)
     - [Array Creation](#array-creation)
       - [1. Array Literal](#1-array-literal)
       - [2. Array Constructor](#2-array-constructor)
@@ -103,14 +181,14 @@
     - [Destructuring Arrays](#destructuring-arrays)
     - [Multidimensional and Nested Arrays](#multidimensional-and-nested-arrays)
   - [Comparison Table: Array Methods](#comparison-table-array-methods)
-  - [Real-World Use Cases](#real-world-use-cases)
-  - [Key Takeaways](#key-takeaways-10)
-  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-10)
-  - [Practice](#practice-10)
-  - [Further Reading](#further-reading-10)
+  - [Real-World Use Cases](#real-world-use-cases-7)
+  - [Key Takeaways](#key-takeaways-9)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-9)
+  - [Practice](#practice-9)
+  - [Further Reading](#further-reading-9)
 - [10\_objects.js — JavaScript Objects](#10_objectsjs--javascript-objects)
-  - [Overview](#overview-11)
-  - [Syntax \& Examples](#syntax--examples-11)
+  - [Overview](#overview-10)
+  - [Syntax \& Examples](#syntax--examples-10)
     - [Object Creation](#object-creation)
       - [1. Object Literal](#1-object-literal)
       - [2. Object Constructor](#2-object-constructor)
@@ -137,14 +215,14 @@
       - [for...in (keys)](#forin-keys)
       - [Object.entries (keys \& values)](#objectentries-keys--values)
   - [Comparison Table: Object Features \& Methods](#comparison-table-object-features--methods)
-  - [Real-World Use Cases](#real-world-use-cases-1)
-  - [Key Takeaways](#key-takeaways-11)
-  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-11)
-  - [Practice](#practice-11)
-  - [Further Reading](#further-reading-11)
+  - [Real-World Use Cases](#real-world-use-cases-8)
+  - [Key Takeaways](#key-takeaways-10)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-10)
+  - [Practice](#practice-10)
+  - [Further Reading](#further-reading-10)
 - [11\_function\_and\_parameter.js — JavaScript Functions and Parameters](#11_function_and_parameterjs--javascript-functions-and-parameters)
-  - [Overview](#overview-12)
-  - [Syntax \& Examples](#syntax--examples-12)
+  - [Overview](#overview-11)
+  - [Syntax \& Examples](#syntax--examples-11)
     - [1. Function Declaration (Named Function)](#1-function-declaration-named-function)
     - [2. Function Expression](#2-function-expression)
     - [3. Arrow Function Expression](#3-arrow-function-expression)
@@ -154,14 +232,14 @@
     - [7. Scope and Closures](#7-scope-and-closures)
     - [8. Hoisting](#8-hoisting)
   - [Comparison Table: Function Types](#comparison-table-function-types)
-  - [Real-World Use Cases](#real-world-use-cases-2)
-  - [Key Takeaways](#key-takeaways-12)
-  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-12)
-  - [Practice](#practice-12)
-  - [Further Reading](#further-reading-12)
+  - [Real-World Use Cases](#real-world-use-cases-9)
+  - [Key Takeaways](#key-takeaways-11)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-11)
+  - [Practice](#practice-11)
+  - [Further Reading](#further-reading-11)
 - [12\_arrow\_function.js — JavaScript Arrow Functions](#12_arrow_functionjs--javascript-arrow-functions)
-  - [Overview](#overview-13)
-  - [Syntax \& Examples](#syntax--examples-13)
+  - [Overview](#overview-12)
+  - [Syntax \& Examples](#syntax--examples-12)
     - [Basic Syntax](#basic-syntax)
     - [Arrow Functions and `this`](#arrow-functions-and-this)
     - [Arrow Functions and `arguments`](#arrow-functions-and-arguments)
@@ -172,14 +250,14 @@
   - [When **Not** to Use Arrow Functions](#when-not-to-use-arrow-functions)
   - [Best Practices \& Common Pitfalls](#best-practices--common-pitfalls)
   - [Comparison Table: Arrow Functions vs Regular Functions](#comparison-table-arrow-functions-vs-regular-functions)
-  - [Real-World Use Cases](#real-world-use-cases-3)
-  - [Key Takeaways](#key-takeaways-13)
-  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-13)
-  - [Practice](#practice-13)
-  - [Further Reading](#further-reading-13)
+  - [Real-World Use Cases](#real-world-use-cases-10)
+  - [Key Takeaways](#key-takeaways-12)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-12)
+  - [Practice](#practice-12)
+  - [Further Reading](#further-reading-12)
 - [13\_Immediately\_Invoked\_Function\_Expressions\_(IIFE).js — Immediately Invoked Function Expressions (IIFE)](#13_immediately_invoked_function_expressions_iifejs--immediately-invoked-function-expressions-iife)
-  - [Overview](#overview-14)
-  - [Syntax \& Examples](#syntax--examples-14)
+  - [Overview](#overview-13)
+  - [Syntax \& Examples](#syntax--examples-13)
     - [Classic IIFE Syntax](#classic-iife-syntax)
     - [Why Parentheses?](#why-parentheses)
     - [IIFE with Return Value](#iife-with-return-value)
@@ -187,14 +265,14 @@
   - [Use Cases for IIFE](#use-cases-for-iife)
   - [Best Practices \& Common Pitfalls](#best-practices--common-pitfalls-1)
   - [Comparison: IIFE vs Regular Function](#comparison-iife-vs-regular-function)
-  - [Real-World Use Cases](#real-world-use-cases-4)
-  - [Key Takeaways](#key-takeaways-14)
-  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-14)
-  - [Practice](#practice-14)
-  - [Further Reading](#further-reading-14)
+  - [Real-World Use Cases](#real-world-use-cases-11)
+  - [Key Takeaways](#key-takeaways-13)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-13)
+  - [Practice](#practice-13)
+  - [Further Reading](#further-reading-13)
 - [14\_control\_flow.js — JavaScript Control Flow](#14_control_flowjs--javascript-control-flow)
-  - [Overview](#overview-15)
-  - [Syntax \& Examples](#syntax--examples-15)
+  - [Overview](#overview-14)
+  - [Syntax \& Examples](#syntax--examples-14)
     - [1. if/else Statement](#1-ifelse-statement)
     - [2. switch Statement](#2-switch-statement)
     - [3. Ternary Operator](#3-ternary-operator)
@@ -203,13 +281,13 @@
     - [6. Truthy and Falsy Values](#6-truthy-and-falsy-values)
     - [7. Checking for Empty Arrays and Objects](#7-checking-for-empty-arrays-and-objects)
   - [Comparison Table: JavaScript Control Flow Constructs](#comparison-table-javascript-control-flow-constructs)
-  - [Key Takeaways](#key-takeaways-15)
-  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-15)
-  - [Practice](#practice-15)
-  - [Further Reading](#further-reading-15)
+  - [Key Takeaways](#key-takeaways-14)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-14)
+  - [Practice](#practice-14)
+  - [Further Reading](#further-reading-14)
 - [15\_loops.js — JavaScript Loops](#15_loopsjs--javascript-loops)
-  - [Overview](#overview-16)
-  - [Syntax \& Examples](#syntax--examples-16)
+  - [Overview](#overview-15)
+  - [Syntax \& Examples](#syntax--examples-15)
     - [1. For Loop](#1-for-loop)
     - [2. While Loop](#2-while-loop)
     - [3. Do-While Loop](#3-do-while-loop)
@@ -220,10 +298,10 @@
     - [8. filter Method](#8-filter-method)
     - [9. reduce Method](#9-reduce-method)
   - [Comparison Table: JavaScript Loop Types](#comparison-table-javascript-loop-types)
-  - [Key Takeaways](#key-takeaways-16)
-  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-16)
-  - [Practice](#practice-16)
-  - [Further Reading](#further-reading-16)
+  - [Key Takeaways](#key-takeaways-15)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-15)
+  - [Practice](#practice-15)
+  - [Further Reading](#further-reading-15)
 
 ---
 
@@ -283,70 +361,127 @@ console.log('Hello' + 5);
 # 1_variable.js — JavaScript Variables
 
 **Learning Goals:**
-- Understand how to declare variables using `var`, `let`, and `const`.
-- Know the rules for reassignment and scope.
-- Recognize the dangers of implicit global variables.
+- Declare, initialize, and reassign variables using `var`, `let`, and `const`.
+- Understand variable scope (global, function, block).
+- Know about hoisting, re-declaration, and reassignment rules.
+- Apply best practices and avoid common pitfalls.
 
 ---
 
 ## Overview
 
-Variables are containers for storing data values. JavaScript provides three main ways to declare variables: `var`, `let`, and `const`.
+Variables are containers for storing data values. JavaScript provides three main ways to declare variables: `var`, `let`, and `const`. Each has different rules for scope, hoisting, re-declaration, and reassignment.
 
 ---
 
 ## Syntax & Examples
 
+### Declaration and Initialization
 ```js
-const accountId = 1234;
-let accountEmail = "veena@gmail.com";
-var accountPassword = "8879-9";
-let accountState;
-accountCity = "hapur"; // Implicit global (not recommended)
+var a; // Declaration
+let b = 2; // Declaration + Initialization
+const c = 3; // Must initialize
+console.log({ a, b, c });
+```
 
-accountEmail = "hfkfds@ngghh";
-accountPassword = 77890;
-accountCity = "ha";
+### Reassignment
+```js
+let x = 10;
+x = 20; // Allowed
+console.log({ x });
+const y = 5;
+// y = 6; // Error: Assignment to constant variable
+```
 
-console.log('accountId:', accountId);
-console.log('accountEmail:', accountEmail);
-console.log('accountPassword:', accountPassword);
-console.log('accountCity:', accountCity);
-console.log('accountState:', accountState);
-console.table([accountId, accountEmail, accountPassword, accountPassword, accountCity, accountState]);
+### Scope
+```js
+if (true) {
+  var foo = 'var-scope';
+  let bar = 'let-scope';
+  const baz = 'const-scope';
+}
+console.log('foo:', foo); // Accessible
+// console.log(bar); // Error: bar is not defined
+// console.log(baz); // Error: baz is not defined
+```
+
+### Hoisting
+```js
+console.log(hoistedVar); // undefined
+var hoistedVar = 1;
+// console.log(hoistedLet); // ReferenceError
+let hoistedLet = 2;
+```
+
+### Re-declaration
+```js
+var a = 1;
+var a = 2; // Allowed
+let b = 1;
+// let b = 2; // Error: Identifier 'b' has already been declared
 ```
 
 ---
 
+## Comparison Table: var vs let vs const
+| Feature        | var         | let         | const       |
+|---------------|-------------|-------------|-------------|
+| Scope         | Function    | Block       | Block       |
+| Hoisting      | Yes         | Yes (TDZ)   | Yes (TDZ)   |
+| Re-declare    | Yes         | No          | No          |
+| Reassign      | Yes         | Yes         | No          |
+| Must Init     | No          | No          | Yes         |
+
+---
+
+## Real-World Use Cases
+- **Loop counters:**
+  ```js
+  for (let i = 0; i < 5; i++) {
+    console.log({ i });
+  }
+  ```
+- **Constants:**
+  ```js
+  const PI = 3.14159;
+  ```
+- **Global config:**
+  ```js
+  var config = {};
+  ```
+
+---
+
 ## Key Takeaways
-> - Use `const` for values that won't change.
-> - Use `let` for variables that will be reassigned.
-> - Avoid `var` due to function-scoping issues.
-> - Always declare variables before using them.
-> - Include variable names in console output for clarity.
+> - Use `const` for values that never change, `let` for those that do, and avoid `var`.
+> - `let` and `const` are block scoped; `var` is function scoped.
+> - Hoisting can lead to bugs—always declare variables at the top of their scope.
 
 ---
 
 ## Common Pitfalls & Warnings
 > ⚠️ **Warning:**
-> Assigning to undeclared variables creates implicit globals, which can lead to bugs and hard-to-maintain code.
+> - Using `var` can lead to bugs due to hoisting and scope confusion.
+> - Re-declaring variables with `let` or `const` in the same scope causes errors.
+> - `const` does not make objects/arrays immutable—only the binding is constant.
 
 ---
 
 ## Practice
 **Try it yourself:**
-- Declare a variable for your favorite color using `let` and print it.
-- Try reassigning a `const` variable and observe the error.
+- Declare a variable with `let` and reassign it.
+- Try to reassign a `const` variable and observe the error.
+- Use `var` in a function and see its scope.
 
 **Quiz:**
 ```js
-var x = 10;
+var x = 1;
 if (true) {
-  let x = 20;
-  console.log(x);
+  var x = 2;
+  let y = 3;
 }
-console.log(x);
-// What does this print?
+console.log(x); // ?
+// console.log(y); // ?
 ```
 
 ---
@@ -358,165 +493,141 @@ console.log(x);
 
 ---
 
-## Difference Between var, let, and const
-
-**Learning Goals:**
-- Compare the differences in scope, hoisting, re-declaration, and reassignment for `var`, `let`, and `const`.
-- Learn best practices for choosing variable declarations.
-
----
-
-### Overview
-
-JavaScript provides three ways to declare variables: `var`, `let`, and `const`. They differ in scope, hoisting, re-declaration, and reassignment rules.
-
----
-
-### Syntax & Examples
-
-| Feature                | var                                 | let                                 | const                                 |
-|------------------------|-------------------------------------|-------------------------------------|---------------------------------------|
-| Scope                  | Function or global                  | Block ({}), not global              | Block ({}), not global                |
-| Hoisting               | Yes (initialized as undefined)      | Yes (in TDZ until declaration)      | Yes (in TDZ until declaration)        |
-| Re-declaration         | Allowed                             | Not allowed in same scope           | Not allowed in same scope             |
-| Re-assignment          | Allowed                             | Allowed                             | Not allowed                           |
-| Must initialize?       | No                                  | No                                  | Yes                                   |
-| Default value          | undefined                           | ReferenceError if accessed early    | ReferenceError if accessed early      |
-
-```js
-// var
-function exampleVar() {
-    var n = "Janardhan";
-    console.log(n); // Janardhan
-}
-exampleVar();
-console.log(x); // undefined (hoisted)
-var x = 5;
-var name = "Pranjal";
-var name = "Tanmay"; // re-declaration allowed
-console.log(name); // Tanmay
-
-// let
-if (true) {
-let age = 30;
-    console.log(age); // 30
-}
-// console.log(age); // ReferenceError
-console.log(y); // ReferenceError (TDZ)
-let y = 10;
-let city = 'Delhi';
-// let city = 'Mumbai'; // SyntaxError
-city = 'Mumbai'; // Allowed
-
-// const
-const country = "USA";
-console.log(country); // USA
-// country = "India"; // TypeError
-const city2 = "New York";
-// const city2 = "Los Angeles"; // SyntaxError
-// const a; // SyntaxError
-const numbers = [1, 2, 3];
-numbers.push(4); // Allowed
-// numbers = [5, 6]; // TypeError
-const person = { name: "Alice" };
-person.age = 25; // Allowed
-// person = { name: "Bob" }; // TypeError
-```
-
----
-
-### Key Takeaways
-> - `var` is function/global scoped and hoisted as undefined.
-> - `let` and `const` are block scoped and in the temporal dead zone until declared.
-> - `const` must be initialized and cannot be reassigned.
-> - Prefer `const` for values that never change, `let` for those that do, and avoid `var`.
-
----
-
-### Common Pitfalls & Warnings
-> ⚠️ **Warning:**
-> Using `var` can lead to bugs due to hoisting and scope confusion. Accessing `let` or `const` before declaration throws a ReferenceError.
-
----
-
-### Practice
-**Try it yourself:**
-- Try redeclaring a variable with `let` in the same scope and observe the error.
-- Create a `const` array and try to reassign it vs. modifying its contents.
-
-**Quiz:**
-```js
-console.log(a);
-let a = 5;
-// What happens?
-```
-
----
-
-### Further Reading
-- [GeeksforGeeks: Difference between var, let and const keywords in JavaScript](https://www.geeksforgeeks.org/javascript/difference-between-var-let-and-const-keywords-in-javascript/)
-- [MDN: var, let, const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)
-
----
-
 # 2_dataType.js — JavaScript Data Types
 
 **Learning Goals:**
 - Identify primitive and non-primitive data types in JavaScript.
-- Use `typeof` to check data types.
-- Understand quirks like `typeof null`.
+- Use `typeof`, `instanceof`, and `Array.isArray` to check types.
+- Understand quirks like `typeof null` and `NaN`.
+- Know about mutability and immutability.
+- Apply best practices and avoid common pitfalls.
 
 ---
 
 ## Overview
 
-JavaScript is a dynamically typed language with several primitive and non-primitive data types. Strict mode helps catch errors early.
+JavaScript is a dynamically typed language with several primitive and non-primitive data types. Understanding these types and how to check them is essential for robust code.
 
 ---
 
 ## Syntax & Examples
 
+### Primitive Types
 ```js
-"use strict";
-let name = "veenayak"; // String
-let age = 22; // Number
-let isLogged = false; // Boolean
-let state = null; // Null
-let city; // Undefined
-console.log('typeof age:', typeof age); // "number"
-console.log('typeof null:', typeof null); // "object"
-console.log('typeof undefined:', typeof undefined); // "undefined"
-console.log('city value:', city);
-console.log('typeof city:', typeof city);
+const str = 'hello'; // String
+const num = 42; // Number
+const bool = true; // Boolean
+const n = null; // Null
+let u; // Undefined
+const sym = Symbol('id'); // Symbol
+const big = 123n; // BigInt
+console.log({ str, num, bool, n, u, sym, big });
+```
+
+### Non-Primitive Types
+```js
+const obj = { a: 1 };
+const arr = [1, 2, 3];
+function fn() { return 'hi'; }
+const date = new Date();
+console.log({ obj, arr, fn, date });
+```
+
+### Type Checking
+```js
+console.log('typeof str:', typeof str);
+console.log('typeof arr:', typeof arr); // 'object'
+console.log('Array.isArray(arr):', Array.isArray(arr));
+console.log('fn instanceof Function:', fn instanceof Function);
+console.log('date instanceof Date:', date instanceof Date);
+```
+
+### Special Cases
+```js
+console.log('typeof null:', typeof null); // 'object' (quirk)
+console.log('typeof NaN:', typeof NaN); // 'number'
+console.log('typeof []:', typeof []); // 'object'
+console.log('Array.isArray([]):', Array.isArray([])); // true
+```
+
+### Mutability
+```js
+let a = 1;
+a = 2; // Primitives are immutable (new value)
+const arr2 = [1, 2];
+arr2[0] = 9; // Non-primitives are mutable
+console.log({ a, arr2 });
 ```
 
 ---
 
+## Comparison Table: Data Types
+| Type      | Example         | typeof         | Mutable?   | Notes                  |
+|-----------|----------------|---------------|------------|------------------------|
+| String    | 'abc'          | 'string'      | No         | Primitive              |
+| Number    | 42             | 'number'      | No         | Primitive              |
+| Boolean   | true           | 'boolean'     | No         | Primitive              |
+| Null      | null           | 'object'      | No         | Primitive, quirky type |
+| Undefined | undefined      | 'undefined'   | No         | Primitive              |
+| Symbol    | Symbol('id')   | 'symbol'      | No         | Primitive (ES6+)       |
+| BigInt    | 123n           | 'bigint'      | No         | Primitive (ES2020+)    |
+| Object    | {a:1}          | 'object'      | Yes        | Non-primitive          |
+| Array     | [1,2,3]        | 'object'      | Yes        | Non-primitive, Array   |
+| Function  | function(){}   | 'function'    | Yes        | Non-primitive, callable|
+| Date      | new Date()     | 'object'      | Yes        | Non-primitive, Date    |
+
+---
+
+## Real-World Use Cases
+- **Type checking:**
+  ```js
+  function isArray(val) {
+    return Array.isArray(val);
+  }
+  console.log(isArray([1,2,3]));
+  ```
+- **Handling null/undefined:**
+  ```js
+  function safeGet(obj, key) {
+    return obj[key] ?? 'default';
+  }
+  ```
+- **Working with BigInt:**
+  ```js
+  const big = 9007199254740991n;
+  console.log({ big });
+  ```
+
+---
+
 ## Key Takeaways
-> - Use `typeof` to check data types.
-> - `null` is a special case that returns "object".
-> - Undefined variables have type "undefined".
-> - Always declare variables before using them.
+> - Use `typeof` for primitives, `Array.isArray` for arrays, and `instanceof` for objects.
+> - Primitives are immutable; objects/arrays are mutable.
+> - `typeof null` is 'object' (quirk); `typeof NaN` is 'number'.
+> - Always check for array type before using array methods.
 
 ---
 
 ## Common Pitfalls & Warnings
 > ⚠️ **Warning:**
-> `typeof null` returns "object" (a JavaScript quirk).
+> - `typeof null` returns 'object' (historical bug).
+> - Arrays and functions are objects—use `Array.isArray` and `typeof fn === 'function'`.
+> - NaN is a number, but not equal to itself.
 
 ---
 
 ## Practice
 **Try it yourself:**
 - Declare a variable of each primitive type and print its type.
-- What does `typeof NaN` return?
+- Check if a value is an array or a function.
+- Try mutating a primitive and a non-primitive value.
 
 **Quiz:**
 ```js
-let x;
+let x = null;
 console.log(typeof x);
-x = null;
-console.log(typeof x);
+let y = [1,2,3];
+console.log(Array.isArray(y));
 // What does this print?
 ```
 
@@ -524,66 +635,187 @@ console.log(typeof x);
 
 ## Further Reading
 - [MDN: Data types](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
+- [MDN: typeof](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)
+- [MDN: Array.isArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray)
 
 ---
 
 # 3_conversionOperation.js — JavaScript Type Conversion
 
 **Learning Goals:**
-- Convert between strings, numbers, booleans, null, and undefined.
+- Understand the difference between implicit (coercion) and explicit type conversion.
+- Convert between strings, numbers, booleans, null, undefined, objects, and arrays.
 - Recognize what results in `NaN` and how to check for it.
+- Use conversion functions and methods effectively.
+- Avoid common pitfalls in type conversion.
 
 ---
 
 ## Overview
 
-JavaScript automatically converts types when needed (implicit conversion), but you can also convert types explicitly using constructors like `Number()`.
+JavaScript automatically converts types when needed (implicit conversion/coercion), but you can also convert types explicitly using constructors and methods. Understanding how and when conversion happens is crucial for writing bug-free code.
 
 ---
 
 ## Syntax & Examples
 
+### Implicit (Type Coercion) vs Explicit Conversion
+
+#### Implicit Conversion (Coercion)
 ```js
-let score = "33";
-console.log('typeof score (initial):', typeof score); // string
-console.log('typeof Number(score):', typeof Number(score)); // number
-score = "33q";
-console.log('Number(score):', Number(score)); // NaN
-score = null;
-console.log('Number(score):', Number(score)); // 0
-score = undefined;
-console.log('Number(score):', Number(score)); // NaN
-let isLoggedIn = true;
-console.log('Number(isLoggedIn):', Number(isLoggedIn)); // 1
-score = "veenayak";
-console.log('Number(score):', Number(score)); // NaN
+console.log("'5' + 1:", '5' + 1); // '51' (number to string)
+console.log("'5' - 1:", '5' - 1); // 4 (string to number)
+console.log("true + 1:", true + 1); // 2 (boolean to number)
+console.log("'5' * '2':", '5' * '2'); // 10 (strings to numbers)
+console.log("'5' == 5:", '5' == 5); // true (coercion in comparison)
+```
+
+#### Explicit Conversion
+```js
+const str = String(123); // '123'
+const num = Number('456'); // 456
+const bool = Boolean(0); // false
+console.log({ str, num, bool });
+```
+
+### String Conversion
+```js
+const n = 42;
+console.log('String(n):', String(n));
+console.log('n.toString():', n.toString());
+console.log('true.toString():', true.toString());
+console.log('([1,2,3]).toString():', [1,2,3].toString());
+console.log('({a:1}).toString():', ({a:1}).toString());
+```
+
+### Number Conversion
+```js
+console.log('Number("123"):', Number("123"));
+console.log('Number("abc"):', Number("abc")); // NaN
+console.log('Number(true):', Number(true)); // 1
+console.log('Number(false):', Number(false)); // 0
+console.log('Number(null):', Number(null)); // 0
+console.log('Number(undefined):', Number(undefined)); // NaN
+console.log('Number([1,2,3]):', Number([1,2,3])); // NaN
+console.log('parseInt("42px"):', parseInt("42px")); // 42
+console.log('parseFloat("3.14abc"):', parseFloat("3.14abc")); // 3.14
+```
+
+### Boolean Conversion (Truthy/Falsy)
+```js
+console.log('Boolean(0):', Boolean(0)); // false
+console.log('Boolean(1):', Boolean(1)); // true
+console.log('Boolean(""):', Boolean("")); // false
+console.log('Boolean("hello"):', Boolean("hello")); // true
+console.log('Boolean([]):', Boolean([])); // true
+console.log('Boolean({}):', Boolean({})); // true
+console.log('Boolean(null):', Boolean(null)); // false
+console.log('Boolean(undefined):', Boolean(undefined)); // false
+console.log('Boolean(NaN):', Boolean(NaN)); // false
+```
+
+### Special Cases
+```js
+console.log('typeof null:', typeof null); // 'object' (quirk)
+console.log('typeof NaN:', typeof NaN); // 'number'
+console.log('Number(""):', Number("")); // 0
+console.log('Number([]):', Number([])); // 0
+console.log('Number([1]):', Number([1])); // 1
+console.log('Number([1,2]):', Number([1,2])); // NaN
+console.log('String(undefined):', String(undefined)); // 'undefined'
+console.log('String(null):', String(null)); // 'null'
+```
+
+### Conversion Functions and Methods
+```js
+const val = '123.45abc';
+console.log('parseInt(val):', parseInt(val)); // 123
+console.log('parseFloat(val):', parseFloat(val)); // 123.45
+console.log('Number(val):', Number(val)); // NaN
+console.log('Boolean(val):', Boolean(val)); // true
+const obj = { valueOf() { return 10; } };
+console.log('Number(obj):', Number(obj)); // 10
 ```
 
 ---
 
+## Comparison Table: Conversion Results
+| Value         | Number() | String()   | Boolean() |
+|---------------|----------|------------|-----------|
+| '42'          | 42       | '42'       | true      |
+| 'abc'         | NaN      | 'abc'      | true      |
+| ''            | 0        | ''         | false     |
+| true          | 1        | 'true'     | true      |
+| false         | 0        | 'false'    | false     |
+| null          | 0        | 'null'     | false     |
+| undefined     | NaN      | 'undefined'| false     |
+| [1,2]         | NaN      | '1,2'      | true      |
+| []            | 0        | ''         | true      |
+| {}            | NaN      | '[object Object]' | true |
+| NaN           | NaN      | 'NaN'      | false     |
+
+---
+
+## Real-World Use Cases
+- **Form input conversion:**
+  ```js
+  const ageInput = '25';
+  const age = Number(ageInput);
+  if (!Number.isNaN(age)) {
+    console.log('Valid age:', age);
+  }
+  ```
+- **Boolean checks:**
+  ```js
+  const value = '';
+  if (!value) {
+    console.log('Value is falsy');
+  }
+  ```
+- **Parsing numbers from strings:**
+  ```js
+  const price = parseFloat('$19.99'.replace('$', ''));
+  console.log({ price });
+  ```
+- **Converting objects for display:**
+  ```js
+  const user = { name: 'Alice' };
+  console.log('User:', String(user));
+  ```
+
+---
+
 ## Key Takeaways
-> - `Number()` performs explicit type conversion.
-> - Invalid conversions result in `NaN`.
-> - `typeof NaN` returns "number" (quirk).
-> - `null` converts to 0, `undefined` to NaN.
+> - Use explicit conversion to avoid bugs from implicit coercion.
+> - `Number()`, `String()`, and `Boolean()` are the main conversion functions.
+> - `parseInt` and `parseFloat` are for parsing numbers from strings.
+> - Be aware of truthy/falsy values in boolean conversion.
+> - Arrays and objects have special conversion rules.
+> - Always check for `NaN` after number conversion.
 
 ---
 
 ## Common Pitfalls & Warnings
 > ⚠️ **Warning:**
-> Not all strings can be converted to numbers. Always check for `NaN` after conversion.
+> - Implicit coercion can lead to unexpected results—prefer explicit conversion.
+> - `Number(undefined)` is NaN, `Number(null)` is 0.
+> - `Boolean([])` and `Boolean({})` are true, even though they're empty.
+> - `parseInt` stops at the first non-digit character; `Number` returns NaN if the string is not a valid number.
+> - `typeof null` is 'object' (quirk).
 
 ---
 
 ## Practice
 **Try it yourself:**
-- Convert `"42"`, `"abc"`, `true`, `false`, `null`, and `undefined` to numbers and print the results.
+- Convert different values to numbers, strings, and booleans and observe the results.
+- Use `parseInt` and `parseFloat` on various strings.
+- Check for `NaN` after conversion.
 
 **Quiz:**
 ```js
-console.log(Number(""));
-console.log(Number("0"));
-console.log(Number(false));
+console.log(Number(''));
+console.log(Boolean('0'));
+console.log(String(false));
 // What does this print?
 ```
 
@@ -591,160 +823,415 @@ console.log(Number(false));
 
 ## Further Reading
 - [MDN: Type Conversion](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#type_conversion)
+- [MDN: parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
+- [MDN: parseFloat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat)
+- [Jake Worth: Logging an Object in JavaScript](https://www.jakeworth.com/posts/logging-an-object/)
 
 ---
 
 # 4_operation.js — JavaScript Operations
 
 **Learning Goals:**
-- Perform arithmetic operations and understand operator precedence.
-- Understand type coercion with the `+` operator.
-- Use unary and increment/decrement operators correctly.
+- Perform arithmetic, assignment, comparison, logical, bitwise, unary, and ternary operations.
+- Use typeof, delete, in, instanceof, spread, and destructuring operators.
+- Understand operator precedence and associativity.
+- Apply best practices and avoid common pitfalls.
 
 ---
 
 ## Overview
 
-JavaScript supports arithmetic, string concatenation, and type coercion. Understanding how operators work and how JavaScript converts types is essential for writing bug-free code.
+JavaScript provides a wide range of operators for performing calculations, assignments, comparisons, logical operations, and more. Understanding how these operators work, their precedence, and their side effects is essential for writing clear and bug-free code.
 
 ---
 
 ## Syntax & Examples
 
+### Arithmetic Operators
 ```js
-// Basic Arithmetic
-let value = 3;
-let negValue = -value;
-console.log('negValue:', negValue);
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+const a = 10, b = 3;
+console.log('a + b:', a + b);
+console.log('a - b:', a - b);
+console.log('a * b:', a * b);
+console.log('a / b:', a / b);
+console.log('a % b:', a % b);
+console.log('a ** b:', a ** b); // Exponentiation
+```
 
-// String Concatenation
-let str1 = "hello";
-let str2 = " veenayak";
-let str3 = str1 + str2;
-console.log('str3:', str3);
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+### Assignment Operators
+```js
+let x = 5;
+x += 2; // x = x + 2
+x -= 1; // x = x - 1
+x *= 3; // x = x * 3
+x /= 2; // x = x / 2
+x %= 2; // x = x % 2
+x **= 2; // x = x ** 2
+console.log({ x });
+```
 
-// Type Coercion with + Operator
-console.log("'1' + 2:", '1' + 2); // '12'
-console.log("1 + '2':", 1 + "2"); // '12'
-console.log("'1' + 2 + 2:", '1' + 2 + 2); // '122'
-console.log("1 + 2 + '2':", 1 + 2 + "2"); // '32'
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+### Comparison Operators
+See the Comparisons section for details (`==`, `===`, `!=`, `!==`, `>`, `<`, `>=`, `<=`).
 
-// Unary Plus for Type Conversion
-console.log("Unary plus on true:", +true); // 1
-console.log("Unary plus on empty string:", +""); // 0
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+### Logical Operators
+```js
+const p = true, q = false;
+console.log('p && q:', p && q);
+console.log('p || q:', p || q);
+console.log('!p:', !p);
+console.log('null ?? "default":', null ?? "default"); // Nullish coalescing
+```
 
-// Prefix and Postfix Increment/Decrement
-let gameCounter = 100;
-console.log("Initial gameCounter:", gameCounter); // 100
-let postInc = gameCounter++;
-console.log("gameCounter after postfix increment:", gameCounter); // 101
-console.log("Value of postInc (gameCounter++):", postInc); // 100
-let preInc = ++gameCounter;
-console.log("gameCounter after prefix increment:", gameCounter); // 102
-console.log("Value of preInc (++gameCounter):", preInc); // 102
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+### Bitwise Operators
+```js
+const m = 5, n = 3;
+console.log('m & n:', m & n); // AND
+console.log('m | n:', m | n); // OR
+console.log('m ^ n:', m ^ n); // XOR
+console.log('~m:', ~m); // NOT
+console.log('m << 1:', m << 1); // Left shift
+console.log('m >> 1:', m >> 1); // Right shift
+console.log('m >>> 1:', m >>> 1); // Unsigned right shift
+```
+
+### Unary Operators
+```js
+let y = 10;
+console.log('++y:', ++y);
+console.log('--y:', --y);
+console.log('+"5":', +"5"); // Converts to number
+console.log('-"5":', -"5"); // Negates after conversion
+console.log('typeof y:', typeof y);
+```
+
+### Ternary Operator
+```js
+const age = 18;
+const status = age >= 18 ? 'adult' : 'minor';
+console.log({ status });
+```
+
+### String Operators
+```js
+const s1 = 'Hello', s2 = 'World';
+console.log('s1 + s2:', s1 + ' ' + s2);
+const templ = `${s1}, ${s2}!`;
+console.log({ templ });
+```
+
+### Spread and Rest Operators
+```js
+const arr = [1, 2, 3];
+const arr2 = [...arr, 4];
+console.log({ arr2 });
+function sum(...nums) { return nums.reduce((a, b) => a + b, 0); }
+console.log('sum(1,2,3):', sum(1,2,3));
+```
+
+### Destructuring Assignment
+```js
+const obj = { a: 1, b: 2 };
+const { a: alpha, b: beta } = obj;
+console.log({ alpha, beta });
+const [first, ...rest] = [10, 20, 30];
+console.log({ first, rest });
+```
+
+### typeof, delete, in, instanceof
+```js
+const arr3 = [1, 2, 3];
+console.log('typeof arr3:', typeof arr3);
+console.log('0 in arr3:', 0 in arr3);
+console.log('length' in arr3);
+console.log('arr3 instanceof Array:', arr3 instanceof Array);
+const obj2 = { x: 1 };
+delete obj2.x;
+console.log({ obj2 });
+```
+
+### Operator Precedence and Associativity
+```js
+const result = 2 + 3 * 4; // 2 + (3 * 4) = 14
+console.log({ result });
+const chained = 10 - 2 - 1; // (10 - 2) - 1 = 7
+console.log({ chained });
 ```
 
 ---
 
+## Comparison Table: Operator Types and Use Cases
+| Operator Type      | Examples                | Use Case                        |
+|--------------------|------------------------|---------------------------------|
+| Arithmetic         | +, -, *, /, %, **      | Math operations                 |
+| Assignment         | =, +=, -=, *=, /=      | Assign/update values            |
+| Comparison         | ==, ===, >, <, etc.    | Value comparison                |
+| Logical            | &&, ||, !, ??          | Boolean logic, defaults         |
+| Bitwise            | &, |, ^, ~, <<, >>     | Low-level bit manipulation      |
+| Unary              | +, -, ++, --, typeof   | Single operand operations       |
+| Ternary            | ? :                    | Conditional expressions         |
+| String             | +, template literals   | Concatenation, interpolation    |
+| Spread/Rest        | ...                    | Copy, merge, variable args      |
+| Destructuring      | {a}, [x]               | Extract values from objects/arr |
+| typeof, delete, in | typeof, delete, in     | Type check, property ops        |
+| instanceof         | instanceof             | Prototype chain check           |
+
+---
+
+## Real-World Use Cases
+- **Default values:**
+  ```js
+  function greet(name) {
+    const user = name || 'Guest';
+    console.log({ user });
+  }
+  greet();
+  ```
+- **Conditional logic:**
+  ```js
+  const isEven = n => n % 2 === 0 ? 'even' : 'odd';
+  console.log('isEven(3):', isEven(3));
+  ```
+- **Merging arrays:**
+  ```js
+  const a = [1,2], b = [3,4];
+  const merged = [...a, ...b];
+  console.log({ merged });
+  ```
+- **Removing properties:**
+  ```js
+  const obj = { x: 1, y: 2 };
+  delete obj.x;
+  console.log({ obj });
+  ```
+
+---
+
 ## Key Takeaways
-> - The `+` operator performs string concatenation if either operand is a string.
-> - Evaluation of expressions happens from left to right, which is crucial for understanding type coercion with `+`.
-> - The unary plus `+` is a concise way to convert a value to a number.
-> - Be mindful of the difference between prefix (`++i`) and postfix (`i++`) increment/decrement operators, as they return different values.
-> - For clarity and to avoid bugs, it's often better to perform increments on a separate line rather than within a larger expression.
+> - Use arithmetic and assignment operators for calculations and updates.
+> - Use logical and ternary operators for concise conditional logic.
+> - Use spread/rest for copying, merging, and variable arguments.
+> - Use destructuring for cleaner code.
+> - Understand operator precedence to avoid bugs.
+> - Use typeof, in, instanceof, and delete for type and property checks.
 
 ---
 
 ## Common Pitfalls & Warnings
 > ⚠️ **Warning:**
-> Mixing types with the `+` operator can lead to unexpected results due to type coercion. Always check operand types if unsure.
+> - Mixing types with + can lead to string concatenation instead of addition.
+> - Assignment inside conditions (e.g., if (x = 5)) is a common bug—use === for comparison.
+> - Bitwise operators work on 32-bit integers, not floats.
+> - delete only removes properties from objects, not variables or array elements (leaves holes).
+> - typeof null returns 'object' (quirk).
 
 ---
 
 ## Practice
 **Try it yourself:**
-- Predict the result of `'5' + 3 + 2` and `3 + 2 + '5'`.
-- Use the unary plus to convert a string to a number and add 10.
+- Use arithmetic operators to calculate the area of a rectangle.
+- Use the ternary operator to check if a number is positive or negative.
+- Use spread to merge two arrays.
+- Use destructuring to extract values from an object.
+- Use typeof and instanceof to check types.
 
 **Quiz:**
 ```js
 let a = 5;
-console.log(a++ + ++a);
+let b = '5';
+console.log(a + b);
+console.log(a == b);
+console.log(a === b);
 // What does this print?
 ```
 
 ---
 
 ## Further Reading
-- [MDN: Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
+- [MDN: Expressions and Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators)
+- [MDN: Operator precedence](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence)
+- [Jake Worth: Logging an Object in JavaScript](https://www.jakeworth.com/posts/logging-an-object/)
 
 ---
 
 # 5_comparison.js — JavaScript Comparisons
 
 **Learning Goals:**
-- Understand equality and relational operators.
-- Know the difference between `==` and `===`.
-- Learn how `null` and `undefined` behave in comparisons.
+- Understand equality and relational operators in JavaScript.
+- Know the difference between == and ===, != and !==.
+- Use relational operators (>, <, >=, <=) correctly.
+- Learn about Object.is and SameValue comparison.
+- Compare different types (number, string, boolean, object, array, null, undefined, NaN).
+- Recognize special cases and pitfalls in comparisons.
 
 ---
 
 ## Overview
 
-JavaScript provides both loose (`==`) and strict (`===`) equality operators, as well as relational operators. Special care is needed when comparing `null` and `undefined`.
+JavaScript provides both loose (==) and strict (===) equality operators, as well as relational operators. Special care is needed when comparing different types, objects, arrays, and special values like null, undefined, and NaN.
 
 ---
 
 ## Syntax & Examples
 
+### Equality Operators
+
+#### Loose Equality (==)
 ```js
-// Comparisons with null
-console.log('null > 0:', null > 0); // false
-console.log('null == 0:', null == 0); // false
-console.log('null >= 0:', null >= 0); // true
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+console.log("'2' == 2:", '2' == 2); // true (type coercion)
+console.log("false == 0:", false == 0); // true
+console.log("null == undefined:", null == undefined); // true
+```
 
-// Comparisons with undefined
-console.log('undefined > 0:', undefined > 0); // false
-console.log('undefined == 0:', undefined == 0); // false
-console.log('undefined >= 0:', undefined >= 0); // false
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+#### Strict Equality (===)
+```js
+console.log("'2' === 2:", '2' === 2); // false (no type coercion)
+console.log("false === 0:", false === 0); // false
+console.log("null === undefined:", null === undefined); // false
+```
 
-// Strict vs Loose Equality
-console.log("'2' == 2:", '2' == 2); // true
-console.log("'2' === 2:", '2' === 2); // false
+### Inequality Operators
+```js
+console.log("'2' != 2:", '2' != 2); // false
+console.log("'2' !== 2:", '2' !== 2); // true
+```
+
+### Relational Operators
+```js
+console.log('3 > 2:', 3 > 2); // true
+console.log('2 >= 2:', 2 >= 2); // true
+console.log('1 < 2:', 1 < 2); // true
+console.log('1 <= 2:', 1 <= 2); // true
+```
+
+### Object.is
+```js
+console.log('Object.is(NaN, NaN):', Object.is(NaN, NaN)); // true
+console.log('Object.is(+0, -0):', Object.is(+0, -0)); // false
+console.log('Object.is(0, -0):', Object.is(0, -0)); // false
+console.log('Object.is(1, 1):', Object.is(1, 1)); // true
+```
+
+### Comparing Different Types
+```js
+console.log("'5' == 5:", '5' == 5); // true
+console.log("'5' === 5:", '5' === 5); // false
+console.log('true == 1:', true == 1); // true
+console.log('false == 0:', false == 0); // true
+console.log('[] == false:', [] == false); // true
+console.log('[] == 0:', [] == 0); // true
+console.log('[1] == 1:', [1] == 1); // true
+console.log('{} == {}:', {} == {}); // false (different references)
+console.log('null == undefined:', null == undefined); // true
+console.log('null === undefined:', null === undefined); // false
+```
+
+### Special Cases
+
+#### NaN
+```js
+console.log('NaN == NaN:', NaN == NaN); // false
+console.log('NaN === NaN:', NaN === NaN); // false
+console.log('Object.is(NaN, NaN):', Object.is(NaN, NaN)); // true
+```
+
+#### +0 vs -0
+```js
+console.log('+0 === -0:', +0 === -0); // true
+console.log('Object.is(+0, -0):', Object.is(+0, -0)); // false
+```
+
+#### Object Reference Equality
+```js
+const a = {};
+const b = {};
+const c = a;
+console.log('a === b:', a === b); // false
+console.log('a === c:', a === c); // true
 ```
 
 ---
 
+## Comparison Table: Operators and Their Behavior
+| Operator   | Type         | Coercion | Example         | Result      | Notes                        |
+|------------|--------------|----------|----------------|-------------|------------------------------|
+| ==         | Equality     | Yes      | '2' == 2       | true        | Loose equality               |
+| ===        | Equality     | No       | '2' === 2      | false       | Strict equality              |
+| !=         | Inequality   | Yes      | '2' != 2       | false       | Loose inequality             |
+| !==        | Inequality   | No       | '2' !== 2      | true        | Strict inequality            |
+| >, <, >=, <=| Relational  | Yes      | '5' > 3        | true        | Strings converted to numbers |
+| Object.is  | SameValue    | No       | Object.is(NaN, NaN) | true   | Handles NaN, +0/-0          |
+
+---
+
+## Real-World Use Cases
+- **Input validation:**
+  ```js
+  const input = '42';
+  if (input == 42) {
+    console.log('Input loosely equals 42');
+  }
+  if (input === 42) {
+    console.log('Input strictly equals 42');
+  } else {
+    console.log('Input does not strictly equal 42');
+  }
+  ```
+- **Checking for null or undefined:**
+  ```js
+  let value;
+  if (value == null) {
+    console.log('Value is null or undefined');
+  }
+  ```
+- **Comparing objects:**
+  ```js
+  const obj1 = { a: 1 };
+  const obj2 = { a: 1 };
+  console.log('obj1 === obj2:', obj1 === obj2); // false
+  const obj3 = obj1;
+  console.log('obj1 === obj3:', obj1 === obj3); // true
+  ```
+- **NaN checks:**
+  ```js
+  const n = NaN;
+  if (Number.isNaN(n)) {
+    console.log('n is NaN');
+  }
+  ```
+
+---
+
 ## Key Takeaways
-> - Use `===` for equality comparisons (recommended).
-> - `null` converts to 0 in relational comparisons, but not in equality.
-> - `undefined` converts to NaN in all comparisons.
-> - Be aware of type coercion in loose equality.
+> - Use === and !== for most comparisons to avoid type coercion bugs.
+> - == and != perform type coercion and can lead to unexpected results.
+> - Object.is is useful for distinguishing NaN and +0/-0.
+> - Objects and arrays are compared by reference, not by value.
+> - NaN is not equal to itself; use Number.isNaN or Object.is for checks.
+> - null == undefined is true, but null === undefined is false.
 
 ---
 
 ## Common Pitfalls & Warnings
 > ⚠️ **Warning:**
-> Using `==` can lead to unexpected results due to type coercion. Always prefer `===` unless you have a specific reason.
+> - Using == can lead to unexpected results due to type coercion.
+> - Comparing objects/arrays compares references, not contents.
+> - NaN is not equal to itself; always use Number.isNaN or Object.is.
+> - +0 and -0 are equal with === but not with Object.is.
+> - null and undefined are only loosely equal.
 
 ---
 
 ## Practice
 **Try it yourself:**
-- Compare `null` and `undefined` with `==` and `===`.
-- Predict the result of `'0' == 0` and `'0' === 0`.
+- Compare '5' and 5 with both == and ===.
+- Compare two different arrays with ===.
+- Check if a variable is NaN using Number.isNaN.
+- Use Object.is to compare +0 and -0.
 
 **Quiz:**
 ```js
-console.log(null >= 0);
-console.log(undefined == 0);
+console.log([] == false);
+console.log([] === false);
 // What does this print?
 ```
 
@@ -752,130 +1239,267 @@ console.log(undefined == 0);
 
 ## Further Reading
 - [MDN: Equality comparisons and sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+- [MDN: Relational operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Relational_Operators)
+- [MDN: Object.is](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
+- [Jake Worth: Logging an Object in JavaScript](https://www.jakeworth.com/posts/logging-an-object/)
 
 ---
 
 # 6_strings.js — JavaScript Strings
 
 **Learning Goals:**
-- Use template literals and string interpolation.
-- Access and manipulate string properties and methods.
-- Understand string immutability and method differences.
+- Create and manipulate strings using literals, constructors, and template literals.
+- Access and modify string content (immutability, indexing).
+- Use string interpolation and concatenation.
+- Apply a wide range of string methods for searching, extracting, replacing, and formatting.
+- Work with Unicode, escape sequences, and conversions.
+- Apply best practices and avoid common pitfalls.
 
 ---
 
 ## Overview
 
-Strings are sequences of characters used to represent text. JavaScript provides many methods for manipulating and inspecting strings.
+Strings are sequences of characters used to represent text. JavaScript provides many methods for manipulating and inspecting strings. Strings are immutable, meaning their content cannot be changed after creation—operations return new strings.
 
 ---
 
 ## Syntax & Examples
 
+### String Creation
+
+#### 1. String Literal
 ```js
-// Template Literals
-let name = "veenayak";
-let repoCount = 50;
-console.log('Template literal:', `hello my name is ${name} and my repo count is ${repoCount}`);
-console.log('Backticks example:', `Backticks`);
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+const greeting = 'Hello, world!';
+console.log({ greeting });
+```
 
-// String Access by Index
-console.log('name[0]:', name[0]);
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+#### 2. String Constructor
+```js
+const strObj = new String('Hello'); // String object (rarely needed)
+console.log({ strObj });
+```
 
-// String Constructors
-let userName = String("Veenayak");
-let userGame = new String("Veenayak");
-console.table([name, userName, userGame]);
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
-console.log('userGame.__proto__:', userGame.__proto__);
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+#### 3. Template Literals
+```js
+const name = 'veenayak';
+const message = `Hello, ${name}!`;
+console.log({ message });
+```
 
-// String Properties
-console.log('userGame.length:', userGame.length);
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+### Accessing and Modifying Strings
+```js
+const word = 'JavaScript';
+console.log('word[0]:', word[0]); // 'J'
+console.log('word.charAt(4):', word.charAt(4)); // 'S'
+// Strings are immutable:
+// word[0] = 'Y'; // No effect
+```
 
-// String Methods - Case Conversion
-console.log('userGame.toUpperCase():', userGame.toUpperCase());
-console.log('userGame.toLowerCase():', userGame.toLowerCase());
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+### String Interpolation and Concatenation
+```js
+const a = 'Hello';
+const b = 'World';
+const concat1 = a + ' ' + b;
+const concat2 = `${a} ${b}`;
+console.log({ concat1, concat2 });
+```
 
-// String Methods - Character Access
-console.log('userGame.charAt(2):', userGame.charAt(2));
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+### String Methods
 
-// String Methods - Search and Index
-console.log('userGame.indexOf("e"):', userGame.indexOf('e'));
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+#### Length
+```js
+const s = 'hello';
+console.log('s.length:', s.length);
+```
 
-// String Methods - Substring Extraction
-const neu = userGame.substring(0, 4);
-console.log('neu (substring 0,4):', neu);
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
-const news = userGame.slice(-6, 4);
-console.log('news (slice -6,4):', news);
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
-const newss = userGame[2, 4];
-console.log('newss (incorrect syntax):', newss);
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+#### charAt, charCodeAt, at
+```js
+console.log('s.charAt(1):', s.charAt(1));
+console.log('s.charCodeAt(1):', s.charCodeAt(1));
+console.log('s.at(-1):', s.at(-1));
+```
 
-// String Methods - Whitespace and Cleaning
-const nam = "       veenayak        ";
-console.log('nam (with spaces):', nam);
-console.log('nam.trim():', nam.trim());
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+#### indexOf, lastIndexOf, includes
+```js
+console.log('s.indexOf("l"):', s.indexOf('l'));
+console.log('s.lastIndexOf("l"):', s.lastIndexOf('l'));
+console.log('s.includes("he"):', s.includes('he'));
+```
 
-// String Methods - Replacement
-const url = "http://veenayak%20sirohi";
-console.log('url.replace("%20","-"):', url.replace('%20', '-'));
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+#### startsWith, endsWith
+```js
+console.log('s.startsWith("he"):', s.startsWith('he'));
+console.log('s.endsWith("lo"):', s.endsWith('lo'));
+```
 
-// String Methods - Search and Check
-console.log('url.includes("sirohi"):', url.includes("sirohi"));
-console.log('url.includes("hi"):', url.includes("hi"));
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+#### slice, substring, substr
+```js
+console.log('s.slice(1, 4):', s.slice(1, 4));
+console.log('s.substring(1, 4):', s.substring(1, 4));
+console.log('s.substr(1, 3):', s.substr(1, 3)); // Deprecated but still used
+```
 
-// String Methods - Prefix and Suffix
-console.log('userGame.startsWith("Vee"):', userGame.startsWith("Vee"));
-console.log('userGame.startsWith("vee"):', userGame.startsWith("vee"));
-console.log('userGame.endsWith("yak"):', userGame.endsWith("yak"));
-console.log('userGame.endsWith("Yak"):', userGame.endsWith("Yak"));
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+#### replace, replaceAll
+```js
+const text = 'foo bar foo';
+console.log('text.replace("foo", "baz"):', text.replace('foo', 'baz'));
+console.log('text.replaceAll("foo", "baz"):', text.replaceAll('foo', 'baz'));
+```
 
-// String Methods - Splitting and Joining
-const fullName = "Veenayak Sirohi";
-console.log('fullName.split(" "):', fullName.split(" "));
-console.log('fullName.split(""):', fullName.split(""));
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+#### split, join
+```js
+const csv = 'a,b,c';
+const arr = csv.split(',');
+console.log({ arr });
+const joined = arr.join('-');
+console.log({ joined });
+```
 
-// String Methods - Repetition
-console.log('"Ha".repeat(3):', "Ha".repeat(3));
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+#### trim, trimStart, trimEnd
+```js
+const spaced = '   hello   ';
+console.log('spaced.trim():', spaced.trim());
+console.log('spaced.trimStart():', spaced.trimStart());
+console.log('spaced.trimEnd():', spaced.trimEnd());
+```
+
+#### padStart, padEnd
+```js
+const num = '5';
+console.log('num.padStart(3, "0"):', num.padStart(3, '0'));
+console.log('num.padEnd(3, "0"):', num.padEnd(3, '0'));
+```
+
+#### repeat
+```js
+console.log('"ha".repeat(3):', 'ha'.repeat(3));
+```
+
+#### toUpperCase, toLowerCase
+```js
+console.log('s.toUpperCase():', s.toUpperCase());
+console.log('s.toLowerCase():', s.toLowerCase());
+```
+
+#### match, search, regular expressions
+```js
+const regex = /[aeiou]/g;
+console.log('s.match(regex):', s.match(regex));
+console.log('s.search("e"):', s.search('e'));
+```
+
+### Conversion between Strings and Other Types
+```js
+const n = 42;
+const strNum = String(n);
+console.log({ strNum });
+const parsed = Number('123');
+console.log({ parsed });
+```
+
+### Unicode and Escape Sequences
+```js
+const smile = '\u263A';
+console.log('smile:', smile);
+const emoji = '\u{1F600}';
+console.log('emoji:', emoji);
+const escaped = 'Line1\nLine2';
+console.log('escaped:', escaped);
 ```
 
 ---
 
+## Comparison Table: String Methods
+| Method         | Purpose                        | Returns New? | Notes                        |
+|----------------|-------------------------------|--------------|------------------------------|
+| length         | String length                  | No           | Property, not a method       |
+| charAt         | Character at index             | Yes          |                              |
+| at             | Character at index (ES2022+)   | Yes          | Supports negative indices    |
+| indexOf        | First index of substring       | Yes          | -1 if not found              |
+| lastIndexOf    | Last index of substring        | Yes          | -1 if not found              |
+| includes       | Substring present?             | Yes          | Boolean                      |
+| startsWith     | Starts with substring?         | Yes          | Boolean                      |
+| endsWith       | Ends with substring?           | Yes          | Boolean                      |
+| slice          | Extract substring              | Yes          | Supports negative indices    |
+| substring      | Extract substring              | Yes          | No negative indices          |
+| substr         | Extract substring (deprecated) | Yes          | (start, length)              |
+| replace        | Replace first match            | Yes          | Regex or string              |
+| replaceAll     | Replace all matches            | Yes          | Regex or string              |
+| split          | Split into array               | Yes          |                              |
+| join           | Join array to string           | Yes          | Array method                 |
+| trim           | Remove whitespace              | Yes          |                              |
+| padStart       | Pad start to length            | Yes          |                              |
+| padEnd         | Pad end to length              | Yes          |                              |
+| repeat         | Repeat string                  | Yes          |                              |
+| toUpperCase    | Uppercase                      | Yes          |                              |
+| toLowerCase    | Lowercase                      | Yes          |                              |
+| match          | Regex match                    | Yes          | Returns array or null        |
+| search         | Regex search                   | Yes          | Returns index or -1          |
+
+---
+
+## Real-World Use Cases
+- **Template generation:**
+  ```js
+  const user = 'Alice';
+  const msg = `Welcome, ${user}!`;
+  console.log({ msg });
+  ```
+- **CSV parsing:**
+  ```js
+  const csv = 'a,b,c';
+  const arr = csv.split(',');
+  console.log({ arr });
+  ```
+- **Input validation:**
+  ```js
+  const email = 'test@example.com';
+  const isValid = email.includes('@');
+  console.log({ isValid });
+  ```
+- **Slug generation:**
+  ```js
+  const title = 'Hello World!';
+  const slug = title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+  console.log({ slug });
+  ```
+- **Padding numbers:**
+  ```js
+  const order = 7;
+  const padded = String(order).padStart(3, '0');
+  console.log({ padded });
+  ```
+
+---
+
 ## Key Takeaways
-> - Use template literals for string interpolation.
-> - String() creates primitives, new String() creates objects.
-> - Strings are zero-indexed.
-> - Most string methods return new strings (immutable).
-> - Be careful with string method syntax differences.
+> - Use string literals and template literals for most cases.
+> - Strings are immutable—methods return new strings.
+> - Use `includes`, `startsWith`, `endsWith` for searching.
+> - Use `slice`, `substring`, `substr` for extraction (prefer `slice`).
+> - Use `replace`/`replaceAll` for substitutions.
+> - Use `split` and `join` for conversions between strings and arrays.
+> - Be aware of Unicode and escape sequences.
 
 ---
 
 ## Common Pitfalls & Warnings
 > ⚠️ **Warning:**
-> Using `new String()` creates a String object, not a primitive. Most of the time, you want a primitive string.
-> Some string methods behave differently (e.g., `substring` vs. `slice`).
+> - Strings are immutable—modifying a character does not change the string.
+> - `substr` is deprecated—prefer `slice` or `substring`.
+> - `indexOf` returns -1 if not found—always check before using the result.
+> - Be careful with regular expressions in `replace`/`match`.
+> - String objects (`new String()`) are rarely needed—prefer primitives.
 
 ---
 
 ## Practice
 **Try it yourself:**
+- Create a string and print its length.
 - Use `slice` and `substring` to extract parts of a string and compare the results.
-- Try using `trim()`, `replace()`, and `repeat()` on your own strings.
+- Use `replace` to substitute a word in a sentence.
+- Use `split` to turn a sentence into an array of words.
+- Use `padStart` to format a number as a 3-digit string.
 
 **Quiz:**
 ```js
@@ -889,78 +1513,171 @@ console.log(s.substring(1, 4));
 
 ## Further Reading
 - [MDN: String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+- [MDN: Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+- [Jake Worth: Logging an Object in JavaScript](https://www.jakeworth.com/posts/logging-an-object/)
 
 ---
 
 # 7_numberMath.js — JavaScript Numbers and Math
 
 **Learning Goals:**
-- Create and use numbers in JavaScript.
+- Create and use numbers in JavaScript (primitive and Number object).
 - Use built-in number methods for formatting and conversion.
 - Perform mathematical operations with the Math object.
 - Generate random numbers and understand floating-point quirks.
+- Apply best practices and avoid common pitfalls.
 
 ---
 
 ## Overview
 
-JavaScript supports both primitive numbers and Number objects. The Math object provides a wide range of mathematical functions and constants. Understanding number methods and random number generation is essential for many programming tasks.
+JavaScript supports both primitive numbers and Number objects. The Math object provides a wide range of mathematical functions and constants. Understanding number methods, parsing, formatting, and random number generation is essential for many programming tasks.
 
 ---
 
 ## Syntax & Examples
 
+### Number Creation and Types
 ```js
-// Number Creation and Types
-const score = 400;
-console.log('score (primitive):', score);
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
-const balance = new Number(100);
-console.log('balance (Number object):', balance);
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+const n1 = 42; // primitive
+const n2 = Number('123'); // from string
+const n3 = new Number(456); // Number object (rarely needed)
+console.log({ n1, n2, n3 });
+```
 
-// Number Methods
-console.log('balance.toString().length:', balance.toString().length);
-console.log('balance.toFixed(1):', balance.toFixed(1));
-const otherNumber = 123.8966;
-console.log('otherNumber.toPrecision(4):', otherNumber.toPrecision(4));
-const hundreds = 1000000;
-console.log('hundreds.toLocaleString("en-IN"):', hundreds.toLocaleString('en-IN'));
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+### Special Values
+```js
+console.log('NaN:', NaN);
+console.log('Infinity:', Infinity);
+console.log('-Infinity:', -Infinity);
+console.log('typeof NaN:', typeof NaN);
+console.log('typeof Infinity:', typeof Infinity);
+```
 
-// Math Object
-console.log('Math object:', Math);
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+### Number Methods
+```js
+const num = 123.456;
+console.log('num.toString():', num.toString());
+console.log('num.toFixed(2):', num.toFixed(2));
+console.log('num.toPrecision(4):', num.toPrecision(4));
+console.log('num.toExponential(2):', num.toExponential(2));
+```
 
-// Math Methods - Basic Operations
+### Parsing and Conversion
+```js
+console.log('parseInt("42px"):', parseInt('42px'));
+console.log('parseFloat("3.14abc"):', parseFloat('3.14abc'));
+console.log('Number("123.45"):', Number('123.45'));
+console.log('Number("abc"):', Number('abc'));
+```
+
+### Checking Numbers
+```js
+console.log('isNaN("abc"):', isNaN('abc'));
+console.log('Number.isNaN(NaN):', Number.isNaN(NaN));
+console.log('isFinite(10):', isFinite(10));
+console.log('Number.isFinite(Infinity):', Number.isFinite(Infinity));
+console.log('Number.isInteger(10.5):', Number.isInteger(10.5));
+console.log('Number.isSafeInteger(9007199254740991):', Number.isSafeInteger(9007199254740991));
+```
+
+### Math Object: Constants
+```js
+console.log('Math.PI:', Math.PI);
+console.log('Math.E:', Math.E);
+console.log('Math.LN2:', Math.LN2);
+```
+
+### Math Object: Methods
+```js
 console.log('Math.abs(-4):', Math.abs(-4));
 console.log('Math.round(4.6):', Math.round(4.6));
 console.log('Math.ceil(4.2):', Math.ceil(4.2));
 console.log('Math.floor(4.9):', Math.floor(4.9));
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
-
-// Math Methods - Min/Max Operations
+console.log('Math.trunc(4.9):', Math.trunc(4.9));
+console.log('Math.sign(-10):', Math.sign(-10));
 console.log('Math.min(4, 3, 6, 8):', Math.min(4, 3, 6, 8));
 console.log('Math.max(4, 3, 6, 8):', Math.max(4, 3, 6, 8));
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+console.log('Math.pow(2, 3):', Math.pow(2, 3));
+console.log('Math.sqrt(16):', Math.sqrt(16));
+console.log('Math.clamp?.(10, 0, 5):', Math.clamp ? Math.clamp(10, 0, 5) : 'Not supported');
+```
 
-// Random Number Generation
+### Random Number Generation
+```js
 console.log('Math.random():', Math.random());
-console.log('(Math.random() * 10) + 1:', (Math.random() * 10) + 1);
-console.log('Math.floor(Math.random() * 10) + 1:', Math.floor(Math.random() * 10) + 1);
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+// Random integer between min and max (inclusive)
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+console.log('randomInt(1, 10):', randomInt(1, 10));
+```
 
-// Random Number in Range
-const min = 10;
-const max = 20;
-console.log('Random between 10-20:', Math.floor(Math.random() * (max - min + 1)) + min);
-console.log('%c==================================================================', 'color: green; font-weight: bold;')
+### Dealing with Floating-Point Precision
+```js
+console.log('0.1 + 0.2:', 0.1 + 0.2); // 0.30000000000000004
+console.log('Number((0.1 + 0.2).toFixed(2)):', Number((0.1 + 0.2).toFixed(2))); // 0.3
+console.log('0.1 + 0.2 === 0.3:', 0.1 + 0.2 === 0.3); // false
 ```
 
 ---
 
+## Comparison Table: Number & Math Methods
+| Method/Property         | Purpose                        | Example/Notes                  |
+|------------------------|--------------------------------|-------------------------------|
+| Number()               | Convert to number              | Number('42')                  |
+| parseInt, parseFloat   | Parse from string              | parseInt('42px'), parseFloat('3.14abc') |
+| toString               | Convert to string              | num.toString()                |
+| toFixed                | Format decimals                | num.toFixed(2)                |
+| toPrecision            | Format to precision            | num.toPrecision(4)            |
+| toExponential          | Exponential notation           | num.toExponential(2)          |
+| isNaN, Number.isNaN    | Check for NaN                  | isNaN('abc'), Number.isNaN(NaN) |
+| isFinite, Number.isFinite| Check for finite value        | isFinite(10)                  |
+| isInteger, isSafeInteger| Check for integer/safe int     | Number.isInteger(10.5)        |
+| Math.abs, Math.round   | Absolute, round                | Math.abs(-4), Math.round(4.6) |
+| Math.ceil, Math.floor  | Ceiling, floor                 | Math.ceil(4.2), Math.floor(4.9) |
+| Math.trunc, Math.sign  | Truncate, sign                 | Math.trunc(4.9), Math.sign(-10) |
+| Math.min, Math.max     | Min, max                       | Math.min(4,3,6), Math.max(4,3,6) |
+| Math.pow, Math.sqrt    | Power, square root             | Math.pow(2,3), Math.sqrt(16)  |
+| Math.random            | Random float [0,1)             | Math.random()                  |
+
+---
+
+## Real-World Use Cases
+- **Formatting currency:**
+  ```js
+  const price = 19.99;
+  const formatted = price.toFixed(2);
+  console.log({ formatted });
+  ```
+- **Parsing user input:**
+  ```js
+  const input = '42.5px';
+  const value = parseFloat(input);
+  console.log({ value });
+  ```
+- **Random dice roll:**
+  ```js
+  const roll = Math.floor(Math.random() * 6) + 1;
+  console.log({ roll });
+  ```
+- **Rounding numbers:**
+  ```js
+  const n = 4.7;
+  console.log('Math.round(n):', Math.round(n));
+  ```
+- **Checking for valid numbers:**
+  ```js
+  const n = Number('abc');
+  if (Number.isNaN(n)) {
+    console.log('Invalid number');
+  }
+  ```
+
+---
+
 ## Key Takeaways
-> - Use primitive numbers for simple calculations.
+> - Use primitive numbers for most calculations.
 > - Number objects are rarely needed.
 > - Math methods are static (call directly on Math object).
 > - Random numbers are pseudo-random, not cryptographically secure.
@@ -970,7 +1687,10 @@ console.log('%c=================================================================
 
 ## Common Pitfalls & Warnings
 > ⚠️ **Warning:**
-> Floating-point arithmetic can lead to unexpected results (e.g., `0.1 + 0.2 !== 0.3`). Always check for precision issues when comparing decimals.
+> - Floating-point arithmetic can lead to unexpected results (e.g., `0.1 + 0.2 !== 0.3`).
+> - `parseInt` and `parseFloat` can parse partial strings; `Number` returns NaN if invalid.
+> - `isNaN` vs `Number.isNaN`: `isNaN('abc')` is true, but `Number.isNaN('abc')` is false.
+> - Math.random() is not suitable for cryptographic purposes.
 
 ---
 
@@ -978,6 +1698,8 @@ console.log('%c=================================================================
 **Try it yourself:**
 - Format a number to two decimal places using `toFixed()`.
 - Generate a random integer between 5 and 15.
+- Parse a string to a number and check for NaN.
+- Use Math methods to find the min and max of a set of numbers.
 
 **Quiz:**
 ```js
@@ -990,6 +1712,7 @@ console.log(0.1 + 0.2 === 0.3);
 ## Further Reading
 - [MDN: Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 - [MDN: Math](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)
+- [Jake Worth: Logging an Object in JavaScript](https://www.jakeworth.com/posts/logging-an-object/)
 
 ---
 
