@@ -13,6 +13,8 @@ let value = 3;
 // Unary negation operator (-) negates the value
 let negValue = -value;
 console.log('negValue:', negValue);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
+
 
 /**
  * String Concatenation
@@ -26,6 +28,8 @@ let str2 = " veenayak";
 // String concatenation using + operator
 let str3 = str1 + str2;
 console.log('str3:', str3);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
+
 
 /**
  * Type Coercion with + Operator
@@ -44,6 +48,8 @@ console.log("'1' + 2 + 2:", '1' + 2 + 2);
 
 // Number + Number + String: Arithmetic first, then string conversion
 console.log("1 + 2 + '2':", 1 + 2 + "2");
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
+
 
 /**
  * Type Coercion Explanation
@@ -58,11 +64,39 @@ console.log("1 + 2 + '2':", 1 + 2 + "2");
  */
 
 /**
- * Key Points:
- * - + operator performs string concatenation when one operand is a string
- * - Evaluation happens from left to right
- * - Numbers are converted to strings when concatenating
- * - Include variable names in console output for clarity
- * - Be careful with type coercion in calculations
+ * Unary Plus Operator for Type Conversion
+ * Demonstrates a quick way to convert a value to a number.
+ */
+console.log("Unary plus on true:", +true); // 1
+console.log("Unary plus on empty string:", +"");   // 0
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
+
+
+/**
+ * Prefix and Postfix Increment/Decrement
+ * Demonstrates the difference between pre-increment (++gameCounter) and post-increment (gameCounter++).
  */
 
+let gameCounter = 100;
+console.log("Initial gameCounter:", gameCounter); // 100
+
+// Postfix increment: returns the value *before* incrementing
+let postInc = gameCounter++;
+console.log("gameCounter after postfix increment:", gameCounter); // 101
+console.log("Value of postInc (gameCounter++):", postInc);     // 100
+
+// Prefix increment: returns the value *after* incrementing
+let preInc = ++gameCounter;
+console.log("gameCounter after prefix increment:", gameCounter); // 102
+console.log("Value of preInc (++gameCounter):", preInc);       // 102
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
+
+
+/**
+ * Key Points:
+ * - The `+` operator performs string concatenation if either operand is a string.
+ * - Evaluation of expressions happens from left to right, which is crucial for understanding type coercion with `+`.
+ * - The unary plus `+` is a concise way to convert a value to a number.
+ * - Be mindful of the difference between prefix (`++i`) and postfix (`i++`) increment/decrement operators, as they return different values.
+ * - For clarity and to avoid bugs, it's often better to perform increments on a separate line rather than within a larger expression.
+ */
