@@ -86,6 +86,33 @@
 - [10\_objects.js — JavaScript Objects](#10_objectsjs--javascript-objects)
   - [Overview](#overview-11)
   - [Syntax \& Examples](#syntax--examples-11)
+    - [Object Creation](#object-creation)
+      - [1. Object Literal](#1-object-literal)
+      - [2. Object Constructor](#2-object-constructor)
+      - [3. Object.create](#3-objectcreate)
+    - [Property Access](#property-access)
+      - [Dot Notation](#dot-notation)
+      - [Bracket Notation (for dynamic or special keys)](#bracket-notation-for-dynamic-or-special-keys)
+      - [Computed Property Names](#computed-property-names)
+      - [Symbol Properties](#symbol-properties)
+    - [Property Descriptors \& Immutability](#property-descriptors--immutability)
+      - [Object.freeze](#objectfreeze)
+      - [Object.seal](#objectseal)
+      - [Defining Property Descriptors](#defining-property-descriptors)
+    - [Methods \& `this`](#methods--this)
+      - [Regular Method](#regular-method)
+      - [Arrow Function Pitfall](#arrow-function-pitfall)
+    - [Nested Objects \& Arrays of Objects](#nested-objects--arrays-of-objects)
+    - [Object Utility Methods](#object-utility-methods)
+    - [Merging \& Cloning Objects](#merging--cloning-objects)
+      - [Shallow Copy](#shallow-copy)
+      - [Deep Copy (using JSON, for simple objects)](#deep-copy-using-json-for-simple-objects)
+    - [Destructuring \& Default Values](#destructuring--default-values)
+    - [Iteration](#iteration)
+      - [for...in (keys)](#forin-keys)
+      - [Object.entries (keys \& values)](#objectentries-keys--values)
+  - [Comparison Table: Object Features \& Methods](#comparison-table-object-features--methods)
+  - [Real-World Use Cases](#real-world-use-cases)
   - [Key Takeaways](#key-takeaways-11)
   - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-11)
   - [Practice](#practice-11)
@@ -93,6 +120,16 @@
 - [11\_function\_and\_parameter.js — JavaScript Functions and Parameters](#11_function_and_parameterjs--javascript-functions-and-parameters)
   - [Overview](#overview-12)
   - [Syntax \& Examples](#syntax--examples-12)
+    - [1. Function Declaration (Named Function)](#1-function-declaration-named-function)
+    - [2. Function Expression](#2-function-expression)
+    - [3. Arrow Function Expression](#3-arrow-function-expression)
+    - [4. Anonymous Function](#4-anonymous-function)
+    - [5. Parameters and Arguments](#5-parameters-and-arguments)
+    - [6. Return Values and Side Effects](#6-return-values-and-side-effects)
+    - [7. Scope and Closures](#7-scope-and-closures)
+    - [8. Hoisting](#8-hoisting)
+  - [Comparison Table: Function Types](#comparison-table-function-types)
+  - [Real-World Use Cases](#real-world-use-cases-1)
   - [Key Takeaways](#key-takeaways-12)
   - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-12)
   - [Practice](#practice-12)
@@ -110,7 +147,7 @@
   - [When **Not** to Use Arrow Functions](#when-not-to-use-arrow-functions)
   - [Best Practices \& Common Pitfalls](#best-practices--common-pitfalls)
   - [Comparison Table: Arrow Functions vs Regular Functions](#comparison-table-arrow-functions-vs-regular-functions)
-  - [Real-World Use Cases](#real-world-use-cases)
+  - [Real-World Use Cases](#real-world-use-cases-2)
   - [Key Takeaways](#key-takeaways-13)
   - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-13)
   - [Practice](#practice-13)
@@ -125,7 +162,7 @@
   - [Use Cases for IIFE](#use-cases-for-iife)
   - [Best Practices \& Common Pitfalls](#best-practices--common-pitfalls-1)
   - [Comparison: IIFE vs Regular Function](#comparison-iife-vs-regular-function)
-  - [Real-World Use Cases](#real-world-use-cases-1)
+  - [Real-World Use Cases](#real-world-use-cases-3)
   - [Key Takeaways](#key-takeaways-14)
   - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-14)
   - [Practice](#practice-14)
@@ -1146,135 +1183,314 @@ console.log(arr);
 # 10_objects.js — JavaScript Objects
 
 **Learning Goals:**
-- Create and access object properties using dot and bracket notation.
-- Use Symbols as object property keys.
-- Make objects immutable with Object.freeze().
-- Call object methods and use the 'this' keyword.
+- Create and access object properties using various methods (literal, constructor, Object.create).
+- Use Symbols and computed property names as object keys.
+- Understand property descriptors, immutability (`Object.freeze`, `Object.seal`).
+- Define and call object methods, and understand `this` binding (including arrow function pitfalls).
 - Work with nested objects and arrays of objects.
-- Concatenate objects and use utility methods.
-- Use object destructuring for cleaner code.
+- Use utility methods (`Object.keys`, `Object.values`, `Object.entries`, `hasOwnProperty`, etc.).
+- Merge and clone objects (shallow vs deep copy).
+- Use destructuring and default values.
+- Iterate over objects (for...in, Object.entries, caveats).
+- Apply best practices and avoid common pitfalls.
 
 ---
 
 ## Overview
 
-Objects are key-value collections used to represent structured data. JavaScript objects can have properties, methods, and support advanced features like symbols, immutability, and destructuring.
+Objects are key-value collections used to represent structured data. JavaScript objects can have properties, methods, and support advanced features like symbols, immutability, and destructuring. Mastering objects is essential for effective JavaScript programming.
 
 ---
 
 ## Syntax & Examples
 
+### Object Creation
+
+#### 1. Object Literal
 ```js
-// Object Creation and Property Access
-let obj = {
-    name: 'veenayak',
-    age: 22,
-    location: 'hapur',
-    email: 'veena@edv.com'
+const user = {
+  name: 'veenayak',
+  age: 22,
+  email: 'veena@edv.com',
+  'favorite color': 'blue', // property with space
 };
-console.log('obj.name:', obj.name);
-console.log('obj["name"]:', obj['name']);
+console.log({ user });
+```
 
-// Symbols as Object Properties
-const sum = Symbol('key1');
-obj = {
-    name: 'veenayak',
-    [sum]: 'mykey1',
-    age: 22,
-    location: 'hapur',
-    email: 'veena@edv.com'
+#### 2. Object Constructor
+```js
+const obj = new Object();
+obj.name = 'Pranjal';
+obj.age = 25;
+console.log({ obj });
+```
+
+#### 3. Object.create
+```js
+const proto = { greet() { return 'Hello!'; } };
+const child = Object.create(proto);
+child.name = 'Tanmay';
+console.log({ child });
+console.log('child.greet():', child.greet());
+```
+
+### Property Access
+
+#### Dot Notation
+```js
+console.log('user.name:', user.name);
+```
+
+#### Bracket Notation (for dynamic or special keys)
+```js
+console.log('user["favorite color"]:', user['favorite color']);
+const key = 'email';
+console.log('user[key]:', user[key]);
+```
+
+#### Computed Property Names
+```js
+const prop = 'score';
+const player = { [prop]: 100 };
+console.log({ player });
+```
+
+#### Symbol Properties
+```js
+const sym = Symbol('id');
+const objWithSym = { [sym]: 123 };
+console.log('objWithSym[sym]:', objWithSym[sym]);
+```
+
+### Property Descriptors & Immutability
+
+#### Object.freeze
+```js
+const frozen = { a: 1 };
+Object.freeze(frozen);
+frozen.a = 2; // Ignored in non-strict mode
+console.log({ frozen });
+```
+
+#### Object.seal
+```js
+const sealed = { b: 2 };
+Object.seal(sealed);
+sealed.b = 3; // Allowed
+sealed.c = 4; // Not added
+console.log({ sealed });
+```
+
+#### Defining Property Descriptors
+```js
+const descObj = {};
+Object.defineProperty(descObj, 'hidden', {
+  value: 42,
+  writable: false,
+  enumerable: false,
+  configurable: false
+});
+console.log('descObj.hidden:', descObj.hidden);
+console.log('Object.keys(descObj):', Object.keys(descObj)); // 'hidden' not listed
+```
+
+### Methods & `this`
+
+#### Regular Method
+```js
+const person = {
+  name: 'Alice',
+  greet() {
+    return `Hello, my name is ${this.name}`;
+  }
 };
-console.log('obj[sum]:', obj[sum]);
-console.log('typeof obj[sum]:', typeof obj[sum]);
+console.log('person.greet():', person.greet());
+```
 
-// Object.freeze()
-obj.greeting = function() { console.log('hello'); };
-obj.greetingWithName = function() { console.log(`hello, ${this.name}`); };
-obj['age'] = 25;
-Object.freeze(obj);
-obj['age'] = 24; // Ignored
-console.log('obj after freeze attempt:', obj);
-
-// Calling Object Methods
-obj.greeting();
-obj.greetingWithName();
-
-// Object Constructor vs Literal
-let tinder = new Object();
-tinder = {};
-tinder.id = 1;
-tinder.name = 'sam';
-tinder.isLoggedIn = false;
-console.log('tinder with properties:', tinder);
-
-// Nested Objects
-let reguser = {
-    email: 'veen@ff.vom',
-    fullname: {
-        userFullname: {
-            firstname: 'veenayak',
-            lastname: 'sirohi'
-        }
-    }
+#### Arrow Function Pitfall
+```js
+const badPerson = {
+  name: 'Bob',
+  greet: () => `Hi, I'm ${this.name}` // 'this' is not bound to badPerson
 };
-console.log('reguser.fullname.userFullname:', reguser.fullname.userFullname);
+console.log('badPerson.greet():', badPerson.greet()); // undefined
+```
 
-// Object Concatenation
-const obj1 = { 1: 'a', 2: 'b', 3: 'c' };
-const obj2 = { 4: 'a', 5: 'b', 6: 'c' };
-const obj3 = Object.assign({}, obj1, obj2);
-const obj4 = { ...obj1, ...obj2 };
-console.log('obj3:', obj3);
-console.log('obj4:', obj4);
+### Nested Objects & Arrays of Objects
+```js
+const company = {
+  name: 'TechCorp',
+  address: {
+    city: 'Delhi',
+    zip: '110001'
+  },
+  employees: [
+    { id: 1, name: 'A' },
+    { id: 2, name: 'B' }
+  ]
+};
+console.log({ company });
+console.log('company.address.city:', company.address.city);
+console.log('company.employees[1].name:', company.employees[1].name);
+```
 
-// Arrays of Objects
-const users = [ { id: 1, email: 'h@gmail.com' }, { id: 2, email: 'h@gmail.com' }, { id: 3, email: 'h@gmail.com' } ];
-console.log('users[1].email:', users[1].email);
+### Object Utility Methods
+```js
+const utilObj = { x: 1, y: 2 };
+console.log('Object.keys(utilObj):', Object.keys(utilObj));
+console.log('Object.values(utilObj):', Object.values(utilObj));
+console.log('Object.entries(utilObj):', Object.entries(utilObj));
+console.log('utilObj.hasOwnProperty("x"):', utilObj.hasOwnProperty('x'));
+```
 
-// Object Utility Methods
-console.log('Object.keys(tinder):', Object.keys(tinder));
-console.log('Object.values(tinder):', Object.values(tinder));
-console.log('Object.entries(tinder):', Object.entries(tinder));
-console.log('tinder.hasOwnProperty("name"):', tinder.hasOwnProperty('name'));
+### Merging & Cloning Objects
 
-// Object Destructuring
-const course = { coursename: "js in hindi", price: "999", courseInstructor: "hitesh" };
-let {courseInstructor} = course;
-let {courseInstructor: instructor} = course;
-console.log('courseInstructor:', courseInstructor);
-console.log('instructor:', instructor);
+#### Shallow Copy
+```js
+const o1 = { a: 1 };
+const o2 = { b: 2 };
+const merged = { ...o1, ...o2 };
+console.log({ merged });
+const clone = Object.assign({}, o1);
+console.log({ clone });
+```
+
+#### Deep Copy (using JSON, for simple objects)
+```js
+const deep = { nested: { value: 5 } };
+const deepClone = JSON.parse(JSON.stringify(deep));
+deep.nested.value = 10;
+console.log('deepClone.nested.value:', deepClone.nested.value); // 5
+```
+
+### Destructuring & Default Values
+```js
+const settings = { theme: 'dark', fontSize: 16 };
+const { theme, fontSize, language = 'en' } = settings;
+console.log({ theme, fontSize, language });
+```
+
+### Iteration
+
+#### for...in (keys)
+```js
+const iterObj = { a: 1, b: 2 };
+for (const key in iterObj) {
+  if (Object.hasOwn(iterObj, key)) {
+    console.log('key:', key, 'value:', iterObj[key]);
+  }
+}
+```
+
+#### Object.entries (keys & values)
+```js
+Object.entries(iterObj).forEach(([key, value]) => {
+  console.log('entry:', key, value);
+});
 ```
 
 ---
 
+## Comparison Table: Object Features & Methods
+| Feature/Method         | Description                                 | Example/Notes                       |
+|-----------------------|---------------------------------------------|-------------------------------------|
+| Literal               | Quickest way to create objects              | `{ a: 1 }`                          |
+| Constructor           | `new Object()`                              | Rarely used                         |
+| Object.create         | Create with prototype                       | `Object.create(proto)`              |
+| Dot/Bracket Notation  | Access properties                           | `obj.x`, `obj['x']`                 |
+| Symbol Key            | Unique, non-enumerable property             | `obj[Symbol('id')] = 1`             |
+| Object.freeze         | Make object immutable                       | `Object.freeze(obj)`                |
+| Object.seal           | Prevent adding/removing props               | `Object.seal(obj)`                  |
+| Object.keys/values    | Get keys/values as array                    | `Object.keys(obj)`                  |
+| Object.entries        | Get [key, value] pairs                      | `Object.entries(obj)`               |
+| Object.assign/spread  | Shallow merge/clone                         | `{ ...a, ...b }`                    |
+| JSON methods          | Deep clone (simple objects only)             | `JSON.parse(JSON.stringify(obj))`   |
+| Destructuring         | Extract properties                          | `const {x} = obj`                   |
+| for...in              | Iterate keys (own + inherited)              | Use `hasOwnProperty` to filter      |
+| Object.hasOwn         | Check own property (ES2022+)                | `Object.hasOwn(obj, key)`           |
+
+---
+
+## Real-World Use Cases
+- **Configuration objects:**
+  ```js
+  const config = { debug: true, apiUrl: '/api' };
+  ```
+- **Data modeling:**
+  ```js
+  const user = { id: 1, name: 'Alice', roles: ['admin', 'user'] };
+  ```
+- **Grouping related functions:**
+  ```js
+  const math = {
+    add(a, b) { return a + b; },
+    sub(a, b) { return a - b; }
+  };
+  ```
+- **Mapping IDs to values:**
+  ```js
+  const lookup = { 1: 'one', 2: 'two' };
+  ```
+- **Encapsulation (module pattern):**
+  ```js
+  const counter = (function() {
+    let count = 0;
+    return {
+      inc() { count++; },
+      get() { return count; }
+    };
+  })();
+  ```
+
+---
+
 ## Key Takeaways
-> - Use object literal syntax for most cases.
-> - Dot and bracket notation both access properties; bracket is needed for dynamic or special names.
-> - Symbol properties are not enumerable with Object.keys().
-> - Object.freeze() makes objects immutable; add methods before freezing.
-> - The 'this' keyword refers to the object containing the method.
-> - Use Object.assign() or spread operator for object merging.
-> - Use object destructuring for cleaner, more readable code.
+> - Use object literals for most cases.
+> - Use dot notation for known keys, bracket for dynamic/special keys.
+> - Use `Object.freeze`/`Object.seal` for immutability.
+> - Arrow functions do not bind `this`—avoid as object methods.
+> - Use spread or `Object.assign` for shallow copies; use libraries for deep cloning.
+> - Use destructuring for cleaner code.
+> - Always check for own properties in for...in loops.
 
 ---
 
 ## Common Pitfalls & Warnings
 > ⚠️ **Warning:**
-> Modifying frozen objects has no effect (in non-strict mode). Symbol properties are not included in Object.keys().
+> - Arrow functions do not bind `this`—do not use as object methods if you need `this`.
+> - `Object.freeze`/`Object.seal` only affect the first level (shallow).
+> - Using for...in on arrays iterates over indices as strings (not recommended).
+> - Symbol properties are not included in `Object.keys`/`Object.entries`.
+> - Deep cloning with JSON methods fails for functions, symbols, and non-JSON-safe values.
 
 ---
 
 ## Practice
 **Try it yourself:**
 - Create an object with a method that uses `this` and call it.
-- Merge two objects using both Object.assign and the spread operator.
-- Use destructuring to extract a property from an object.
+- Merge two objects using both `Object.assign` and the spread operator.
+- Use destructuring to extract a property from an object and provide a default value.
+- Iterate over an object's own properties and print keys and values.
+
+**Quiz:**
+```js
+const obj = { a: 1 };
+Object.freeze(obj);
+obj.a = 2;
+console.log(obj.a);
+// What does this print?
+```
 
 ---
 
 ## Further Reading
 - [MDN: Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 - [MDN: Object Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+- [Jake Worth: Logging an Object in JavaScript](https://www.jakeworth.com/posts/logging-an-object/)
+- [MDN: Object.freeze](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze)
+- [MDN: Object.seal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/seal)
+- [MDN: Object.create](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create)
+- [MDN: for...in](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...in)
 
 ---
 
@@ -1286,115 +1502,203 @@ console.log('instructor:', instructor);
 - Use rest parameters and handle variable arguments.
 - Work with object parameters and destructuring.
 - Understand scope, closures, and hoisting.
+- Know the differences between function types and parameter handling.
 
 ---
 
 ## Overview
 
-Functions are reusable blocks of code that perform specific tasks. JavaScript functions can take parameters, return values, and support advanced features like rest parameters, closures, and destructuring.
+Functions are reusable blocks of code that perform specific tasks. JavaScript functions can take parameters, return values, and support advanced features like rest parameters, closures, and destructuring. Understanding function types, parameter handling, and scope is essential for writing maintainable code.
 
 ---
 
 ## Syntax & Examples
 
+### 1. Function Declaration (Named Function)
+**Syntax:**
 ```js
-// Basic function declaration and call
-function sayMyName () {
-  console.log('sayMyName output:', 'veenayak')
-  console.log('%c==================================================================', 'color: green; font-weight: bold;')
+function greet(name) {
+  return `Hello, ${name}!`;
 }
-sayMyName()
-
-// Function with parameters (no return)
-function addTwoNumbers (num1, num2) {
-  console.log('addTwoNumbers result:', num1 + num2)
-}
-addTwoNumbers(1, 2)
-
-// Function with return value
-function add2Numbers (num1, num2) {
-  return (num1 + num2)
-}
-console.log('add2Numbers returned value:', add2Numbers(1, 2))
-
-// Function with conditional logic
-function userLogin (username) {
-  if (username === undefined) {
-    return 'Please enter username'
-  }
-  return `${username} login successful`
-}
-console.log('userLogin with username:', userLogin('veenayak'))
-console.log('userLogin without username:', userLogin())
-
-// Rest parameters
-function calculateCartPrice (...num) {
-  let sum = 0
-  for (let i = 0; i < num.length; i++) {
-    sum = sum + num[i]
-  }
-  return sum
-}
-console.log('calculateCartPrice result:', calculateCartPrice(1, 2, 3, 4))
-
-// Rest parameters with named and rest args
-function Price (num1, num2, ...num) {
-  return num
-}
-console.log('Price function rest parameters:', Price(1, 2, 3, 4))
-
-// Object parameter and destructuring
-const user = { username: 'veenayak', Price: 200 }
-function handleobject (user) {
-  if (!user.username || !user.Price) {
-    return 'not available'
-  }
-  return `username is ${user.username} and price is ${user.Price}`
-}
-console.log('handleobject result:', handleobject(user))
-
-// Scope and closures
-let a = 300
-if (true) {
-  let a = 10
-  const b = 20
-  console.log('INNER block scope - a:', a)
-  console.log('INNER block scope - b:', b)
-}
-console.log('OUTER global scope - a:', a)
-
-function one () {
-  const username = 'hitesh'
-  function two () {
-    const website = 'youtube'
-    console.log('Inner function - username from outer scope:', username)
-    console.log('Inner function - website from inner scope:', website)
-  }
-  two()
-}
-one()
-
-// Hoisting
-console.log('Function declaration result:', addone(5))
-function addone (num) { return num + 1 }
-const addTwo = function (num) { return num + 2 }
-console.log('Function expression result:', addTwo(5))
+console.log(greet('Alice'));
 ```
+- Hoisted (can be called before definition)
+
+### 2. Function Expression
+**Syntax:**
+```js
+const add = function(a, b) {
+  return a + b;
+};
+console.log(add(2, 3));
+```
+- Not hoisted (cannot be called before definition)
+
+### 3. Arrow Function Expression
+**Syntax:**
+```js
+const square = x => x * x;
+console.log(square(4));
+```
+- No own `this` or `arguments`
+
+### 4. Anonymous Function
+**Syntax:**
+```js
+setTimeout(function() {
+  console.log('Timeout!');
+}, 1000);
+```
+
+### 5. Parameters and Arguments
+- **Required parameters:**
+  ```js
+  function sum(a, b) { return a + b; }
+  sum(1, 2); // 3
+  ```
+- **Optional parameters:**
+  ```js
+  function log(message, level) {
+    if (level) {
+      console.log(`[${level}] ${message}`);
+    } else {
+      console.log(message);
+    }
+  }
+  log('Hello');
+  log('Warning!', 'WARN');
+  ```
+- **Default parameters:**
+  ```js
+  function multiply(a, b = 2) {
+    return a * b;
+  }
+  console.log(multiply(5)); // 10
+  ```
+- **Rest parameters:**
+  ```js
+  function sumAll(...nums) {
+    return nums.reduce((acc, n) => acc + n, 0);
+  }
+  console.log(sumAll(1, 2, 3, 4)); // 10
+  ```
+- **Destructuring parameters:**
+  ```js
+  function printUser({ name, age }) {
+    console.log(`${name} is ${age} years old.`);
+  }
+  printUser({ name: 'Bob', age: 30 });
+  ```
+
+### 6. Return Values and Side Effects
+- **Return value:**
+  ```js
+  function double(x) { return x * 2; }
+  console.log(double(4)); // 8
+  ```
+- **Side effect:**
+  ```js
+  function logMessage(msg) { console.log(msg); }
+  logMessage('Hello!');
+  ```
+
+### 7. Scope and Closures
+- **Function scope:**
+  ```js
+  function outer() {
+    let outerVar = 'I am outer';
+    function inner() {
+      console.log(outerVar); // Can access outerVar
+    }
+    inner();
+  }
+  outer();
+  ```
+- **Closure:**
+  ```js
+  function makeCounter() {
+    let count = 0;
+    return function() {
+      count++;
+      return count;
+    };
+  }
+  const counter = makeCounter();
+  console.log(counter()); // 1
+  console.log(counter()); // 2
+  ```
+
+### 8. Hoisting
+- **Function declarations are hoisted:**
+  ```js
+  console.log(foo()); // 'bar'
+  function foo() { return 'bar'; }
+  ```
+- **Function expressions are not hoisted:**
+  ```js
+  // console.log(bar()); // Error
+  const bar = function() { return 'baz'; };
+  ```
+
+---
+
+## Comparison Table: Function Types
+| Feature                | Declaration         | Expression           | Arrow Function      |
+|------------------------|--------------------|----------------------|--------------------|
+| Syntax                 | `function foo(){}` | `const foo = ...`    | `const foo = ...`  |
+| Hoisted                | Yes                | No                   | No                 |
+| `this` binding         | Dynamic            | Dynamic              | Lexical            |
+| `arguments` object     | Yes                | Yes                  | No                 |
+| Can be constructor     | Yes                | Yes                  | No                 |
+| Use as method          | Yes                | Yes                  | Not recommended    |
+| Use as callback        | Yes                | Yes                  | Yes                |
+
+---
+
+## Real-World Use Cases
+- **Callbacks:**
+  ```js
+  [1, 2, 3].forEach(function(n) { console.log(n); });
+  [1, 2, 3].forEach(n => console.log(n));
+  ```
+- **Event handlers:**
+  ```js
+  button.addEventListener('click', function() { alert('Clicked!'); });
+  ```
+- **Factory functions:**
+  ```js
+  function createUser(name) {
+    return { name };
+  }
+  ```
+- **Closures for private state:**
+  ```js
+  function secretHolder(secret) {
+    return {
+      getSecret: () => secret
+    };
+  }
+  const holder = secretHolder('shh!');
+  console.log(holder.getSecret());
+  ```
 
 ---
 
 ## Key Takeaways
-> - Functions can be declared, assigned to variables, and passed as arguments.
-> - Use rest parameters (`...args`) for variable arguments.
-> - Functions can return values or perform side effects.
-> - Scope and closures allow inner functions to access outer variables.
-> - Function declarations are hoisted; expressions are not.
+> - Use function declarations for reusable logic and when hoisting is needed.
+> - Use function expressions and arrow functions for callbacks and inline logic.
+> - Use default, rest, and destructuring parameters for flexible APIs.
+> - Closures allow functions to remember their outer scope.
+> - Arrow functions do not have their own `this` or `arguments`.
 
 ---
 
 ## Common Pitfalls & Warnings
 > ⚠️ **Warning:**
-> Forgetting to return a value results in `undefined`. Hoisting only applies to function declarations, not expressions.
+> - Forgetting to return a value results in `undefined`.
+> - Hoisting only applies to function declarations, not expressions.
+> - Arrow functions are not suitable as constructors or methods needing dynamic `this`.
+> - Be careful with parameter order: required, then optional/default, then rest.
 
 ---
 
@@ -1403,12 +1707,24 @@ console.log('Function expression result:', addTwo(5))
 - Write a function that multiplies two numbers and returns the result.
 - Use rest parameters to sum any number of arguments.
 - Demonstrate closure by writing a function that returns another function.
+- Use destructuring in function parameters.
+
+**Quiz:**
+```js
+function foo(a, b = 2, ...rest) {
+  return a + b + rest.length;
+}
+console.log(foo(1, 2, 3, 4));
+// What does this print?
+```
 
 ---
 
 ## Further Reading
 - [MDN: Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions)
 - [MDN: Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+- [MDN: Function parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
+- [MDN: Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 ---
 
@@ -1530,7 +1846,7 @@ fetch('/api/data')
 
 ---
 
-## Best Practices & Common Pitfalls
+## Best Practices \& Common Pitfalls
 - Use arrow functions for short, simple functions and callbacks.
 - Do **not** use arrow functions as object methods or constructors.
 - Remember that arrow functions do not have their own `this` or `arguments`.
@@ -1570,7 +1886,7 @@ fetch('/api/data')
 
 ---
 
-## Common Pitfalls & Warnings
+## Common Pitfalls \& Warnings
 > ⚠️ **Warning:**
 > - Arrow functions do not have their own `this`, `arguments`, `super`, or `new.target`.
 > - Do not use arrow functions as object methods if you need `this` to refer to the object.
@@ -1679,7 +1995,7 @@ console.log('Outer x:', x); // 10
 
 ---
 
-## Best Practices & Common Pitfalls
+## Best Practices \& Common Pitfalls
 - Always wrap the function in parentheses to ensure it is treated as an expression.
 - Use IIFEs for code that should run once and not pollute the outer scope.
 - Prefer ES6 modules, `let`, and `const` for most modern code, but IIFEs are still useful for legacy code and certain patterns.
@@ -1731,7 +2047,7 @@ console.log('Outer x:', x); // 10
 
 ---
 
-## Common Pitfalls & Warnings
+## Common Pitfalls \& Warnings
 > ⚠️ **Warning:**
 > - Forgetting the extra parentheses can result in a function declaration instead of an IIFE.
 > - If an IIFE follows another statement, use a semicolon to avoid errors due to automatic semicolon insertion.
@@ -1976,7 +2292,7 @@ if (Object.keys(obj).length === 0) {
 
 ---
 
-## Common Pitfalls & Warnings
+## Common Pitfalls \& Warnings
 > ⚠️ **Warning:**
 > - Using `==` can lead to unexpected type coercion. Always use `===` unless you have a specific reason.
 > - Forgetting `break` in switch cases causes fall-through.
@@ -2267,7 +2583,7 @@ console.log('sum:', sum); // 10
 
 ---
 
-## Common Pitfalls & Warnings
+## Common Pitfalls \& Warnings
 > ⚠️ **Warning:**
 > - Using for...in on arrays iterates over indices, not values. for...of is preferred for arrays.
 > - forEach does not return a new array or allow break/continue.
