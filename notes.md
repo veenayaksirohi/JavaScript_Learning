@@ -100,37 +100,48 @@
 - [12\_arrow\_function.js — JavaScript Arrow Functions](#12_arrow_functionjs--javascript-arrow-functions)
   - [Overview](#overview-13)
   - [Syntax \& Examples](#syntax--examples-13)
-  - [About this and this in Node vs Browser](#about-this-and-this-in-node-vs-browser)
-    - [Global Scope](#global-scope)
-    - [Regular Functions](#regular-functions)
-    - [Arrow Functions](#arrow-functions)
-    - [In Event Handlers (Browser Only)](#in-event-handlers-browser-only)
-    - [Summary Table](#summary-table)
-    - [Key Takeaways](#key-takeaways-13)
-  - [About Arrow Functions vs Regular Functions](#about-arrow-functions-vs-regular-functions)
-    - [Syntax Comparison](#syntax-comparison)
-    - [Key Differences](#key-differences)
-    - [`this` Binding Example](#this-binding-example)
-    - [`arguments` Object Example](#arguments-object-example)
-    - [Constructor Example](#constructor-example)
-    - [Generator Example](#generator-example)
-    - [Typical Use Cases](#typical-use-cases)
-    - [Key Takeaways](#key-takeaways-14)
-    - [Key Takeaways](#key-takeaways-15)
-    - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-13)
-    - [Practice](#practice-13)
-    - [Further Reading](#further-reading-13)
+    - [Basic Syntax](#basic-syntax)
+    - [Arrow Functions and `this`](#arrow-functions-and-this)
+    - [Arrow Functions and `arguments`](#arrow-functions-and-arguments)
+    - [Arrow Functions and Constructors](#arrow-functions-and-constructors)
+    - [Arrow Functions and call/apply/bind](#arrow-functions-and-callapplybind)
+    - [Arrow Functions in Array Methods](#arrow-functions-in-array-methods)
+    - [Arrow Functions in Promises and Callbacks](#arrow-functions-in-promises-and-callbacks)
+  - [When **Not** to Use Arrow Functions](#when-not-to-use-arrow-functions)
+  - [Best Practices \& Common Pitfalls](#best-practices--common-pitfalls)
+  - [Comparison Table: Arrow Functions vs Regular Functions](#comparison-table-arrow-functions-vs-regular-functions)
+  - [Real-World Use Cases](#real-world-use-cases)
+  - [Key Takeaways](#key-takeaways-13)
+  - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-13)
+  - [Practice](#practice-13)
+  - [Further Reading](#further-reading-13)
 - [13\_Immediately\_Invoked\_Function\_Expressions\_(IIFE).js — Immediately Invoked Function Expressions (IIFE)](#13_immediately_invoked_function_expressions_iifejs--immediately-invoked-function-expressions-iife)
   - [Overview](#overview-14)
   - [Syntax \& Examples](#syntax--examples-14)
-  - [Key Takeaways](#key-takeaways-16)
+    - [Classic IIFE Syntax](#classic-iife-syntax)
+    - [Why Parentheses?](#why-parentheses)
+    - [IIFE with Return Value](#iife-with-return-value)
+    - [IIFE for Scope Isolation](#iife-for-scope-isolation)
+  - [Use Cases for IIFE](#use-cases-for-iife)
+  - [Best Practices \& Common Pitfalls](#best-practices--common-pitfalls-1)
+  - [Comparison: IIFE vs Regular Function](#comparison-iife-vs-regular-function)
+  - [Real-World Use Cases](#real-world-use-cases-1)
+  - [Key Takeaways](#key-takeaways-14)
   - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-14)
   - [Practice](#practice-14)
   - [Further Reading](#further-reading-14)
 - [14\_control\_flow.js — JavaScript Control Flow](#14_control_flowjs--javascript-control-flow)
   - [Overview](#overview-15)
   - [Syntax \& Examples](#syntax--examples-15)
-  - [Key Takeaways](#key-takeaways-17)
+    - [1. if/else Statement](#1-ifelse-statement)
+    - [2. switch Statement](#2-switch-statement)
+    - [3. Ternary Operator](#3-ternary-operator)
+    - [4. Logical Operators (\&\&, ||, !)](#4-logical-operators---)
+    - [5. Nullish Coalescing Operator (??)](#5-nullish-coalescing-operator-)
+    - [6. Truthy and Falsy Values](#6-truthy-and-falsy-values)
+    - [7. Checking for Empty Arrays and Objects](#7-checking-for-empty-arrays-and-objects)
+  - [Comparison Table: JavaScript Control Flow Constructs](#comparison-table-javascript-control-flow-constructs)
+  - [Key Takeaways](#key-takeaways-15)
   - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-15)
   - [Practice](#practice-15)
   - [Further Reading](#further-reading-15)
@@ -147,7 +158,7 @@
     - [8. filter Method](#8-filter-method)
     - [9. reduce Method](#9-reduce-method)
   - [Comparison Table: JavaScript Loop Types](#comparison-table-javascript-loop-types)
-  - [Key Takeaways](#key-takeaways-18)
+  - [Key Takeaways](#key-takeaways-16)
   - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-16)
   - [Practice](#practice-16)
   - [Further Reading](#further-reading-16)
@@ -325,7 +336,7 @@ console.log(name); // Tanmay
 
 // let
 if (true) {
-    let age = 30;
+let age = 30;
     console.log(age); // 30
 }
 // console.log(age); // ReferenceError
@@ -1407,157 +1418,128 @@ console.log('Function expression result:', addTwo(5))
 - Use arrow function syntax for concise function expressions.
 - Understand the difference in `this` binding between arrow and regular functions.
 - Use arrow functions for callbacks and short functions.
+- Know when **not** to use arrow functions (e.g., as methods or constructors).
 
 ---
 
 ## Overview
 
-Arrow functions provide a shorter syntax for writing functions and do not have their own `this` binding. They are ideal for callbacks and simple operations.
+Arrow functions provide a shorter syntax for writing functions and do not have their own `this`, `arguments`, `super`, or `new.target` bindings. They are ideal for callbacks, array methods, and simple operations, but are not suitable for all use cases.
 
 ---
 
 ## Syntax & Examples
 
-```js
-// Arrow function as object method (not recommended for methods)
-const user = {
-  username: 'veenayak',
-  price: 999,
-  welcome: function () {
-    console.log('user.welcome() - this.username:', `${this.username}, welcome to website`)
-  }
-}
-user.welcome()
-user.username = 'sam'
-user.welcome()
+### Basic Syntax
+- **Single parameter, implicit return:**
+  ```js
+  const square = x => x * x;
+  console.log(square(5)); // 25
+  ```
+- **Multiple parameters:**
+  ```js
+  const add = (a, b) => a + b;
+  console.log(add(2, 3)); // 5
+  ```
+- **No parameters:**
+  ```js
+  const greet = () => console.log('Hello!');
+  greet(); // Hello!
+  ```
+- **Block body (explicit return):**
+  ```js
+  const sum = (a, b) => {
+    const result = a + b;
+    return result;
+  };
+  console.log(sum(2, 3)); // 5
+  ```
 
-// Arrow function in global scope
-console.log('Global scope - this:', this)
-
-// Regular function and arrow function differences
-function demonstrateThisInFunction () {
-  console.log('demonstrateThisInFunction - this:', this)
-}
-demonstrateThisInFunction()
-
-const demonstrateThisInArrowFunction = () => {
-  const name = 'veenayak'
-  console.log('demonstrateThisInArrowFunction - this.name:', this.name)
-}
-demonstrateThisInArrowFunction()
-
-// Arrow function with parameters
-const add2 = (num1, num2) => {
-  return num1 + num2
-}
-console.log('add2(1, 2):', add2(1, 2))
-
-// Concise arrow function
-const add3 = (num1, num2) => (num1 + num2)
-console.log('add3(1, 2):', add3(1, 2))
-```
-
----
-
-## About this and this in Node vs Browser
-
-Understanding the value of `this` is crucial in JavaScript, as it behaves differently depending on the environment (Node.js vs. browser), context (global, function, arrow function), and strict mode.
-
-### Global Scope
-
-| Environment | `this` in Global Scope         |
-|-------------|-------------------------------|
-| Browser     | `window` (the global object)  |
-| Node.js     | `{}` (module.exports object)  |
-
-```js
-// In browser
-console.log(this); // window
-
-// In Node.js
-console.log(this); // {}
-```
-
-### Regular Functions
-
-| Environment | `this` in Regular Function (non-strict) |
-|-------------|-----------------------------------------|
-| Browser     | `window` (global object)                |
-| Node.js     | `global` (global object)                |
-
-```js
-function showThis() {
-  console.log(this);
-}
-showThis();
-// Browser: window
-// Node.js: global
-```
-
-### Arrow Functions
-
-Arrow functions do **not** have their own `this`. They inherit `this` from their lexical (enclosing) scope.
+### Arrow Functions and `this`
+Arrow functions do **not** have their own `this`. They inherit `this` from the enclosing (lexical) scope.
 
 ```js
 const obj = {
-  regular: function() { console.log('regular:', this); },
-  arrow: () => { console.log('arrow:', this); }
+  value: 42,
+  regular: function() { return this.value; },
+  arrow: () => this.value
 };
-obj.regular(); // obj
-obj.arrow();   // window (browser) or {} (Node.js module scope)
+console.log(obj.regular()); // 42
+console.log(obj.arrow());   // undefined (or window.value in browser)
 ```
 
-### In Event Handlers (Browser Only)
-
+**Use case: Preserving `this` in callbacks**
 ```js
-document.getElementById('btn').onclick = function() {
-  console.log(this); // the button element
-};
-document.getElementById('btn').onclick = () => {
-  console.log(this); // window (in browser)
-};
+function Timer() {
+  this.seconds = 0;
+  setInterval(() => {
+    this.seconds++;
+    console.log(this.seconds);
+  }, 1000);
+}
+new Timer(); // Correctly increments seconds
 ```
 
-### Summary Table
+### Arrow Functions and `arguments`
+Arrow functions do **not** have their own `arguments` object.
+```js
+function regular() {
+  return arguments[0];
+}
+const arrow = () => arguments[0]; // ReferenceError: arguments is not defined
+```
 
-| Context                | Browser                | Node.js                |
-|------------------------|------------------------|------------------------|
-| Global Scope           | window                 | {} (module.exports)    |
-| Regular Function       | window (non-strict)    | global (non-strict)    |
-| Arrow Function         | Lexical (usually window/module) | Lexical (usually module) |
-| Object Method (regular)| The object             | The object             |
-| Object Method (arrow)  | Lexical (not the object) | Lexical (not the object) |
+### Arrow Functions and Constructors
+Arrow functions **cannot** be used as constructors and will throw an error if used with `new`.
+```js
+const ArrowPerson = (name) => { this.name = name; };
+const p2 = new ArrowPerson('Bob'); // TypeError: ArrowPerson is not a constructor
+```
 
-### Key Takeaways
-- In the browser, `this` in the global scope is `window`. In Node.js, it's `{}` (the module object).
-- Regular functions' `this` depends on how they're called.
-- Arrow functions inherit `this` from their enclosing scope.
-- Never use arrow functions as object methods or event handlers if you need `this` to refer to the object or element.
+### Arrow Functions and call/apply/bind
+Arrow functions ignore `this` passed via `call`, `apply`, or `bind`.
+```js
+const obj = { num: 100 };
+globalThis.num = 42;
+const add = (a, b, c) => this.num + a + b + c;
+console.log(add.call(obj, 1, 2, 3)); // 48 (uses globalThis.num, not obj.num)
+```
+
+### Arrow Functions in Array Methods
+```js
+const arr = [1, 2, 3];
+const squares = arr.map(x => x * x);
+console.log(squares); // [1, 4, 9]
+```
+
+### Arrow Functions in Promises and Callbacks
+```js
+fetch('/api/data')
+  .then(response => response.json())
+  .then(data => console.log(data));
+```
 
 ---
 
-## About Arrow Functions vs Regular Functions
+## When **Not** to Use Arrow Functions
+- As object methods (if you need `this` to refer to the object)
+- As constructors (with `new`)
+- When you need the `arguments` object
+- As generator functions (cannot use `function*` syntax)
+- As event handlers if you need `this` to refer to the element
 
-Arrow functions and regular (traditional) functions in JavaScript have important differences in syntax, behavior, and use cases. Understanding these differences is crucial for writing clear and bug-free code.
+---
 
-### Syntax Comparison
+## Best Practices & Common Pitfalls
+- Use arrow functions for short, simple functions and callbacks.
+- Do **not** use arrow functions as object methods or constructors.
+- Remember that arrow functions do not have their own `this` or `arguments`.
+- Prefer regular functions when you need dynamic `this` or access to `arguments`.
+- Arrow functions are always anonymous (no `name` property unless assigned).
 
-```js
-// Regular function declaration
-function add(a, b) {
-  return a + b;
-}
+---
 
-// Regular function expression
-const addExpr = function(a, b) {
-  return a + b;
-};
-
-// Arrow function
-const addArrow = (a, b) => a + b;
-```
-
-### Key Differences
+## Comparison Table: Arrow Functions vs Regular Functions
 
 | Feature                | Regular Function                | Arrow Function                  |
 |------------------------|---------------------------------|---------------------------------|
@@ -1570,80 +1552,53 @@ const addArrow = (a, b) => a + b;
 | Use as method          | Suitable                        | Not recommended                 |
 | Use as callback        | Suitable                        | Suitable                        |
 
-### `this` Binding Example
+---
 
-```js
-const obj = {
-  value: 42,
-  regular: function() { return this.value; },
-  arrow: () => this.value
-};
-console.log(obj.regular()); // 42
-console.log(obj.arrow());   // undefined (or window.value in browser)
-```
-
-### `arguments` Object Example
-
-```js
-function regular() {
-  return arguments[0];
-}
-const arrow = () => arguments[0]; // ReferenceError: arguments is not defined
-```
-
-### Constructor Example
-
-```js
-function Person(name) {
-  this.name = name;
-}
-const p = new Person('Alice'); // OK
-
-const ArrowPerson = (name) => { this.name = name; };
-const p2 = new ArrowPerson('Bob'); // TypeError: ArrowPerson is not a constructor
-```
-
-### Generator Example
-
-```js
-function* gen() { yield 1; }
-const g = gen(); // OK
-// const arrowGen = *() => {}; // SyntaxError: Unexpected token '*'
-```
-
-### Typical Use Cases
-- Use **arrow functions** for short callbacks, array methods, and when you want lexical `this`.
-- Use **regular functions** for object methods, constructors, generators, and when you need `arguments`.
-
-### Key Takeaways
-- Arrow functions are concise and inherit `this` from their enclosing scope.
-- Regular functions have their own `this` and can be used as constructors and generators.
-- Do not use arrow functions as object methods or constructors.
-- Arrow functions do not have their own `arguments` object.
+## Real-World Use Cases
+- Array methods: `map`, `filter`, `reduce`, `forEach`
+- Promise chains: `.then()`, `.catch()`, `.finally()`
+- Event listeners (if you do not need `this`)
+- Closures where you want to preserve the outer `this`
 
 ---
 
-### Key Takeaways
-> - Arrow functions do not have their own `this`; they inherit from the enclosing scope.
-> - Use regular functions for object methods that use `this`.
-> - Arrow functions are concise and ideal for callbacks and short functions.
+## Key Takeaways
+> - Arrow functions are concise and inherit `this` from their enclosing scope.
+> - Do not use arrow functions as object methods or constructors.
+> - Arrow functions do not have their own `arguments` object.
+> - Use arrow functions for callbacks, array methods, and simple logic.
 
 ---
 
-### Common Pitfalls & Warnings
+## Common Pitfalls & Warnings
 > ⚠️ **Warning:**
-> Do not use arrow functions as object methods if you need `this` to refer to the object.
+> - Arrow functions do not have their own `this`, `arguments`, `super`, or `new.target`.
+> - Do not use arrow functions as object methods if you need `this` to refer to the object.
+> - Cannot be used as constructors or generators.
+> - Cannot use `yield` inside arrow functions.
 
 ---
 
-### Practice
+## Practice
 **Try it yourself:**
 - Convert a regular function to an arrow function.
 - Write an arrow function that returns the square of a number.
+- Use an arrow function in a `map` or `filter` call.
+- Try using `this` inside an arrow function as an object method and observe the result.
+
+**Quiz:**
+```js
+const obj = {
+  value: 10,
+  getValue: () => this.value
+};
+console.log(obj.getValue());
+// What does this print?
+```
 
 ---
 
-### Further Reading
+## Further Reading
 - [MDN: Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 
 ---
@@ -1654,30 +1609,116 @@ const g = gen(); // OK
 - Understand what IIFEs are and why they are used in JavaScript.
 - Learn the syntax for both named and anonymous IIFEs.
 - Recognize use cases for IIFEs, such as scope isolation and immediate execution.
+- Know best practices and common pitfalls when using IIFEs.
 
 ---
 
 ## Overview
 
-An Immediately Invoked Function Expression (IIFE) is a function that runs as soon as it is defined. IIFEs are commonly used to create isolated scopes, avoid polluting the global namespace, and execute code immediately.
+An **Immediately Invoked Function Expression (IIFE)** is a function that is defined and executed immediately after its creation. IIFEs are commonly used to create isolated scopes, avoid polluting the global namespace, and execute code right away. They were especially important before ES6 introduced `let`, `const`, and modules, but are still useful for certain patterns.
 
 ---
 
 ## Syntax & Examples
 
-```js
-// Named IIFE
-(function chai () {
-  console.log('chai IIFE - DB CONNECTED')
-  console.log('%c==================================================================', 'color: green; font-weight: bold;')
-})()
+### Classic IIFE Syntax
+- **Anonymous IIFE:**
+  ```js
+  (function() {
+    console.log('IIFE executed!');
+  })();
+  ```
+- **Named IIFE:**
+  ```js
+  (function chai() {
+    console.log('chai IIFE - DB CONNECTED');
+  })();
+  ```
+- **Arrow Function IIFE:**
+  ```js
+  (() => {
+    console.log('arrow IIFE - DB CONNECTED TWO');
+  })();
+  ```
+- **Parameterized IIFE:**
+  ```js
+  ((name) => {
+    console.log('arrow IIFE - DB CONNECTED TWO name:', name);
+  })('hitesh');
+  ```
 
-// Parameterized IIFE using arrow function
-((name) => {
-  console.log('arrow IIFE - DB CONNECTED TWO name:', name)
-  console.log('%c==================================================================', 'color: green; font-weight: bold;')
-})('hitesh')
+### Why Parentheses?
+- The parentheses around the function turn it from a declaration to an expression, allowing it to be invoked immediately.
+- The final `()` invokes the function.
+
+### IIFE with Return Value
+```js
+const result = (function() {
+  return 42;
+})();
+console.log(result); // 42
 ```
+
+### IIFE for Scope Isolation
+```js
+var x = 10;
+(function() {
+  var x = 20;
+  console.log('Inner x:', x); // 20
+})();
+console.log('Outer x:', x); // 10
+```
+
+---
+
+## Use Cases for IIFE
+- **Scope isolation:** Prevents variables from leaking into the global scope.
+- **Module pattern:** Encapsulates private data and exposes only what is needed.
+- **Initialization:** Runs setup code once, immediately.
+- **Avoiding variable hoisting issues:** Keeps temporary variables out of the global or parent scope.
+
+---
+
+## Best Practices & Common Pitfalls
+- Always wrap the function in parentheses to ensure it is treated as an expression.
+- Use IIFEs for code that should run once and not pollute the outer scope.
+- Prefer ES6 modules, `let`, and `const` for most modern code, but IIFEs are still useful for legacy code and certain patterns.
+- Avoid using IIFEs for code that needs to be reused elsewhere.
+- Be careful with semicolon insertion; always use a semicolon before an IIFE if it follows another statement.
+
+---
+
+## Comparison: IIFE vs Regular Function
+| Feature         | IIFE                                 | Regular Function         |
+|-----------------|--------------------------------------|-------------------------|
+| Invocation      | Immediately after definition         | When called explicitly  |
+| Scope           | Creates its own local scope          | Scope depends on usage  |
+| Use case        | Initialization, isolation, modules   | Reusable logic          |
+| Syntax          | (function(){...})() or (()=>{...})() | function foo() {...}    |
+
+---
+
+## Real-World Use Cases
+- **jQuery plugin pattern:**
+  ```js
+  (function($) {
+    // jQuery plugin code here
+  })(jQuery);
+  ```
+- **Polyfills and shims:**
+  ```js
+  (function() {
+    if (!Array.prototype.myMethod) {
+      Array.prototype.myMethod = function() { /* ... */ };
+    }
+  })();
+  ```
+- **Configuration blocks:**
+  ```js
+  (function(config) {
+    // Use config object
+  })({ debug: true });
+  ```
 
 ---
 
@@ -1685,14 +1726,16 @@ An Immediately Invoked Function Expression (IIFE) is a function that runs as soo
 > - IIFEs execute immediately after they are defined.
 > - Useful for creating private scopes and avoiding global variable pollution.
 > - Can be named or anonymous, and can accept parameters.
-> - Commonly used in module patterns and initialization code.
+> - Commonly used in module patterns, initialization, and legacy code.
+> - Prefer ES6 modules and block scoping for most modern code, but IIFEs are still valuable in some scenarios.
 
 ---
 
 ## Common Pitfalls & Warnings
 > ⚠️ **Warning:**
-> Forgetting the extra parentheses can result in a function declaration instead of an IIFE.
-> Avoid using IIFEs for code that needs to be reused elsewhere.
+> - Forgetting the extra parentheses can result in a function declaration instead of an IIFE.
+> - If an IIFE follows another statement, use a semicolon to avoid errors due to automatic semicolon insertion.
+> - Avoid using IIFEs for reusable code.
 
 ---
 
@@ -1700,6 +1743,7 @@ An Immediately Invoked Function Expression (IIFE) is a function that runs as soo
 **Try it yourself:**
 - Write an IIFE that prints your name.
 - Create an IIFE that takes two numbers and prints their sum.
+- Use an IIFE to create a private counter variable and expose only an increment function.
 
 **Quiz:**
 ```js
