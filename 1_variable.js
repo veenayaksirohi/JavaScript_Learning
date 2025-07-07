@@ -49,9 +49,10 @@ console.log('accountEmail:', accountEmail);
 console.log('accountPassword:', accountPassword);
 console.log('accountCity:', accountCity);
 console.log('accountState:', accountState);
-
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 // Display all variables in a table format for comparison
 console.table([accountId, accountEmail, accountPassword, accountPassword, accountCity, accountState]);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Key Points:

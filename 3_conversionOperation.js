@@ -12,9 +12,11 @@ let score = "33";
 
 // Check initial type
 console.log('typeof score (initial):', typeof score);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 // Convert string to number
 console.log('typeof Number(score):', typeof Number(score));
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Invalid String to Number Conversion
@@ -26,10 +28,12 @@ score = "33q";
 
 // Check type before conversion
 console.log('typeof score (with letters):', typeof score);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 // Conversion results in NaN (Not a Number)
 console.log('Number(score):', Number(score));
 console.log('typeof Number(score):', typeof Number(score));
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Null to Number Conversion
@@ -45,6 +49,7 @@ console.log('typeof score (null):', typeof score);
 // Convert null to number (becomes 0)
 console.log('Number(score):', Number(score));
 console.log('typeof Number(score):', typeof Number(score));
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Undefined to Number Conversion
@@ -60,6 +65,7 @@ console.log('typeof score (undefined):', typeof score);
 // Convert undefined to number (becomes NaN)
 console.log('Number(score):', Number(score));
 console.log('typeof Number(score):', typeof Number(score));
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Boolean to Number Conversion
@@ -72,6 +78,7 @@ let isLoggedIn = true;
 // Convert boolean to number
 console.log('Number(isLoggedIn):', Number(isLoggedIn));
 console.log('typeof Number(isLoggedIn):', typeof Number(isLoggedIn));
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Pure String to Number Conversion
@@ -87,6 +94,7 @@ console.log('typeof score (alphabetical):', typeof score);
 // Convert to number (results in NaN)
 console.log('Number(score):', Number(score));
 console.log('typeof Number(score):', typeof Number(score));
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Type Conversion Summary

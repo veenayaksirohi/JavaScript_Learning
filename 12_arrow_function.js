@@ -16,12 +16,14 @@ const user = {
 
 // Call the welcome method
 user.welcome()
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 // Modify the username property
 user.username = 'sam'
 
 // Call the welcome method again to show 'this' updates with object changes
 user.welcome()
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Demonstration of 'this' in global scope
@@ -38,6 +40,7 @@ function demonstrateThisInFunction () {
 }
 
 demonstrateThisInFunction()
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Regular function with local variable demonstrating 'this' behavior

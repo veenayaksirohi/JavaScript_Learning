@@ -17,12 +17,15 @@ let myDate = new Date();
 
 // Standard detailed string representation
 console.log('myDate.toString():', myDate.toString());
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 // Readable date-only format
 console.log('myDate.toDateString():', myDate.toDateString());
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 // Locale-specific date and time format
 console.log('myDate.toLocaleString():', myDate.toLocaleString());
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 // Check type of Date object
 console.log('Type of myDate:', typeof myDate);

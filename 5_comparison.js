@@ -9,12 +9,15 @@
 
 // Relational operators convert null to 0 for comparison
 console.log('null > 0:', null > 0);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 // Equality check (==) has special behavior with null
 console.log('null == 0:', null == 0);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 // Relational operators convert null to 0 for comparison
 console.log('null >= 0:', null >= 0);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Comparisons with undefined
@@ -23,8 +26,11 @@ console.log('null >= 0:', null >= 0);
 
 // Undefined converts to NaN in comparisons, always returns false
 console.log('undefined > 0:', undefined > 0);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 console.log('undefined == 0:', undefined == 0);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 console.log('undefined >= 0:', undefined >= 0);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Strict vs Loose Equality

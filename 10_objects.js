@@ -17,9 +17,11 @@ let obj = {
 
 // Access properties using dot notation
 console.log('obj.name:', obj.name);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 // Access properties using bracket notation (useful for dynamic property names)
 console.log('obj["name"]:', obj['name']);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Symbols as Object Properties

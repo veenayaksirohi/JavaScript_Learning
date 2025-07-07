@@ -9,6 +9,7 @@
  */
 (function chai () {
   console.log('chai IIFE - DB CONNECTED')
+  console.log('%c==================================================================', 'color: green; font-weight: bold;')
 })()
 
 /**
@@ -18,4 +19,5 @@
  */
 ((name) => {
   console.log('arrow IIFE - DB CONNECTED TWO name:', name)
+  console.log('%c==================================================================', 'color: green; font-weight: bold;')
 })('hitesh')

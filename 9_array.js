@@ -15,9 +15,10 @@ const heors = ['shaktiman', 'naagraj', 'doga'];
 
 // Access first element (zero-indexed)
 console.log('heors[0]:', heors[0]);
-
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 // Get array length
 console.log('heors.length:', heors.length);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Array Modification Methods

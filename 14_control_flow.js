@@ -16,6 +16,7 @@
  */
 if (true) {
   console.log('Simple if statement - condition:', true, 'output:', 'hi')
+  console.log('%c==================================================================', 'color: green; font-weight: bold;')
 }
 
 /**
@@ -23,6 +24,7 @@ if (true) {
  */
 if (2 == '2') {
   console.log('Loose equality check - 2 == "2":', true, 'output:', 'executed')
+  console.log('%c==================================================================', 'color: green; font-weight: bold;')
 }
 
 /**

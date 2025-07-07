@@ -19,6 +19,7 @@
 
 // Basic arithmetic operation
 console.log('3 + 3:', 3 + 3);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Primitive Data Types
@@ -64,16 +65,20 @@ let city;
 
 // Check type of number
 console.log('typeof age:', typeof age);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 // Interesting quirk: typeof null returns "object"
 console.log('typeof null:', typeof null);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 // Check type of undefined
 console.log('typeof undefined:', typeof undefined);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 // Check type of declared but unassigned variable
 console.log('city value:', city);
 console.log('typeof city:', typeof city);
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Key Points:

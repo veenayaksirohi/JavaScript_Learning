@@ -4,6 +4,7 @@
  */
 function sayMyName () {
   console.log('sayMyName output:', 'veenayak')
+  console.log('%c==================================================================', 'color: green; font-weight: bold;')
 }
 
 // Call the function to display the name
@@ -21,6 +22,7 @@ function addTwoNumbers (num1, num2) {
 
 // Call function with parameters
 addTwoNumbers(1, 2)
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 /**
  * Function to add two numbers and return the result
@@ -35,6 +37,7 @@ function add2Numbers (num1, num2) {
 
 // Call function and log the returned value
 console.log('add2Numbers returned value:', add2Numbers(1, 2))
+console.log('%c==================================================================', 'color: green; font-weight: bold;')
 
 // Store result of function with no return value (undefined)
 let result = addTwoNumbers(1, 2)
