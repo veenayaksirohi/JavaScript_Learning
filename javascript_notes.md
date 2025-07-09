@@ -302,21 +302,61 @@
   - [Common Pitfalls \& Warnings](#common-pitfalls--warnings-15)
   - [Practice](#practice-15)
   - [Further Reading](#further-reading-15)
-- [16_Dom — DOM Manipulation in JavaScript](#16_dom--dom-manipulation-in-javascript)
+- [16\_Dom — DOM Manipulation in JavaScript](#16_dom--dom-manipulation-in-javascript)
   - [Overview](#overview-16)
   - [Selecting Elements](#selecting-elements)
+      - [By ID](#by-id)
+      - [By Class Name](#by-class-name)
+      - [By Tag Name](#by-tag-name)
+      - [By Query Selector](#by-query-selector)
   - [Reading and Changing Text Content](#reading-and-changing-text-content)
   - [Changing Styles](#changing-styles)
   - [Looping Through Collections](#looping-through-collections)
-  - [DOM Traversal and Manipulation: Practical Examples (dom2.js)](#dom-traversal-and-manipulation-practical-examples-dom2js)
-  - [HTMLCollection vs NodeList](#htmlcollection-vs-nodelist)
-  - [Common Pitfalls](#common-pitfalls)
-  - [Real-World Use Cases](#real-world-use-cases-16)
-  - [Example: Putting It All Together](#example-putting-it-all-together)
-  - [Practical Examples: dom3.js & dom4.js](#practical-examples-dom3js--dom4js)
+  - [DOM Traversal and Manipulation: Practical Examples (`dom2.js`)](#dom-traversal-and-manipulation-practical-examples-dom2js)
+      - [1. Selecting Parent and Child Elements](#1-selecting-parent-and-child-elements)
+      - [2. Looping Through Children and Logging Content](#2-looping-through-children-and-logging-content)
+      - [3. Changing Styles of Child Elements](#3-changing-styles-of-child-elements)
+      - [4. Accessing First and Last Child Elements](#4-accessing-first-and-last-child-elements)
+      - [5. Navigating DOM Relationships](#5-navigating-dom-relationships)
+      - [6. HTMLCollection vs NodeList](#6-htmlcollection-vs-nodelist)
+      - [7. Common Pitfalls](#7-common-pitfalls)
+      - [8. Real-World Use Cases](#8-real-world-use-cases)
+    - [Common Pitfalls \& Best Practices](#common-pitfalls--best-practices)
+    - [Real-World Use Cases](#real-world-use-cases-12)
+    - [Example: Putting It All Together](#example-putting-it-all-together)
+    - [Further Reading](#further-reading-16)
+  - [DOM Manipulation: Practical Examples (dom3.js \& dom4.js)](#dom-manipulation-practical-examples-dom3js--dom4js)
     - [Example 1: Creating and Styling Elements Dynamically (dom3.js)](#example-1-creating-and-styling-elements-dynamically-dom3js)
     - [Example 2: Dynamic List Manipulation Functions (dom4.js)](#example-2-dynamic-list-manipulation-functions-dom4js)
-  - [Further Reading](#further-reading-16)
+      - [1. Adding List Items](#1-adding-list-items)
+      - [2. Editing List Items](#2-editing-list-items)
+      - [3. Replacing List Items](#3-replacing-list-items)
+      - [4. Removing List Items](#4-removing-list-items)
+    - [Summary Table: DOM Methods Used](#summary-table-dom-methods-used)
+    - [Best Practices for DOM Manipulation](#best-practices-for-dom-manipulation)
+    - [Real-World Use Cases](#real-world-use-cases-13)
+  - [18_event — JavaScript DOM Events (dom1.js)](#18_event--javascript-dom-events-dom1js)
+  - [Overview](#overview-17)
+  - [Syntax \& Examples](#syntax--examples-16)
+    - [Adding Event Listeners](#adding-event-listeners)
+    - [The Event Object](#the-event-object)
+    - [Event Delegation](#event-delegation)
+    - [Preventing Default Actions](#preventing-default-actions)
+    - [Stopping Event Propagation](#stopping-event-propagation)
+    - [Removing Elements on Click](#removing-elements-on-click)
+  - [Detailed Explanations from dom1.js](#detailed-explanations-from-dom1js)
+    - [1. Owl Image Click](#1-owl-image-click)
+    - [2. Japan Image Click](#2-japan-image-click)
+    - [3. Photoshop Image Hover](#3-photoshop-image-hover)
+    - [4. Body Click Timestamp](#4-body-click-timestamp)
+    - [5. Images List Click (Event Delegation)](#5-images-list-click-event-delegation)
+    - [6. Google Link Click (Prevent Default)](#6-google-link-click-prevent-default)
+    - [7. Prayer Image Click (Remove Parent li)](#7-prayer-image-click-remove-parent-li)
+    - [8. Generic li Removal (Event Delegation)](#8-generic-li-removal-event-delegation)
+  - [Best Practices \& Common Pitfalls](#best-practices--common-pitfalls-2)
+  - [Real-World Use Cases](#real-world-use-cases-14)
+  - [Summary Table: Event Methods \& Properties Used](#summary-table-event-methods--properties-used)
+  - [Further Reading](#further-reading-18)
 
 ---
 
@@ -4285,5 +4325,214 @@ function remove(position) {
 - Dynamically building lists, menus, or tables from data.
 - Creating interactive UIs where elements are added, edited, or removed in response to user actions.
 - Safely handling user input and updating the DOM without security risks.
+
+---
+
+## 18_event — JavaScript DOM Events (dom1.js)
+
+**Learning Goals:**
+- Understand how to handle DOM events in JavaScript using `addEventListener` and event properties.
+- Learn about event delegation, event propagation, preventing default actions, and removing elements dynamically.
+- Apply best practices for event-driven programming in the browser.
+
+---
+
+## Overview
+
+JavaScript allows you to make web pages interactive by responding to user actions (clicks, hovers, keypresses, etc.) through event handling. The `addEventListener` method is the standard way to attach event handlers to DOM elements. You can also control event propagation, prevent default browser actions, and manipulate the DOM in response to events.
+
+---
+
+## Syntax & Examples
+
+### Adding Event Listeners
+```js
+const element = document.getElementById('myButton')
+element.addEventListener('click', function (event) {
+  // handle click
+})
+```
+- The first argument is the event type (e.g., 'click', 'mouseover').
+- The second argument is the callback function to run when the event occurs.
+
+### The Event Object
+- The callback receives an event object with properties and methods:
+  - `event.target`: The element that triggered the event.
+  - `event.type`: The type of event (e.g., 'click').
+  - `event.preventDefault()`: Prevents the default browser action (e.g., following a link).
+  - `event.stopPropagation()`: Stops the event from bubbling up to parent elements.
+
+### Event Delegation
+- Attach a single event listener to a parent element to handle events for its children.
+```js
+document.getElementById('list').addEventListener('click', function (e) {
+  const li = e.target.closest('li')
+  if (li && this.contains(li)) {
+    li.remove()
+  }
+})
+```
+- Useful for dynamic lists where items may be added/removed.
+
+### Preventing Default Actions
+```js
+const link = document.getElementById('google')
+link.addEventListener('click', function (e) {
+  e.preventDefault()
+  console.log('clicked Google')
+})
+```
+- Prevents the browser from navigating to the link's URL.
+
+### Stopping Event Propagation
+```js
+document.getElementById('owl').addEventListener('click', function (e) {
+  console.log('owl clicked-')
+  e.stopPropagation()
+})
+```
+- Prevents the event from bubbling up to parent elements (e.g., the `<ul>`).
+
+### Removing Elements on Click
+```js
+const prayer = document.getElementById('prayer')
+prayer.addEventListener('click', (e) => {
+  const li = e.target.closest('li')
+  if (li) li.remove()
+})
+```
+- Removes the `<li>` containing the clicked image.
+
+---
+
+## Detailed Explanations from dom1.js
+
+### 1. Owl Image Click
+```js
+const owl = document.getElementById('owl')
+owl.onclick = function () {
+  alert('owl image')
+}
+// Also:
+document.getElementById('owl').addEventListener('click', function (e) {
+  console.log('owl clicked-')
+  e.stopPropagation()
+}, false)
+```
+- Shows an alert when the owl image is clicked.
+- Logs to the console and stops the event from bubbling up.
+
+### 2. Japan Image Click
+```js
+const japan = document.getElementById('japan')
+japan.addEventListener('click', function () {
+  this.src = '...new image url...'
+  alert('Japan image clicked!\n image changed')
+})
+```
+- Changes the image source and shows an alert when clicked.
+- `this` refers to the image element inside a regular function.
+
+### 3. Photoshop Image Hover
+```js
+const photoshop = document.getElementById('photoshop')
+const onPhotoshopHover = () => {
+  alert('Hovered over photoshop image.')
+}
+photoshop.addEventListener('mouseover', onPhotoshopHover)
+```
+- Shows an alert when the mouse hovers over the image.
+
+### 4. Body Click Timestamp
+```js
+const body = document.body
+body.addEventListener('click', () => {
+  console.log('body click timestamp:', Date.now())
+}, false)
+```
+- Logs the current timestamp when the body is clicked.
+
+### 5. Images List Click (Event Delegation)
+```js
+document.getElementById('images').addEventListener('click', function (e) {
+  console.log('clicked inside the ul-')
+}, false)
+```
+- Logs when any part of the `<ul id="images">` is clicked.
+
+### 6. Google Link Click (Prevent Default)
+```js
+const google = document.getElementById('google')
+google.addEventListener('click', (e) => {
+  e.preventDefault()
+  console.log('clicked Google')
+})
+```
+- Prevents navigation and logs the click.
+
+### 7. Prayer Image Click (Remove Parent li)
+```js
+const prayer = document.getElementById('prayer')
+prayer.addEventListener('click', (e) => {
+  const li = e.target.closest('li')
+  if (li) li.remove()
+})
+```
+- Removes the `<li>` containing the clicked image.
+
+### 8. Generic li Removal (Event Delegation)
+```js
+const imagesList = document.getElementById('images')
+imagesList.addEventListener('click', function (e) {
+  const li = e.target.closest('li')
+  if (li && this.contains(li)) {
+    li.remove()
+  }
+})
+```
+- Removes any `<li>` in the list when it is clicked (works for dynamically added items too).
+
+---
+
+## Best Practices & Common Pitfalls
+- Use `addEventListener` instead of inline event handlers for flexibility and separation of concerns.
+- Use regular functions (not arrow functions) when you need `this` to refer to the element.
+- Use event delegation for lists or dynamic content to minimize the number of event listeners.
+- Always call `preventDefault()` when you want to stop the browser's default action (e.g., links, forms).
+- Use `stopPropagation()` to prevent parent handlers from running if needed.
+- Always check if the element exists before manipulating it to avoid errors.
+
+---
+
+## Real-World Use Cases
+- Interactive image galleries (removing images on click)
+- Custom link behavior (preventing navigation)
+- Dynamic lists (adding/removing items with event delegation)
+- Logging user actions (timestamps, analytics)
+- Handling hover, click, and other user interactions
+
+---
+
+## Summary Table: Event Methods & Properties Used
+
+| Method/Property         | Purpose                                         |
+|------------------------|-------------------------------------------------|
+| addEventListener       | Attach an event handler to an element           |
+| onclick                | Inline event handler (not recommended)          |
+| event.target           | The element that triggered the event            |
+| event.preventDefault() | Prevent default browser action                  |
+| event.stopPropagation()| Stop event from bubbling up                     |
+| closest(selector)      | Find closest ancestor matching selector         |
+| remove()               | Remove an element from the DOM                  |
+| this                   | Refers to the element in regular functions      |
+
+---
+
+## Further Reading
+- [MDN: addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener)
+- [MDN: Event Object](https://developer.mozilla.org/en-US/docs/Web/API/Event)
+- [MDN: Event Delegation](https://javascript.info/event-delegation)
+- [MDN: preventDefault](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
+- [MDN: stopPropagation](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation)
 
 ---
