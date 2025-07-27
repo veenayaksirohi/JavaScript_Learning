@@ -390,6 +390,40 @@
   - [Real-World Use Cases](#real-world-use-cases-16)
   - [Summary Table: Event Methods \& Properties Used](#summary-table-event-methods--properties-used)
   - [Further Reading](#further-reading-18)
+- [JavaScript Timers: setTimeout, setInterval, clearTimeout, clearInterval](#javascript-timers-settimeout-setinterval-cleartimeout-clearinterval)
+  - [Overview](#overview-19)
+  - [Syntax & Examples](#syntax--examples-19)
+    - [setTimeout](#settimeout)
+    - [setInterval](#setinterval)
+    - [clearTimeout](#cleartimeout)
+    - [clearInterval](#clearinterval)
+  - [Practical Example (from `two.html`)](#practical-example-from-twohtml)
+  - [Use Cases](#use-cases)
+  - [Best Practices & Warnings](#best-practices--warnings-1)
+  - [Further Reading](#further-reading-19)
+- [18_Promise.js — JavaScript Promises, Async/Await, and Fetch API](#18_promisejs--javascript-promises-asyncawait-and-fetch-api)
+  - [Overview](#overview-20)
+  - [Syntax & Examples](#syntax--examples-20)
+    - [1. Basic Promise Creation and Consumption](#1-basic-promise-creation-and-consumption)
+    - [2. Inline Promise Usage](#2-inline-promise-usage)
+    - [3. Promise with Resolved Value (Object)](#3-promise-with-resolved-value-object)
+    - [4. Promise Chaining and Error Handling](#4-promise-chaining-and-error-handling)
+    - [5. Promise with Async/Await and Try-Catch-Finally](#5-promise-with-asyncawait-and-trycatchfinally)
+    - [6. Async/Await with Fetch API](#6-asyncawait-with-fetch-api)
+    - [7. Fetch API with Promises](#7-fetch-api-with-promises)
+  - [Best Practices & Key Takeaways](#best-practices--key-takeaways)
+  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-2)
+  - [Practice](#practice-20)
+  - [Further Reading](#further-reading-20)
+- [19_Oops.js — JavaScript Object-Oriented Programming (OOP) Basics](#19_oopsjs--javascript-object-oriented-programming-oop-basics)
+  - [Overview](#overview-21)
+  - [Syntax & Examples](#syntax--examples-21)
+    - [1. Object Literal with Method](#1-object-literal-with-method)
+    - [2. Constructor Function for User Objects](#2-constructor-function-for-user-objects)
+  - [Best Practices & Key Takeaways](#best-practices--key-takeaways-1)
+  - [Common Pitfalls & Warnings](#common-pitfalls--warnings-2)
+  - [Practice](#practice-21)
+  - [Further Reading](#further-reading-21)
 
 ---
 
@@ -4527,7 +4561,7 @@ imagesList.addEventListener('click', function (e) {
 
 ---
 
-## Best Practices & Common Pitfalls
+## Best Practices \& Common Pitfalls
 - Use `addEventListener` instead of inline event handlers for flexibility and separation of concerns.
 - Use regular functions (not arrow functions) when you need `this` to refer to the element.
 - Use event delegation for lists or dynamic content to minimize the number of event listeners.
@@ -4546,7 +4580,7 @@ imagesList.addEventListener('click', function (e) {
 
 ---
 
-## Summary Table: Event Methods & Properties Used
+## Summary Table: Event Methods \& Properties Used
 
 | Method/Property         | Purpose                                         |
 |------------------------|-------------------------------------------------|
@@ -4567,5 +4601,538 @@ imagesList.addEventListener('click', function (e) {
 - [MDN: Event Delegation](https://javascript.info/event-delegation)
 - [MDN: preventDefault](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault)
 - [MDN: stopPropagation](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopPropagation)
+
+---
+
+# JavaScript Timers: setTimeout, setInterval, clearTimeout, clearInterval
+
+**Learning Goals:**
+- Understand how to schedule code execution with setTimeout and setInterval.
+- Learn how to cancel scheduled code with clearTimeout and clearInterval.
+- Apply best practices for timers in JavaScript.
+
+---
+
+## Overview
+JavaScript provides timer functions to schedule code execution after a delay or at regular intervals. These are essential for animations, polling, delayed actions, and more.
+
+---
+
+## Syntax & Examples
+
+### setTimeout
+- **Schedules a function to run once after a specified delay (in milliseconds).**
+
+```js
+setTimeout(function, delay, arg1, arg2, ...);
+```
+
+**Example:**
+```js
+setTimeout(() => {
+  console.log('Runs after 2 seconds');
+}, 2000);
+```
+
+### setInterval
+- **Schedules a function to run repeatedly at specified intervals (in milliseconds).**
+
+```js
+setInterval(function, delay, arg1, arg2, ...);
+```
+
+**Example:**
+```js
+setInterval(() => {
+  console.log('Runs every 1 second');
+}, 1000);
+```
+
+### clearTimeout
+- **Cancels a timeout set with setTimeout.**
+
+```js
+const timeoutId = setTimeout(fn, 2000);
+clearTimeout(timeoutId);
+```
+
+### clearInterval
+- **Cancels an interval set with setInterval.**
+
+```js
+const intervalId = setInterval(fn, 1000);
+clearInterval(intervalId);
+```
+
+---
+
+## Practical Example (from `two.html`)
+
+```html
+<button id="stop">Stop</button>
+<h1>Chai aur code</h1>
+<script>
+  const changeText = function() {
+    document.querySelector('h1').innerHTML = "best JS series";
+  }
+  // Schedule text change after 2 seconds
+  const changeMe = setTimeout(changeText, 2000);
+  // Cancel the timeout if the button is clicked
+  document.querySelector('#stop').addEventListener('click', function() {
+    clearTimeout(changeMe);
+    console.log("STOPPED");
+  });
+</script>
+```
+- `setTimeout` schedules the heading text to change after 2 seconds.
+- `clearTimeout` cancels the scheduled change if the Stop button is clicked.
+
+---
+
+## Use Cases
+- **setTimeout:** Delayed actions (e.g., show a message after a pause, debounce input).
+- **setInterval:** Repeated actions (e.g., clocks, polling, animations).
+- **clearTimeout/clearInterval:** Cancel scheduled or repeating actions (e.g., stop a timer, cancel an animation).
+
+---
+
+## Best Practices & Warnings
+- Always store the return value of setTimeout/setInterval to clear them if needed.
+- Use clearTimeout/clearInterval to prevent memory leaks or unwanted code execution.
+- Be aware of timer throttling in inactive browser tabs (delays may be longer than expected).
+- setTimeout with 0ms delay still waits until the current call stack is clear.
+- Prefer setInterval for repeated actions, but consider using recursive setTimeout for more precise control.
+
+---
+
+## Further Reading
+- [MDN: setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout)
+- [MDN: setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval)
+- [MDN: clearTimeout](https://developer.mozilla.org/en-US/docs/Web/API/clearTimeout)
+- [MDN: clearInterval](https://developer.mozilla.org/en-US/docs/Web/API/clearInterval)
+
+---
+
+# 18_Promise.js — JavaScript Promises, Async/Await, and Fetch API
+
+**Learning Goals:**
+- Understand how to create and consume Promises in JavaScript.
+- Learn about promise chaining, error handling, and the finally block.
+- Use async/await syntax for asynchronous code.
+- Fetch data from APIs using both async/await and promise chaining.
+- Apply best practices for debugging and code clarity.
+
+---
+
+## Overview
+
+Promises are a modern way to handle asynchronous operations in JavaScript, such as network requests, timers, or reading files. They provide a cleaner alternative to callbacks and make it easier to handle success, failure, and finalization logic. The `async/await` syntax, built on top of promises, allows you to write asynchronous code that looks synchronous, improving readability.
+
+---
+
+## Syntax & Examples
+
+### 1. Basic Promise Creation and Consumption
+```js
+const promiseOne = new Promise(function(resolve, reject) {
+  // Simulate an async task (e.g., DB call, network request)
+  setTimeout(() => {
+    console.log("promiseOne => async task is completed");
+    resolve();
+  }, 1000);
+});
+
+promiseOne.then(function() {
+  console.log("promiseOne => Promise Consumed");
+  console.log("==================================================================");
+});
+```
+- **Explanation:**
+  - A promise is created and resolved after 1 second.
+  - `.then()` is used to handle the resolved state.
+  - A separator is logged for clarity.
+
+---
+
+### 2. Inline Promise Usage
+```js
+new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    console.log("promiseTwo => async task is completed");
+    resolve();
+  }, 1000);
+}).then(function() {
+  console.log("promisetwo => Promise Consumed");
+  console.log("==================================================================");
+});
+```
+- **Explanation:**
+  - Promises can be created and consumed inline without assigning to a variable.
+
+---
+
+### 3. Promise with Resolved Value (Object)
+```js
+const promiseThree = new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    resolve({ name: "veenayak", email: "v@gmail.com" });
+  }, 1000);
+});
+
+promiseThree.then(function(user) {
+  console.log("promiseThree =>", user);
+  console.log("==================================================================");
+});
+```
+- **Explanation:**
+  - Promises can resolve with values, such as objects.
+  - The resolved value is received in the `.then()` callback.
+
+---
+
+### 4. Promise Chaining and Error Handling
+```js
+const promiseFour = new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    let error = true;
+    if (!error) {
+      resolve({ username: "hitesh", password: "123" });
+    } else {
+      reject('ERROR: Something went wrong');
+    }
+  }, 1000);
+});
+
+promiseFour
+  .then(function(user) {
+    console.log('promiseFour =>', user);
+    return user.username;
+  })
+  .then(function(username) {
+    console.log('promiseFour username =>', username);
+  })
+  .catch(function(error) {
+    console.log("promiseFour Error =>", error);
+  })
+  .finally(function() {
+    console.log('promiseFour => The promise is either resolved or rejected');
+    console.log("==================================================================");
+  });
+```
+- **Explanation:**
+  - Demonstrates promise chaining: each `.then()` returns a value for the next.
+  - `.catch()` handles errors (rejections).
+  - `.finally()` runs regardless of success or failure.
+
+---
+
+### 5. Promise with Async/Await and Try-Catch-Finally
+```js
+const promiseFive = new Promise(function(resolve, reject) {
+  setTimeout(() => {
+    let error = true;
+    if (!error) {
+      resolve({ username: "JavaScript", password: "123" });
+    } else {
+      reject('ERROR: JS went wrong');
+    }
+  }, 1000);
+});
+
+async function consumePromiseFive() {
+  try {
+    const response = await promiseFive;
+    console.log('promiseFive =>', response);
+  } catch (error) {
+    console.log("promiseFive Error =>", error);
+  } finally {
+    console.log('promiseFive => The promise is either resolved or rejected');
+    console.log("==================================================================");
+  }
+}
+
+consumePromiseFive();
+```
+- **Explanation:**
+  - `async/await` makes asynchronous code look synchronous.
+  - Use `try/catch/finally` for error and finalization handling.
+
+---
+
+### 6. Async/Await with Fetch API
+```js
+async function getAllPosts() {
+  try {
+    // Fetch posts from a public API
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    // Convert the response to JSON
+    const data = await response.json();
+    console.log('getAllPosts =>', data);
+  } catch (error) {
+    console.log('getAllPosts Error =>', error);
+  } finally {
+    console.log("==================================================================");
+  }
+}
+
+getAllPosts();
+```
+- **Explanation:**
+  - Demonstrates fetching data from an API using async/await.
+  - Always use `await` with `response.json()` to get the parsed data.
+
+---
+
+### 7. Fetch API with Promises
+```js
+fetch('https://api.github.com/users/hiteshchoudhary')
+  .then((response) => {
+    // Convert the response to JSON
+    return response.json();
+  })
+  .then((data) => {
+    // Log the user data
+    console.log('fetch user =>', data);
+  })
+  .catch((error) => {
+    // Handle any errors that occur during fetch or JSON conversion
+    console.log('fetch user Error =>', error);
+  })
+  .finally(() => {
+    // Boundary for clarity
+    console.log("==================================================================");
+  });
+```
+- **Explanation:**
+  - Shows how to use the Fetch API with promise chaining.
+  - Always return `response.json()` so the next `.then()` receives the parsed data.
+
+---
+
+## Best Practices & Key Takeaways
+> - Use promises to handle asynchronous operations instead of callbacks.
+> - Always handle errors with `.catch()` or try/catch for async/await.
+> - Use `.finally()` for cleanup or logging that should always run.
+> - Use clear, labeled `console.log()` statements for debugging.
+> - Separate each example with a visual boundary for clarity.
+> - When using Fetch, always return or await `response.json()` to get the actual data.
+
+---
+
+## Common Pitfalls & Warnings
+> ⚠️ **Warning:**
+> - Not returning `response.json()` in a `.then()` will result in logging a Promise, not the actual data.
+> - Always use `await` with `response.json()` in async functions.
+> - Unhandled promise rejections can crash your app or cause silent failures.
+> - Chaining too many `.then()` calls can make code hard to read—prefer async/await for complex flows.
+
+---
+
+## Practice
+**Try it yourself:**
+- Create a promise that resolves after 2 seconds and logs a message.
+- Fetch data from a different API using both async/await and promise chaining.
+- Add error handling to a fetch request and log a custom error message.
+- Use `.finally()` to log a separator after every async operation.
+
+**Quiz:**
+```js
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.log('Error:', error));
+// What does this print?
+```
+
+---
+
+## Further Reading
+- [MDN: Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
+- [MDN: async/await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+- [MDN: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- [JavaScript Comments and Documentation](https://javascript.plainenglish.io/comments-in-javascript-18f3b3effb8a?gi=2a712a9373d7)
+
+---
+
+# 19_Oops.js — JavaScript Object-Oriented Programming (OOP) Basics
+
+**Learning Goals:**
+- Understand object literals and methods in JavaScript.
+- Learn how the `this` keyword works in object methods and constructors.
+- Use constructor functions to create multiple objects.
+- Understand the `new` keyword and the `constructor` property.
+- Apply best practices for OOP in JavaScript.
+
+---
+
+## Overview
+
+JavaScript supports object-oriented programming (OOP) through objects, methods, and constructor functions. You can create objects using literals or constructors, add methods, and use the `this` keyword to refer to the current object. The `new` keyword is used to instantiate objects from constructor functions, and every object has a `constructor` property referencing its constructor.
+
+---
+
+## Syntax & Examples
+
+### 1. Object Literal with Method
+```js
+const user = {
+  username: "hitesh",
+  loginCount: 8,
+  signedIn: true,
+
+  /**
+   * Prints user details using 'this' keyword.
+   */
+  getUserDetails: function() {
+    // console.log("Got user details from database");
+    // console.log(`Username: ${this.username}`);
+    console.log(this); // Logs the current object context
+  }
+};
+
+// Usage examples (uncomment to test):
+// console.log(user.username)
+// user.getUserDetails();
+// console.log(this);
+```
+- **Explanation:**
+  - Defines an object with properties and a method.
+  - The `getUserDetails` method uses `this` to access the object's properties.
+  - `this` inside a method refers to the object itself.
+
+---
+
+### 2. Constructor Function for User Objects
+```js
+/**
+ * Creates a new User object.
+ * @constructor
+ * @param {string} username - The username of the user.
+ * @param {number} loginCount - Number of times the user has logged in.
+ * @param {boolean} isLoggedIn - Whether the user is currently logged in.
+ */
+function User(username, loginCount, isLoggedIn) {
+  this.username = username;
+  this.loginCount = loginCount;
+  this.isLoggedIn = isLoggedIn;
+
+  /**
+   * Greets the user by username.
+   */
+  this.greeting = function() {
+    console.log(`Welcome ${this.username}`);
+  };
+
+  // Returning 'this' is optional in constructor functions
+  return this;
+}
+
+// Creating new user objects using the 'new' keyword
+const userOne = new User("hitesh", 12, true);
+const userTwo = new User("ChaiAurCode", 11, false);
+
+// Logging the constructor property of userOne
+console.log(userOne.constructor);
+// Usage example (uncomment to test):
+// console.log(userTwo);
+```
+- **Explanation:**
+  - Constructor functions are used to create multiple similar objects.
+  - The `new` keyword creates a new object and sets `this` to that object.
+  - Each instance gets its own properties and methods.
+  - The `constructor` property references the function used to create the object.
+
+---
+
+## Best Practices & Key Takeaways
+> - Use object literals for single objects or configuration data.
+> - Use constructor functions (or ES6 classes) for creating multiple similar objects.
+> - Always use the `new` keyword with constructor functions to avoid polluting the global scope.
+> - Use `this` to refer to the current object inside methods and constructors.
+> - Prefer methods on the prototype for shared behavior (not shown here, but important for memory efficiency).
+
+---
+
+## Common Pitfalls & Warnings
+> ⚠️ **Warning:**
+> - Forgetting the `new` keyword with constructor functions will bind `this` to the global object (or `undefined` in strict mode), leading to bugs.
+> - Each instance created with a constructor function gets its own copy of methods defined inside the constructor. For shared methods, define them on the prototype.
+> - Arrow functions do not have their own `this`—do not use them for object methods if you need dynamic `this`.
+
+---
+
+## Practice
+**Try it yourself:**
+- Create an object literal for a car with properties and a method to print details.
+- Write a constructor function for a `Book` object with `title`, `author`, and a method to print info.
+- Instantiate two `Book` objects and call their methods.
+- Log the `constructor` property of one of your objects.
+
+**Quiz:**
+```js
+function Animal(name) {
+  this.name = name;
+  this.speak = function() {
+    console.log(`${this.name} makes a sound.`);
+  };
+}
+const dog = new Animal('Dog');
+dog.speak();
+console.log(dog.constructor === Animal);
+// What does this print?
+```
+
+---
+
+## Further Reading
+- [MDN: Working with Objects](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects)
+- [MDN: Constructor Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/new)
+- [MDN: this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+- [JavaScript Comments and Documentation](https://javascript.plainenglish.io/comments-in-javascript-18f3b3effb8a?gi=2a712a9373d7)
+
+---
+
+# Project Notes: dom-project-chaiaurcode
+
+- **1-colorChanger**: Demonstrates DOM manipulation by changing the background color of the page using event listeners on buttons. (See: DOM Manipulation in JavaScript)
+- **2-BMICalculator**: Uses DOM manipulation and event handling to read user input, perform a BMI calculation, and display the result. (See: DOM Manipulation, Basic Math, Event Handling)
+- **3-DigitalClock**: Shows how to use `setInterval` and the `Date` object to create a live digital clock. (See: JavaScript Timers, Dates)
+- **4-GuessTheNumber**: Implements a simple guessing game using random number generation, event handling, and DOM updates. (See: Random Number Generation, DOM Manipulation, Game Logic)
+- **5-keyboard**: Captures keyboard events and displays key information dynamically in the DOM. (See: Keyboard Events, DOM Manipulation)
+- **6-unlimitedColors**: Uses timers and random color generation to animate the background color, with start/stop controls. (See: JavaScript Timers, Random Number Generation, DOM Manipulation)
+- **7-scroll**: Implements a scroll progress bar using scroll events and DOM manipulation. (See: Scroll Events, Progress Bar, DOM Manipulation)
+- **8-typer**: Demonstrates async/await, timers, and string manipulation to create a typing effect. (See: Async/Await, Timers, String Manipulation, DOM Manipulation)
+- **9-mouseCircle**: Creates a custom cursor that follows the mouse and changes color randomly. (See: Mouse Events, DOM Manipulation, Random Colors)
+- **10-emoji**: Changes the displayed emoji to a random one on mouse hover using event handling and DOM updates. (See: Mouse Events, DOM Manipulation, Random Selection)
+- **11-textEditor**: Provides text formatting features using string methods, event delegation, and DOM manipulation. (See: String Methods, Event Delegation, DOM Manipulation)
+- **12-randomImage**: Dynamically generates a grid of random images using an external API and DOM manipulation. (See: DOM Manipulation, Dynamic Image Generation, External APIs)
+
+---
+
+## Project Notes: dom-project-chaiaurcode (continued)
+
+### 13-jokes/chaiaurcode.js — Handling Race Conditions in API Calls
+
+/**
+ * This file demonstrates how to fetch and display a random Chuck Norris joke using the public API.
+ * It highlights the problem of race conditions in asynchronous JavaScript code:
+ *   - If the user clicks the "Get Joke" button multiple times quickly, multiple fetch requests are sent.
+ *   - Responses may arrive out of order, causing older jokes to overwrite newer ones in the UI.
+ *   - The solution uses a request counter (lastRequestId) to ensure only the latest response updates the UI.
+ *   - Only the response from the most recent request is allowed to update the displayed joke.
+ *   - Follows JavaScript Standard Style and user preferences for comments and logging.
+ */
+
+### 14-cats/chaiaurcode.js — Fetching and Displaying Random Cat Images
+
+/**
+ * This file demonstrates how to fetch and display a random cat image using The Cat API.
+ * Key points:
+ *   - Fetches a random cat image from the API when the button is clicked.
+ *   - Clears previous images from the container before displaying a new one.
+ *   - Appends the new image to the container using DOM manipulation.
+ *   - Includes clear, sectioned comments and console output boundaries for learning and debugging.
+ *   - Follows JavaScript Standard Style and user preferences for comments and logging.
+ */
 
 ---
